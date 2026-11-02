@@ -204,13 +204,13 @@ function TimelineRow({ block, side }: TimelineRowProps) {
         ) : null}
 
         <div className="relative p-6 sm:p-7">
-          <p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-secondary-accent">
+          <p className="text-outlined text-[0.65rem] font-bold uppercase tracking-[0.22em] text-secondary-accent">
             {block.period}
           </p>
-          <h3 className="mt-2.5 text-xl font-semibold leading-tight text-main [text-wrap:balance] sm:text-2xl">
+          <h3 className="text-outlined mt-2.5 text-xl font-semibold leading-tight text-white [text-wrap:balance] sm:text-2xl">
             {block.title}
           </h3>
-          <p className="mt-3 max-w-[40ch] break-words text-base leading-7 text-muted">
+          <p className="text-outlined mt-3 max-w-[40ch] break-words text-base leading-7 text-white/95">
             {block.description}
           </p>
         </div>
