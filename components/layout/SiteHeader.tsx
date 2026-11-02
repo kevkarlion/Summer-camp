@@ -1,7 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Menu, Mountain, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -25,9 +26,13 @@ export function SiteHeader() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-subtle bg-main/78 backdrop-blur-xl">
       <Container className="flex h-20 items-center justify-between gap-6">
         <Link href="/" className="group flex items-center gap-3" aria-label="Patagonia Summer Camp 2027, inicio">
-          <span className="grid size-10 place-items-center rounded-xl border border-primary/30 bg-primary/10 text-primary-accent transition-transform duration-300 ease-expo group-hover:-translate-y-0.5">
-            <Mountain aria-hidden="true" size={20} strokeWidth={2.2} />
-          </span>
+          <Image
+            src="/patagonia-summer-camp-mark.svg"
+            alt=""
+            width={44}
+            height={40}
+            className="size-10 shrink-0 transition-transform duration-300 ease-expo group-hover:-translate-y-0.5"
+          />
           <span className="leading-tight">
             <span className="block text-sm font-bold tracking-[0.08em] text-main">PATAGONIA</span>
             <span className="block text-[10px] font-semibold tracking-[0.24em] text-secondary-accent">SUMMER CAMP</span>

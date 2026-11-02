@@ -1,4 +1,5 @@
 import { Instagram, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
@@ -18,7 +19,13 @@ export function SiteFooter() {
     <footer className="border-t border-subtle bg-surface">
       <Container className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr] lg:py-20">
         <div>
-          <p className="text-sm font-bold tracking-[0.12em] text-secondary-accent">PATAGONIA SUMMER CAMP 2027</p>
+          <Image
+            src="/patagonia-summer-camp-logo-on-dark.svg"
+            alt="Patagonia Summer Camp — Explore Beyond"
+            width={220}
+            height={169}
+            className="h-auto w-48 sm:w-56"
+          />
           <h2 className="mt-5 max-w-sm text-3xl font-semibold leading-tight tracking-[-0.03em] text-main">
             Una aventura que también transforma el idioma.
           </h2>

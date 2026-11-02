@@ -50,9 +50,10 @@ Elevar la Home y los componentes UI compartidos con una dirección visual cinem�
 
 - T1 — S2, S4, S6, S7 — Add global grain, ambient glow foundations, slow breathing motion, and Lenis smooth-scroll integration. Route: delegated writer. Commit: `b254baf` (`feat: add cinematic atmosphere and smooth scroll`).
 - T2 — S3, S6, S7 — Build the reusable kinetic `TextReveal` component and integrate semantic H1/H2 typography without losing heading levels. Route: delegated writer. Commit: `44d3778` (`feat: add kinetic text reveals`).
-- T3 — S5, S6, S7 — Build the contextual cursor, magnetic Button behavior, and interactive Card tilt/spotlight system. Route: delegated writer. Commit: `feat: add high-value motion interactions`.
-- T4 — S1-S7 — Refactor the actual Home route at `app/(site)/page.tsx` into the cinematic composition with preserved content, SEO, residence/history atmosphere, bento interactions, and differential parallax. Route: inline. Commit: `feat: redesign home as cinematic experience`.
+- T3 — S5, S6, S7 — Build the contextual cursor, magnetic Button behavior, and interactive Card tilt/spotlight system. Route: delegated writer. Commit: `560b298` (`feat: add high-value motion interactions`).
+- T4 — S1-S7 — Refactor the actual Home route at `app/(site)/page.tsx` into the cinematic composition with preserved content, SEO, residence/history atmosphere, bento interactions, and differential parallax. Route: delegated writer. Commit: `558aa60` (`feat: redesign home as cinematic experience`).
 - T5 — S1-S7 — Verify metadata parity, semantic structure, interaction fallbacks, reduced motion, typecheck, lint, build, and visual smoke evidence. Route: inline. Commit: `chore: verify cinematic motion overhaul`.
+- T6 — S1, S6, S7 — Integrate the supplied `public/patagonia-summer-camp-logo.svg` into the header and footer through transparent dark-surface variants while preserving the supplied geometry and excluding Windows Zone.Identifier metadata. Route: inline. Commit: `feat: integrate supplied brand logo`.
 
 ## Log
 
@@ -105,3 +106,17 @@ Elevar la Home y los componentes UI compartidos con una dirección visual cinem�
 - Use Motion's current `motion/react` API already installed in the project.
 - Keep custom cursor behavior behind fine-pointer and reduced-motion checks so keyboard, touch, and assistive-technology users retain the native interaction model.
 - Keep all existing Home copy, metadata, JSON-LD, CTA destinations, and route structure intact.
+
+### L3 — Identidad de marca supplied
+
+> tambien te deje en public el logo svg
+
+- The supplied SVG is preserved as the canonical brand source. A transparent full lockup and a compact emblem crop are generated from its geometry for dark surfaces.
+- The Windows Zone.Identifier sidecar is excluded from version control.
+
+### L4 — Contenido autoritativo supplied
+
+> te deje en public un doc con la info real del sitio web. analizalo
+
+- `public/Patagonia Summer Camp 2027.docx` is treated as the authoritative content source for a subsequent factual reconciliation pass.
+- Its documented age range conflicts with the current 8–11 route; that route decision is intentionally pending explicit product direction rather than being silently removed.
