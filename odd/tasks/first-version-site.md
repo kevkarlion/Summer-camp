@@ -210,7 +210,7 @@ The current scope boundary was satisfied during context confirmation. The user's
 - T3 — S5, S8-S11 — Build the English-program, age-group, and destination pages with page-specific metadata and JSON-LD. Route: delegated writer. Commit: `70f596e` (`feat: add program and destination pages`).
 - T4 — S5, S8-S11 — Build the itinerary, safety, FAQ, family-guide, and about pages with page-specific metadata and JSON-LD. Route: delegated writer. Commit: `a000afe` (`feat: add experience and trust pages`); landing focus metadata correction: `dadc9ba`.
 - T5 — S8-S10 — Add root layout metadata, canonical handling, sitemap, robots, manifest, and shared SEO helpers. Route: inline. Commit: `d2bf768` (`feat: configure site-wide seo infrastructure`); root layout and JSON-LD helper were included in `02864a3`.
-- T6 — S1-S11 — Verify responsive behavior, metadata, structured data, accessibility, reduced motion, build, and lint; close the feature. Route: inline. Commit: `3d7c332` (`chore: finalize summer camp site quality gates`).
+- T6 — S1-S11 — Verify responsive behavior, metadata, structured data, accessibility, reduced motion, build, and lint; close the feature. Route: inline. Commits: `3d7c332` (`chore: finalize summer camp site quality gates`), `f34f5d5` (`chore: lock verified dependencies`).
 
 ## Log
 
@@ -270,4 +270,6 @@ The current scope boundary was satisfied during context confirmation. The user's
 - Route-level JSON-LD covers every schema type required by S9; the safety route includes both `MedicalBusiness` and `SafetyRule`.
 - Babel parsed all 25 TypeScript/TSX source files without syntax failures; a separate JSX scope audit found no unresolved components.
 - Static checks found no inline hex colors in application TSX, no layout-property animations, and no prohibited static Tailwind palette classes in application components.
-- The initial `npm install` timed out during dependency download, so `next build`, ESLint, and the project-local TypeScript binary remain unexecuted in this session; the repository requires a successful install before those runtime gates can be claimed.
+- The initial `npm install` timed out during dependency download; after explicit user authorization, the dependency tree was regenerated and installed cleanly.
+- `npm run typecheck` passed, `npm run lint` passed, and `npm run build` passed with all 15 application and metadata routes prerendered as static content.
+- `npm audit --omit=dev --audit-level=moderate` found zero production vulnerabilities. The full audit reports 16 moderate advisories confined to the ESLint/TypeScript-ESLint development chain; the upstream v3-compatible `minimatch` line has no patched release. A global v11 override was rejected because it would break ESLint plugin APIs.
