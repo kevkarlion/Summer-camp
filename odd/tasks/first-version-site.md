@@ -205,12 +205,12 @@ The current scope boundary was satisfied during context confirmation. The user's
 
 ## Tasks
 
-- T1 — S1-S7, S11 — Scaffold the strict Next.js/Tailwind/TypeScript foundation, design tokens, atomic UI components, motion utilities, and shared shell. Route: inline. Commit: `feat: scaffold summer camp design system`.
-- T2 — S1-S7, S9, S11 — Build the conversion landing page with cinematic visual composition, reusable sections, and accessible motion. Route: inline. Commit: `feat: build summer camp landing page`.
-- T3 — S5, S8-S11 — Build the English-program, age-group, and destination pages with page-specific metadata and JSON-LD. Route: delegated writer. Commit: `feat: add program and destination pages`.
-- T4 — S5, S8-S11 — Build the itinerary, safety, FAQ, family-guide, and about pages with page-specific metadata and JSON-LD. Route: delegated writer. Commit: `feat: add experience and trust pages`.
-- T5 — S8-S10 — Add root layout metadata, canonical handling, sitemap, robots, manifest, and shared SEO helpers. Route: inline. Commit: `feat: configure site-wide seo infrastructure`.
-- T6 — S1-S11 — Verify responsive behavior, metadata, structured data, accessibility, reduced motion, build, and lint; close the feature. Route: inline. Commit: `chore: finalize summer camp site quality gates`.
+- T1 — S1-S7, S11 — Scaffold the strict Next.js/Tailwind/TypeScript foundation, design tokens, atomic UI components, motion utilities, and shared shell. Route: inline. Commit: `02864a3` (`feat: scaffold summer camp design system`).
+- T2 — S1-S7, S9, S11 — Build the conversion landing page with cinematic visual composition, reusable sections, and accessible motion. Route: inline. Commit: `4de28b2` (`feat: build summer camp landing page`).
+- T3 — S5, S8-S11 — Build the English-program, age-group, and destination pages with page-specific metadata and JSON-LD. Route: delegated writer. Commit: `70f596e` (`feat: add program and destination pages`).
+- T4 — S5, S8-S11 — Build the itinerary, safety, FAQ, family-guide, and about pages with page-specific metadata and JSON-LD. Route: delegated writer. Commit: `a000afe` (`feat: add experience and trust pages`); landing focus metadata correction: `dadc9ba`.
+- T5 — S8-S10 — Add root layout metadata, canonical handling, sitemap, robots, manifest, and shared SEO helpers. Route: inline. Commit: `d2bf768` (`feat: configure site-wide seo infrastructure`); root layout and JSON-LD helper were included in `02864a3`.
+- T6 — S1-S11 — Verify responsive behavior, metadata, structured data, accessibility, reduced motion, build, and lint; close the feature. Route: inline. Commit: `3d7c332` (`chore: finalize summer camp site quality gates`).
 
 ## Log
 
@@ -263,3 +263,11 @@ The current scope boundary was satisfied during context confirmation. The user's
 - Use local shared components and static route metadata so the first version has no runtime dependency on an external content or CMS service.
 - Use remote editorial photography from Unsplash through `next/image`, with a documented remote image allowlist.
 - Use Framer Motion only through a reduced-motion-aware shared reveal component; no layout-property animation is permitted.
+
+### L8 — Verification evidence
+
+- All 10 public routes exist with the exact S9 titles, focus keywords, canonical URLs, OpenGraph data, and 150–160 character descriptions.
+- Route-level JSON-LD covers every schema type required by S9; the safety route includes both `MedicalBusiness` and `SafetyRule`.
+- Babel parsed all 25 TypeScript/TSX source files without syntax failures; a separate JSX scope audit found no unresolved components.
+- Static checks found no inline hex colors in application TSX, no layout-property animations, and no prohibited static Tailwind palette classes in application components.
+- The initial `npm install` timed out during dependency download, so `next build`, ESLint, and the project-local TypeScript binary remain unexecuted in this session; the repository requires a successful install before those runtime gates can be claimed.
