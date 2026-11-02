@@ -13,7 +13,9 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
+import { ParallaxImage } from "@/components/motion/ParallaxImage";
 import { Reveal } from "@/components/motion/Reveal";
+import { TextReveal } from "@/components/motion/TextReveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -131,15 +133,26 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(11,19,32,0.96)_0%,rgba(11,19,32,0.76)_48%,rgba(11,19,32,0.22)_100%)]" />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(11,19,32,0.18)_0%,rgba(11,19,32,0.42)_62%,var(--bg-main)_100%)]" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-32 top-24 -z-10 size-[30rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-28 bottom-10 -z-10 size-[26rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow"
+        />
 
         <Container className="relative py-16 lg:py-24">
           <Reveal className="max-w-4xl">
             <Badge variant="secondary" className="mb-7">
               <Sparkles aria-hidden="true" size={14} /> Temporada 2027
             </Badge>
-            <h1 className="text-5xl font-semibold leading-[0.96] tracking-[-0.055em] text-main sm:text-7xl lg:text-[6.4rem]">
+            <TextReveal
+              as="h1"
+              className="text-5xl font-semibold leading-[0.96] tracking-[-0.055em] text-main sm:text-7xl lg:text-[6.4rem]"
+            >
               Inglés, aventura y Patagonia.
-            </h1>
+            </TextReveal>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-main sm:text-xl">
               Una experiencia al aire libre para que cada joven vuelva más seguro, curioso y conectado con el mundo.
             </p>
@@ -178,8 +191,9 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-24 sm:py-28 lg:py-36">
-        <Container>
+      <section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
+        <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-10 size-[32rem] -translate-x-1/2 rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
+        <Container className="relative">
           <Reveal>
             <SectionHeader
               eyebrow="Una aventura que transforma"
@@ -187,32 +201,49 @@ export default function HomePage() {
               description="Combinamos inmersión real, desafío outdoors y acompañamiento humano para que el inglés se convierta en confianza, curiosidad y conexión."
             />
           </Reveal>
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {pillars.map((pillar, index) => (
-              <Reveal key={pillar.title} delay={index * 0.08}>
-                <Card variant="glass" className="h-full p-7 hover:-translate-y-1 hover:border-primary/30 hover:bg-card-hover/70">
-                  <span className="grid size-12 place-items-center rounded-2xl bg-primary/12 text-primary-accent">
-                    <pillar.icon aria-hidden="true" size={23} />
-                  </span>
-                  <h3 className="mt-6 text-xl font-semibold tracking-tight text-main">{pillar.title}</h3>
-                  <p className="mt-3 leading-7 text-muted">{pillar.text}</p>
-                </Card>
-              </Reveal>
-            ))}
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-12" data-cursor="EXPLORAR">
+            {pillars.map((pillar, index) => {
+              const Icon = pillar.icon;
+              const bentoClass = index === 0
+                ? "lg:col-span-5"
+                : index === 1
+                  ? "lg:col-span-7"
+                  : "lg:col-span-12";
+
+              return (
+                <Reveal key={pillar.title} delay={index * 0.08} className={bentoClass}>
+                  <Card
+                    interactive
+                    variant={index === 2 ? "elevated" : "glass"}
+                    className="h-full overflow-hidden p-7 sm:p-9"
+                  >
+                    <div className="flex h-full flex-col items-start">
+                      <span className="grid size-12 place-items-center rounded-2xl bg-primary/12 text-primary-accent">
+                        <Icon aria-hidden="true" size={23} />
+                      </span>
+                      <h3 className="mt-6 text-xl font-semibold tracking-tight text-main">{pillar.title}</h3>
+                      <p className="mt-3 max-w-xl leading-7 text-muted">{pillar.text}</p>
+                    </div>
+                  </Card>
+                </Reveal>
+              );
+            })}
           </div>
         </Container>
       </section>
 
-      <section className="relative overflow-hidden bg-surface py-24 sm:py-28 lg:py-36">
-        <div className="absolute right-0 top-0 size-[34rem] rounded-full bg-primary/8 blur-[140px]" />
+      <section className="relative isolate overflow-hidden bg-surface py-24 sm:py-28 lg:py-36">
+        <div aria-hidden="true" className="pointer-events-none absolute -left-24 top-20 -z-10 size-[30rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 bottom-8 -z-10 size-[28rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal className="relative min-h-[30rem] overflow-hidden rounded-[2rem] border border-subtle sm:min-h-[38rem]">
-            <Image
+            <ParallaxImage
               src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=85"
               alt="Montañas nevadas de la Patagonia Argentina"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+              containerClassName="absolute inset-0"
+              imageClassName="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-transparent to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-7 sm:p-9">
@@ -246,7 +277,99 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-24 sm:py-28 lg:py-36">
+      <section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-16 size-[32rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
+        <Container className="relative">
+          <div className="grid items-stretch gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16">
+            <Reveal className="flex flex-col justify-center">
+              <Badge variant="primary" className="mb-5 self-start">Villa La Angostura · Patagonia</Badge>
+              <TextReveal
+                as="h2"
+                className="text-3xl font-semibold leading-[1.08] tracking-[-0.035em] text-main sm:text-4xl lg:text-5xl"
+              >
+                Entre lagos, bosques y montañas
+              </TextReveal>
+              <p className="mt-5 max-w-xl text-base leading-7 text-muted sm:text-lg">
+                Un summer camp villa la angostura donde el paisaje se convierte en contexto para aprender inglés, explorar habilidades y vivir nuevas experiencias.
+              </p>
+              <Button href="/destino/villa-la-angostura" variant="outline" className="mt-8 self-start">
+                Conocer el destino <ArrowRight aria-hidden="true" size={17} />
+              </Button>
+            </Reveal>
+
+            <Reveal delay={0.08} className="min-h-[28rem]">
+              <figure
+                className="grid h-full min-h-[28rem] gap-4 overflow-hidden rounded-[2rem] border border-subtle p-4 md:grid-cols-12"
+                data-cursor="PATAGONIA"
+              >
+                <div className="relative min-h-[24rem] overflow-hidden rounded-[1.5rem] md:col-span-8 md:min-h-[34rem]">
+                  <ParallaxImage
+                    src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=85"
+                    alt="Lagos y montañas del entorno de Villa La Angostura"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 55vw"
+                    containerClassName="absolute inset-0"
+                    imageClassName="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main/50 to-transparent" />
+                </div>
+                <div className="relative min-h-[18rem] overflow-hidden rounded-[1.5rem] md:col-span-4 md:min-h-[34rem]">
+                  <ParallaxImage
+                    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=85"
+                    alt="Montañas nevadas de la Patagonia Argentina"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 35vw"
+                    containerClassName="absolute inset-0"
+                    imageClassName="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main/90 via-bg-main/10 to-transparent" />
+                  <figcaption className="absolute inset-x-0 bottom-0 p-7 sm:p-9">
+                    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-secondary-accent">La Patagonia como parte del aprendizaje</p>
+                    <p className="mt-3 text-xl font-semibold leading-snug text-main sm:text-2xl">
+                      Del paisaje a la conversación.
+                    </p>
+                  </figcaption>
+                </div>
+              </figure>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      <section className="relative isolate overflow-hidden py-24 sm:py-28 lg:py-36">
+        <div aria-hidden="true" className="pointer-events-none absolute -left-28 top-12 -z-10 size-[32rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-28 bottom-4 -z-10 size-[30rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
+        <Container className="relative">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Nuestra historia"
+              title="Una mirada amplia para una aventura que transforma"
+              description="Hernán Paulitti, fundador Patagonia Summer Camp, imaginó una experiencia donde el paisaje patagónico se convierte en escenario para aprender y crecer."
+            />
+            <Button href="/sobre-nosotros" variant="secondary" className="mt-8">
+              Conocer nuestra historia <ArrowRight aria-hidden="true" size={17} />
+            </Button>
+          </Reveal>
+          <Reveal delay={0.08} className="mt-12">
+            <Card variant="glass" className="relative overflow-hidden p-8 sm:p-12 lg:p-16">
+              <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.16),transparent_58%)]" aria-hidden="true" />
+              <div className="relative grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+                <div>
+                  <span className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary-accent">Patagonia Summer Camp 2027</span>
+                  <p className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.035em] text-main sm:text-4xl">
+                    Inglés, aventura y Patagonia.
+                  </p>
+                </div>
+                <p className="max-w-2xl text-lg leading-8 text-muted">
+                  Una experiencia que une inglés, aventura y aprendizaje en familia, con el paisaje patagónico como escenario para descubrir, conversar y crecer.
+                </p>
+              </div>
+            </Card>
+          </Reveal>
+        </Container>
+      </section>
+
+      <section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
         <Container>
           <Reveal>
             <SectionHeader
@@ -278,7 +401,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="bg-surface py-24 sm:py-28 lg:py-36">
+      <section className="relative overflow-hidden bg-surface py-24 sm:py-28 lg:py-36">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <Reveal>
@@ -309,14 +432,18 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-24 sm:py-28 lg:py-36">
+      <section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
         <Container>
           <Reveal className="relative overflow-hidden rounded-[2rem] border border-primary/20 surface-cta p-8 sm:p-12 lg:p-16">
-            <div className="max-w-3xl">
+            <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-20 size-72 rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
+            <div className="relative max-w-3xl">
               <Badge variant="secondary"><ShieldCheck aria-hidden="true" size={14} /> Seguridad responsable</Badge>
-              <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-[-0.035em] text-main sm:text-5xl">
+              <TextReveal
+                as="h2"
+                className="mt-6 text-3xl font-semibold leading-tight tracking-[-0.035em] text-main sm:text-5xl"
+              >
                 La familia descansa. Nosotros nos ocupamos.
-              </h2>
+              </TextReveal>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">
                 Protocolos claros, ratios cuidados, coordinadores bilingües y comunicación constante con cada familia.
               </p>
