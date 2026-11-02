@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site";
 const pagePath = "/itinerario-y-actividades";
 const title = "Itinerario & Aventura al Aire Libre | Kayak y Trekking";
 const description =
-  "Actividades del summer camp en Villa La Angostura: kayak, trekking, visitas a productores locales, convivencia y exploración natural para adolescentes de 13 a 17 años.";
+  "Actividades del summer camp en Villa La Angostura: kayak, trekking, productores locales, convivencia y exploración natural para adolescentes de 13 a 17 años.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url), title, description,

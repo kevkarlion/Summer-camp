@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site";
 const pagePath = "/guia-familias";
 const title = "Guía para Familias: Logística, Equipamiento y Normas";
 const description =
-  "Guía familiar del summer camp 2027: llegada, dispositivos, alimentos, salud, seguridad, convivencia, comunicación y lista de equipaje para adolescentes de 13 a 17 años.";
+  "Guía familiar del summer camp 2027: llegada, dispositivos, alimentos, salud, seguridad, convivencia, comunicación y equipaje para adolescentes de 13 a 17 años.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url), title, description,

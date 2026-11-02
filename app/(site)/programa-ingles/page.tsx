@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site";
 const pagePath = "/programa-ingles";
 const title = "Metodología Learning by Doing | Inmersión Lingüística";
 const description =
-  "Programa residencial de learning by doing para adolescentes de 13 a 17 años: inglés en la vida diaria, naturaleza y actividades en Villa La Angostura del 4 al 12 de diciembre de 2027.";
+  "Programa residencial de learning by doing para adolescentes de 13 a 17 años: inglés en la vida diaria, naturaleza y actividades en Villa La Angostura.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url), title, description,

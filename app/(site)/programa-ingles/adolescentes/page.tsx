@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site";
 const pagePath = "/programa-ingles/adolescentes";
 const title = "Campamento de Inglés para Adolescentes (13-17 años)";
 const description =
-  "Programa residencial para adolescentes de 13 a 17 años: inglés por inmersión, kayak, trekking y naturaleza en Villa La Angostura del 4 al 12 de diciembre de 2027.";
+  "Programa residencial para adolescentes de 13 a 17 años: inglés por inmersión, kayak, trekking y naturaleza en Villa La Angostura durante diciembre de 2027.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url), title, description,

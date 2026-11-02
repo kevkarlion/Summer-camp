@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site";
 const pagePath = "/preguntas-frecuentes";
 const title = "Preguntas Frecuentes | Patagonia Summer Camp 2027";
 const description =
-  "Consultá sobre el summer camp para adolescentes de 13 a 17 años: fechas, Villa La Angostura, inglés, actividades, seguridad, alojamiento, transporte, precio e inscripción.";
+  "Consultá sobre el summer camp para adolescentes de 13 a 17 años: fechas, destino, inglés, actividades, seguridad, alojamiento, transporte, precio e inscripción.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url), title, description,

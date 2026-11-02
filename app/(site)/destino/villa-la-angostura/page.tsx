@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site";
 const pagePath = "/destino/villa-la-angostura";
 const title = "Campamento de Verano en Villa La Angostura | Nahuel Huapi";
 const description =
-  "Residencia de summer camp en Villa La Angostura, a 2 km del centro, con 26 hectáreas de parque y bosque nativo, costa del Nahuel Huapi y actividades en naturaleza.";
+  "Residencia de summer camp en Villa La Angostura, a 2 km del centro, con 26 hectáreas de parque, bosque nativo, costa del Nahuel Huapi y espacios naturales.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url), title, description,

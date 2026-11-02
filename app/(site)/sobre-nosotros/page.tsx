@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site";
 const pagePath = "/sobre-nosotros";
 const title = "De Laponia a la Patagonia | Nuestra Historia";
 const description =
-  "Conocé la historia de Hernán Paulitti, fundador Patagonia Summer Camp: inglés, aventura y una misión para compartir la Patagonia con adolescentes.";
+  "Conocé la historia de Hernán Paulitti, fundador de Patagonia Summer Camp: inglés, aventura y una misión para compartir la Patagonia con los adolescentes.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url), title, description,
