@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: var(--theme-primary);
+  --color-primary-hover: var(--theme-primary-hover);
+  --color-secondary: var(--theme-secondary);
+  --color-secondary-hover: var(--theme-secondary-hover);
+  --color-brand-primary: var(--theme-primary);
+  --color-brand-primary-hover: var(--theme-primary-hover);
+  --color-brand-secondary: var(--theme-secondary);
+  --color-brand-secondary-hover: var(--theme-secondary-hover);
+  --color-ink: var(--text-inverse);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --ease-expo: var(--ease-out-expo);
+}
+
+@layer base {
+  :root {
+    /* Superficies y Fondos */
+    --bg-main: #0b1320;         /* Azul Noche / Dark Obsidian principal */
+    --bg-surface: #0f172a;      /* Capa secundaria (Secciones / Canvas) */
+    --bg-card: #1e293b;         /* Fondo de tarjetas / Contenedores */
+    --bg-card-hover: #26354a;   /* Hover en tarjetas */
+
+    /* Acentos y Marca */
+    --theme-primary: #10b981;   /* Verde Esmeralda / Bosque */
+    --theme-primary-hover: #059669;
+    --theme-secondary: #e6b255; /* Dorado Cálido / Sol de Verano */
+    --theme-secondary-hover: #d99f3b;
+    --color-primary: var(--theme-primary);
+    --color-primary-hover: var(--theme-primary-hover);
+    --color-secondary: var(--theme-secondary);
+    --color-secondary-hover: var(--theme-secondary-hover);
+
+    /* Textos */
+    --text-main: #f8fafc;       /* Blanco Slate principal */
+    --text-muted: #94a3b8;      /* Gris lectura / Subtítulos */
+    --text-inverse: #020617;    /* Texto sobre fondos claros o botones dorados */
+
+    /* Bordes y Divisores */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-accent: rgba(16, 185, 129, 0.3);
+
+    /* Sombras y Efectos */
+    --shadow-glow-emerald: 0 0 25px rgba(16, 185, 129, 0.15);
+    --shadow-glow-gold: 0 0 25px rgba(230, 178, 85, 0.15);
+    --glass-background: rgba(30, 41, 59, 0.7);
+    --glass-blur: 12px;
+    --overlay-soft: rgba(255, 255, 255, 0.05);
+    --overlay-hover: rgba(255, 255, 255, 0.09);
+
+    /* Movimiento */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * {
+    box-sizing: border-box;
+    border-color: var(--border-subtle);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--bg-main);
+  }
+
+  body {
+    min-height: 100vh;
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: Arial, Helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--text-inverse);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 3px;
+  }
+}
+
+/* Clases de utilidad personalizadas vinculadas a las variables */
+@utility bg-main { background-color: var(--bg-main); }
+@utility bg-surface { background-color: var(--bg-surface); }
+@utility bg-card { background-color: var(--bg-card); }
+@utility text-main { color: var(--text-main); }
+@utility text-muted { color: var(--text-muted); }
+@utility text-primary-accent { color: var(--color-primary); }
+@utility text-secondary-accent { color: var(--color-secondary); }
+@utility border-subtle { border-color: var(--border-subtle); }
+@utility bg-overlay-soft { background-color: var(--overlay-soft); }
+@utility bg-overlay-hover { background-color: var(--overlay-hover); }
+@utility glass-panel {
+  background-color: var(--glass-background);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-subtle);
+}
+
+@utility text-balance { text-wrap: balance; }
+@utility text-pretty { text-wrap: pretty; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
