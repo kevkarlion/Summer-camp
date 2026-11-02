@@ -14,3 +14,6 @@ next-env.d.ts
 *:Zone.Identifier
 public/*.docx
 public/163867.webp
+
+# Material de referencia del cliente (no publicado)
+public/camp-media/a-typical-day-reference.png
