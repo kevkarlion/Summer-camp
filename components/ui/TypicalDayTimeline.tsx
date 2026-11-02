@@ -37,8 +37,8 @@ const dayBlocks: DayBlock[] = [
     title: "Despertar",
     description: "Un comienzo tranquilo: camas, mochilas y un poco de estiramiento.",
     icon: Sunrise,
-    src: "/camp-dia/despertar.webp",
-    alt: "Fotografía real del campamento: el despertar en la residencia",
+    src: "/camp-media/grupo-jugando.webp",
+    alt: "Fotografía real del campamento: el grupo en el patio de la residencia",
   },
   {
     time: "8:30",
@@ -46,8 +46,8 @@ const dayBlocks: DayBlock[] = [
     title: "Desayuno",
     description: "Desayuno completo en la residencia.",
     icon: Coffee,
-    src: "/camp-dia/desayuno.webp",
-    alt: "Fotografía real del campamento: el desayuno en la residencia",
+    src: "/camp-media/grupo-caminando.webp",
+    alt: "Fotografía real del campamento: el grupo con sus mochilas antes de salir",
   },
   {
     time: "9:15",
@@ -55,8 +55,8 @@ const dayBlocks: DayBlock[] = [
     title: "Misión del día",
     description: "El desafío del día, explicado en inglés en grupos pequeños.",
     icon: Languages,
-    src: "/camp-dia/mision-del-dia.webp",
-    alt: "Fotografía real del campamento: la briefing del día en grupos pequeños",
+    src: "/camp-media/productores-locales.webp",
+    alt: "Fotografía real del campamento: encuentro con productores locales",
   },
   {
     time: "10:00",
@@ -64,8 +64,8 @@ const dayBlocks: DayBlock[] = [
     title: "Bloque de aventura",
     description: "Trekking o kayak en los días de aventura; deportes y arte en la residencia los demás días.",
     icon: Soup,
-    src: "/camp-dia/bloque-aventura.webp",
-    alt: "Fotografía real del campamento: el bloque de aventura al aire libre",
+    src: "/camp-media/kayak-en-el-lago.webp",
+    alt: "Fotografía real del campamento: grupo en kayaks sobre el lago",
   },
   {
     time: "13:30",
@@ -73,8 +73,8 @@ const dayBlocks: DayBlock[] = [
     title: "Almuerzo",
     description: "Picnic en el sendero o en la residencia.",
     icon: Utensils,
-    src: "/camp-dia/almuerzo.webp",
-    alt: "Fotografía real del campamento: el almuerzo de la jornada",
+    src: "/camp-media/senderismo-con-villa-al-fondo.webp",
+    alt: "Fotografía real del campamento: sendero con Villa La Angostura al fondo",
   },
   {
     time: "15:00",
@@ -82,8 +82,8 @@ const dayBlocks: DayBlock[] = [
     title: "Descanso y tiempo libre",
     description: "Una hora de calma, juegos, lectura y llamadas a casa.",
     icon: BedDouble,
-    src: "/camp-dia/momento-libre.webp",
-    alt: "Fotografía real del campamento: el descanso y el tiempo libre",
+    src: "/camp-media/residencia-y-parque.png",
+    alt: "Fotografía real del campamento: la residencia con su parque",
   },
   {
     time: "16:00",
@@ -91,8 +91,8 @@ const dayBlocks: DayBlock[] = [
     title: "Inglés en acción",
     description: "Desafíos reales: pedir, orientarse y trabajar en equipo.",
     icon: Languages,
-    src: "/camp-dia/ingles-en-accion.webp",
-    alt: "Fotografía real del campamento: el inglés en acción",
+    src: "/camp-media/hernan-bajo-las-auroras.webp",
+    alt: "Fotografía real de Hernán Paulitti bajo las auroras boreales en Laponia",
   },
   {
     time: "18:00",
@@ -100,8 +100,8 @@ const dayBlocks: DayBlock[] = [
     title: "Duchas",
     description: "Un buen baño después de un día entero al aire libre.",
     icon: Droplets,
-    src: "/camp-dia/duchas.webp",
-    alt: "Fotografía real del campamento: las duchas de la residencia",
+    src: "/camp-media/lago-al-atardecer.png",
+    alt: "Fotografía real del campamento: el lago al atardecer con las montañas de fondo",
   },
   {
     time: "19:30",
@@ -109,8 +109,8 @@ const dayBlocks: DayBlock[] = [
     title: "Cena",
     description: "Todos juntos, alrededor de la mesa.",
     icon: CookingPot,
-    src: "/camp-dia/cena.webp",
-    alt: "Fotografía real del campamento: la cena en el comedor",
+    src: "/camp-media/residencia-de-piedra-y-madera.png",
+    alt: "Fotografía real del campamento: la residencia de piedra y madera",
   },
   {
     time: "21:00",
@@ -118,8 +118,8 @@ const dayBlocks: DayBlock[] = [
     title: "Actividad nocturna",
     description: "Observación de estrellas, relatos y juegos. La gran fogata es la última noche.",
     icon: Flame,
-    src: "/camp-dia/actividad-nocturna.webp",
-    alt: "Fotografía real del campamento: la actividad nocturna",
+    src: "/camp-media/fogata-en-el-bosque.webp",
+    alt: "Fotografía real del campamento: fogata con marshmallows en el bosque",
   },
   {
     time: "22:30",
@@ -127,8 +127,8 @@ const dayBlocks: DayBlock[] = [
     title: "A dormir",
     description: "Todos a dormir después de un día completo. ¡Dulces sueños!",
     icon: Moon,
-    src: "/camp-dia/dormir.webp",
-    alt: "Fotografía real del campamento: el descanso de las cabañas",
+    src: "/camp-media/mirando-el-valle.webp",
+    alt: "Fotografía real del campamento: un adolescente contemplando el valle al atardecer",
   },
 ];
 
@@ -149,8 +149,7 @@ function TimelineRow({ block, side }: TimelineRowProps) {
   const markerY = useTransform(scrollYProgress, [0, 1], [-30, 30]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0.94, 1, 1, 0.94]);
-  const photoOpacity = useTransform(scrollYProgress, [0, 0.16, 0.84, 1], [0, 1, 1, 0]);
-  const blackAndWhiteOpacity = useTransform(scrollYProgress, [0.12, 0.46], [1, 0]);
+  const photoOpacity = useTransform(scrollYProgress, [0, 0.16, 0.84, 1], [0, 0.9, 0.9, 0]);
 
   const Icon = block.icon;
 
@@ -185,27 +184,11 @@ function TimelineRow({ block, side }: TimelineRowProps) {
         }}
       >
         {block.src ? (
-          <motion.div
-            className="relative h-52 overflow-hidden sm:h-60"
-            style={{ opacity: shouldReduceMotion ? 1 : photoOpacity }}
-          >
-            <Image
-              src={block.src}
-              alt={block.alt ?? ""}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 42vw"
-              placeholder="blur"
-              blurDataURL={IMAGE_BLUR_DATA_URL}
-              className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 group-focus-within:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
-            />
-            <motion.div
-              aria-hidden="true"
-              className="absolute inset-0 grayscale"
-              style={{ opacity: shouldReduceMotion ? 0 : blackAndWhiteOpacity }}
-            >
+          <div className="absolute inset-0 -z-10 overflow-hidden">
+            <motion.div className="absolute inset-0" style={{ opacity: shouldReduceMotion ? 1 : photoOpacity }}>
               <Image
                 src={block.src}
-                alt=""
+                alt={block.alt ?? ""}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 42vw"
                 placeholder="blur"
@@ -215,9 +198,9 @@ function TimelineRow({ block, side }: TimelineRowProps) {
             </motion.div>
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-card via-card/25 to-transparent"
+              className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/90 to-bg-main/60"
             />
-          </motion.div>
+          </div>
         ) : null}
 
         <div className="relative p-6 sm:p-7">

@@ -34,18 +34,20 @@ const activities = [
     icon: Waves,
     title: "Kayak",
     description: "Una experiencia sobre el agua para compartir el día con trabajo en equipo y atención a la seguridad.",
-    src: "/camp-media/kayak-en-el-lago.webp",
-    alt: "Fotografía real del campamento: grupo en kayaks sobre el lago",
-    className: "lg:col-span-7 lg:row-span-2",
-    ratio: "aspect-[4/5] lg:aspect-auto lg:min-h-[38rem]",
+    src: "/camp-actividades/kayak.webp",
+    alt: "Fotografía real del campamento: grupo en kayaks sobre el lago con montañas de fondo",
+    kind: "photo",
+    className: "lg:col-span-7",
+    ratio: "aspect-[16/10]",
     sizes: "(max-width: 1024px) 100vw, 58vw",
   },
   {
     icon: Mountain,
     title: "Trekking",
     description: "Caminatas y observaciones del bosque en contacto con el entorno natural.",
-    src: "/camp-media/grupo-caminando.webp",
-    alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero",
+    src: "/camp-actividades/trekking.webp",
+    alt: "Ilustración del programa: un adolescente con mochila y bastones de trekking frente a las montañas",
+    kind: "illustration",
     className: "lg:col-span-5",
     ratio: "aspect-[4/3]",
     sizes: "(max-width: 1024px) 100vw, 42vw",
@@ -54,8 +56,9 @@ const activities = [
     icon: Compass,
     title: "Visitas a productores locales",
     description: "Encuentros con quienes producen y trabajan en el territorio para conocer su historia y su oficio.",
-    src: "/camp-media/productores-locales.webp",
-    alt: "Fotografía real del campamento: visita a productores locales",
+    src: "/camp-actividades/productores-locales.webp",
+    alt: "Fotografía real del campamento: visita a productores locales y su oficio",
+    kind: "photo",
     className: "lg:col-span-5",
     ratio: "aspect-[4/3]",
     sizes: "(max-width: 1024px) 100vw, 42vw",
@@ -64,18 +67,20 @@ const activities = [
     icon: Users,
     title: "Convivencia y naturaleza",
     description: "Tiempo para compartir experiencias, explorar el entorno natural y construir vínculos con el grupo.",
-    src: "/camp-media/grupo-jugando.webp",
-    alt: "Fotografía real del campamento: grupo de adolescentes jugando al aire libre",
+    src: "/camp-actividades/convivencia.webp",
+    alt: "Ilustración del programa: el grupo alrededor de la fogata con la guitarra, bajo las estrellas",
+    kind: "illustration",
     className: "lg:col-span-12",
-    ratio: "aspect-[16/8]",
+    ratio: "aspect-[21/9]",
     sizes: "100vw",
   },
   {
     icon: Binoculars,
     title: "Exploración del entorno",
     description: "Observación y descubrimiento de la naturaleza con una mirada curiosa y respetuosa.",
-    src: "/camp-media/lago-al-atardecer.png",
-    alt: "Fotografía real del campamento: el lago al atardecer con las montañas de fondo",
+    src: "/camp-actividades/exploracion.webp",
+    alt: "Ilustración del programa: un adolescente lendo al aire libre, tumbado en la hierba",
+    kind: "illustration",
     className: "lg:col-span-12",
     ratio: "aspect-[21/9]",
     sizes: "100vw",
@@ -120,26 +125,40 @@ export default function ItinerarioYActividadesPage() {
                 const Icon = activity.icon;
                 return (
                   <Reveal key={activity.title} delay={index * 0.06} className={activity.className}>
-                    <figure className={`group relative overflow-hidden rounded-[1.75rem] border border-subtle ${activity.ratio}`}>
-                      <Image
-                        src={activity.src}
-                        alt={activity.alt}
-                        fill
-                        sizes={activity.sizes}
-                        placeholder="blur"
-                        blurDataURL={IMAGE_BLUR_DATA_URL}
-                        className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
-                      />
-                      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/40 to-transparent" />
-                      <figcaption className="absolute inset-x-4 bottom-4 copy-scrim rounded-2xl p-5 sm:inset-x-6 sm:bottom-6 sm:p-6">
+                    <figure className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-subtle bg-card">
+                      <div
+                        className={`relative overflow-hidden ${
+                          activity.kind === "illustration" ? "bg-[#f4efe1]" : ""
+                        } ${activity.ratio}`}
+                      >
+                        <Image
+                          src={activity.src}
+                          alt={activity.alt}
+                          fill
+                          sizes={activity.sizes}
+                          placeholder="blur"
+                          blurDataURL={IMAGE_BLUR_DATA_URL}
+                          className={
+                            activity.kind === "illustration"
+                              ? "object-contain p-3 transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.03] motion-reduce:transform-none motion-reduce:transition-none"
+                              : "object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
+                          }
+                        />
+                        {activity.kind === "photo" ? (
+                          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-bg-main/70 via-transparent to-transparent" />
+                        ) : null}
+                      </div>
+                      <figcaption className="flex flex-1 flex-col p-6 sm:p-7">
                         <div className="flex items-start justify-between gap-4">
                           <CampIcon icon={Icon} size="sm" tone="oxblood" />
                           <Badge variant="secondary">Actividad {String(index + 1).padStart(2, "0")}</Badge>
                         </div>
                         <h3 className="mt-5 text-2xl font-semibold tracking-[-0.025em] text-main">{activity.title}</h3>
-                        <p className="mt-2 max-w-xl leading-7 text-main/90">{activity.description}</p>
-                        <p className="mt-3 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-main/60">
-                          Fotografía real del campamento
+                        <p className="mt-2 max-w-xl leading-7 text-muted">{activity.description}</p>
+                        <p className="mt-auto pt-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-main/50">
+                          {activity.kind === "illustration"
+                            ? "Ilustración del programa"
+                            : "Fotografía real del campamento"}
                         </p>
                       </figcaption>
                     </figure>
