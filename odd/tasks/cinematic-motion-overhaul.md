@@ -48,7 +48,7 @@ Elevar la Home y los componentes UI compartidos con una dirección visual cinem�
 
 ## Tasks
 
-- T1 — S2, S4, S6, S7 — Add global grain, ambient glow foundations, slow breathing motion, and Lenis smooth-scroll integration. Route: delegated writer. Commit: `feat: add cinematic atmosphere and smooth scroll`.
+- T1 — S2, S4, S6, S7 — Add global grain, ambient glow foundations, slow breathing motion, and Lenis smooth-scroll integration. Route: delegated writer. Commit: `b254baf` (`feat: add cinematic atmosphere and smooth scroll`).
 - T2 — S3, S6, S7 — Build the reusable kinetic `TextReveal` component and integrate semantic H1/H2 typography without losing heading levels. Route: delegated writer. Commit: `feat: add kinetic text reveals`.
 - T3 — S5, S6, S7 — Build the contextual cursor, magnetic Button behavior, and interactive Card tilt/spotlight system. Route: delegated writer. Commit: `feat: add high-value motion interactions`.
 - T4 — S1-S7 — Refactor the actual Home route at `app/(site)/page.tsx` into the cinematic composition with preserved content, SEO, residence/history atmosphere, bento interactions, and differential parallax. Route: inline. Commit: `feat: redesign home as cinematic experience`.
