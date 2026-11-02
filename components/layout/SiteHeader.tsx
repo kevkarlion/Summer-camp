@@ -77,8 +77,8 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "relative rounded-full px-2.5 py-2 text-xs font-medium transition-[color,background-color,opacity] duration-300 hover:bg-overlay-soft hover:text-main 2xl:px-3 2xl:text-sm",
-                  isActive ? "bg-overlay-soft text-main" : "text-muted",
+                  "relative rounded-full px-2.5 py-2 text-xs font-medium text-white/90 transition-[color,background-color,opacity] duration-300 hover:bg-overlay-soft hover:text-white 2xl:px-3 2xl:text-sm",
+                  isActive ? "bg-overlay-soft text-white" : "text-white/90",
                   isContact && "ml-1 border border-primary/30 bg-primary/10 text-primary-accent hover:bg-primary/15 hover:text-primary-accent",
                 )}
               >
@@ -143,7 +143,7 @@ export function SiteHeader() {
                           onClick={closeMenu}
                           aria-current={isActive ? "page" : undefined}
                           className={cn(
-                            "rounded-xl border border-subtle bg-overlay-soft px-3 py-3 text-sm font-medium text-muted transition-colors hover:border-primary/30 hover:text-main",
+                            "rounded-xl border border-subtle bg-overlay-soft px-3 py-3 text-sm font-medium text-white/90 transition-colors hover:border-primary/30 hover:text-white",
                             isActive && "border-primary/35 bg-primary/10 text-primary-accent",
                           )}
                         >
