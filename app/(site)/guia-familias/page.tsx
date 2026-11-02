@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { CampIcon } from "@/components/ui/CampIcon";
 import { Card } from "@/components/ui/Card";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
@@ -105,7 +106,7 @@ export default function GuiaFamiliasPage() {
             </div>
             <Reveal className="mt-8">
               <Card variant="elevated" className="p-7 sm:p-9">
-                <div className="flex items-start gap-4"><ShieldCheck className="mt-1 size-6 shrink-0 text-secondary-accent" aria-hidden="true" /><div><h3 className="text-xl font-semibold text-main">Recomendaciones para el equipaje</h3><p className="mt-2 leading-7 text-muted">No traigas objetos de valor ni equipamiento especializado sin consulta previa. Esperá las instrucciones del equipo antes de comprar o rentar equipamiento para kayak, rafting u otras actividades.</p></div></div>
+                <div className="flex items-start gap-4"><CampIcon icon={ShieldCheck} size="sm" /><div><h3 className="text-xl font-semibold text-main">Recomendaciones para el equipaje</h3><p className="mt-2 leading-7 text-muted">No traigas objetos de valor ni equipamiento especializado sin consulta previa. Esperá las instrucciones del equipo antes de comprar o rentar equipamiento para kayak, rafting u otras actividades.</p></div></div>
               </Card>
             </Reveal>
           </Container>
@@ -130,7 +131,7 @@ export default function GuiaFamiliasPage() {
           <Container>
             <Reveal>
               <div className="flex flex-col gap-5 rounded-3xl border border-subtle bg-card p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
-                <div className="flex items-start gap-4"><FileText className="mt-1 size-6 shrink-0 text-secondary-accent" aria-hidden="true" /><div><h2 className="text-xl font-semibold text-main">La lista se revisa antes de cada actividad</h2><p className="mt-2 leading-7 text-muted">Consultá las indicaciones operativas y los formularios que la organización comunique antes de salir.</p></div></div>
+                <div className="flex items-start gap-4"><CampIcon icon={FileText} size="sm" /><div><h2 className="text-xl font-semibold text-main">La lista se revisa antes de cada actividad</h2><p className="mt-2 leading-7 text-muted">Consultá las indicaciones operativas y los formularios que la organización comunique antes de salir.</p></div></div>
                 <Button href="/preguntas-frecuentes" variant="outline">Consultar las preguntas frecuentes</Button>
               </div>
             </Reveal>

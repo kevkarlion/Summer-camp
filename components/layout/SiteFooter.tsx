@@ -30,7 +30,7 @@ export function SiteFooter() {
           <h2 className="mt-5 max-w-sm text-3xl font-semibold leading-tight tracking-[-0.03em] text-main">
             Una aventura que también transforma el idioma.
           </h2>
-          <p className="mt-7 flex items-center gap-3 text-sm text-muted"><MapPin aria-hidden="true" size={17} /> Villa La Angostura, Neuquén, Patagonia</p>
+          <p className="mt-7 flex items-center gap-3 text-sm text-muted"><MapPin aria-hidden="true" size={17} className="text-secondary-accent" /> Villa La Angostura, Neuquén, Patagonia</p>
         </div>
 
         <nav aria-label="Navegación del pie de página">

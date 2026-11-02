@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { CampIcon } from "@/components/ui/CampIcon";
 import { Card } from "@/components/ui/Card";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
@@ -70,7 +71,7 @@ export default function DestinoVillaLaAngosturaPage() {
                 return (
                   <Reveal key={experience.title} delay={index * 0.08}>
                     <Card variant="glass" className="h-full p-6 sm:p-7">
-                      <span className="grid size-12 place-items-center rounded-2xl border border-primary/25 bg-primary/10 text-primary-accent"><Icon className="size-6" aria-hidden="true" /></span>
+                      <CampIcon icon={Icon} />
                       <h3 className="mt-7 text-xl font-semibold text-main">{experience.title}</h3>
                       <p className="mt-3 leading-7 text-muted">{experience.description}</p>
                     </Card>

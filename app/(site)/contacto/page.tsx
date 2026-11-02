@@ -6,6 +6,7 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { Reveal } from "@/components/motion/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
+import { CampIcon } from "@/components/ui/CampIcon";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
 
@@ -108,9 +109,7 @@ export default function ContactoPage() {
                       { icon: MapPin, text: "Experiencia residencial en Villa La Angostura, Neuquén" },
                     ].map((item) => (
                       <li key={item.text} className="flex items-start gap-3 leading-7 text-muted">
-                        <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-primary/25 bg-primary/10 text-primary-accent">
-                          <item.icon aria-hidden="true" size={18} />
-                        </span>
+                        <CampIcon icon={item.icon} size="sm" tone="khaki" />
                         <span>{item.text}</span>
                       </li>
                     ))}

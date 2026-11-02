@@ -5,6 +5,7 @@ import { Coffee, Flame, Languages, Mountain } from "lucide-react";
 import { useState } from "react";
 
 import { IMAGE_BLUR_DATA_URL } from "@/components/image/placeholder";
+import { CampIcon } from "@/components/ui/CampIcon";
 import { cn } from "@/lib/utils";
 
 interface TimelineItem {
@@ -91,9 +92,7 @@ export function TypicalDayTimeline() {
                     aria-controls={`timeline-preview-${index}`}
                     onClick={() => setExpandedTitle(isExpanded ? null : item.title)}
                   >
-                    <span className="relative z-10 grid size-12 shrink-0 place-items-center rounded-full border border-secondary/30 bg-bg-main text-secondary-accent">
-                      <Icon aria-hidden="true" size={21} />
-                    </span>
+                    <CampIcon icon={Icon} size="md" tone="oxblood" className="relative z-10" />
                     <span className="min-w-0 flex-1">
                       <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-secondary-accent">
                         Bloque {index + 1}
@@ -106,7 +105,7 @@ export function TypicalDayTimeline() {
                   <p className="mt-4 max-w-[32ch] break-words text-sm leading-6 text-muted transition-colors duration-300 group-hover:text-main group-focus-within:text-main">
                     {item.description}
                   </p>
-                  <p className="mt-auto pt-5 text-xs font-semibold text-secondary-accent [text-shadow:0_1px_12px_var(--bg-main)]">
+                  <p className="mt-auto pt-5 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-secondary-accent [text-shadow:0_1px_12px_var(--bg-main)]">
                     Vista editorial de referencia
                   </p>
                 </div>

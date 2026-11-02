@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { CampIcon } from "@/components/ui/CampIcon";
 import { Card } from "@/components/ui/Card";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
@@ -104,7 +105,7 @@ export default function PreguntasFrecuentesPage() {
           <Container>
             <Reveal>
               <div className="mx-auto max-w-3xl text-center">
-                <CircleHelp className="mx-auto size-10 text-secondary-accent" aria-hidden="true" />
+                <CampIcon icon={CircleHelp} size="lg" tone="oxblood" className="mx-auto" />
                 <h2 className="mt-5 text-3xl font-semibold tracking-[-0.035em] text-main sm:text-4xl">Una respuesta útil empieza con una buena pregunta</h2>
                 <p className="mt-5 text-lg leading-8 text-muted">Explorá el programa, las actividades y el destino para construir una visión completa antes de solicitar información.</p>
                 <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">

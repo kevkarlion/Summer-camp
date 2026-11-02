@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { CampIcon } from "@/components/ui/CampIcon";
 import { Card } from "@/components/ui/Card";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
@@ -67,7 +68,7 @@ export default function ProgramaAdolescentesPage() {
                 return (
                   <Reveal key={pillar.title} delay={index * 0.08}>
                     <Card variant="glass" className="h-full p-6 sm:p-7">
-                      <span className="grid size-12 place-items-center rounded-2xl border border-primary/25 bg-primary/10 text-primary-accent"><Icon className="size-6" aria-hidden="true" /></span>
+                      <CampIcon icon={Icon} />
                       <h3 className="mt-7 text-xl font-semibold text-main">{pillar.title}</h3>
                       <p className="mt-3 leading-7 text-muted">{pillar.description}</p>
                     </Card>
@@ -90,7 +91,7 @@ export default function ProgramaAdolescentesPage() {
               </Reveal>
               <Reveal delay={0.08}>
                 <Card variant="elevated" className="p-7 sm:p-9">
-                  <Users className="size-7 text-secondary-accent" aria-hidden="true" />
+                  <CampIcon icon={Users} size="lg" tone="oxblood" />
                   <h3 className="mt-6 text-2xl font-semibold text-main">Una experiencia que se comparte</h3>
                   <p className="mt-4 leading-7 text-muted">El programa reúne a adolescentes de Buenos Aires y otras provincias. El transporte interprovincial no está incluido.</p>
                   <ul className="mt-6 space-y-3 text-muted">

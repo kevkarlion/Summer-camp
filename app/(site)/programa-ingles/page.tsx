@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { CampIcon } from "@/components/ui/CampIcon";
 import { Card } from "@/components/ui/Card";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
@@ -67,7 +68,7 @@ export default function ProgramaInglesPage() {
                 return (
                   <Reveal key={step.number} delay={index * 0.08}>
                     <Card variant="glass" className="h-full p-6 sm:p-7">
-                      <div className="flex items-center justify-between"><span className="text-sm font-semibold tracking-[0.16em] text-secondary-accent">{step.number}</span><span className="grid size-11 place-items-center rounded-2xl border border-primary/25 bg-primary/10 text-primary-accent"><Icon className="size-5" aria-hidden="true" /></span></div>
+                      <div className="flex items-center justify-between"><span className="text-sm font-semibold tracking-[0.16em] text-secondary-accent">{step.number}</span><CampIcon icon={Icon} size="sm" /></div>
                       <h3 className="mt-8 text-xl font-semibold text-main">{step.title}</h3>
                       <p className="mt-3 leading-7 text-muted">{step.description}</p>
                     </Card>

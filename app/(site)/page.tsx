@@ -190,7 +190,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted sm:mt-10">
               {["Adolescentes de 13–17 años", "4–12 de diciembre de 2027", "Formato residencial", "Villa La Angostura"].map((item) => (
                 <span key={item} className="inline-flex items-center gap-2">
-                  <CheckCircle2 aria-hidden="true" size={16} className="text-primary-accent" /> {item}
+                  <CheckCircle2 aria-hidden="true" size={16} className="shrink-0 text-secondary-accent" /> {item}
                 </span>
               ))}
             </div>
@@ -284,7 +284,7 @@ export default function HomePage() {
                 "Acompañamiento de un equipo de coordinación",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-base leading-7 text-main">
-                  <CheckCircle2 aria-hidden="true" size={19} className="mt-1 shrink-0 text-primary-accent" /> {item}
+                  <CheckCircle2 aria-hidden="true" size={19} className="mt-1 shrink-0 text-secondary-accent" /> {item}
                 </li>
               ))}
             </ul>

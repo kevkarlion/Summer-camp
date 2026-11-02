@@ -56,7 +56,7 @@ export function ContactForm() {
         aria-live="polite"
       >
         <span className="grid size-16 place-items-center rounded-full bg-primary/15 text-primary-accent">
-          <CheckCircle2 aria-hidden="true" size={30} />
+          <CheckCircle2 aria-hidden="true" size={30} className="text-secondary-accent" />
         </span>
         <h2 className="mt-6 text-3xl font-semibold tracking-tight text-main">Mensaje preparado</h2>
         <p className="mt-4 max-w-md leading-7 text-muted">

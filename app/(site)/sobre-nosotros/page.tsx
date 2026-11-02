@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { CampIcon } from "@/components/ui/CampIcon";
 import { Card } from "@/components/ui/Card";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
@@ -83,7 +84,7 @@ export default function SobreNosotrosPage() {
                 return (
                   <Reveal key={value.title} delay={index * 0.07}>
                     <Card variant="glass" className="h-full p-6 sm:p-8">
-                      <span className="grid size-12 place-items-center rounded-2xl border border-primary/25 bg-primary/10 text-primary-accent"><Icon className="size-6" aria-hidden="true" /></span>
+                      <CampIcon icon={Icon} />
                       <h3 className="mt-7 text-xl font-semibold text-main">{value.title}</h3>
                       <p className="mt-3 leading-7 text-muted">{value.description}</p>
                     </Card>
@@ -116,7 +117,7 @@ export default function SobreNosotrosPage() {
           <Container>
             <Reveal>
               <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex items-start gap-4"><Mountain className="mt-1 size-6 shrink-0 text-secondary-accent" aria-hidden="true" /><div><h2 className="text-xl font-semibold text-main">El explorador</h2><p className="mt-2 leading-7 text-muted">Un espacio para descubrir qué significa aprender afuera, juntos y con propósito.</p></div></div>
+                <div className="flex items-start gap-4"><CampIcon icon={Mountain} size="sm" /><div><h2 className="text-xl font-semibold text-main">El explorador</h2><p className="mt-2 leading-7 text-muted">Un espacio para descubrir qué significa aprender afuera, juntos y con propósito.</p></div></div>
                 <Button href="/preguntas-frecuentes" variant="outline">Consultar las preguntas frecuentes</Button>
               </div>
             </Reveal>
