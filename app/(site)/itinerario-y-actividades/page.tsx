@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   alternates: { canonical: pagePath },
   openGraph: {
     type: "website", locale: siteConfig.locale, url: pagePath, siteName: siteConfig.name, title, description,
-    images: [{ url: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&h=630&q=80", width: 1200, height: 630, alt: "Grupo recorriendo un sendero de montaña en Patagonia" }],
+    images: [{ url: "/camp-media/senderismo-con-villa-al-fondo.webp", width: 1200, height: 630, alt: "Fotografía real del campamento: grupo en un sendero con Villa La Angostura al fondo" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&h=630&q=80"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/camp-media/senderismo-con-villa-al-fondo.webp"] },
 };
 
 const activities = [
@@ -34,8 +34,8 @@ const activities = [
     icon: Waves,
     title: "Kayak",
     description: "Una experiencia sobre el agua para compartir el día con trabajo en equipo y atención a la seguridad.",
-    src: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1800&q=82",
-    alt: "Imagen editorial de referencia: kayak sobre aguas de montaña",
+    src: "/camp-media/kayak-en-el-lago.webp",
+    alt: "Fotografía real del campamento: grupo en kayaks sobre el lago",
     className: "lg:col-span-7 lg:row-span-2",
     ratio: "aspect-[4/5] lg:aspect-auto lg:min-h-[38rem]",
     sizes: "(max-width: 1024px) 100vw, 58vw",
@@ -44,8 +44,8 @@ const activities = [
     icon: Mountain,
     title: "Trekking",
     description: "Caminatas y observaciones del bosque en contacto con el entorno natural.",
-    src: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1600&q=82",
-    alt: "Imagen editorial de referencia: grupo recorriendo un sendero de montaña",
+    src: "/camp-media/grupo-caminando.webp",
+    alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero",
     className: "lg:col-span-5",
     ratio: "aspect-[4/3]",
     sizes: "(max-width: 1024px) 100vw, 42vw",
@@ -54,8 +54,8 @@ const activities = [
     icon: Compass,
     title: "Visitas a productores locales",
     description: "Encuentros con quienes producen y trabajan en el territorio para conocer su historia y su oficio.",
-    src: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1600&q=82",
-    alt: "Imagen editorial de referencia: productos y sabores locales de un mercado",
+    src: "/camp-media/productores-locales.webp",
+    alt: "Fotografía real del campamento: visita a productores locales",
     className: "lg:col-span-5",
     ratio: "aspect-[4/3]",
     sizes: "(max-width: 1024px) 100vw, 42vw",
@@ -64,8 +64,8 @@ const activities = [
     icon: Users,
     title: "Convivencia y naturaleza",
     description: "Tiempo para compartir experiencias, explorar el entorno natural y construir vínculos con el grupo.",
-    src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1800&q=82",
-    alt: "Imagen editorial de referencia: grupo de amigos compartiendo una experiencia al aire libre",
+    src: "/camp-media/grupo-jugando.webp",
+    alt: "Fotografía real del campamento: grupo de adolescentes jugando al aire libre",
     className: "lg:col-span-12",
     ratio: "aspect-[16/8]",
     sizes: "100vw",
@@ -74,8 +74,8 @@ const activities = [
     icon: Binoculars,
     title: "Exploración del entorno",
     description: "Observación y descubrimiento de la naturaleza con una mirada curiosa y respetuosa.",
-    src: "https://images.unsplash.com/photo-1439853949127-fa647821eba0?auto=format&fit=crop&w=1800&q=82",
-    alt: "Imagen editorial de referencia: paisaje de montaña y lago para la observación del entorno",
+    src: "/camp-media/lago-al-atardecer.png",
+    alt: "Fotografía real del campamento: el lago al atardecer con las montañas de fondo",
     className: "lg:col-span-12",
     ratio: "aspect-[21/9]",
     sizes: "100vw",
@@ -98,8 +98,8 @@ export default function ItinerarioYActividadesPage() {
           eyebrow="Aventura al aire libre"
           title="Actividades para descubrir la Patagonia"
           description="Kayak, trekking y encuentros con productores locales conectan movimiento, equipo, inglés y conocimiento del territorio."
-          image="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=2000&q=85"
-          imageAlt="Personas recorriendo un sendero entre montañas y árboles"
+          image="/camp-media/senderismo-con-villa-al-fondo.webp"
+          imageAlt="Fotografía real del campamento: grupo en un sendero con Villa La Angostura al fondo"
         >
           <Button href="/seguridad-y-coordinacion" size="lg">Conocer la coordinación <ArrowRight className="size-4" /></Button>
         </PageHero>
@@ -139,7 +139,7 @@ export default function ItinerarioYActividadesPage() {
                         <h3 className="mt-5 text-2xl font-semibold tracking-[-0.025em] text-main">{activity.title}</h3>
                         <p className="mt-2 max-w-xl leading-7 text-main/90">{activity.description}</p>
                         <p className="mt-3 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-main/60">
-                          Imagen editorial de referencia
+                          Fotografía real del campamento
                         </p>
                       </figcaption>
                     </figure>
@@ -149,7 +149,7 @@ export default function ItinerarioYActividadesPage() {
             </div>
 
             <p className="mt-6 max-w-3xl text-sm leading-6 text-muted">
-              Las fotografías ilustran el tipo de actividades y entorno de la experiencia; no muestran participantes, productores ni prestadores reales del programa.
+              Fotografías reales de Patagonia Summer Camp 2027: kayak, trekking, productores locales y la convivencia del grupo.
             </p>
           </Container>
         </section>

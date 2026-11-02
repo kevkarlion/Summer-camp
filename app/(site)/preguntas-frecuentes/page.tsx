@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   alternates: { canonical: pagePath },
   openGraph: {
     type: "website", locale: siteConfig.locale, url: pagePath, siteName: siteConfig.name, title, description,
-    images: [{ url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&h=630&q=80", width: 1200, height: 630, alt: "Grupo de amigos conversando al aire libre" }],
+    images: [{ url: "/camp-media/grupo-jugando.webp", width: 1200, height: 630, alt: "Fotografía real del campamento: grupo de adolescentes jugando al aire libre" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&h=630&q=80"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/camp-media/grupo-jugando.webp"] },
 };
 
 const faqs = [
@@ -59,8 +59,8 @@ export default function PreguntasFrecuentesPage() {
           eyebrow="FAQ · Respuestas claras"
           title="Las dudas más comunes, reunidas en un mismo lugar"
           description="Información inicial sobre el programa, la experiencia, la logística y la seguridad para que las familias puedan avanzar con claridad."
-          image="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=2000&q=85"
-          imageAlt="Grupo de amigos conversando durante una actividad al aire libre"
+          image="/camp-media/grupo-jugando.webp"
+          imageAlt="Fotografía real del campamento: grupo de adolescentes jugando al aire libre"
         >
           <Button href="/guia-familias" size="lg">Consultar la guía para familias <ArrowRight className="size-4" /></Button>
         </PageHero>

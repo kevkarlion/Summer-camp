@@ -52,62 +52,62 @@ const pillars = [
   {
     title: "Aventura y confianza",
     text: "Explorar y superar desafíos para ganar confianza en uno mismo y en los demás.",
-    src: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=900&q=78",
-    alt: "Imagen editorial de referencia: grupo recorriendo un sendero de montaña",
+    src: "/camp-media/senderismo-con-villa-al-fondo.webp",
+    alt: "Fotografía real del campamento: grupo caminando por un sendero con Villa La Angostura al fondo",
   },
   {
     title: "Aprender haciendo",
     text: "Vivir el inglés en situaciones reales, comunicar ideas y descubrir nuevas perspectivas.",
-    src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=78",
-    alt: "Imagen editorial de referencia: participantes intercambiando ideas en una actividad",
+    src: "/camp-media/kayak-en-el-lago.webp",
+    alt: "Fotografía real del campamento: grupo en kayaks sobre el lago con montañas de fondo",
   },
   {
     title: "Libertad para expresarse",
     text: "Ser uno mismo, compartir ideas y encontrar diferentes formas de participar.",
-    src: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=900&q=78",
-    alt: "Imagen editorial de referencia: navegación sobre aguas de montaña",
+    src: "/camp-media/mirando-el-valle.webp",
+    alt: "Fotografía real del campamento: adolescente sobre un tronco caído contemplando el valle",
   },
   {
     title: "Comunidad y respeto",
     text: "Crear amistades, valorar las diferencias y aprender a cuidarnos unos a otros.",
-    src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=78",
-    alt: "Imagen editorial de referencia: comunidad compartiendo una experiencia al aire libre",
+    src: "/camp-media/grupo-caminando.webp",
+    alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque",
   },
   {
     title: "Cuerpo y mente en equilibrio",
     text: "Mover el cuerpo, cuidar la mente y disfrutar del aire libre.",
-    src: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=78",
-    alt: "Imagen editorial de referencia: momento de bienestar y equilibrio junto a la naturaleza",
+    src: "/camp-media/grupo-jugando.webp",
+    alt: "Fotografía real del campamento: grupo de adolescentes jugando al aire libre",
   },
 ];
 
 const residenceImages: ImageLightboxItem[] = [
   {
-    src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
-    alt: "Imagen editorial de referencia: lago y montañas de Patagonia",
-    title: "Lago y montañas",
-    description: "Referencia editorial del entorno de Villa La Angostura; no muestra la residencia real.",
+    src: "/camp-media/residencia-y-parque.png",
+    alt: "Fotografía real del campamento: la residencia de piedra y madera con su parque",
+    title: "La residencia y su parque",
+    description: "La casa donde se vive la experiencia, con el bosque nativo y el área abierta alrededor.",
     sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 58vw",
   },
   {
-    src: "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=900&q=78",
-    alt: "Imagen editorial de referencia: residencia conceptual de madera y piedra en un bosque",
-    title: "Residencia entre el bosque",
-    description: "Referencia editorial de arquitectura; no documenta la propiedad ni sus instalaciones.",
+    src: "/camp-media/residencia-de-piedra-y-madera.png",
+    alt: "Fotografía real del campamento: la residencia entre los árboles del(predio",
+    title: "Piedra, madera y bosque",
+    description: "La construcción de la residencia integrada en el entorno natural de la Patagonia.",
     sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 42vw",
   },
   {
-    src: "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=78",
-    alt: "Imagen editorial de referencia: comedor amplio iluminado para una convivencia",
-    title: "Comedor y convivencia",
-    description: "Referencia editorial de un espacio comedor; no muestra el comedor de la residencia.",
+    src: "/camp-media/lago-al-atardecer.png",
+    alt: "Fotografía real del campamento: el lago al atardecer con las montañas de fondo",
+    title: "El lago al atardecer",
+    description: "La costa sobre el Nahuel Huapi, el horizonte que acompaña cada jornada.",
     sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 42vw",
   },
   {
-    src: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
-    alt: "Imagen editorial de referencia: espacio exterior y paisaje al atardecer",
-    title: "Aire libre al atardecer",
-    description: "Referencia editorial de espacios exteriores; no muestra el área deportiva de la propiedad.",
+    src: "/camp-media/productores-locales.webp",
+    alt: "Fotografía real del campamento: visita a productores locales",
+    title: "Territorio que se conoce",
+    description: "Encuentros con quienes trabajan y producen en el lugar, para entenderlo desde adentro.",
     sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 58vw",
   },
 ];
@@ -257,8 +257,8 @@ export default function HomePage() {
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal className="relative min-h-[30rem] overflow-hidden rounded-[2rem] border border-subtle sm:min-h-[38rem]">
             <ParallaxImageContainer
-              src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80"
-              alt="Montañas nevadas de la Patagonia Argentina"
+              src="/camp-media/senderismo-con-villa-al-fondo.webp"
+              alt="Fotografía real del campamento: grupo en un sendero con Villa La Angostura iluminada al fondo"
               className="absolute inset-0"
               imageClassName="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -313,8 +313,8 @@ export default function HomePage() {
             <Reveal delay={0.08} className="relative pb-8 sm:pb-12 lg:pb-0">
               <div className="relative min-h-[31rem] sm:min-h-[38rem]">
                 <OrganicMaskImage
-                  src="https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&w=1000&q=78"
-                  alt="Imagen editorial de referencia: auroras boreales sobre un paisaje nevado"
+                  src="/camp-media/hernan-bajo-las-auroras.webp"
+                  alt="Fotografía real de Hernán Paulitti bajo las auroras boreales en Laponia"
                   variant="asymmetric"
                   className="absolute inset-x-0 top-0 h-[72%] min-h-[25rem]"
                   imageClassName="object-cover"
@@ -322,14 +322,14 @@ export default function HomePage() {
                 />
                 <figure className="absolute bottom-0 right-0 w-[72%] shadow-2xl sm:w-[62%]">
                   <OrganicMaskImage
-                    src="https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=900&q=78"
-                    alt="Imagen editorial de referencia: fogata cálida junto a un paisaje de montaña"
+                    src="/camp-media/fogata-en-el-bosque.webp"
+                    alt="Fotografía real del campamento: fogata con marshmallows en el bosque"
                     variant="arch"
                     className="aspect-[4/3] min-h-0"
                     imageClassName="object-cover"
                     sizes="(max-width: 1024px) 65vw, 34vw"
                   />
-                  <figcaption className="mt-3 text-xs leading-5 text-muted">Imágenes editoriales de referencia; no son fotografías de Hernán Paulitti.</figcaption>
+                  <figcaption className="mt-3 text-xs leading-5 text-muted">Hernán en Laponia y la fogata del campamento: fotografías reales del programa.</figcaption>
                 </figure>
               </div>
             </Reveal>

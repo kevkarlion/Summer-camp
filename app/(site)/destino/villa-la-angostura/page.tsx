@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   alternates: { canonical: pagePath },
   openGraph: {
     type: "website", locale: siteConfig.locale, url: pagePath, siteName: siteConfig.name, title, description,
-    images: [{ url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&h=630&q=80", width: 1200, height: 630, alt: "Montañas y lago de Villa La Angostura en Patagonia" }],
+    images: [{ url: "/camp-media/lago-al-atardecer.png", width: 1200, height: 630, alt: "Fotografía real del campamento: el lago al atardecer con las montañas de Patagonia" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&h=630&q=80"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/camp-media/lago-al-atardecer.png"] },
 };
 
 const experiences = [
@@ -53,8 +53,8 @@ const residenceSchema = {
 
 const gallery = [
   {
-    src: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=2000&q=82",
-    alt: "Imagen editorial de referencia: agua turquesa de un lago de montaña",
+    src: "/camp-media/kayak-en-el-lago.webp",
+    alt: "Fotografía real del campamento: grupo en kayaks sobre el lago con montañas de fondo",
     eyebrow: "El agua",
     title: "Los tonos del Nahuel Huapi",
     text: "El lago es parte del paisaje cotidiano de la experiencia: un horizonte de agua clara entre montañas y bosque.",
@@ -63,8 +63,8 @@ const gallery = [
     sizes: "(max-width: 1024px) 100vw, 58vw",
   },
   {
-    src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=82",
-    alt: "Imagen editorial de referencia: bosque nativo con luz filtrada entre los árboles",
+    src: "/camp-media/senderismo-con-villa-al-fondo.webp",
+    alt: "Fotografía real del campamento: sendero de bosque con Villa La Angostura al fondo",
     eyebrow: "El bosque",
     title: "Bosque nativo everywhere",
     text: "El entorno de la residencia combina parque, bosque nativo y espacios abiertos para caminar y explorar.",
@@ -73,8 +73,8 @@ const gallery = [
     sizes: "(max-width: 1024px) 100vw, 42vw",
   },
   {
-    src: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=82",
-    alt: "Imagen editorial de referencia: cordillera nevada de Patagonia",
+    src: "/camp-media/mirando-el-valle.webp",
+    alt: "Fotografía real del campamento: adolescente sobre un tronco caído contemplando el valle",
     eyebrow: "Las montañas",
     title: "La cordillera como horizonte",
     text: "Las montañas de la Patagonia acompañan cada jornada y marcan el ritmo de las actividades al aire libre.",
@@ -83,8 +83,8 @@ const gallery = [
     sizes: "(max-width: 1024px) 100vw, 42vw",
   },
   {
-    src: "https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=1600&q=82",
-    alt: "Imagen editorial de referencia: lago sereno rodeado de montañas y vegetación",
+    src: "/camp-media/residencia-y-parque.png",
+    alt: "Fotografía real del campamento: la residencia con su parque y el bosque nativo alrededor",
     eyebrow: "El paisaje",
     title: "Un lugar para mirar y escuchar",
     text: "La cercanía del agua y el bosque convierte cada salida en una ocasión para observar el territorio con otra mirada.",
@@ -103,8 +103,8 @@ export default function DestinoVillaLaAngosturaPage() {
           eyebrow="Villa La Angostura · Patagonia"
           title="Entre lagos, bosques y montañas"
           description="La experiencia se realiza en una residencia a 2 km del centro de Villa La Angostura, rodeada de parque, bosque nativo y naturaleza."
-          image="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=85"
-          imageAlt="Lagos y montañas del entorno de Villa La Angostura"
+          image="/camp-media/lago-al-atardecer.png"
+          imageAlt="Fotografía real del campamento: el lago al atardecer con las montañas de fondo"
         >
           <Button href="/itinerario-y-actividades" size="lg">Descubrir actividades <ArrowRight className="size-4" /></Button>
         </PageHero>
@@ -141,7 +141,7 @@ export default function DestinoVillaLaAngosturaPage() {
                       <h3 className="mt-2 text-2xl font-semibold tracking-[-0.025em] text-main">{item.title}</h3>
                       <p className="mt-2 max-w-xl leading-7 text-main/90">{item.text}</p>
                       <p className="mt-3 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-main/60">
-                        Imagen editorial de referencia
+                        Fotografía real del campamento
                       </p>
                     </figcaption>
                   </figure>
@@ -150,7 +150,7 @@ export default function DestinoVillaLaAngosturaPage() {
             </div>
 
             <p className="mt-6 max-w-3xl text-sm leading-6 text-muted">
-              Las fotografías ilustran el tipo de entorno de Villa La Angostura y su Patagonia circundante; no documentan la propiedad ni las instalaciones reales de la residencia.
+              Fotografías reales de Patagonia Summer Camp 2027: el lago, el bosque nativo, la residencia y las experiencias del programa.
             </p>
           </Container>
         </section>
@@ -160,8 +160,8 @@ export default function DestinoVillaLaAngosturaPage() {
             <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
               <Reveal className="relative min-h-[26rem] overflow-hidden rounded-[2rem] border border-subtle sm:min-h-[34rem]">
                 <ParallaxImageContainer
-                  src="https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=1600&q=82"
-                  alt="Imagen editorial de referencia: fogata al atardecer en un paisaje de montaña"
+                  src="/camp-media/fogata-en-el-bosque.webp"
+                  alt="Fotografía real del campamento: fogata con marshmallows en el bosque"
                   className="absolute inset-0"
                   sizes="(max-width: 1024px) 100vw, 52vw"
                 />
@@ -170,7 +170,7 @@ export default function DestinoVillaLaAngosturaPage() {
                   <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-secondary-accent">La tarde</p>
                   <p className="mt-2 text-xl font-semibold text-main">El fuego como encuentro</p>
                   <p className="mt-2 text-sm leading-6 text-main/90">
-                    Imagen editorial de referencia. El fogón nocturno es ilustrativo y queda sujeto a confirmación del programa.
+                    Fotografía real del campamento. El fogón nocturno es ilustrativo y queda sujeto a confirmación del programa.
                   </p>
                 </div>
               </Reveal>

@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   alternates: { canonical: pagePath },
   openGraph: {
     type: "website", locale: siteConfig.locale, url: pagePath, siteName: siteConfig.name, title, description,
-    images: [{ url: "https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1200&h=630&q=80", width: 1200, height: 630, alt: "Paisaje de montañas de la Patagonia bajo un cielo amplio" }],
+    images: [{ url: "/camp-media/hernan-bajo-las-auroras.webp", width: 1200, height: 630, alt: "Fotografía real de Hernán Paulitti bajo las auroras boreales en Laponia" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1200&h=630&q=80"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/camp-media/hernan-bajo-las-auroras.webp"] },
 };
 
 const values = [
@@ -49,8 +49,8 @@ export default function SobreNosotrosPage() {
           eyebrow="Nuestra historia"
           title="Una mirada amplia para una aventura que transforma"
           description="Hernán Paulitti, fundador Patagonia Summer Camp, imaginó una experiencia donde el paisaje patagónico se convierte en escenario para aprender y crecer."
-          image="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=2000&q=85"
-          imageAlt="Montañas nevadas reflejadas en un lago de la Patagonia"
+          image="/camp-media/hernan-bajo-las-auroras.webp"
+          imageAlt="Fotografía real de Hernán Paulitti bajo las auroras boreales en Laponia"
         >
           <Button href="/programa-ingles" size="lg">Conocer nuestra metodología <ArrowRight className="size-4" /></Button>
         </PageHero>

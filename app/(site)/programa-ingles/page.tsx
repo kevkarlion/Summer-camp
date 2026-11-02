@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   alternates: { canonical: pagePath },
   openGraph: {
     type: "website", locale: siteConfig.locale, url: pagePath, siteName: siteConfig.name, title, description,
-    images: [{ url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&h=630&q=80", width: 1200, height: 630, alt: "Aprender inglés mediante experiencias en la Patagonia" }],
+    images: [{ url: "/camp-media/grupo-caminando.webp", width: 1200, height: 630, alt: "Fotografía real del campamento: grupo caminando con mochilas por el bosque" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&h=630&q=80"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/camp-media/grupo-caminando.webp"] },
 };
 
 const methodSteps = [
@@ -54,8 +54,8 @@ export default function ProgramaInglesPage() {
           eyebrow="Learning by Doing"
           title="El inglés se aprende usándolo"
           description="Una metodología de inmersión convierte cada actividad, conversación y decisión en una razón para aprender inglés haciendo en Patagonia."
-          image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2000&q=85"
-          imageAlt="Grupo joven aprendiendo y conversando en un entorno luminoso"
+          image="/camp-media/grupo-caminando.webp"
+          imageAlt="Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque"
         >
           <Button href="/programa-ingles/adolescentes" size="lg">Conocer el programa para adolescentes <ArrowRight className="size-4" /></Button>
         </PageHero>

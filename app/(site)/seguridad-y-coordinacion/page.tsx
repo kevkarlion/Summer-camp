@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   alternates: { canonical: pagePath },
   openGraph: {
     type: "website", locale: siteConfig.locale, url: pagePath, siteName: siteConfig.name, title, description,
-    images: [{ url: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&h=630&q=80", width: 1200, height: 630, alt: "Equipo de campamento reunida alrededor de una mesa" }],
+    images: [{ url: "/camp-media/grupo-caminando.webp", width: 1200, height: 630, alt: "Fotografía real del campamento: grupo caminando con mochilas por el bosque" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&h=630&q=80"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/camp-media/grupo-caminando.webp"] },
 };
 
 const protocols = [
@@ -57,8 +57,8 @@ export default function SeguridadYCoordinacionPage() {
           eyebrow="Confianza y cuidado"
           title="Seguridad que se explica y se confirma"
           description="La coordinación del equipo, la evaluación de actividades y los procedimientos médicos se organizan con información clara para las familias."
-          image="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2000&q=85"
-          imageAlt="Equipo de personas trabajando de forma coordinada alrededor de una mesa"
+          image="/camp-media/grupo-caminando.webp"
+          imageAlt="Fotografía real del campamento: grupo caminando con mochilas por un sendero"
         >
           <Button href="/guia-familias" size="lg">Ver la guía para familias <ArrowRight className="size-4" /></Button>
         </PageHero>

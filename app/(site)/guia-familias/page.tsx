@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   alternates: { canonical: pagePath },
   openGraph: {
     type: "website", locale: siteConfig.locale, url: pagePath, siteName: siteConfig.name, title, description,
-    images: [{ url: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&h=630&q=80", width: 1200, height: 630, alt: "Sendero de montaña entre árboles en la Patagonia" }],
+    images: [{ url: "/camp-media/grupo-caminando.webp", width: 1200, height: 630, alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&h=630&q=80"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/camp-media/grupo-caminando.webp"] },
 };
 
 const sections = [
@@ -65,8 +65,8 @@ export default function GuiaFamiliasPage() {
           eyebrow="Manual operativo para familias"
           title="Preparar el viaje también es construir confianza"
           description="Una guía concreta para organizar la llegada, la salud, la seguridad, la convivencia y el equipaje de cada participante."
-          image="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=2000&q=85"
-          imageAlt="Excursionistas preparando su equipaje junto a un sendero"
+          image="/camp-media/grupo-caminando.webp"
+          imageAlt="Fotografía real del campamento: grupo caminando con mochilas por un sendero"
         >
           <Button href="/preguntas-frecuentes" size="lg">Resolver otras dudas <ArrowRight className="size-4" /></Button>
         </PageHero>

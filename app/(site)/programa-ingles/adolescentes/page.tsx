@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   alternates: { canonical: pagePath },
   openGraph: {
     type: "website", locale: siteConfig.locale, url: pagePath, siteName: siteConfig.name, title, description,
-    images: [{ url: "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1200&h=630&q=80", width: 1200, height: 630, alt: "Jóvenes compartiendo una experiencia en la Patagonia" }],
+    images: [{ url: "/camp-media/grupo-jugando.webp", width: 1200, height: 630, alt: "Fotografía real del campamento: grupo de adolescentes jugando al aire libre" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1200&h=630&q=80"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/camp-media/grupo-jugando.webp"] },
 };
 
 const pillars = [
@@ -53,8 +53,8 @@ export default function ProgramaAdolescentesPage() {
           eyebrow="13–17 años · 4–12 de diciembre de 2027"
           title="Una experiencia para pensar, decidir y conectar"
           description="Naturaleza, actividades y conversaciones dan otra dimensión al inglés en una experiencia residencial en Villa La Angostura."
-          image="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=2000&q=85"
-          imageAlt="Adolescentes sonriendo durante una aventura al aire libre"
+          image="/camp-media/grupo-jugando.webp"
+          imageAlt="Fotografía real del campamento: grupo de adolescentes jugando al aire libre"
         >
           <Button href="#experiencias" size="lg">Explorar el programa <ArrowRight className="size-4" /></Button>
         </PageHero>

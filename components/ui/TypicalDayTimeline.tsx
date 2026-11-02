@@ -1,135 +1,192 @@
 "use client";
 
 import Image from "next/image";
-import { Coffee, Flame, Languages, Mountain } from "lucide-react";
+import {
+  BedDouble,
+  Coffee,
+  CookingPot,
+  Droplets,
+  Flame,
+  Languages,
+  Moon,
+  Soup,
+  Sunrise,
+  Utensils,
+} from "lucide-react";
 import { useState } from "react";
 
 import { IMAGE_BLUR_DATA_URL } from "@/components/image/placeholder";
 import { CampIcon } from "@/components/ui/CampIcon";
 import { cn } from "@/lib/utils";
 
-interface TimelineItem {
-  title: "Breakfast" | "Adventure Block" | "English in Action" | "Evening Bonfire";
+interface DayBlock {
+  time: string;
+  title: string;
+  titleEs: string;
   description: string;
-  src: string;
-  alt: string;
   icon: typeof Coffee;
+  src?: string;
+  alt?: string;
 }
 
-const timelineItems: TimelineItem[] = [
+const dayBlocks: DayBlock[] = [
   {
+    time: "8:00",
+    title: "Wake up",
+    titleEs: "Despertar",
+    description: "A slow start for teens: beds, bags and a bit of stretching.",
+    icon: Sunrise,
+  },
+  {
+    time: "8:30",
     title: "Breakfast",
-    description: "Un comienzo tranquilo para encontrarse antes de la aventura.",
-    src: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=640&q=76",
-    alt: "Imagen editorial de referencia: desayuno en un entorno natural",
+    titleEs: "Desayuno",
+    description: "Full board at the residencia.",
     icon: Coffee,
+    src: "/camp-media/grupo-jugando.webp",
+    alt: "Fotografía real del campamento: adolescents en el patio de la residencia",
   },
   {
-    title: "Adventure Block",
-    description: "Kayak, trekking y exploración del entorno con curiosidad y respeto.",
-    src: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=640&q=76",
-    alt: "Imagen editorial de referencia: actividad acuática en aguas de montaña",
-    icon: Mountain,
-  },
-  {
-    title: "English in Action",
-    description: "Inglés en conversaciones, actividades y sesiones breves cada mañana.",
-    src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=640&q=76",
-    alt: "Imagen editorial de referencia: adolescentes participando en una actividad compartida",
+    time: "9:15",
+    title: "Morning briefing (45 min)",
+    titleEs: "Misión del día",
+    description: "The day's challenge, explained in English in small groups.",
     icon: Languages,
   },
   {
-    title: "Evening Bonfire",
-    description: "Un encuentro alrededor del fuego, sujeto a confirmación del programa.",
-    src: "https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=640&q=76",
-    alt: "Imagen editorial de referencia: fogata al aire libre durante la tarde",
+    time: "10:00",
+    title: "Adventure block",
+    titleEs: "Aventura",
+    description: "Trekking or kayak on adventure days. Sports and art at the residencia on the others.",
+    icon: Soup,
+    src: "/camp-media/kayak-en-el-lago.webp",
+    alt: "Fotografía real del campamento: grupo en kayaks sobre el lago",
+  },
+  {
+    time: "13:30",
+    title: "Lunch",
+    titleEs: "Almuerzo",
+    description: "Picnic on the trail or at the residencia.",
+    icon: Utensils,
+    src: "/camp-media/senderismo-con-villa-al-fondo.webp",
+    alt: "Fotografía real del campamento: sendero con Villa La Angostura al fondo",
+  },
+  {
+    time: "15:00",
+    title: "Rest & free time",
+    titleEs: "Descanso y tiempo libre",
+    description: "Quiet hour, games, reading, calls home.",
+    icon: BedDouble,
+  },
+  {
+    time: "16:00",
+    title: "English in action",
+    titleEs: "Inglés en acción",
+    description: "Real-life challenges: ordering, directions, teamwork missions.",
+    icon: Languages,
+    src: "/camp-media/grupo-caminando.webp",
+    alt: "Fotografía real del campamento: grupo caminando con mochilas por el bosque",
+  },
+  {
+    time: "18:00",
+    title: "Showers",
+    titleEs: "Duchas",
+    description: "Freshen up after a full day outdoors.",
+    icon: Droplets,
+  },
+  {
+    time: "19:30",
+    title: "Dinner",
+    titleEs: "Cena",
+    description: "Everyone together.",
+    icon: CookingPot,
+  },
+  {
+    time: "21:00",
+    title: "Evening activity",
+    titleEs: "Actividad nocturna",
+    description: "Stargazing, storytelling, games. The big bonfire is on the last night.",
     icon: Flame,
+    src: "/camp-media/fogata-en-el-bosque.webp",
+    alt: "Fotografía real del campamento: fogata con marshmallows en el bosque",
+  },
+  {
+    time: "22:30",
+    title: "Lights out",
+    titleEs: "A dormir",
+    description: "Everyone goes to bed after a full day. Sweet dreams!",
+    icon: Moon,
   },
 ];
 
 export function TypicalDayTimeline() {
-  const [expandedTitle, setExpandedTitle] = useState<string | null>(null);
+  const [expandedTime, setExpandedTime] = useState<string | null>(null);
 
   return (
     <div>
-      <ol className="relative grid gap-5 sm:grid-cols-2 xl:grid-cols-4 xl:gap-6" aria-label="Jornada ilustrativa del campamento">
-        {timelineItems.map((item, index) => {
-          const Icon = item.icon;
-          const isExpanded = expandedTitle === item.title;
+      <ol className="relative grid gap-4 sm:grid-cols-2 xl:grid-cols-3" aria-label="Un día típico en el campamento">
+        {dayBlocks.map((block) => {
+          const Icon = block.icon;
+          const isExpanded = expandedTime === block.time;
 
           return (
-            <li key={item.title} className="relative">
-              {index < timelineItems.length - 1 ? (
-                <span
-                  aria-hidden="true"
-                  className="absolute left-12 top-11 hidden h-px w-[calc(100%-1.5rem)] bg-gradient-to-r from-secondary/55 via-secondary/30 to-secondary/10 xl:block"
-                />
-              ) : null}
+            <li key={block.time} className="relative">
+              <article className="group relative isolate flex h-full min-h-[13rem] flex-col overflow-hidden rounded-[1.5rem] border border-subtle bg-card transition-[transform,border-color] duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-secondary/35 focus-within:-translate-y-1 focus-within:border-secondary/35 motion-reduce:transform-none motion-reduce:transition-none">
+                {block.src ? (
+                  <div className="absolute inset-0 -z-10 overflow-hidden">
+                    <Image
+                      src={block.src}
+                      alt={block.alt ?? ""}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      placeholder="blur"
+                      blurDataURL={IMAGE_BLUR_DATA_URL}
+                      className={cn(
+                        "object-cover transition-[opacity,transform] duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 group-focus-within:scale-105 motion-reduce:transform-none motion-reduce:transition-none",
+                        isExpanded ? "opacity-55" : "opacity-0",
+                      )}
+                    />
+                    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/80 to-bg-main/45" />
+                  </div>
+                ) : null}
 
-              <article className="group relative isolate flex h-full min-h-[22rem] flex-col overflow-hidden rounded-[1.75rem] border border-subtle bg-card transition-[transform,border-color] duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-secondary/35 focus-within:-translate-y-1 focus-within:border-secondary/35 motion-reduce:transform-none motion-reduce:transition-none">
-                <div
-                  id={`timeline-preview-${index}`}
-                  className={cn(
-                    "absolute inset-0 -z-10 overflow-hidden bg-surface transition-opacity duration-500 ease-[var(--ease-out-expo)] group-hover:opacity-100 group-focus-within:opacity-100 motion-reduce:transition-none",
-                    isExpanded ? "opacity-100" : "opacity-0",
-                  )}
-                  aria-hidden={!isExpanded}
+                <button
+                  type="button"
+                  className="flex h-full w-full flex-col items-start gap-4 p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-4 focus-visible:ring-offset-card"
+                  aria-expanded={isExpanded}
+                  onClick={() => setExpandedTime(isExpanded ? null : block.time)}
                 >
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                    placeholder="blur"
-                    blurDataURL={IMAGE_BLUR_DATA_URL}
-                    className="scale-105 object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-110 group-focus-within:scale-110 motion-reduce:transform-none motion-reduce:transition-none"
-                  />
-                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/75 to-bg-main/40" />
-                </div>
-
-                <div className="relative z-10 flex h-full flex-col p-6 sm:p-7">
-                  <div className="flex items-start justify-between gap-4">
-                    <CampIcon icon={Icon} size="lg" tone="oxblood" />
-                    <span
-                      aria-hidden="true"
-                      className="font-display text-4xl leading-none text-main/15 transition-colors duration-500 group-hover:text-secondary/30 group-focus-within:text-secondary/30"
-                    >
-                      {String(index + 1).padStart(2, "0")}
+                  <div className="flex w-full items-center justify-between gap-4">
+                    <CampIcon icon={Icon} size="md" tone="oxblood" />
+                    <span className="font-display text-3xl leading-none text-main/15 transition-colors duration-500 group-hover:text-secondary/35 group-focus-within:text-secondary/35">
+                      {block.time}
                     </span>
                   </div>
 
-                  <button
-                    type="button"
-                    className="mt-7 w-full min-w-0 rounded-2xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-4 focus-visible:ring-offset-card"
-                    aria-expanded={isExpanded}
-                    aria-controls={`timeline-preview-${index}`}
-                    onClick={() => setExpandedTitle(isExpanded ? null : item.title)}
-                  >
-                    <span className="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-secondary-accent">
-                      Bloque {index + 1}
-                    </span>
-                    <span className="mt-2 block whitespace-normal break-normal text-xl font-semibold leading-tight text-main [text-wrap:balance]">
-                      {item.title}
-                    </span>
-                  </button>
-
-                  <p className="mt-4 max-w-[30ch] break-words text-sm leading-6 text-muted transition-colors duration-300 group-hover:text-main/90 group-focus-within:text-main/90">
-                    {item.description}
-                  </p>
-
-                  <p className="mt-auto pt-6 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-main/45 [text-shadow:0_1px_12px_var(--bg-main)]">
-                    Vista editorial de referencia
-                  </p>
-                </div>
+                  <div className="mt-auto">
+                    <p className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-secondary-accent">
+                      {block.time} · {block.titleEs}
+                    </p>
+                    <p className="mt-1.5 text-lg font-semibold leading-tight text-main [text-wrap:balance]">
+                      {block.title}
+                    </p>
+                    <p className="mt-2 max-w-[34ch] break-words text-sm leading-6 text-muted">
+                      {block.description}
+                    </p>
+                  </div>
+                </button>
               </article>
             </li>
           );
         })}
       </ol>
 
-      <p className="mt-6 text-sm leading-6 text-muted">
-        Los horarios exactos y el fogón de la tarde son ilustrativos y están pendientes de confirmación.
-      </p>
+      <div className="mt-8 rounded-[1.5rem] border border-secondary/25 bg-secondary/8 px-6 py-5">
+        <p className="text-sm font-semibold text-main">Un día típico · Times are approximate</p>
+        <p className="mt-2 text-sm leading-6 text-muted">
+          Los horarios son aproximados y pueden variar según el clima, los requisitos de cada actividad y la organización de cada día.
+        </p>
+      </div>
     </div>
   );
 }
