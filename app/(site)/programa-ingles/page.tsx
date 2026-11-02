@@ -113,7 +113,7 @@ export default function ProgramaInglesPage() {
               <SectionHeader
                 eyebrow="El itinerario diario"
                 title="Aprender, explorar y compartir."
-                description="Este recorrido visual presenta posibles momentos de la experiencia. Los horarios exactos y el fogón de la tarde son ilustrativos y están pendientes de confirmación."
+                description="Así se vive un día en Patagonia Summer Camp: de la primera luz al último cuento antes de dormir. Los horarios son aproximados y pueden variar según el clima, los requisitos de cada actividad y la organización de cada día."
               />
             </Reveal>
             <Reveal delay={0.08} className="mt-12 lg:mt-14">

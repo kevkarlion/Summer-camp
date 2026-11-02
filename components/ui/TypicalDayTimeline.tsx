@@ -13,7 +13,8 @@ import {
   Sunrise,
   Utensils,
 } from "lucide-react";
-import { useState } from "react";
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
+import { useRef } from "react";
 
 import { IMAGE_BLUR_DATA_URL } from "@/components/image/placeholder";
 import { CampIcon } from "@/components/ui/CampIcon";
@@ -44,7 +45,7 @@ const dayBlocks: DayBlock[] = [
     description: "Full board at the residencia.",
     icon: Coffee,
     src: "/camp-media/grupo-jugando.webp",
-    alt: "Fotografía real del campamento: adolescents en el patio de la residencia",
+    alt: "Fotografía real del campamento: el grupo durante el desayuno en la residencia",
   },
   {
     time: "9:15",
@@ -119,72 +120,135 @@ const dayBlocks: DayBlock[] = [
   },
 ];
 
+interface TimelineRowProps {
+  block: DayBlock;
+  side: "left" | "right";
+}
+
+function TimelineRow({ block, side }: TimelineRowProps) {
+  const rowRef = useRef<HTMLLIElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: rowRef,
+    offset: ["start end", "end start"],
+  });
+
+  const cardY = useTransform(scrollYProgress, [0, 1], [88, -88]);
+  const markerY = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0.94, 1, 1, 0.94]);
+
+  const Icon = block.icon;
+
+  return (
+    <li
+      ref={rowRef}
+      className="relative grid grid-cols-[3.5rem_minmax(0,1fr)] items-start gap-x-4 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-x-12"
+    >
+      <motion.div
+        className="col-start-1 row-start-1 flex flex-col items-center gap-3 md:col-start-2"
+        style={{
+          y: shouldReduceMotion ? 0 : markerY,
+          opacity: shouldReduceMotion ? 1 : opacity,
+          scale: shouldReduceMotion ? 1 : scale,
+        }}
+      >
+        <CampIcon icon={Icon} size="lg" tone="oxblood" />
+        <span className="font-display text-base leading-none tracking-[0.12em] text-secondary-accent">
+          {block.time}
+        </span>
+      </motion.div>
+
+      <motion.article
+        className={cn(
+          "group relative isolate col-start-2 row-start-1 overflow-hidden rounded-[1.75rem] border border-subtle bg-card/95 p-6 backdrop-blur-sm transition-[transform,border-color] duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-secondary/35 focus-within:-translate-y-1 focus-within:border-secondary/35 sm:p-7 md:col-start-1 md:col-start-3",
+          side === "left" ? "md:col-start-1" : "md:col-start-3",
+          side === "right" && "md:col-start-3",
+        )}
+        style={{
+          y: shouldReduceMotion ? 0 : cardY,
+          opacity: shouldReduceMotion ? 1 : opacity,
+          scale: shouldReduceMotion ? 1 : scale,
+        }}
+      >
+        {block.src ? (
+          <div className="absolute inset-0 -z-10 overflow-hidden">
+            <Image
+              src={block.src}
+              alt={block.alt ?? ""}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 42vw"
+              placeholder="blur"
+              blurDataURL={IMAGE_BLUR_DATA_URL}
+              className="scale-110 object-cover opacity-0 transition-[opacity,transform] duration-700 ease-[var(--ease-out-expo)] group-hover:scale-100 group-hover:opacity-40 group-focus-within:scale-100 group-focus-within:opacity-40 motion-reduce:transform-none motion-reduce:transition-none"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/92 to-bg-main/70"
+            />
+          </div>
+        ) : null}
+
+        <div className="relative">
+          <p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-secondary-accent">
+            {block.titleEs}
+          </p>
+          <h3 className="mt-2.5 text-xl font-semibold leading-tight text-main [text-wrap:balance] sm:text-2xl">
+            {block.title}
+          </h3>
+          <p className="mt-3 max-w-[40ch] break-words text-base leading-7 text-muted">
+            {block.description}
+          </p>
+        </div>
+      </motion.article>
+    </li>
+  );
+}
+
 export function TypicalDayTimeline() {
-  const [expandedTime, setExpandedTime] = useState<string | null>(null);
+  const railRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: railRef,
+    offset: ["start 65%", "end 85%"],
+  });
+  const railScale = useSpring(scrollYProgress, { stiffness: 110, damping: 30, mass: 0.4 });
+  const dotY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <div>
-      <ol className="relative grid gap-4 sm:grid-cols-2 xl:grid-cols-3" aria-label="Un día típico en el campamento">
-        {dayBlocks.map((block) => {
-          const Icon = block.icon;
-          const isExpanded = expandedTime === block.time;
+      <div ref={railRef} className="relative">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-[1.6rem] top-0 h-full w-px bg-white/10 md:left-1/2 md:-translate-x-1/2"
+        />
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-[1.6rem] top-0 h-full w-px origin-top bg-gradient-to-b from-secondary via-primary to-secondary md:left-1/2 md:-translate-x-1/2"
+          style={{ scaleY: shouldReduceMotion ? 1 : railScale }}
+        />
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-0 top-0 h-full w-0 md:left-1/2 md:-translate-x-1/2"
+          style={{ y: shouldReduceMotion ? 0 : dotY }}
+        >
+          <span className="absolute left-1/2 top-0 size-2 -translate-x-1/2 rounded-full bg-secondary shadow-[0_0_18px_var(--color-secondary)]" />
+        </motion.div>
 
-          return (
-            <li key={block.time} className="relative">
-              <article className="group relative isolate flex h-full min-h-[13rem] flex-col overflow-hidden rounded-[1.5rem] border border-subtle bg-card transition-[transform,border-color] duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-secondary/35 focus-within:-translate-y-1 focus-within:border-secondary/35 motion-reduce:transform-none motion-reduce:transition-none">
-                {block.src ? (
-                  <div className="absolute inset-0 -z-10 overflow-hidden">
-                    <Image
-                      src={block.src}
-                      alt={block.alt ?? ""}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                      placeholder="blur"
-                      blurDataURL={IMAGE_BLUR_DATA_URL}
-                      className={cn(
-                        "object-cover transition-[opacity,transform] duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 group-focus-within:scale-105 motion-reduce:transform-none motion-reduce:transition-none",
-                        isExpanded ? "opacity-55" : "opacity-0",
-                      )}
-                    />
-                    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/80 to-bg-main/45" />
-                  </div>
-                ) : null}
+        <ol className="relative flex flex-col gap-14 md:gap-20 lg:gap-24">
+          {dayBlocks.map((block, index) => (
+            <TimelineRow key={block.time} block={block} side={index % 2 === 0 ? "left" : "right"} />
+          ))}
+        </ol>
+      </div>
 
-                <button
-                  type="button"
-                  className="flex h-full w-full flex-col items-start gap-4 p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-4 focus-visible:ring-offset-card"
-                  aria-expanded={isExpanded}
-                  onClick={() => setExpandedTime(isExpanded ? null : block.time)}
-                >
-                  <div className="flex w-full items-center justify-between gap-4">
-                    <CampIcon icon={Icon} size="md" tone="oxblood" />
-                    <span className="font-display text-3xl leading-none text-main/15 transition-colors duration-500 group-hover:text-secondary/35 group-focus-within:text-secondary/35">
-                      {block.time}
-                    </span>
-                  </div>
-
-                  <div className="mt-auto">
-                    <p className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-secondary-accent">
-                      {block.time} · {block.titleEs}
-                    </p>
-                    <p className="mt-1.5 text-lg font-semibold leading-tight text-main [text-wrap:balance]">
-                      {block.title}
-                    </p>
-                    <p className="mt-2 max-w-[34ch] break-words text-sm leading-6 text-muted">
-                      {block.description}
-                    </p>
-                  </div>
-                </button>
-              </article>
-            </li>
-          );
-        })}
-      </ol>
-
-      <div className="mt-8 rounded-[1.5rem] border border-secondary/25 bg-secondary/8 px-6 py-5">
+      <div className="mt-14 rounded-[1.5rem] border border-secondary/25 bg-secondary/8 px-6 py-6">
         <p className="text-sm font-semibold text-main">Un día típico · Times are approximate</p>
         <p className="mt-2 text-sm leading-6 text-muted">
           Los horarios son aproximados y pueden variar según el clima, los requisitos de cada actividad y la organización de cada día.
+        </p>
+        <p className="mt-4 font-display text-sm italic tracking-[0.08em] text-secondary-accent">
+          Explore Beyond · Explorá más allá
         </p>
       </div>
     </div>
