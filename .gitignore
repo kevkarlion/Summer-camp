@@ -9,3 +9,4 @@ npm-debug.log*
 !.env.example
 .vercel
 *.tsbuildinfo
+next-env.d.ts
