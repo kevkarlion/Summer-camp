@@ -58,7 +58,7 @@ export function HoverRevealCard({
         alt=""
         fill
         sizes={sizes}
-        priority={priority}
+        priority={false}
         placeholder="blur"
         blurDataURL={IMAGE_BLUR_DATA_URL}
         className="scale-110 object-cover opacity-0 transition-opacity duration-700 ease-[var(--ease-out-expo)] group-hover:opacity-100 group-focus-within:opacity-100 motion-reduce:transition-none"
