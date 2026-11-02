@@ -77,9 +77,9 @@ The public Home is implemented at `app/(site)/page.tsx`; preserve the `/` route 
 
 ## Tasks
 
-- T1 — S2-S5, S7 — Build reusable `ParallaxImageContainer`, `OrganicMaskImage`, and `HoverRevealImageCard` components with typed props, optimized images, blur placeholders, and reduced-motion fallbacks. Route: delegated writer. Commit: `feat: add editorial photography components`.
-- T2 — S1-S5, S7 — Refactor `app/(site)/page.tsx` into the image-first composition: cinematic Hero, five photographic philosophy pillars, Laponia-to-Patagonia diptych, 26-hectare photographic residence gallery with accessible lightbox, and typical-day visual timeline. Route: delegated writer. Commit: `feat: redesign home as image-first patagonia story`.
-- T3 — S1-S7 — Reconcile the visual composition with the authoritative brief, ensure fallback imagery is not presented as authentic documentary photography, and preserve all current factual corrections from T7 of the cinematic feature. Route: inline. Commit: `fix: align image-first story with verified content`.
+- T1 — S2-S5, S7 — Build reusable `ParallaxImageContainer`, `OrganicMaskImage`, and `HoverRevealImageCard` components with typed props, optimized images, blur placeholders, and reduced-motion fallbacks. Route: inline. Commit: `189f37d` (`feat: add editorial photography components`).
+- T2 — S1-S5, S7 — Refactor `app/(site)/page.tsx` into the image-first composition: cinematic Hero, five photographic philosophy pillars, Laponia-to-Patagonia diptych, 26-hectare photographic residence gallery with accessible lightbox, and typical-day visual timeline. Route: delegated writer. Commit: `be4a563` (`feat: redesign home as image-first patagonia story`).
+- T3 — S1-S7 — Reconcile the visual composition with the authoritative brief, ensure fallback imagery is not presented as authentic documentary photography, and preserve all current factual corrections from T7 of the cinematic feature. Route: inline. Commits: `63c2c69`, `7de3c80` (token-safe reveal and single-priority image corrections).
 - T4 — S1-S7 — Verify image loading, Core Web Vitals safeguards, responsive behavior, keyboard lightbox, reduced motion, metadata parity, typecheck, lint, and production build. Route: inline. Commit: `chore: verify image-first home quality gates`.
 
 ## Log
@@ -155,3 +155,12 @@ The public Home is implemented at `app/(site)/page.tsx`; preserve the `/` route 
 - Use editorial fallback photography only. Do not claim fallback portraits show Hernán Paulitti or the actual residence.
 - Preserve the existing Home metadata, canonical URL, JSON-LD, CTA destinations, and the 13–17 audience correction.
 - Reuse or replace the existing `components/motion/ParallaxImage.tsx` through the requested public `components/ui/ParallaxImage.tsx` API without leaving duplicate implementations.
+
+### L3 — Verification evidence
+
+- All 18 distinct Unsplash image URLs returned HTTP 200 during the final availability check.
+- The Home contains exactly one explicitly prioritized image, reserved for the LCP Hero background; every `next/image` placement has a responsive `sizes` value.
+- The Home retains one semantic H1 through `TextReveal`, the native-dialog lightbox has labelled content and explicit focus entry/restoration, and the typical-day timeline exposes `aria-expanded`/`aria-controls` with touch activation.
+- Fallback image alt text identifies editorial references, while residence, founder, and schedule sections disclose that imagery and timing are illustrative rather than documentary or final.
+- `npm run typecheck`, `npm run lint`, and `npm run build` pass; all 15 routes prerender successfully.
+- The supplied raster `public/logo.png` is preserved as an alternate brand source. The visible header/footer continue using the optimized SVG lockup to avoid duplicate payload weight.
