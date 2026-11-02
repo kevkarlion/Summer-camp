@@ -160,14 +160,14 @@ export default function HomePage() {
     <main id="main-content">
       <section className="relative isolate flex min-h-[92svh] items-center overflow-hidden pb-16 pt-32 sm:pt-36">
         <Image
-          src="https://images.unsplash.com/photo-1627178833936-a6c8d9e8a07c?auto=format&fit=crop&w=2400&q=88"
-          alt="Bosque y aguas de verano de Villa La Angostura, Patagonia"
+          src="/hero-villa-la-angostura.webp"
+          alt="Vista panorámica de verano de Villa La Angostura: lago turquesa, bosque nativo y montañas"
           fill
           priority
           placeholder="blur"
           blurDataURL={IMAGE_BLUR_DATA_URL}
           sizes="100vw"
-          className="-z-20 object-cover"
+          className="-z-20 object-cover object-center"
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(11,19,32,0.96)_0%,rgba(11,19,32,0.76)_48%,rgba(11,19,32,0.22)_100%)]" />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(11,19,32,0.18)_0%,rgba(11,19,32,0.42)_62%,var(--bg-main)_100%)]" />
