@@ -21,9 +21,10 @@ export function PageHero({ eyebrow, title, description, image, imageAlt, childre
         fill
         priority
         sizes="100vw"
-        className="-z-20 object-cover opacity-45"
+        className="-z-20 object-cover opacity-70"
       />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(11,19,32,0.5)_0%,rgba(11,19,32,0.82)_58%,var(--bg-main)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(11,19,32,0.78)_0%,rgba(11,19,32,0.38)_58%,rgba(11,19,32,0.12)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(11,19,32,0.18)_0%,rgba(11,19,32,0.48)_52%,var(--bg-main)_100%)]" />
       <div className="absolute -left-24 top-20 -z-10 size-80 rounded-full bg-primary/12 blur-[120px]" />
 
       <Container className="max-w-5xl">

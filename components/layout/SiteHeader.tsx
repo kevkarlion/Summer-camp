@@ -11,10 +11,31 @@ import { Container } from "@/components/layout/Container";
 import { cn } from "@/lib/utils";
 
 const navigation = [
+  { href: "/", label: "Inicio" },
   { href: "/programa-ingles", label: "Programa" },
+  { href: "/programa-ingles/adolescentes", label: "13–17 años" },
   { href: "/itinerario-y-actividades", label: "Experiencias" },
+  { href: "/destino/villa-la-angostura", label: "Destino" },
   { href: "/seguridad-y-coordinacion", label: "Seguridad" },
+  { href: "/guia-familias", label: "Guía" },
+  { href: "/preguntas-frecuentes", label: "FAQ" },
   { href: "/sobre-nosotros", label: "Nosotros" },
+  { href: "/contacto", label: "Contacto" },
+];
+
+const mobileGroups = [
+  {
+    label: "La experiencia",
+    items: navigation.slice(1, 5),
+  },
+  {
+    label: "Para las familias",
+    items: navigation.slice(5, 8),
+  },
+  {
+    label: "El proyecto",
+    items: navigation.slice(8),
+  },
 ];
 
 export function SiteHeader() {
@@ -22,10 +43,16 @@ export function SiteHeader() {
   const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
 
+  const closeMenu = () => setIsOpen(false);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-subtle bg-main/78 backdrop-blur-xl">
-      <Container className="flex h-20 items-center justify-between gap-6">
-        <Link href="/" className="group flex items-center gap-3" aria-label="Patagonia Summer Camp 2027, inicio">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-subtle bg-main/88 backdrop-blur-xl">
+      <Container className="flex h-20 items-center justify-between gap-5 xl:gap-8">
+        <Link
+          href="/"
+          className="group flex shrink-0 items-center gap-3"
+          aria-label="Patagonia Summer Camp 2027, inicio"
+        >
           <Image
             src="/patagonia-summer-camp-mark-new.png"
             alt=""
@@ -39,34 +66,37 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Navegación principal">
+        <nav className="hidden min-w-0 flex-1 items-center justify-end gap-1 xl:flex" aria-label="Navegación principal">
           {navigation.map((item) => {
             const isActive = pathname === item.href;
+            const isContact = item.href === "/contacto";
+
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "text-sm font-medium text-muted transition-colors duration-300 hover:text-main",
-                  isActive && "text-main",
+                  "relative rounded-full px-2.5 py-2 text-xs font-medium transition-[color,background-color,opacity] duration-300 hover:bg-overlay-soft hover:text-main 2xl:px-3 2xl:text-sm",
+                  isActive ? "bg-overlay-soft text-main" : "text-muted",
+                  isContact && "ml-1 border border-primary/30 bg-primary/10 text-primary-accent hover:bg-primary/15 hover:text-primary-accent",
                 )}
               >
                 {item.label}
+                {isActive ? (
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-2.5 -bottom-[1.15rem] h-px bg-secondary/80"
+                  />
+                ) : null}
               </Link>
             );
           })}
         </nav>
 
-        <div className="hidden lg:block">
-          <Button href="/contacto" size="sm">
-            Consultar lugar
-          </Button>
-        </div>
-
         <button
           type="button"
-          className="grid size-11 place-items-center rounded-full border border-subtle bg-overlay-soft text-main lg:hidden"
+          className="grid size-11 shrink-0 place-items-center rounded-full border border-subtle bg-overlay-soft text-main xl:hidden"
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
@@ -80,25 +110,53 @@ export function SiteHeader() {
         {isOpen ? (
           <motion.div
             id="mobile-navigation"
-            className="border-t border-subtle bg-main px-5 py-5 lg:hidden"
+            className="max-h-[calc(100svh-5rem)] overflow-y-auto border-t border-subtle bg-main/98 px-5 py-5 backdrop-blur-xl xl:hidden"
             initial={shouldReduceMotion ? false : { opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={shouldReduceMotion ? undefined : { opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
-            <nav className="mx-auto flex max-w-7xl flex-col" aria-label="Navegación móvil">
-              {navigation.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="border-b border-subtle py-4 text-base font-medium text-muted transition-colors hover:text-main"
-                >
-                  {item.label}
-                </Link>
+            <nav className="mx-auto max-w-7xl" aria-label="Navegación móvil">
+              <Link
+                href="/"
+                onClick={closeMenu}
+                aria-current={pathname === "/" ? "page" : undefined}
+                className="mb-5 flex items-center justify-between border-b border-subtle pb-4 text-base font-semibold text-main"
+              >
+                Inicio
+                <span aria-hidden="true" className="text-primary-accent">→</span>
+              </Link>
+
+              {mobileGroups.map((group) => (
+                <div key={group.label} className="mb-6 last:mb-0">
+                  <p className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-secondary-accent">
+                    {group.label}
+                  </p>
+                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                    {group.items.map((item) => {
+                      const isActive = pathname === item.href;
+
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={closeMenu}
+                          aria-current={isActive ? "page" : undefined}
+                          className={cn(
+                            "rounded-xl border border-subtle bg-overlay-soft px-3 py-3 text-sm font-medium text-muted transition-colors hover:border-primary/30 hover:text-main",
+                            isActive && "border-primary/35 bg-primary/10 text-primary-accent",
+                          )}
+                        >
+                          {item.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
               ))}
-              <Button href="/contacto" className="mt-5 w-full" onClick={() => setIsOpen(false)}>
-                Consultar lugar
+
+              <Button href="/contacto" className="mt-6 w-full" onClick={closeMenu}>
+                Consultar información
               </Button>
             </nav>
           </motion.div>
