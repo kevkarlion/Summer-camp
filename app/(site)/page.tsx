@@ -158,7 +158,7 @@ export default function HomePage() {
 
   return (
     <main id="main-content">
-      <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden pb-14 pt-28 sm:min-h-[48rem] sm:pb-16 sm:pt-32 lg:min-h-[100svh] lg:pb-20 lg:pt-36">
+      <section className="relative isolate flex min-h-[100svh] items-start overflow-hidden pb-14 pt-28 sm:min-h-[48rem] sm:pb-16 sm:pt-32 lg:min-h-[100svh] lg:items-start lg:pb-20 lg:pt-32">
         <Image
           src="/hero-villa-la-angostura.webp"
           alt="Vista panorámica de verano de Villa La Angostura: lago turquesa, bosque nativo y montañas"
@@ -174,7 +174,7 @@ export default function HomePage() {
         <div aria-hidden="true" className="pointer-events-none absolute -left-32 top-24 -z-10 size-[30rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
         <div aria-hidden="true" className="pointer-events-none absolute -right-28 bottom-10 -z-10 size-[26rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
 
-        <Container className="relative py-10 sm:py-14 lg:py-20">
+        <Container className="relative py-10 sm:py-12 lg:py-0">
           <Reveal className="max-w-5xl lg:max-w-[58rem]">
             <Badge variant="secondary" className="mb-7"><Sparkles aria-hidden="true" size={14} /> Temporada 2027</Badge>
             <TextReveal as="h1" className="text-[clamp(3.25rem,7.2vw,7.25rem)] font-semibold leading-[0.94] tracking-[-0.055em] text-main">

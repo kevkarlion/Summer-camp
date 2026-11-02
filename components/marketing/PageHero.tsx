@@ -14,7 +14,7 @@ export interface PageHeroProps {
 
 export function PageHero({ eyebrow, title, description, image, imageAlt, children }: PageHeroProps) {
   return (
-    <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden pb-20 pt-32 sm:min-h-[46rem] sm:pb-24 sm:pt-36 lg:min-h-[100svh] lg:pb-28 lg:pt-40">
+    <section className="relative isolate flex min-h-[100svh] items-start overflow-hidden pb-20 pt-32 sm:min-h-[46rem] sm:pb-24 sm:pt-36 lg:min-h-[100svh] lg:items-start lg:pb-28 lg:pt-32">
       <Image
         src={image}
         alt={imageAlt}
