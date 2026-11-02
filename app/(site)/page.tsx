@@ -28,6 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: "Patagonia Summer Camp 2027 | Inmersión en Inglés & Aventura",
   description,
+  keywords: ["summer camp patagonia", "campamento de ingles argentina"],
   alternates: { canonical: "/" },
   openGraph: {
     title: "Patagonia Summer Camp 2027 | Inmersión en Inglés & Aventura",
