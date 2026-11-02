@@ -176,12 +176,11 @@ export default function HomePage() {
 
         <Container className="relative py-10 sm:py-12 lg:py-0">
           <Reveal className="max-w-5xl lg:max-w-[58rem]">
-            <div className="copy-scrim -m-3 rounded-[1.5rem] p-3 sm:-m-4 sm:rounded-[1.75rem] sm:p-4">
             <Badge variant="secondary" className="mb-7"><Sparkles aria-hidden="true" size={14} /> Temporada 2027</Badge>
-            <TextReveal as="h1" className="text-[clamp(3.25rem,7.2vw,7.25rem)] font-semibold leading-[0.94] tracking-[-0.055em] text-main">
+            <TextReveal as="h1" className="hero-copy-shadow text-[clamp(3.25rem,7.2vw,7.25rem)] font-semibold leading-[0.94] tracking-[-0.055em] text-main">
               Inglés, aventura y Patagonia.
             </TextReveal>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-main/90 sm:mt-7 sm:text-xl">
+            <p className="hero-copy-shadow mt-6 max-w-2xl text-lg leading-8 text-main sm:mt-7 sm:text-xl">
               Una experiencia residencial al aire libre para que cada adolescente vuelva más seguro, curioso y conectado con el mundo.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">
@@ -194,7 +193,6 @@ export default function HomePage() {
                   <CheckCircle2 aria-hidden="true" size={16} className="text-primary-accent" /> {item}
                 </span>
               ))}
-            </div>
             </div>
           </Reveal>
         </Container>
