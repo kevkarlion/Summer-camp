@@ -13,4 +13,3 @@ next-env.d.ts
 *.Zone.Identifier
 *:Zone.Identifier
 public/*.docx
-public/logo.png

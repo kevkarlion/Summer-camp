@@ -20,10 +20,10 @@ export function SiteFooter() {
       <Container className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr] lg:py-20">
         <div>
           <Image
-            src="/patagonia-summer-camp-logo-on-dark.svg"
+            src="/logo.png"
             alt="Patagonia Summer Camp — Explore Beyond"
             width={220}
-            height={169}
+            height={229}
             className="h-auto w-48 sm:w-56"
           />
           <h2 className="mt-5 max-w-sm text-3xl font-semibold leading-tight tracking-[-0.03em] text-main">

@@ -27,9 +27,9 @@ export function SiteHeader() {
       <Container className="flex h-20 items-center justify-between gap-6">
         <Link href="/" className="group flex items-center gap-3" aria-label="Patagonia Summer Camp 2027, inicio">
           <Image
-            src="/patagonia-summer-camp-mark.svg"
+            src="/patagonia-summer-camp-mark-new.png"
             alt=""
-            width={44}
+            width={40}
             height={40}
             className="size-10 shrink-0 transition-transform duration-300 ease-expo group-hover:-translate-y-0.5"
           />
