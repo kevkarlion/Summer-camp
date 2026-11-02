@@ -51,7 +51,7 @@ export function TypicalDayTimeline() {
 
   return (
     <div>
-      <ol className="relative grid gap-5 lg:grid-cols-4 lg:gap-7" aria-label="Jornada ilustrativa del campamento">
+      <ol className="relative grid gap-5 md:grid-cols-2 xl:grid-cols-4 xl:gap-7" aria-label="Jornada ilustrativa del campamento">
         {timelineItems.map((item, index) => {
           const Icon = item.icon;
           const isExpanded = expandedTitle === item.title;
@@ -61,7 +61,7 @@ export function TypicalDayTimeline() {
               {index < timelineItems.length - 1 ? (
                 <span
                   aria-hidden="true"
-                  className="absolute left-11 top-6 hidden h-px w-[calc(100%+1.75rem)] bg-gradient-to-r from-secondary/60 to-secondary/15 lg:block"
+                  className="absolute left-11 top-6 hidden h-px w-[calc(100%+1.75rem)] bg-gradient-to-r from-secondary/60 to-secondary/15 xl:block"
                 />
               ) : null}
               <article className="group relative isolate min-h-72 overflow-hidden rounded-[1.75rem] border border-subtle bg-card transition-[transform,opacity] duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 focus-within:-translate-y-1 motion-reduce:transform-none motion-reduce:transition-none">
@@ -77,12 +77,12 @@ export function TypicalDayTimeline() {
                     src={item.src}
                     alt={item.alt}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 25vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
                     placeholder="blur"
                     blurDataURL={IMAGE_BLUR_DATA_URL}
                     className="scale-105 object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-110 group-focus-within:scale-110 motion-reduce:transform-none motion-reduce:transition-none"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/65 to-bg-main/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/80 to-bg-main/45" />
                 </div>
 
                 <div className="relative z-10 flex h-full min-h-72 flex-col p-5">
@@ -96,17 +96,19 @@ export function TypicalDayTimeline() {
                     <span className="relative z-10 grid size-12 shrink-0 place-items-center rounded-full border border-secondary/30 bg-bg-main text-secondary-accent">
                       <Icon aria-hidden="true" size={21} />
                     </span>
-                    <span className="min-w-0">
+                    <span className="min-w-0 flex-1">
                       <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-secondary-accent">
                         Bloque {index + 1}
                       </span>
-                      <span className="mt-1 block break-words font-semibold text-main">{item.title}</span>
+                      <span className="mt-1 block whitespace-normal break-normal text-[1.05rem] font-semibold leading-6 text-main [text-wrap:balance]">
+                        {item.title}
+                      </span>
                     </span>
                   </button>
-                  <p className="mt-4 max-w-[28ch] break-words text-sm leading-6 text-muted transition-colors duration-300 group-hover:text-main/90 group-focus-within:text-main/90">
+                  <p className="mt-4 max-w-[32ch] break-words text-sm leading-6 text-muted transition-colors duration-300 group-hover:text-main group-focus-within:text-main">
                     {item.description}
                   </p>
-                  <p className="mt-auto pt-5 text-xs font-semibold text-secondary-accent">
+                  <p className="mt-auto pt-5 text-xs font-semibold text-secondary-accent [text-shadow:0_1px_12px_var(--bg-main)]">
                     Vista editorial de referencia
                   </p>
                 </div>

@@ -411,19 +411,17 @@ export default function HomePage() {
 
       <section className="relative overflow-hidden bg-surface py-24 sm:py-28 lg:py-36">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
-            <Reveal>
-              <SectionHeader
-                eyebrow="Una jornada ilustrativa"
-                title="Aprender, explorar y compartir."
-                description="Este recorrido visual presenta posibles momentos de la experiencia. Los horarios exactos y el fogón de la tarde son ilustrativos y están pendientes de confirmación."
-              />
-              <Button href="/itinerario-y-actividades" variant="secondary" className="mt-9">Ver actividades <ArrowRight aria-hidden="true" size={17} /></Button>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <TypicalDayTimeline />
-            </Reveal>
-          </div>
+          <Reveal className="max-w-3xl">
+            <SectionHeader
+              eyebrow="Una jornada ilustrativa"
+              title="Aprender, explorar y compartir."
+              description="Este recorrido visual presenta posibles momentos de la experiencia. Los horarios exactos y el fogón de la tarde son ilustrativos y están pendientes de confirmación."
+            />
+            <Button href="/itinerario-y-actividades" variant="secondary" className="mt-9">Ver actividades <ArrowRight aria-hidden="true" size={17} /></Button>
+          </Reveal>
+          <Reveal delay={0.08} className="mt-14 lg:mt-16">
+            <TypicalDayTimeline />
+          </Reveal>
         </Container>
       </section>
 
