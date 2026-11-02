@@ -46,10 +46,20 @@ Use the authentic photography supplied in `public/Patagonia Summer Camp 2027 -la
 
 ## Tasks
 
-- T1 — S1-S3 — Extract, rename, and optimize the real camp media into `public/camp-media/`. Route: inline. Commit: `feat: add authentic camp photography assets`.
-- T2 — S2, S5-S6 — Rebuild the daily itinerary as the real 12-block camp schedule with bilingual labels and approximate-time caveat. Route: inline. Commit: `feat: build real typical day itinerary`.
-- T3 — S1, S4-S6 — Replace stock fallbacks with the real photography across Home, destination, activities, program, and about. Route: inline. Commit: `feat: use real camp photography across site`.
-- T4 — S1-S6 — Verify asset delivery, alt text, metadata parity, accessibility, typecheck, lint, and production build. Route: inline. Commit: `chore: verify authentic photography rollout`.
+- T1 — S1-S3 — Extract, rename, and optimize the real camp media into `public/camp-media/`. Route: inline. Commit: `e26a291` (`feat: add authentic camp photography assets`).
+- T2 — S2, S5-S6 — Rebuild the daily itinerary as the real 11-block camp schedule with bilingual labels and approximate-time caveat. Route: inline. Commit: `eb74b9a` (`feat: use real camp photography and typical day across site`).
+- T3 — S1, S4-S6 — Replace stock fallbacks with the real photography across Home, destination, activities, program, about, safety, guide and FAQ. Route: inline. Commit: `eb74b9a` (`feat: use real camp photography and typical day across site`).
+- T4 — S1-S6 — Verify asset delivery, alt text, metadata parity, accessibility, typecheck, lint, and production build. Route: inline. Commit: `d97f00b` (`chore: keep client reference artwork out of the build`).
+
+### L3 — Verification evidence
+
+- 12 embedded media files were extracted from the DOCX and converted to WebP; the shipped set is 2.8 MB versus 7.1 MB of original media.
+- 11 shipped assets are referenced across the site; every referenced path exists in `public/camp-media/`.
+- Zero Unsplash references remain in `app/` and `components/`.
+- Zero "imagen editorial de referencia" labels remain: every photograph is now real camp photography.
+- Every `next/image` usage of a camp-media asset carries an `alt` attribute.
+- The infographic `a-typical-day-reference.png` is client reference artwork and is excluded from the build via `.gitignore`.
+- `npm run typecheck`, `npm run lint`, and the 16-route production build pass.
 
 ## Log
 
