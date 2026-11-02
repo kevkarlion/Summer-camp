@@ -116,9 +116,9 @@ export default function ProgramaInglesPage() {
                 description="Así se vive un día en Patagonia Summer Camp: de la primera luz al último cuento antes de dormir. Los horarios son aproximados y pueden variar según el clima, los requisitos de cada actividad y la organización de cada día."
               />
             </Reveal>
-            <Reveal delay={0.08} className="mt-12 lg:mt-14">
+            <div className="mt-12 lg:mt-14">
               <TypicalDayTimeline />
-            </Reveal>
+            </div>
           </Container>
         </section>
 

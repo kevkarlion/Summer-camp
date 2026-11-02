@@ -161,9 +161,8 @@ function TimelineRow({ block, side }: TimelineRowProps) {
 
       <motion.article
         className={cn(
-          "group relative isolate col-start-2 row-start-1 overflow-hidden rounded-[1.75rem] border border-subtle bg-card/95 p-6 backdrop-blur-sm transition-[transform,border-color] duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-secondary/35 focus-within:-translate-y-1 focus-within:border-secondary/35 sm:p-7 md:col-start-1 md:col-start-3",
+          "group relative isolate col-start-2 row-start-1 overflow-hidden rounded-[1.75rem] border border-subtle bg-card/95 p-6 backdrop-blur-sm transition-[transform,border-color] duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-secondary/35 focus-within:-translate-y-1 focus-within:border-secondary/35 sm:p-7",
           side === "left" ? "md:col-start-1" : "md:col-start-3",
-          side === "right" && "md:col-start-3",
         )}
         style={{
           y: shouldReduceMotion ? 0 : cardY,
