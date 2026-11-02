@@ -10,10 +10,21 @@ export const siteConfig = {
   },
 } as const;
 
-export const routePaths = [
+export type RoutePath =
+  | ""
+  | "/programa-ingles"
+  | "/programa-ingles/adolescentes"
+  | "/destino/villa-la-angostura"
+  | "/itinerario-y-actividades"
+  | "/seguridad-y-coordinacion"
+  | "/preguntas-frecuentes"
+  | "/guia-familias"
+  | "/sobre-nosotros"
+  | "/programa-ingles/ninos";
+
+export const routePaths: readonly RoutePath[] = [
   "",
   "/programa-ingles",
-  "/programa-ingles/ninos",
   "/programa-ingles/adolescentes",
   "/destino/villa-la-angostura",
   "/itinerario-y-actividades",
@@ -21,4 +32,4 @@ export const routePaths = [
   "/preguntas-frecuentes",
   "/guia-familias",
   "/sobre-nosotros",
-] as const;
+];
