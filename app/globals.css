@@ -52,6 +52,12 @@
     --surface-cta-start: #10291f;
     --surface-cta-end: rgba(15, 23, 42, 0.58);
 
+    /* Insignias clásicas de campamento */
+    --scout-navy: #1d2a3a;
+    --scout-parchment: #f2e6cc;
+    --scout-oxblood: #7d332b;
+    --scout-khaki: #d6c39c;
+
     /* Movimiento */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 

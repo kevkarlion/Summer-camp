@@ -9,23 +9,23 @@ export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 const variantClasses: Record<BadgeVariant, string> = {
-  primary: "border-primary/35 bg-primary/8 text-primary-accent",
-  secondary: "border-secondary/40 bg-secondary/8 text-secondary-accent",
-  neutral: "border-subtle bg-overlay-soft text-main",
-  outline: "border-subtle bg-transparent text-muted",
+  primary: "bg-[var(--scout-navy)] text-[var(--scout-parchment)]",
+  secondary: "bg-[var(--scout-oxblood)] text-[var(--scout-parchment)]",
+  neutral: "bg-[var(--scout-khaki)] text-[var(--scout-navy)]",
+  outline: "border border-[var(--scout-khaki)]/60 bg-transparent text-[var(--scout-khaki)]",
 };
 
 export function Badge({ variant = "neutral", className, children, ...props }: BadgeProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-[0.2rem] border px-3.5 py-1.5 font-display text-xs font-medium italic leading-none tracking-[0.06em] shadow-[0_1px_0_rgba(255,255,255,0.04)]",
+        "relative isolate inline-flex min-h-7 items-center gap-2 overflow-hidden px-4 py-1.5 font-sans text-[0.65rem] font-bold uppercase leading-none tracking-[0.16em] shadow-[0_5px_18px_rgba(2,6,23,0.24)] before:pointer-events-none before:absolute before:inset-[3px] before:border before:border-dashed before:border-current/40 before:content-['']",
         variantClasses[variant],
         className,
       )}
       {...props}
     >
-      {children}
+      <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
     </span>
   );
 }
