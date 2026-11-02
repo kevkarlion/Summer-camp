@@ -46,10 +46,20 @@ Give Villa La Angostura, the activities page, and the English program the photog
 
 ## Tasks
 
-- T1 — S1-S6 — Rebuild `/destino/villa-la-angostura` with a photographic landscape narrative of Villa La Angostura and its natural surroundings. Route: delegated writer. Commit: `feat: add photographic villa la angostura narrative`.
-- T2 — S2, S4-S6 — Rebuild `/itinerario-y-actividades` with contextual photography for each activity. Route: delegated writer. Commit: `feat: add photographic activity stories`.
-- T3 — S3-S6 — Move the illustrative daily timeline from the Home to `/programa-ingles` as a graphic camp itinerary strip. Route: delegated writer. Commit: `feat: move daily itinerary into english program`.
+- T1 — S1-S6 — Rebuild `/destino/villa-la-angostura` with a photographic landscape narrative of Villa La Angostura and its natural surroundings. Route: inline. Commit: `6dd81b1` (`feat: add photographic strategic pages and camp itinerary`).
+- T2 — S2, S4-S6 — Rebuild `/itinerario-y-actividades` with contextual photography for each activity. Route: inline. Commit: `6dd81b1` (`feat: add photographic strategic pages and camp itinerary`).
+- T3 — S3-S6 — Move the illustrative daily timeline from the Home to `/programa-ingles` as a graphic camp itinerary strip. Route: inline. Commit: `6dd81b1` (`feat: add photographic strategic pages and camp itinerary`).
 - T4 — S1-S6 — Verify image loading, editorial labels, metadata parity, accessibility, typecheck, lint, and production build. Route: inline. Commit: `chore: verify strategic page visual upgrade`.
+
+### L3 — Verification evidence
+
+- All 14 distinct Unsplash URLs used by the two strategic pages returned HTTP 200.
+- Both pages keep byte-identical `metadata` exports (title, description, keywords, canonical, OpenGraph, Twitter).
+- Destination: 4 photographic scenes (turquoise water, native forest, mountain range, lake landscape) plus a parallax evening scene; 7 editorial-reference labels.
+- Activities: 5 contextual activity photographs (kayak, trekking, local producers, group coexistence, landscape exploration) plus the existing Hero; 6 editorial-reference labels.
+- The Home no longer imports or renders `TypicalDayTimeline`; `/programa-ingles` renders it as the “El itinerario diario” section.
+- Every `next/image` block has a responsive `sizes` value; only the PageHero LCP image is prioritized.
+- `npm run typecheck`, `npm run lint`, and the 16-route production build pass.
 
 ## Log
 
