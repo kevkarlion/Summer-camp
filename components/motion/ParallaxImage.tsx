@@ -1,9 +1,11 @@
-"use client";
+import type { ImageProps } from "next/image";
 
-import Image, { type ImageProps } from "next/image";
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
-import { cn } from "@/lib/utils";
+import { ParallaxImageContainer } from "@/components/ui/ParallaxImage";
+
+export {
+  ParallaxImageContainer,
+  type ParallaxImageContainerProps,
+} from "@/components/ui/ParallaxImage";
 
 export interface ParallaxImageProps extends Omit<ImageProps, "className"> {
   className?: string;
@@ -11,10 +13,7 @@ export interface ParallaxImageProps extends Omit<ImageProps, "className"> {
   imageClassName?: string;
 }
 
-/**
- * A semantic Next.js image with a small, transform-only parallax movement.
- * Reduced-motion users receive the same image at its resting position.
- */
+/** @deprecated Use ParallaxImageContainer from @/components/ui/ParallaxImage. */
 export function ParallaxImage({
   className,
   containerClassName,
@@ -22,34 +21,14 @@ export function ParallaxImage({
   alt,
   ...imageProps
 }: ParallaxImageProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const shouldReduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [-30, 30]);
-  const y = shouldReduceMotion ? 0 : parallaxY;
-
   return (
-    <div
-      ref={containerRef}
-      className={cn("relative overflow-hidden", containerClassName)}
-    >
-      <motion.div
-        className={cn(
-          imageProps.fill
-            ? "absolute inset-x-0 -top-[10%] h-[120%] will-change-transform motion-reduce:will-change-auto"
-            : "relative",
-        )}
-        style={{ y }}
-      >
-        <Image
-          {...imageProps}
-          alt={alt}
-          className={cn("object-cover", className, imageClassName)}
-        />
-      </motion.div>
-    </div>
+    <ParallaxImageContainer
+      src={imageProps.src}
+      alt={alt}
+      sizes={imageProps.sizes}
+      priority={imageProps.priority}
+      className={containerClassName}
+      imageClassName={imageClassName ?? className}
+    />
   );
 }
