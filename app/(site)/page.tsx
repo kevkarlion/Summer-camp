@@ -311,7 +311,7 @@ export default function HomePage() {
 
       <section className="py-24 sm:py-28 lg:py-36">
         <Container>
-          <Reveal className="relative overflow-hidden rounded-[2rem] border border-primary/20 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.18),transparent_38%),linear-gradient(135deg,#10291f,#0f172a_58%)] p-8 sm:p-12 lg:p-16">
+          <Reveal className="relative overflow-hidden rounded-[2rem] border border-primary/20 surface-cta p-8 sm:p-12 lg:p-16">
             <div className="max-w-3xl">
               <Badge variant="secondary"><ShieldCheck aria-hidden="true" size={14} /> Seguridad responsable</Badge>
               <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-[-0.035em] text-main sm:text-5xl">

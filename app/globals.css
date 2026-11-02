@@ -48,6 +48,8 @@
     --glass-blur: 12px;
     --overlay-soft: rgba(255, 255, 255, 0.05);
     --overlay-hover: rgba(255, 255, 255, 0.09);
+    --surface-cta-start: #10291f;
+    --surface-cta-end: rgba(15, 23, 42, 0.58);
 
     /* Movimiento */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -105,6 +107,9 @@
 @utility border-subtle { border-color: var(--border-subtle); }
 @utility bg-overlay-soft { background-color: var(--overlay-soft); }
 @utility bg-overlay-hover { background-color: var(--overlay-hover); }
+@utility surface-cta {
+  background-image: radial-gradient(circle at top right, rgba(16, 185, 129, 0.18), transparent 38%), linear-gradient(135deg, var(--surface-cta-start), var(--surface-cta-end));
+}
 @utility glass-panel {
   background-color: var(--glass-background);
   backdrop-filter: blur(var(--glass-blur));
