@@ -59,7 +59,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="/preguntas-frecuentes" size="sm">
+          <Button href="/contacto" size="sm">
             Consultar lugar
           </Button>
         </div>
@@ -97,7 +97,7 @@ export function SiteHeader() {
                   {item.label}
                 </Link>
               ))}
-              <Button href="/preguntas-frecuentes" className="mt-5 w-full" onClick={() => setIsOpen(false)}>
+              <Button href="/contacto" className="mt-5 w-full" onClick={() => setIsOpen(false)}>
                 Consultar lugar
               </Button>
             </nav>

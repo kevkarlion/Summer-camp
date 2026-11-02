@@ -20,6 +20,7 @@ export type RoutePath =
   | "/preguntas-frecuentes"
   | "/guia-familias"
   | "/sobre-nosotros"
+  | "/contacto"
   | "/programa-ingles/ninos";
 
 export const routePaths: readonly RoutePath[] = [
@@ -32,4 +33,5 @@ export const routePaths: readonly RoutePath[] = [
   "/preguntas-frecuentes",
   "/guia-familias",
   "/sobre-nosotros",
+  "/contacto",
 ];

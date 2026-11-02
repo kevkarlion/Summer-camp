@@ -12,6 +12,7 @@ const changeFrequency: Record<(typeof routePaths)[number], MetadataRoute.Sitemap
   "/preguntas-frecuentes": "weekly",
   "/guia-familias": "monthly",
   "/sobre-nosotros": "yearly",
+  "/contacto": "monthly",
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {

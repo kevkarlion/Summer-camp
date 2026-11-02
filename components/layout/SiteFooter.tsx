@@ -12,6 +12,7 @@ const footerLinks = [
   { href: "/preguntas-frecuentes", label: "Preguntas frecuentes" },
   { href: "/guia-familias", label: "Guía para familias" },
   { href: "/sobre-nosotros", label: "Sobre nosotros" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 export function SiteFooter() {
@@ -48,7 +49,7 @@ export function SiteFooter() {
           <p className="mt-5 text-sm leading-6 text-muted">
             Solicitá información sobre el programa para adolescentes de 13 a 17 años, las fechas, las actividades y la inscripción.
           </p>
-          <Button href="/preguntas-frecuentes" variant="secondary" className="mt-6">Consultar información</Button>
+          <Button href="/contacto" variant="secondary" className="mt-6">Consultar información</Button>
         </div>
       </Container>
       <Container className="flex flex-col gap-3 border-t border-subtle py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
