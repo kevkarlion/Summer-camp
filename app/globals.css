@@ -53,6 +53,10 @@
 
     /* Movimiento */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Orbes ambientales derivados de los tokens de marca */
+    --ambient-orb-emerald: color-mix(in srgb, var(--theme-primary) 10%, transparent);
+    --ambient-orb-amber: color-mix(in srgb, var(--theme-secondary) 10%, transparent);
   }
 
   * {
@@ -72,6 +76,17 @@
     font-family: Arial, Helvetica, sans-serif;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+  }
+
+  /* Grano editorial fijo: no captura interacción y conserva el contraste del texto. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.9'/%3E%3C/svg%3E");
   }
 
   h1,
@@ -118,6 +133,23 @@
 
 @utility text-balance { text-wrap: balance; }
 @utility text-pretty { text-wrap: pretty; }
+@utility bg-orb-emerald { background-color: var(--ambient-orb-emerald); }
+@utility bg-orb-amber { background-color: var(--ambient-orb-amber); }
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@utility animate-pulse-slow {
+  animation: pulse-slow 8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -127,8 +159,7 @@
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+    animation: none !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
