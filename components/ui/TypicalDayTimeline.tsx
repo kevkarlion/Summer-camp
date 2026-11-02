@@ -82,10 +82,8 @@ export function TypicalDayTimeline() {
                     blurDataURL={IMAGE_BLUR_DATA_URL}
                     className="scale-105 object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-110 group-focus-within:scale-110 motion-reduce:transform-none motion-reduce:transition-none"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/80 to-bg-main/45" />
                 </div>
-
-                <div className="relative z-10 flex h-full min-h-72 flex-col p-5">
+                <div className="relative z-10 flex h-full min-h-72 flex-col p-5 before:absolute before:inset-0 before:-z-10 before:rounded-[1.5rem] before:bg-[var(--copy-scrim-bg)] before:opacity-0 before:transition-opacity before:duration-500 before:content-[''] before:group-hover:opacity-100 before:group-focus-within:opacity-100 motion-reduce:before:transition-none">
                   <button
                     type="button"
                     className="flex w-full min-w-0 items-center gap-4 rounded-2xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-4 focus-visible:ring-offset-card"

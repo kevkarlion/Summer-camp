@@ -51,6 +51,8 @@
     --overlay-hover: rgba(255, 255, 255, 0.09);
     --surface-cta-start: #10291f;
     --surface-cta-end: rgba(15, 23, 42, 0.58);
+    --copy-scrim-bg: rgba(8, 15, 26, 0.84);
+    --copy-scrim-border: rgba(255, 255, 255, 0.12);
 
     /* Insignias clásicas de campamento */
     --scout-navy: #1d2a3a;
@@ -129,6 +131,12 @@
 @utility border-subtle { border-color: var(--border-subtle); }
 @utility bg-overlay-soft { background-color: var(--overlay-soft); }
 @utility bg-overlay-hover { background-color: var(--overlay-hover); }
+@utility copy-scrim {
+  background-color: var(--copy-scrim-bg);
+  border: 1px solid var(--copy-scrim-border);
+  box-shadow: 0 18px 50px rgba(2, 6, 23, 0.3);
+  backdrop-filter: blur(10px);
+}
 @utility surface-cta {
   background-image: radial-gradient(circle at top right, rgba(16, 185, 129, 0.18), transparent 38%), linear-gradient(135deg, var(--surface-cta-start), var(--surface-cta-end));
 }

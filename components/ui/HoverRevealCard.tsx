@@ -63,9 +63,8 @@ export function HoverRevealCard({
         blurDataURL={IMAGE_BLUR_DATA_URL}
         className="scale-110 object-cover opacity-0 transition-opacity duration-700 ease-[var(--ease-out-expo)] group-hover:opacity-100 group-focus-within:opacity-100 motion-reduce:transition-none"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/20 to-transparent" />
       <motion.div
-        className="absolute inset-x-0 bottom-0 p-7 sm:p-8"
+        className="absolute inset-x-4 bottom-4 copy-scrim rounded-2xl p-5 sm:inset-x-6 sm:bottom-6 sm:p-6"
         initial={shouldReduceMotion ? false : { opacity: 1, y: 16 }}
         whileHover={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
         whileFocus={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}

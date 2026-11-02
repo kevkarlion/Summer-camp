@@ -28,12 +28,14 @@ export function PageHero({ eyebrow, title, description, image, imageAlt, childre
       <div className="absolute -left-24 top-20 -z-10 size-80 rounded-full bg-primary/12 blur-[120px]" />
 
       <Container className="max-w-6xl">
+        <div className="copy-scrim -m-3 rounded-[1.5rem] p-3 sm:-m-4 sm:rounded-[1.75rem] sm:p-4">
         <Badge variant="primary" className="mb-6">{eyebrow}</Badge>
         <h1 className="max-w-5xl text-[clamp(2.75rem,6vw,6.75rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-main">
           {title}
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:mt-7 sm:text-xl">{description}</p>
         {children ? <div className="mt-7 sm:mt-8">{children}</div> : null}
+        </div>
       </Container>
     </section>
   );

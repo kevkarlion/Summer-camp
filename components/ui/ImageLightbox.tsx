@@ -77,8 +77,7 @@ export function ImageLightbox({ items, className }: ImageLightboxProps) {
               blurDataURL={IMAGE_BLUR_DATA_URL}
               className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/15 to-transparent" />
-            <figcaption className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+            <figcaption className="absolute inset-x-4 bottom-4 copy-scrim rounded-2xl p-5 sm:inset-x-6 sm:bottom-6 sm:p-6">
               <h3 className="text-xl font-semibold tracking-tight text-main sm:text-2xl">
                 {item.title}
               </h3>
@@ -133,7 +132,7 @@ export function ImageLightbox({ items, className }: ImageLightboxProps) {
               blurDataURL={IMAGE_BLUR_DATA_URL}
               className="object-contain"
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-bg-main via-bg-main/80 to-transparent px-5 pb-5 pt-24 sm:px-8 sm:pb-8">
+            <div className="absolute inset-x-4 bottom-4 copy-scrim rounded-2xl px-5 py-4 sm:inset-x-8 sm:bottom-8 sm:px-6 sm:py-5">
               <h2 id={titleId} className="text-xl font-semibold text-main sm:text-2xl">
                 {selectedItem.title}
               </h2>

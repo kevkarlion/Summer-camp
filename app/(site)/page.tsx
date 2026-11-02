@@ -176,6 +176,7 @@ export default function HomePage() {
 
         <Container className="relative py-10 sm:py-12 lg:py-0">
           <Reveal className="max-w-5xl lg:max-w-[58rem]">
+            <div className="copy-scrim -m-3 rounded-[1.5rem] p-3 sm:-m-4 sm:rounded-[1.75rem] sm:p-4">
             <Badge variant="secondary" className="mb-7"><Sparkles aria-hidden="true" size={14} /> Temporada 2027</Badge>
             <TextReveal as="h1" className="text-[clamp(3.25rem,7.2vw,7.25rem)] font-semibold leading-[0.94] tracking-[-0.055em] text-main">
               Inglés, aventura y Patagonia.
@@ -193,6 +194,7 @@ export default function HomePage() {
                   <CheckCircle2 aria-hidden="true" size={16} className="text-primary-accent" /> {item}
                 </span>
               ))}
+            </div>
             </div>
           </Reveal>
         </Container>
@@ -241,8 +243,7 @@ export default function HomePage() {
                     blurDataURL={IMAGE_BLUR_DATA_URL}
                     className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/25 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-7 sm:p-8">
+                  <div className="absolute inset-x-4 bottom-4 copy-scrim rounded-2xl p-5 sm:inset-x-6 sm:bottom-6 sm:p-6">
                     <h3 className="text-2xl font-semibold tracking-[-0.025em] text-main">{pillar.title}</h3>
                     <p className="mt-3 max-w-md leading-7 text-main/90">{pillar.text}</p>
                   </div>
@@ -265,8 +266,7 @@ export default function HomePage() {
               imageClassName="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-transparent to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-7 sm:p-9">
+            <div className="absolute inset-x-4 bottom-4 copy-scrim rounded-2xl p-5 sm:inset-x-6 sm:bottom-6 sm:p-6">
               <Badge variant="secondary"><MapPin aria-hidden="true" size={13} /> Villa La Angostura</Badge>
               <p className="mt-4 text-2xl font-semibold tracking-tight text-main">Donde la Patagonia se convierte en aula.</p>
             </div>
