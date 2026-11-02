@@ -158,7 +158,7 @@ export default function HomePage() {
 
   return (
     <main id="main-content">
-      <section className="relative isolate flex min-h-[92svh] items-center overflow-hidden pb-16 pt-32 sm:pt-36">
+      <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden pb-14 pt-28 sm:min-h-[48rem] sm:pb-16 sm:pt-32 lg:min-h-[100svh] lg:pb-20 lg:pt-36">
         <Image
           src="/hero-villa-la-angostura.webp"
           alt="Vista panorámica de verano de Villa La Angostura: lago turquesa, bosque nativo y montañas"
@@ -167,27 +167,27 @@ export default function HomePage() {
           placeholder="blur"
           blurDataURL={IMAGE_BLUR_DATA_URL}
           sizes="100vw"
-          className="-z-20 object-cover object-center"
+          className="-z-20 object-cover object-[58%_center] lg:object-center"
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(11,19,32,0.82)_0%,rgba(11,19,32,0.48)_48%,rgba(11,19,32,0.08)_100%)]" />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(11,19,32,0.08)_0%,rgba(11,19,32,0.22)_62%,rgba(11,19,32,0.48)_100%)]" />
         <div aria-hidden="true" className="pointer-events-none absolute -left-32 top-24 -z-10 size-[30rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
         <div aria-hidden="true" className="pointer-events-none absolute -right-28 bottom-10 -z-10 size-[26rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
 
-        <Container className="relative py-16 lg:py-24">
-          <Reveal className="max-w-4xl">
+        <Container className="relative py-10 sm:py-14 lg:py-20">
+          <Reveal className="max-w-5xl lg:max-w-[58rem]">
             <Badge variant="secondary" className="mb-7"><Sparkles aria-hidden="true" size={14} /> Temporada 2027</Badge>
-            <TextReveal as="h1" className="text-5xl font-semibold leading-[0.96] tracking-[-0.055em] text-main sm:text-7xl lg:text-[6.4rem]">
+            <TextReveal as="h1" className="text-[clamp(3.25rem,7.2vw,7.25rem)] font-semibold leading-[0.94] tracking-[-0.055em] text-main">
               Inglés, aventura y Patagonia.
             </TextReveal>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-main sm:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-main/90 sm:mt-7 sm:text-xl">
               Una experiencia residencial al aire libre para que cada adolescente vuelva más seguro, curioso y conectado con el mundo.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">
               <Button href="/preguntas-frecuentes" size="lg">Consultar disponibilidad <ArrowRight aria-hidden="true" size={18} /></Button>
               <Button href="/programa-ingles" variant="outline" size="lg">Conocer el programa</Button>
             </div>
-            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted sm:mt-10">
               {["Adolescentes de 13–17 años", "4–12 de diciembre de 2027", "Formato residencial", "Villa La Angostura"].map((item) => (
                 <span key={item} className="inline-flex items-center gap-2">
                   <CheckCircle2 aria-hidden="true" size={16} className="text-primary-accent" /> {item}
