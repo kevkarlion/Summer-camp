@@ -53,7 +53,8 @@ Elevar la Home y los componentes UI compartidos con una dirección visual cinem�
 - T3 — S5, S6, S7 — Build the contextual cursor, magnetic Button behavior, and interactive Card tilt/spotlight system. Route: delegated writer. Commit: `560b298` (`feat: add high-value motion interactions`).
 - T4 — S1-S7 — Refactor the actual Home route at `app/(site)/page.tsx` into the cinematic composition with preserved content, SEO, residence/history atmosphere, bento interactions, and differential parallax. Route: delegated writer. Commit: `558aa60` (`feat: redesign home as cinematic experience`).
 - T5 — S1-S7 — Verify metadata parity, semantic structure, interaction fallbacks, reduced motion, typecheck, lint, build, and visual smoke evidence. Route: inline. Commit: `chore: verify cinematic motion overhaul`.
-- T6 — S1, S6, S7 — Integrate the supplied `public/patagonia-summer-camp-logo.svg` into the header and footer through transparent dark-surface variants while preserving the supplied geometry and excluding Windows Zone.Identifier metadata. Route: inline. Commit: `feat: integrate supplied brand logo`.
+- T6 — S1, S6, S7 — Integrate the supplied `public/patagonia-summer-camp-logo.svg` into the header and footer through transparent dark-surface variants while preserving the supplied geometry and excluding Windows Zone.Identifier metadata. Route: inline. Commit: `a2fcfb0` (`feat: integrate supplied brand logo`).
+- T7 — S1, S11 — Reconcile public claims, metadata, structured data, and internal links with `docs/content/authoritative-brief.md`; permanently redirect `/programa-ingles/ninos` to the 13–17 program and remove unsupported claims. Route: delegated writer. Commit: `feat: align site content with authoritative brief`.
 
 ## Log
 
@@ -119,4 +120,5 @@ Elevar la Home y los componentes UI compartidos con una dirección visual cinem�
 > te deje en public un doc con la info real del sitio web. analizalo
 
 - `public/Patagonia Summer Camp 2027.docx` is treated as the authoritative content source for a subsequent factual reconciliation pass.
-- Its documented age range conflicts with the current 8–11 route; that route decision is intentionally pending explicit product direction rather than being silently removed.
+- The product decision is to redirect `/programa-ingles/ninos` permanently to `/programa-ingles/adolescentes`; the 2027 program will not advertise an 8–11 cohort.
+- The structured source brief is maintained at `docs/content/authoritative-brief.md`.
