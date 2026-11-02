@@ -2,25 +2,25 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import {
   ArrowRight,
-  CalendarDays,
   CheckCircle2,
-  Compass,
-  Languages,
   MapPin,
   ShieldCheck,
   Sparkles,
-  Users,
 } from "lucide-react";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { ParallaxImage } from "@/components/motion/ParallaxImage";
 import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { IMAGE_BLUR_DATA_URL } from "@/components/image/placeholder";
+import { ImageLightbox, type ImageLightboxItem } from "@/components/ui/ImageLightbox";
+import { OrganicMaskImage } from "@/components/ui/OrganicMaskImage";
+import { ParallaxImageContainer } from "@/components/ui/ParallaxImage";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { TypicalDayTimeline } from "@/components/ui/TypicalDayTimeline";
 import { siteConfig } from "@/lib/site";
 
 const description =
@@ -51,27 +51,66 @@ export const metadata: Metadata = {
 
 const pillars = [
   {
-    icon: Languages,
-    title: "Inmersión real",
-    text: "El inglés vive en cada actividad, conversación y nuevo vínculo.",
+    title: "Aventura y confianza",
+    text: "Explorar y superar desafíos para ganar confianza en uno mismo y en los demás.",
+    src: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=900&q=78",
+    alt: "Imagen editorial de referencia: grupo recorriendo un sendero de montaña",
   },
   {
-    icon: Compass,
-    title: "Aventura Patagonia",
-    text: "Bosques, lagos y montaña para descubrir con curiosidad y respeto.",
+    title: "Aprender haciendo",
+    text: "Vivir el inglés en situaciones reales, comunicar ideas y descubrir nuevas perspectivas.",
+    src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=78",
+    alt: "Imagen editorial de referencia: participantes intercambiando ideas en una actividad",
   },
   {
-    icon: ShieldCheck,
-    title: "Confianza para crecer",
-    text: "Una experiencia acompaña la autonomía, la convivencia y el cuidado del entorno.",
+    title: "Libertad para expresarse",
+    text: "Ser uno mismo, compartir ideas y encontrar diferentes formas de participar.",
+    src: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=900&q=78",
+    alt: "Imagen editorial de referencia: navegación sobre aguas de montaña",
+  },
+  {
+    title: "Comunidad y respeto",
+    text: "Crear amistades, valorar las diferencias y aprender a cuidarnos unos a otros.",
+    src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=78",
+    alt: "Imagen editorial de referencia: comunidad compartiendo una experiencia al aire libre",
+  },
+  {
+    title: "Cuerpo y mente en equilibrio",
+    text: "Mover el cuerpo, cuidar la mente y disfrutar del aire libre.",
+    src: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=78",
+    alt: "Imagen editorial de referencia: momento de bienestar y equilibrio junto a la naturaleza",
   },
 ];
 
-const dayFlow = [
-  { icon: Sparkles, title: "Cada mañana", text: "Sesiones breves y participativas de inglés para entrar en la experiencia." },
-  { icon: Compass, title: "Durante el día", text: "Kayak, trekking, visitas a productores locales y exploración de la naturaleza." },
-  { icon: Users, title: "En comunidad", text: "Tiempo de convivencia, encuentro y aprendizaje compartido con otros adolescentes." },
-  { icon: CalendarDays, title: "Al cierre", text: "Reflexiones para reconocer avances y seguir explorando nuevas formas de expresarse." },
+const residenceImages: ImageLightboxItem[] = [
+  {
+    src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+    alt: "Imagen editorial de referencia: lago y montañas de Patagonia",
+    title: "Lago y montañas",
+    description: "Referencia editorial del entorno de Villa La Angostura; no muestra la residencia real.",
+    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 58vw",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=900&q=78",
+    alt: "Imagen editorial de referencia: residencia conceptual de madera y piedra en un bosque",
+    title: "Residencia entre el bosque",
+    description: "Referencia editorial de arquitectura; no documenta la propiedad ni sus instalaciones.",
+    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 42vw",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=78",
+    alt: "Imagen editorial de referencia: comedor amplio iluminado para una convivencia",
+    title: "Comedor y convivencia",
+    description: "Referencia editorial de un espacio comedor; no muestra el comedor de la residencia.",
+    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 42vw",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+    alt: "Imagen editorial de referencia: espacio exterior y paisaje al atardecer",
+    title: "Aire libre al atardecer",
+    description: "Referencia editorial de espacios exteriores; no muestra el área deportiva de la propiedad.",
+    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 58vw",
+  },
 ];
 
 export default function HomePage() {
@@ -121,10 +160,12 @@ export default function HomePage() {
     <main id="main-content">
       <section className="relative isolate flex min-h-[92svh] items-center overflow-hidden pb-16 pt-32 sm:pt-36">
         <Image
-          src="https://images.unsplash.com/photo-1531761535209-180857e963b9?auto=format&fit=crop&w=2200&q=88"
+          src="https://images.unsplash.com/photo-1531761535209-180857e963b9?auto=format&fit=crop&w=2000&q=82"
           alt="Lago de montaña en Patagonia bajo un cielo luminoso"
           fill
           priority
+          placeholder="blur"
+          blurDataURL={IMAGE_BLUR_DATA_URL}
           sizes="100vw"
           className="-z-20 object-cover"
         />
@@ -134,26 +175,48 @@ export default function HomePage() {
         <div aria-hidden="true" className="pointer-events-none absolute -right-28 bottom-10 -z-10 size-[26rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
 
         <Container className="relative py-16 lg:py-24">
-          <Reveal className="max-w-4xl">
-            <Badge variant="secondary" className="mb-7"><Sparkles aria-hidden="true" size={14} /> Temporada 2027</Badge>
-            <TextReveal as="h1" className="text-5xl font-semibold leading-[0.96] tracking-[-0.055em] text-main sm:text-7xl lg:text-[6.4rem]">
-              Inglés, aventura y Patagonia.
-            </TextReveal>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-main sm:text-xl">
-              Una experiencia residencial al aire libre para que cada adolescente vuelva más seguro, curioso y conectado con el mundo.
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href="/preguntas-frecuentes" size="lg">Consultar disponibilidad <ArrowRight aria-hidden="true" size={18} /></Button>
-              <Button href="/programa-ingles" variant="outline" size="lg">Conocer el programa</Button>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
-              {["Adolescentes de 13–17 años", "4–12 de diciembre de 2027", "Formato residencial", "Villa La Angostura"].map((item) => (
-                <span key={item} className="inline-flex items-center gap-2">
-                  <CheckCircle2 aria-hidden="true" size={16} className="text-primary-accent" /> {item}
-                </span>
-              ))}
-            </div>
-          </Reveal>
+          <div className="relative grid gap-10 xl:grid-cols-[minmax(0,1fr)_22rem] xl:items-end">
+            <Reveal className="max-w-3xl xl:max-w-[48rem]">
+              <Badge variant="secondary" className="mb-7"><Sparkles aria-hidden="true" size={14} /> Temporada 2027</Badge>
+              <TextReveal as="h1" className="text-5xl font-semibold leading-[0.96] tracking-[-0.055em] text-main sm:text-7xl lg:text-[6.4rem]">
+                Inglés, aventura y Patagonia.
+              </TextReveal>
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-main sm:text-xl">
+                Una experiencia residencial al aire libre para que cada adolescente vuelva más seguro, curioso y conectado con el mundo.
+              </p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Button href="/preguntas-frecuentes" size="lg">Consultar disponibilidad <ArrowRight aria-hidden="true" size={18} /></Button>
+                <Button href="/programa-ingles" variant="outline" size="lg">Conocer el programa</Button>
+              </div>
+              <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
+                {["Adolescentes de 13–17 años", "4–12 de diciembre de 2027", "Formato residencial", "Villa La Angostura"].map((item) => (
+                  <span key={item} className="inline-flex items-center gap-2">
+                    <CheckCircle2 aria-hidden="true" size={16} className="text-primary-accent" /> {item}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.12} className="xl:absolute xl:bottom-24 xl:right-10 xl:w-88">
+              <figure className="glass-panel overflow-hidden rounded-[1.75rem] shadow-2xl">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=720&q=76"
+                    alt="Imagen editorial de referencia: fogata y paisaje de montaña al atardecer"
+                    fill
+                    placeholder="blur"
+                    blurDataURL={IMAGE_BLUR_DATA_URL}
+                    sizes="(max-width: 1280px) 100vw, 22rem"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main/75 via-transparent to-transparent" />
+                </div>
+                <figcaption className="p-4">
+                  <Badge variant="secondary" className="normal-case tracking-normal">Diciembre 2027 · Nahuel Huapi</Badge>
+                </figcaption>
+              </figure>
+            </Reveal>
+          </div>
         </Container>
       </section>
 
@@ -178,27 +241,36 @@ export default function HomePage() {
         <Container className="relative">
           <Reveal>
             <SectionHeader
-              eyebrow="Una aventura que transforma"
-              title="No es un viaje más. Es una forma distinta de aprender."
-              description="Combinamos inmersión real, desafío outdoors y acompañamiento humano para que el inglés se convierta en confianza, curiosidad y conexión."
+              eyebrow="Nuestra filosofía"
+              title="Crecer es explorar, expresarse y conectar."
+              description="Cinco formas de vivir una experiencia que combina naturaleza, inglés, autonomía y comunidad con respeto por el entorno y las personas."
             />
           </Reveal>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-12" data-cursor="EXPLORAR">
-            {pillars.map((pillar, index) => {
-              const Icon = pillar.icon;
-              const bentoClass = index === 0 ? "lg:col-span-5" : index === 1 ? "lg:col-span-7" : "lg:col-span-12";
-              return (
-                <Reveal key={pillar.title} delay={index * 0.08} className={bentoClass}>
-                  <Card interactive variant={index === 2 ? "elevated" : "glass"} className="h-full overflow-hidden p-7 sm:p-9">
-                    <div className="flex h-full flex-col items-start">
-                      <span className="grid size-12 place-items-center rounded-2xl bg-primary/12 text-primary-accent"><Icon aria-hidden="true" size={23} /></span>
-                      <h3 className="mt-6 text-xl font-semibold tracking-tight text-main">{pillar.title}</h3>
-                      <p className="mt-3 max-w-xl leading-7 text-muted">{pillar.text}</p>
-                    </div>
-                  </Card>
-                </Reveal>
-              );
-            })}
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-12">
+            {pillars.map((pillar, index) => (
+              <Reveal
+                key={pillar.title}
+                delay={index * 0.06}
+                className={index < 2 ? "lg:col-span-6" : "lg:col-span-4"}
+              >
+                <article className="group relative isolate min-h-[25rem] overflow-hidden rounded-[2rem] border border-subtle bg-card focus-within:ring-2 focus-within:ring-secondary">
+                  <Image
+                    src={pillar.src}
+                    alt={pillar.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    placeholder="blur"
+                    blurDataURL={IMAGE_BLUR_DATA_URL}
+                    className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/25 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-7 sm:p-8">
+                    <h3 className="text-2xl font-semibold tracking-[-0.025em] text-main">{pillar.title}</h3>
+                    <p className="mt-3 max-w-md leading-7 text-main/90">{pillar.text}</p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </Container>
       </section>
@@ -208,10 +280,12 @@ export default function HomePage() {
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 bottom-8 -z-10 size-[28rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal className="relative min-h-[30rem] overflow-hidden rounded-[2rem] border border-subtle sm:min-h-[38rem]">
-            <ParallaxImage
-              src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=85"
+            <ParallaxImageContainer
+              src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80"
               alt="Montañas nevadas de la Patagonia Argentina"
-              fill sizes="(max-width: 1024px) 100vw, 50vw" containerClassName="absolute inset-0" imageClassName="object-cover"
+              className="absolute inset-0"
+              imageClassName="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-bg-main via-transparent to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-7 sm:p-9">
@@ -246,67 +320,67 @@ export default function HomePage() {
       <section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-16 size-[32rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
         <Container className="relative">
-          <div className="grid items-stretch gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16">
-            <Reveal className="flex flex-col justify-center">
-              <Badge variant="primary" className="mb-5 self-start">Villa La Angostura · Patagonia</Badge>
+          <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
+            <Reveal>
+              <Badge variant="primary" className="mb-5">Nuestra historia</Badge>
               <TextReveal as="h2" className="text-3xl font-semibold leading-[1.08] tracking-[-0.035em] text-main sm:text-4xl lg:text-5xl">
-                Entre lagos, bosques y montañas
+                De Laponia a Patagonia
               </TextReveal>
-              <p className="mt-5 max-w-xl text-base leading-7 text-muted sm:text-lg">
-                La residencia está a 2 km del centro de Villa La Angostura y cuenta con 26 hectáreas de parque y bosque nativo.
+              <p className="mt-5 text-base leading-7 text-muted sm:text-lg">
+                Hernán Paulitti, fundador de Patagonia Summer Camp, trabajó en Laponia, acompañando visitantes bajo las auroras boreales y llevando huskies por bosques nevados. Después de pasar una semana acampando en El Chaltén, se prometió volver a Patagonia y compartir una experiencia que ayudara a otros a explorar otros mundos a través del idioma.
               </p>
-              <ul className="mt-6 grid gap-3 text-sm leading-6 text-muted sm:grid-cols-2">
-                {["Orilla del lago Nahuel Huapi", "Área deportiva", "Comedor amplio", "Espacios abiertos y naturaleza"].map((item) => (
-                  <li key={item} className="flex items-start gap-2"><CheckCircle2 aria-hidden="true" size={16} className="mt-1 shrink-0 text-primary-accent" /> {item}</li>
-                ))}
-              </ul>
-              <Button href="/destino/villa-la-angostura" variant="outline" className="mt-8 self-start">Conocer el destino <ArrowRight aria-hidden="true" size={17} /></Button>
+              <p className="mt-4 text-base leading-7 text-muted sm:text-lg">
+                El campamento cumple esa promesa valorando la región a través de la amistad, el idioma, el respeto por la cultura local y la curiosidad por la naturaleza.
+              </p>
+              <Button href="/sobre-nosotros" variant="secondary" className="mt-8">Conocer nuestra historia <ArrowRight aria-hidden="true" size={17} /></Button>
             </Reveal>
 
-            <Reveal delay={0.08} className="min-h-[28rem]">
-              <figure className="grid h-full min-h-[28rem] gap-4 overflow-hidden rounded-[2rem] border border-subtle p-4 md:grid-cols-12" data-cursor="PATAGONIA">
-                <div className="relative min-h-[24rem] overflow-hidden rounded-[1.5rem] md:col-span-8 md:min-h-[34rem]">
-                  <ParallaxImage src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=85" alt="Lagos y montañas del entorno de Villa La Angostura" fill sizes="(max-width: 768px) 100vw, 55vw" containerClassName="absolute inset-0" imageClassName="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main/50 to-transparent" />
-                </div>
-                <div className="relative min-h-[18rem] overflow-hidden rounded-[1.5rem] md:col-span-4 md:min-h-[34rem]">
-                  <ParallaxImage src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=85" alt="Montañas nevadas de la Patagonia Argentina" fill sizes="(max-width: 768px) 100vw, 35vw" containerClassName="absolute inset-0" imageClassName="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main/90 via-bg-main/10 to-transparent" />
-                  <figcaption className="absolute inset-x-0 bottom-0 p-7 sm:p-9">
-                    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-secondary-accent">La Patagonia como parte del aprendizaje</p>
-                    <p className="mt-3 text-xl font-semibold leading-snug text-main sm:text-2xl">Del paisaje a la conversación.</p>
-                  </figcaption>
-                </div>
-              </figure>
+            <Reveal delay={0.08} className="relative pb-8 sm:pb-12 lg:pb-0">
+              <div className="relative min-h-[31rem] sm:min-h-[38rem]">
+                <OrganicMaskImage
+                  src="https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&w=1000&q=78"
+                  alt="Imagen editorial de referencia: auroras boreales sobre un paisaje nevado"
+                  variant="asymmetric"
+                  className="absolute inset-x-0 top-0 h-[72%] min-h-[25rem]"
+                  imageClassName="object-cover"
+                  sizes="(max-width: 1024px) 88vw, 45vw"
+                />
+                <figure className="absolute bottom-0 right-0 w-[72%] shadow-2xl sm:w-[62%]">
+                  <OrganicMaskImage
+                    src="https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=900&q=78"
+                    alt="Imagen editorial de referencia: fogata cálida junto a un paisaje de montaña"
+                    variant="arch"
+                    className="aspect-[4/3] min-h-0"
+                    imageClassName="object-cover"
+                    sizes="(max-width: 1024px) 65vw, 34vw"
+                  />
+                  <figcaption className="mt-3 text-xs leading-5 text-muted">Imágenes editoriales de referencia; no son fotografías de Hernán Paulitti.</figcaption>
+                </figure>
+              </div>
             </Reveal>
           </div>
         </Container>
       </section>
 
-      <section className="relative isolate overflow-hidden py-24 sm:py-28 lg:py-36">
-        <div aria-hidden="true" className="pointer-events-none absolute -left-28 top-12 -z-10 size-[32rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
-        <div aria-hidden="true" className="pointer-events-none absolute -right-28 bottom-4 -z-10 size-[30rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
-        <Container className="relative">
+      <section className="relative overflow-hidden bg-surface py-24 sm:py-28 lg:py-36">
+        <Container>
           <Reveal>
             <SectionHeader
-              eyebrow="Nuestra historia"
-              title="Una mirada amplia para una aventura que transforma"
-              description="Hernán Paulitti, fundador Patagonia Summer Camp, imaginó una experiencia donde el paisaje patagónico se convierte en escenario para aprender y crecer."
+              eyebrow="26 hectáreas de naturaleza"
+              title="Una residencia entre el lago y el bosque."
+              description="La residencia está a 2 km del centro de Villa La Angostura y cuenta con 26 hectáreas de parque y bosque nativo, orilla del lago Nahuel Huapi, un área deportiva y un comedor amplio."
             />
-            <Button href="/sobre-nosotros" variant="secondary" className="mt-8">Conocer nuestra historia <ArrowRight aria-hidden="true" size={17} /></Button>
           </Reveal>
           <Reveal delay={0.08} className="mt-12">
-            <Card variant="glass" className="relative overflow-hidden p-8 sm:p-12 lg:p-16">
-              <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.16),transparent_58%)]" aria-hidden="true" />
-              <div className="relative grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
-                <div>
-                  <span className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary-accent">Patagonia Summer Camp 2027</span>
-                  <p className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.035em] text-main sm:text-4xl">Inglés, aventura y Patagonia.</p>
-                </div>
-                <p className="max-w-2xl text-lg leading-8 text-muted">Una experiencia que une inglés, aventura y aprendizaje, con el paisaje patagónico como escenario para descubrir, conversar y crecer.</p>
-              </div>
-            </Card>
+            <ImageLightbox items={residenceImages} />
+            <p className="mt-5 text-sm leading-6 text-muted">
+              Imágenes editoriales de referencia para ilustrar la experiencia envisioned; no muestran la residencia real.
+            </p>
           </Reveal>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Button href="/destino/villa-la-angostura" variant="outline">Conocer el destino <ArrowRight aria-hidden="true" size={17} /></Button>
+            <Button href="/itinerario-y-actividades" variant="ghost">Ver actividades</Button>
+          </div>
         </Container>
       </section>
 
@@ -337,21 +411,18 @@ export default function HomePage() {
 
       <section className="relative overflow-hidden bg-surface py-24 sm:py-28 lg:py-36">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
             <Reveal>
-              <SectionHeader eyebrow="El ritmo de la experiencia" title="Aprender, explorar y compartir." description="La experiencia integra aprendizaje, movimiento y convivencia. El horario definitivo se comunicará con el programa." />
+              <SectionHeader
+                eyebrow="Una jornada ilustrativa"
+                title="Aprender, explorar y compartir."
+                description="Este recorrido visual presenta posibles momentos de la experiencia. Los horarios exactos y el fogón de la tarde son ilustrativos y están pendientes de confirmación."
+              />
               <Button href="/itinerario-y-actividades" variant="secondary" className="mt-9">Ver actividades <ArrowRight aria-hidden="true" size={17} /></Button>
             </Reveal>
-            <div className="space-y-4">
-              {dayFlow.map((item, index) => (
-                <Reveal key={item.title} delay={index * 0.05}>
-                  <Card variant="glass" className="grid gap-4 p-6 sm:grid-cols-[auto_1fr] sm:items-center">
-                    <span className="grid size-11 place-items-center rounded-xl bg-primary/12 text-primary-accent"><item.icon aria-hidden="true" size={20} /></span>
-                    <div><h3 className="font-semibold text-main">{item.title}</h3><p className="mt-1 text-sm leading-6 text-muted">{item.text}</p></div>
-                  </Card>
-                </Reveal>
-              ))}
-            </div>
+            <Reveal delay={0.08}>
+              <TypicalDayTimeline />
+            </Reveal>
           </div>
         </Container>
       </section>
