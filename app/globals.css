@@ -11,6 +11,7 @@
   --color-brand-secondary-hover: var(--theme-secondary-hover);
   --color-ink: var(--text-inverse);
   --font-sans: Arial, Helvetica, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
   --ease-expo: var(--ease-out-expo);
 }
 
