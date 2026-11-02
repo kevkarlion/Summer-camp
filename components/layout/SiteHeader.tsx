@@ -79,7 +79,8 @@ export function SiteHeader() {
                 className={cn(
                   "relative rounded-full px-2.5 py-2 text-xs font-medium text-white/90 transition-[color,background-color,opacity] duration-300 hover:bg-overlay-soft hover:text-white 2xl:px-3 2xl:text-sm",
                   isActive ? "bg-overlay-soft text-white" : "text-white/90",
-                  isContact && "ml-1 border border-primary/30 bg-primary/10 text-primary-accent hover:bg-primary/15 hover:text-primary-accent",
+                  isContact &&
+                    "ml-1 rounded-[0.2rem] border border-[var(--scout-oxblood)] bg-[var(--scout-oxblood)] px-3 py-2 font-sans text-[0.65rem] font-bold uppercase tracking-[0.16em] text-[var(--scout-parchment)] shadow-[0_5px_18px_rgba(2,6,23,0.24)] before:pointer-events-none before:absolute before:inset-[2px] before:border before:border-dashed before:border-current/40 before:content-[''] hover:bg-[color-mix(in_srgb,var(--scout-oxblood)_86%,black)] hover:text-[var(--scout-parchment)]",
                 )}
               >
                 {item.label}
@@ -155,7 +156,11 @@ export function SiteHeader() {
                 </div>
               ))}
 
-              <Button href="/contacto" className="mt-6 w-full" onClick={closeMenu}>
+              <Button
+                href="/contacto"
+                onClick={closeMenu}
+                className="relative mt-6 w-full rounded-[0.2rem] border border-[var(--scout-oxblood)] bg-[var(--scout-oxblood)] font-sans text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[var(--scout-parchment)] shadow-[0_5px_18px_rgba(2,6,23,0.24)] before:pointer-events-none before:absolute before:inset-[3px] before:border before:border-dashed before:border-current/40 before:content-[''] hover:bg-[color-mix(in_srgb,var(--scout-oxblood)_86%,black)] hover:text-[var(--scout-parchment)]"
+              >
                 Consultar información
               </Button>
             </nav>
