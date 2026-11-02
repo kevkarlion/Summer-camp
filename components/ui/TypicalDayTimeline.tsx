@@ -22,8 +22,8 @@ import { cn } from "@/lib/utils";
 
 interface DayBlock {
   time: string;
+  period: string;
   title: string;
-  titleEs: string;
   description: string;
   icon: typeof Coffee;
   src?: string;
@@ -33,89 +33,89 @@ interface DayBlock {
 const dayBlocks: DayBlock[] = [
   {
     time: "8:00",
-    title: "Wake up",
-    titleEs: "Despertar",
-    description: "A slow start for teens: beds, bags and a bit of stretching.",
+    period: "Primera luz",
+    title: "Despertar",
+    description: "Un comienzo tranquilo: camas, mochilas y un poco de estiramiento.",
     icon: Sunrise,
   },
   {
     time: "8:30",
-    title: "Breakfast",
-    titleEs: "Desayuno",
-    description: "Full board at the residencia.",
+    period: "Mañana",
+    title: "Desayuno",
+    description: "Desayuno completo en la residencia.",
     icon: Coffee,
     src: "/camp-media/grupo-jugando.webp",
     alt: "Fotografía real del campamento: el grupo durante el desayuno en la residencia",
   },
   {
     time: "9:15",
-    title: "Morning briefing (45 min)",
-    titleEs: "Misión del día",
-    description: "The day's challenge, explained in English in small groups.",
+    period: "Mañana",
+    title: "Misión del día",
+    description: "El desafío del día, explicado en inglés en grupos pequeños.",
     icon: Languages,
   },
   {
     time: "10:00",
-    title: "Adventure block",
-    titleEs: "Aventura",
-    description: "Trekking or kayak on adventure days. Sports and art at the residencia on the others.",
+    period: "Mañana",
+    title: "Bloque de aventura",
+    description: "Trekking o kayak en los días de aventura; deportes y arte en la residencia los demás días.",
     icon: Soup,
     src: "/camp-media/kayak-en-el-lago.webp",
     alt: "Fotografía real del campamento: grupo en kayaks sobre el lago",
   },
   {
     time: "13:30",
-    title: "Lunch",
-    titleEs: "Almuerzo",
-    description: "Picnic on the trail or at the residencia.",
+    period: "Mediodía",
+    title: "Almuerzo",
+    description: "Picnic en el sendero o en la residencia.",
     icon: Utensils,
     src: "/camp-media/senderismo-con-villa-al-fondo.webp",
     alt: "Fotografía real del campamento: sendero con Villa La Angostura al fondo",
   },
   {
     time: "15:00",
-    title: "Rest & free time",
-    titleEs: "Descanso y tiempo libre",
-    description: "Quiet hour, games, reading, calls home.",
+    period: "Tarde",
+    title: "Descanso y tiempo libre",
+    description: "Una hora de calma, juegos, lectura y llamadas a casa.",
     icon: BedDouble,
   },
   {
     time: "16:00",
-    title: "English in action",
-    titleEs: "Inglés en acción",
-    description: "Real-life challenges: ordering, directions, teamwork missions.",
+    period: "Tarde",
+    title: "Inglés en acción",
+    description: "Desafíos reales: pedir, orientarse y trabajar en equipo.",
     icon: Languages,
     src: "/camp-media/grupo-caminando.webp",
     alt: "Fotografía real del campamento: grupo caminando con mochilas por el bosque",
   },
   {
     time: "18:00",
-    title: "Showers",
-    titleEs: "Duchas",
-    description: "Freshen up after a full day outdoors.",
+    period: "Tarde",
+    title: "Duchas",
+    description: "Un buen baño después de un día entero al aire libre.",
     icon: Droplets,
   },
   {
     time: "19:30",
-    title: "Dinner",
-    titleEs: "Cena",
-    description: "Everyone together.",
+    period: "Noche",
+    title: "Cena",
+    description: "Todos juntos, alrededor de la mesa.",
     icon: CookingPot,
   },
   {
     time: "21:00",
-    title: "Evening activity",
-    titleEs: "Actividad nocturna",
-    description: "Stargazing, storytelling, games. The big bonfire is on the last night.",
+    period: "Noche",
+    title: "Actividad nocturna",
+    description: "Observación de estrellas, relatos y juegos. La gran fogata es la última noche.",
     icon: Flame,
     src: "/camp-media/fogata-en-el-bosque.webp",
     alt: "Fotografía real del campamento: fogata con marshmallows en el bosque",
   },
   {
     time: "22:30",
-    title: "Lights out",
-    titleEs: "A dormir",
-    description: "Everyone goes to bed after a full day. Sweet dreams!",
+    period: "Noche",
+    title: "A dormir",
+    description: "Todos a dormir después de un día completo. ¡Dulces sueños!",
     icon: Moon,
   },
 ];
@@ -137,6 +137,7 @@ function TimelineRow({ block, side }: TimelineRowProps) {
   const markerY = useTransform(scrollYProgress, [0, 1], [-30, 30]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0.94, 1, 1, 0.94]);
+  const photoOpacity = useTransform(scrollYProgress, [0, 0.18, 0.82, 1], [0, 0.55, 0.55, 0]);
 
   const Icon = block.icon;
 
@@ -171,7 +172,10 @@ function TimelineRow({ block, side }: TimelineRowProps) {
         }}
       >
         {block.src ? (
-          <div className="absolute inset-0 -z-10 overflow-hidden">
+          <motion.div
+            className="absolute inset-0 -z-10 overflow-hidden"
+            style={{ opacity: shouldReduceMotion ? 0.5 : photoOpacity }}
+          >
             <Image
               src={block.src}
               alt={block.alt ?? ""}
@@ -179,18 +183,18 @@ function TimelineRow({ block, side }: TimelineRowProps) {
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 42vw"
               placeholder="blur"
               blurDataURL={IMAGE_BLUR_DATA_URL}
-              className="scale-110 object-cover opacity-0 transition-[opacity,transform] duration-700 ease-[var(--ease-out-expo)] group-hover:scale-100 group-hover:opacity-40 group-focus-within:scale-100 group-focus-within:opacity-40 motion-reduce:transform-none motion-reduce:transition-none"
+              className="scale-110 object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-100 group-focus-within:scale-100 motion-reduce:transform-none motion-reduce:transition-none"
             />
             <div
               aria-hidden="true"
               className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/92 to-bg-main/70"
             />
-          </div>
+          </motion.div>
         ) : null}
 
         <div className="relative">
           <p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-secondary-accent">
-            {block.titleEs}
+            {block.period}
           </p>
           <h3 className="mt-2.5 text-xl font-semibold leading-tight text-main [text-wrap:balance] sm:text-2xl">
             {block.title}
@@ -242,12 +246,12 @@ export function TypicalDayTimeline() {
       </div>
 
       <div className="mt-14 rounded-[1.5rem] border border-secondary/25 bg-secondary/8 px-6 py-6">
-        <p className="text-sm font-semibold text-main">Un día típico · Times are approximate</p>
+        <p className="text-sm font-semibold text-main">Un día típico · Los horarios son aproximados</p>
         <p className="mt-2 text-sm leading-6 text-muted">
-          Los horarios son aproximados y pueden variar según el clima, los requisitos de cada actividad y la organización de cada día.
+          Los horarios pueden variar según el clima, los requisitos de cada actividad y la organización de cada día.
         </p>
         <p className="mt-4 font-display text-sm italic tracking-[0.08em] text-secondary-accent">
-          Explore Beyond · Explorá más allá
+          Explorá más allá
         </p>
       </div>
     </div>
