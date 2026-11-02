@@ -160,8 +160,8 @@ export default function HomePage() {
     <main id="main-content">
       <section className="relative isolate flex min-h-[92svh] items-center overflow-hidden pb-16 pt-32 sm:pt-36">
         <Image
-          src="https://images.unsplash.com/photo-1531761535209-180857e963b9?auto=format&fit=crop&w=2000&q=82"
-          alt="Lago de montaña en Patagonia bajo un cielo luminoso"
+          src="https://images.unsplash.com/photo-1627178833936-a6c8d9e8a07c?auto=format&fit=crop&w=2400&q=88"
+          alt="Bosque y aguas de verano de Villa La Angostura, Patagonia"
           fill
           priority
           placeholder="blur"
@@ -175,48 +175,26 @@ export default function HomePage() {
         <div aria-hidden="true" className="pointer-events-none absolute -right-28 bottom-10 -z-10 size-[26rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
 
         <Container className="relative py-16 lg:py-24">
-          <div className="relative grid gap-10 xl:grid-cols-[minmax(0,1fr)_22rem] xl:items-end">
-            <Reveal className="max-w-3xl xl:max-w-[48rem]">
-              <Badge variant="secondary" className="mb-7"><Sparkles aria-hidden="true" size={14} /> Temporada 2027</Badge>
-              <TextReveal as="h1" className="text-5xl font-semibold leading-[0.96] tracking-[-0.055em] text-main sm:text-7xl lg:text-[6.4rem]">
-                Inglés, aventura y Patagonia.
-              </TextReveal>
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-main sm:text-xl">
-                Una experiencia residencial al aire libre para que cada adolescente vuelva más seguro, curioso y conectado con el mundo.
-              </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Button href="/preguntas-frecuentes" size="lg">Consultar disponibilidad <ArrowRight aria-hidden="true" size={18} /></Button>
-                <Button href="/programa-ingles" variant="outline" size="lg">Conocer el programa</Button>
-              </div>
-              <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
-                {["Adolescentes de 13–17 años", "4–12 de diciembre de 2027", "Formato residencial", "Villa La Angostura"].map((item) => (
-                  <span key={item} className="inline-flex items-center gap-2">
-                    <CheckCircle2 aria-hidden="true" size={16} className="text-primary-accent" /> {item}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.12} className="xl:absolute xl:bottom-24 xl:right-10 xl:w-88">
-              <figure className="glass-panel overflow-hidden rounded-[1.75rem] shadow-2xl">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=720&q=76"
-                    alt="Imagen editorial de referencia: fogata y paisaje de montaña al atardecer"
-                    fill
-                    placeholder="blur"
-                    blurDataURL={IMAGE_BLUR_DATA_URL}
-                    sizes="(max-width: 1280px) 100vw, 22rem"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg-main/75 via-transparent to-transparent" />
-                </div>
-                <figcaption className="p-4">
-                  <Badge variant="secondary" className="normal-case tracking-normal">Diciembre 2027 · Nahuel Huapi</Badge>
-                </figcaption>
-              </figure>
-            </Reveal>
-          </div>
+          <Reveal className="max-w-4xl">
+            <Badge variant="secondary" className="mb-7"><Sparkles aria-hidden="true" size={14} /> Temporada 2027</Badge>
+            <TextReveal as="h1" className="text-5xl font-semibold leading-[0.96] tracking-[-0.055em] text-main sm:text-7xl lg:text-[6.4rem]">
+              Inglés, aventura y Patagonia.
+            </TextReveal>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-main sm:text-xl">
+              Una experiencia residencial al aire libre para que cada adolescente vuelva más seguro, curioso y conectado con el mundo.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Button href="/preguntas-frecuentes" size="lg">Consultar disponibilidad <ArrowRight aria-hidden="true" size={18} /></Button>
+              <Button href="/programa-ingles" variant="outline" size="lg">Conocer el programa</Button>
+            </div>
+            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
+              {["Adolescentes de 13–17 años", "4–12 de diciembre de 2027", "Formato residencial", "Villa La Angostura"].map((item) => (
+                <span key={item} className="inline-flex items-center gap-2">
+                  <CheckCircle2 aria-hidden="true" size={16} className="text-primary-accent" /> {item}
+                </span>
+              ))}
+            </div>
+          </Reveal>
         </Container>
       </section>
 
