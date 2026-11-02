@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowRight, Compass, MapPin, Mountain, Trees } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { PageHero } from "@/components/marketing/PageHero";
 import { Reveal } from "@/components/motion/Reveal";
+import { ParallaxImageContainer } from "@/components/ui/ParallaxImage";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { IMAGE_BLUR_DATA_URL } from "@/components/image/placeholder";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { CampIcon } from "@/components/ui/CampIcon";
@@ -40,17 +43,61 @@ const placeSchema = {
   containedInPlace: { "@type": "AdministrativeArea", name: "Provincia de Neuquén, Patagonia Argentina" },
 };
 
-const landmarksSchema = {
-  "@context": "https://schema.org", "@type": "LandmarksOrHistoricalBuildings",
-  name: "Residencia y entorno natural de Villa La Angostura",
-  description: "Base residencial con parque, bosque nativo y acceso a la costa del lago Nahuel Huapi en Villa La Angostura.",
+const residenceSchema = {
+  "@context": "https://schema.org", "@type": "Residence",
+  name: "Residencia Patagonia Summer Camp",
+  description:
+    "Base residencial a 2 km del centro de Villa La Angostura, con 26 hectáreas de parque y bosque nativo, costa sobre el lago Nahuel Huapi, área deportiva y comedor amplio.",
   url: `${siteConfig.url}${pagePath}`, containedInPlace: placeSchema,
 };
+
+const gallery = [
+  {
+    src: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=2000&q=82",
+    alt: "Imagen editorial de referencia: agua turquesa de un lago de montaña",
+    eyebrow: "El agua",
+    title: "Los tonos del Nahuel Huapi",
+    text: "El lago es parte del paisaje cotidiano de la experiencia: un horizonte de agua clara entre montañas y bosque.",
+    className: "lg:col-span-7 lg:row-span-2",
+    ratio: "aspect-[4/5] lg:aspect-auto lg:min-h-[42rem]",
+    sizes: "(max-width: 1024px) 100vw, 58vw",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=82",
+    alt: "Imagen editorial de referencia: bosque nativo con luz filtrada entre los árboles",
+    eyebrow: "El bosque",
+    title: "Bosque nativo everywhere",
+    text: "El entorno de la residencia combina parque, bosque nativo y espacios abiertos para caminar y explorar.",
+    className: "lg:col-span-5",
+    ratio: "aspect-[4/3]",
+    sizes: "(max-width: 1024px) 100vw, 42vw",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=82",
+    alt: "Imagen editorial de referencia: cordillera nevada de Patagonia",
+    eyebrow: "Las montañas",
+    title: "La cordillera como horizonte",
+    text: "Las montañas de la Patagonia acompañan cada jornada y marcan el ritmo de las actividades al aire libre.",
+    className: "lg:col-span-5",
+    ratio: "aspect-[4/3]",
+    sizes: "(max-width: 1024px) 100vw, 42vw",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=1600&q=82",
+    alt: "Imagen editorial de referencia: lago sereno rodeado de montañas y vegetación",
+    eyebrow: "El paisaje",
+    title: "Un lugar para mirar y escuchar",
+    text: "La cercanía del agua y el bosque convierte cada salida en una ocasión para observar el territorio con otra mirada.",
+    className: "lg:col-span-12",
+    ratio: "aspect-[16/7]",
+    sizes: "100vw",
+  },
+];
 
 export default function DestinoVillaLaAngosturaPage() {
   return (
     <>
-      <JsonLd data={[placeSchema, landmarksSchema]} />
+      <JsonLd data={[placeSchema, residenceSchema]} />
       <main id="main-content">
         <PageHero
           eyebrow="Villa La Angostura · Patagonia"
@@ -62,47 +109,92 @@ export default function DestinoVillaLaAngosturaPage() {
           <Button href="/itinerario-y-actividades" size="lg">Descubrir actividades <ArrowRight className="size-4" /></Button>
         </PageHero>
 
-        <section className="py-20 sm:py-28">
-          <Container>
-            <Reveal><SectionHeader eyebrow="Una base para conocer Patagonia" title="La Patagonia como parte del aprendizaje" description="Conocer un lugar cambia la forma de cuidarlo. La experiencia combina naturaleza, comunidades, historias y conocimiento local." /></Reveal>
-            <div className="mt-12 grid gap-5 md:grid-cols-3">
-              {experiences.map((experience, index) => {
-                const Icon = experience.icon;
-                return (
-                  <Reveal key={experience.title} delay={index * 0.08}>
-                    <Card variant="glass" className="h-full p-6 sm:p-7">
-                      <CampIcon icon={Icon} />
-                      <h3 className="mt-7 text-xl font-semibold text-main">{experience.title}</h3>
-                      <p className="mt-3 leading-7 text-muted">{experience.description}</p>
-                    </Card>
-                  </Reveal>
-                );
-              })}
+        <section className="relative overflow-hidden py-20 sm:py-28 lg:py-36">
+          <div aria-hidden="true" className="pointer-events-none absolute -left-32 top-16 size-[30rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
+          <Container className="relative">
+            <Reveal>
+              <SectionHeader
+                eyebrow="Una base para conocer Patagonia"
+                title="La Patagonia como parte del aprendizaje"
+                description="Conocer un lugar cambia la forma de cuidarlo. La experiencia combina naturaleza, comunidades, historias y conocimiento local."
+              />
+            </Reveal>
+
+            <div className="mt-12 grid gap-4 lg:grid-cols-12 lg:grid-rows-[auto_auto_auto]">
+              {gallery.map((item, index) => (
+                <Reveal key={item.title} delay={index * 0.06} className={item.className}>
+                  <figure className={`group relative overflow-hidden rounded-[1.75rem] border border-subtle ${item.ratio}`}>
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      sizes={item.sizes}
+                      placeholder="blur"
+                      blurDataURL={IMAGE_BLUR_DATA_URL}
+                      className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
+                    />
+                    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/35 to-transparent" />
+                    <figcaption className="absolute inset-x-4 bottom-4 copy-scrim rounded-2xl p-5 sm:inset-x-6 sm:bottom-6 sm:p-6">
+                      <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-secondary-accent">
+                        {item.eyebrow}
+                      </p>
+                      <h3 className="mt-2 text-2xl font-semibold tracking-[-0.025em] text-main">{item.title}</h3>
+                      <p className="mt-2 max-w-xl leading-7 text-main/90">{item.text}</p>
+                      <p className="mt-3 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-main/60">
+                        Imagen editorial de referencia
+                      </p>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
             </div>
+
+            <p className="mt-6 max-w-3xl text-sm leading-6 text-muted">
+              Las fotografías ilustran el tipo de entorno de Villa La Angostura y su Patagonia circundante; no documentan la propiedad ni las instalaciones reales de la residencia.
+            </p>
           </Container>
         </section>
 
         <section className="border-y border-subtle bg-surface py-20 sm:py-28">
           <Container>
-            <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-              <Reveal>
-                <Badge variant="secondary"><MapPin className="size-3.5" aria-hidden="true" /> Patagonia Argentina</Badge>
-                <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-[-0.035em] text-main sm:text-4xl">Una residencia en contacto con el territorio</h2>
-                <p className="mt-5 text-lg leading-8 text-muted">El programa se basa en una residencia de Villa La Angostura; el pueblo y su entorno constituyen el contexto de las experiencias, no el lugar de cada actividad.</p>
+            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+              <Reveal className="relative min-h-[26rem] overflow-hidden rounded-[2rem] border border-subtle sm:min-h-[34rem]">
+                <ParallaxImageContainer
+                  src="https://images.unsplash.com/photo-1475483768296-6163e08872a1?auto=format&fit=crop&w=1600&q=82"
+                  alt="Imagen editorial de referencia: fogata al atardecer en un paisaje de montaña"
+                  className="absolute inset-0"
+                  sizes="(max-width: 1024px) 100vw, 52vw"
+                />
+                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-bg-main via-transparent to-transparent" />
+                <div className="absolute inset-x-4 bottom-4 copy-scrim rounded-2xl p-5 sm:inset-x-6 sm:bottom-6 sm:p-6">
+                  <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-secondary-accent">La tarde</p>
+                  <p className="mt-2 text-xl font-semibold text-main">El fuego como encuentro</p>
+                  <p className="mt-2 text-sm leading-6 text-main/90">
+                    Imagen editorial de referencia. El fogón nocturno es ilustrativo y queda sujeto a confirmación del programa.
+                  </p>
+                </div>
               </Reveal>
+
               <Reveal delay={0.08}>
-                <Card variant="elevated" className="p-7 sm:p-9">
-                  <h3 className="text-2xl font-semibold text-main">Datos confirmados de la residencia</h3>
-                  <ul className="mt-7 space-y-4">
-                    {[
-                      "A 2 km del centro de Villa La Angostura.",
-                      "26 hectáreas de parque y bosque nativo.",
-                      "Costa sobre el lago Nahuel Huapi.",
-                      "Área deportiva y espacios abiertos.",
-                      "Comedor amplio para comidas y encuentros grupales.",
-                    ].map((item) => <li key={item} className="flex gap-3 leading-7 text-muted"><span className="mt-2 size-1.5 shrink-0 rounded-full bg-secondary" />{item}</li>)}
-                  </ul>
-                </Card>
+                <Badge variant="secondary"><MapPin className="size-3.5" aria-hidden="true" /> Patagonia Argentina</Badge>
+                <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-[-0.035em] text-main sm:text-4xl">
+                  Una residencia en contacto con el territorio
+                </h2>
+                <p className="mt-5 text-lg leading-8 text-muted">
+                  El programa se basa en una residencia de Villa La Angostura; el pueblo y su entorno constituyen el contexto de las experiencias, no el lugar de cada actividad.
+                </p>
+                <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                  {experiences.map((experience) => {
+                    const Icon = experience.icon;
+                    return (
+                      <Card key={experience.title} variant="elevated" className="p-5">
+                        <CampIcon icon={Icon} size="sm" />
+                        <h3 className="mt-5 text-base font-semibold text-main">{experience.title}</h3>
+                        <p className="mt-2 text-sm leading-6 text-muted">{experience.description}</p>
+                      </Card>
+                    );
+                  })}
+                </div>
               </Reveal>
             </div>
           </Container>

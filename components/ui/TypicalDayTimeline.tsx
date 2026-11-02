@@ -52,7 +52,7 @@ export function TypicalDayTimeline() {
 
   return (
     <div>
-      <ol className="relative grid gap-5 md:grid-cols-2 xl:grid-cols-4 xl:gap-7" aria-label="Jornada ilustrativa del campamento">
+      <ol className="relative grid gap-5 sm:grid-cols-2 xl:grid-cols-4 xl:gap-6" aria-label="Jornada ilustrativa del campamento">
         {timelineItems.map((item, index) => {
           const Icon = item.icon;
           const isExpanded = expandedTitle === item.title;
@@ -62,10 +62,11 @@ export function TypicalDayTimeline() {
               {index < timelineItems.length - 1 ? (
                 <span
                   aria-hidden="true"
-                  className="absolute left-11 top-6 hidden h-px w-[calc(100%+1.75rem)] bg-gradient-to-r from-secondary/60 to-secondary/15 xl:block"
+                  className="absolute left-12 top-11 hidden h-px w-[calc(100%-1.5rem)] bg-gradient-to-r from-secondary/55 via-secondary/30 to-secondary/10 xl:block"
                 />
               ) : null}
-              <article className="group relative isolate min-h-72 overflow-hidden rounded-[1.75rem] border border-subtle bg-card transition-[transform,opacity] duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 focus-within:-translate-y-1 motion-reduce:transform-none motion-reduce:transition-none">
+
+              <article className="group relative isolate flex h-full min-h-[22rem] flex-col overflow-hidden rounded-[1.75rem] border border-subtle bg-card transition-[transform,border-color] duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-secondary/35 focus-within:-translate-y-1 focus-within:border-secondary/35 motion-reduce:transform-none motion-reduce:transition-none">
                 <div
                   id={`timeline-preview-${index}`}
                   className={cn(
@@ -78,34 +79,45 @@ export function TypicalDayTimeline() {
                     src={item.src}
                     alt={item.alt}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
                     placeholder="blur"
                     blurDataURL={IMAGE_BLUR_DATA_URL}
                     className="scale-105 object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-110 group-focus-within:scale-110 motion-reduce:transform-none motion-reduce:transition-none"
                   />
+                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/75 to-bg-main/40" />
                 </div>
-                <div className="relative z-10 flex h-full min-h-72 flex-col p-5 before:absolute before:inset-0 before:-z-10 before:rounded-[1.5rem] before:bg-[var(--copy-scrim-bg)] before:opacity-0 before:transition-opacity before:duration-500 before:content-[''] before:group-hover:opacity-100 before:group-focus-within:opacity-100 motion-reduce:before:transition-none">
+
+                <div className="relative z-10 flex h-full flex-col p-6 sm:p-7">
+                  <div className="flex items-start justify-between gap-4">
+                    <CampIcon icon={Icon} size="lg" tone="oxblood" />
+                    <span
+                      aria-hidden="true"
+                      className="font-display text-4xl leading-none text-main/15 transition-colors duration-500 group-hover:text-secondary/30 group-focus-within:text-secondary/30"
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+
                   <button
                     type="button"
-                    className="flex w-full min-w-0 items-center gap-4 rounded-2xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-4 focus-visible:ring-offset-card"
+                    className="mt-7 w-full min-w-0 rounded-2xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-4 focus-visible:ring-offset-card"
                     aria-expanded={isExpanded}
                     aria-controls={`timeline-preview-${index}`}
                     onClick={() => setExpandedTitle(isExpanded ? null : item.title)}
                   >
-                    <CampIcon icon={Icon} size="md" tone="oxblood" className="relative z-10" />
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-secondary-accent">
-                        Bloque {index + 1}
-                      </span>
-                      <span className="mt-1 block whitespace-normal break-normal text-[1.05rem] font-semibold leading-6 text-main [text-wrap:balance]">
-                        {item.title}
-                      </span>
+                    <span className="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-secondary-accent">
+                      Bloque {index + 1}
+                    </span>
+                    <span className="mt-2 block whitespace-normal break-normal text-xl font-semibold leading-tight text-main [text-wrap:balance]">
+                      {item.title}
                     </span>
                   </button>
-                  <p className="mt-4 max-w-[32ch] break-words text-sm leading-6 text-muted transition-colors duration-300 group-hover:text-main group-focus-within:text-main">
+
+                  <p className="mt-4 max-w-[30ch] break-words text-sm leading-6 text-muted transition-colors duration-300 group-hover:text-main/90 group-focus-within:text-main/90">
                     {item.description}
                   </p>
-                  <p className="mt-auto pt-5 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-secondary-accent [text-shadow:0_1px_12px_var(--bg-main)]">
+
+                  <p className="mt-auto pt-6 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-main/45 [text-shadow:0_1px_12px_var(--bg-main)]">
                     Vista editorial de referencia
                   </p>
                 </div>
@@ -114,6 +126,7 @@ export function TypicalDayTimeline() {
           );
         })}
       </ol>
+
       <p className="mt-6 text-sm leading-6 text-muted">
         Los horarios exactos y el fogón de la tarde son ilustrativos y están pendientes de confirmación.
       </p>

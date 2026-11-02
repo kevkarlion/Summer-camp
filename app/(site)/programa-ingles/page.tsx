@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { CampIcon } from "@/components/ui/CampIcon";
 import { Card } from "@/components/ui/Card";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { TypicalDayTimeline } from "@/components/ui/TypicalDayTimeline";
 import { siteConfig } from "@/lib/site";
 
 const pagePath = "/programa-ingles";
@@ -101,6 +102,23 @@ export default function ProgramaInglesPage() {
                 ))}
               </div>
             </div>
+          </Container>
+        </section>
+
+        <section className="relative overflow-hidden py-20 sm:py-28 lg:py-36">
+          <div aria-hidden="true" className="pointer-events-none absolute -left-28 top-12 size-[30rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
+          <div aria-hidden="true" className="pointer-events-none absolute -right-24 bottom-4 size-[28rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
+          <Container className="relative">
+            <Reveal>
+              <SectionHeader
+                eyebrow="El itinerario diario"
+                title="Aprender, explorar y compartir."
+                description="Este recorrido visual presenta posibles momentos de la experiencia. Los horarios exactos y el fogón de la tarde son ilustrativos y están pendientes de confirmación."
+              />
+            </Reveal>
+            <Reveal delay={0.08} className="mt-12 lg:mt-14">
+              <TypicalDayTimeline />
+            </Reveal>
           </Container>
         </section>
 

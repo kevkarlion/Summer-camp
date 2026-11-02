@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowRight, Binoculars, Compass, Mountain, Users, Waves } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { PageHero } from "@/components/marketing/PageHero";
 import { Reveal } from "@/components/motion/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { IMAGE_BLUR_DATA_URL } from "@/components/image/placeholder";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { CampIcon } from "@/components/ui/CampIcon";
@@ -28,11 +30,56 @@ export const metadata: Metadata = {
 };
 
 const activities = [
-  { icon: Waves, title: "Kayak", description: "Una experiencia sobre el agua para compartir el día con trabajo en equipo y atención a la seguridad." },
-  { icon: Mountain, title: "Trekking", description: "Caminatas y observaciones del bosque en contacto con el entorno natural." },
-  { icon: Compass, title: "Visitas a productores locales", description: "Encuentros con quienes producen y trabajan en el territorio para conocer su historia y su oficio." },
-  { icon: Users, title: "Convivencia y naturaleza", description: "Tiempo para compartir experiencias, explorar el entorno natural y construir vínculos con el grupo." },
-  { icon: Binoculars, title: "Exploración del entorno", description: "Observación y descubrimiento de la naturaleza con una mirada curiosa y respetuosa." },
+  {
+    icon: Waves,
+    title: "Kayak",
+    description: "Una experiencia sobre el agua para compartir el día con trabajo en equipo y atención a la seguridad.",
+    src: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1800&q=82",
+    alt: "Imagen editorial de referencia: kayak sobre aguas de montaña",
+    className: "lg:col-span-7 lg:row-span-2",
+    ratio: "aspect-[4/5] lg:aspect-auto lg:min-h-[38rem]",
+    sizes: "(max-width: 1024px) 100vw, 58vw",
+  },
+  {
+    icon: Mountain,
+    title: "Trekking",
+    description: "Caminatas y observaciones del bosque en contacto con el entorno natural.",
+    src: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1600&q=82",
+    alt: "Imagen editorial de referencia: grupo recorriendo un sendero de montaña",
+    className: "lg:col-span-5",
+    ratio: "aspect-[4/3]",
+    sizes: "(max-width: 1024px) 100vw, 42vw",
+  },
+  {
+    icon: Compass,
+    title: "Visitas a productores locales",
+    description: "Encuentros con quienes producen y trabajan en el territorio para conocer su historia y su oficio.",
+    src: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1600&q=82",
+    alt: "Imagen editorial de referencia: productos y sabores locales de un mercado",
+    className: "lg:col-span-5",
+    ratio: "aspect-[4/3]",
+    sizes: "(max-width: 1024px) 100vw, 42vw",
+  },
+  {
+    icon: Users,
+    title: "Convivencia y naturaleza",
+    description: "Tiempo para compartir experiencias, explorar el entorno natural y construir vínculos con el grupo.",
+    src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1800&q=82",
+    alt: "Imagen editorial de referencia: grupo de amigos compartiendo una experiencia al aire libre",
+    className: "lg:col-span-12",
+    ratio: "aspect-[16/8]",
+    sizes: "100vw",
+  },
+  {
+    icon: Binoculars,
+    title: "Exploración del entorno",
+    description: "Observación y descubrimiento de la naturaleza con una mirada curiosa y respetuosa.",
+    src: "https://images.unsplash.com/photo-1439853949127-fa647821eba0?auto=format&fit=crop&w=1800&q=82",
+    alt: "Imagen editorial de referencia: paisaje de montaña y lago para la observación del entorno",
+    className: "lg:col-span-12",
+    ratio: "aspect-[21/9]",
+    sizes: "100vw",
+  },
 ];
 
 const schema = {
@@ -57,26 +104,53 @@ export default function ItinerarioYActividadesPage() {
           <Button href="/seguridad-y-coordinacion" size="lg">Conocer la coordinación <ArrowRight className="size-4" /></Button>
         </PageHero>
 
-        <section className="py-20 sm:py-28">
-          <Container>
-            <Reveal><SectionHeader eyebrow="Actividades confirmadas" title="Naturaleza, comunidad y trabajo en equipo" description="Cada actividad considera las condiciones meteorológicas y los requisitos de seguridad. El horario definitivo se comunicará con el programa." /></Reveal>
-            <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <section className="relative overflow-hidden py-20 sm:py-28 lg:py-36">
+          <div aria-hidden="true" className="pointer-events-none absolute -right-28 top-12 size-[30rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
+          <Container className="relative">
+            <Reveal>
+              <SectionHeader
+                eyebrow="Actividades confirmadas"
+                title="Naturaleza, comunidad y trabajo en equipo"
+                description="Cada actividad considera las condiciones meteorológicas y los requisitos de seguridad. El horario definitivo se comunicará con el programa."
+              />
+            </Reveal>
+
+            <div className="mt-12 grid gap-4 lg:grid-cols-12">
               {activities.map((activity, index) => {
                 const Icon = activity.icon;
                 return (
-                  <Reveal key={activity.title} delay={index * 0.06}>
-                    <Card variant="glass" className="h-full p-6 sm:p-8">
-                      <div className="flex items-start justify-between gap-4">
-                        <CampIcon icon={Icon} />
-                        <Badge variant="secondary">Actividad {String(index + 1).padStart(2, "0")}</Badge>
-                      </div>
-                      <h3 className="mt-7 text-2xl font-semibold tracking-[-0.025em] text-main">{activity.title}</h3>
-                      <p className="mt-3 leading-7 text-muted">{activity.description}</p>
-                    </Card>
+                  <Reveal key={activity.title} delay={index * 0.06} className={activity.className}>
+                    <figure className={`group relative overflow-hidden rounded-[1.75rem] border border-subtle ${activity.ratio}`}>
+                      <Image
+                        src={activity.src}
+                        alt={activity.alt}
+                        fill
+                        sizes={activity.sizes}
+                        placeholder="blur"
+                        blurDataURL={IMAGE_BLUR_DATA_URL}
+                        className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
+                      />
+                      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/40 to-transparent" />
+                      <figcaption className="absolute inset-x-4 bottom-4 copy-scrim rounded-2xl p-5 sm:inset-x-6 sm:bottom-6 sm:p-6">
+                        <div className="flex items-start justify-between gap-4">
+                          <CampIcon icon={Icon} size="sm" tone="oxblood" />
+                          <Badge variant="secondary">Actividad {String(index + 1).padStart(2, "0")}</Badge>
+                        </div>
+                        <h3 className="mt-5 text-2xl font-semibold tracking-[-0.025em] text-main">{activity.title}</h3>
+                        <p className="mt-2 max-w-xl leading-7 text-main/90">{activity.description}</p>
+                        <p className="mt-3 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-main/60">
+                          Imagen editorial de referencia
+                        </p>
+                      </figcaption>
+                    </figure>
                   </Reveal>
                 );
               })}
             </div>
+
+            <p className="mt-6 max-w-3xl text-sm leading-6 text-muted">
+              Las fotografías ilustran el tipo de actividades y entorno de la experiencia; no muestran participantes, productores ni prestadores reales del programa.
+            </p>
           </Container>
         </section>
 
@@ -85,7 +159,7 @@ export default function ItinerarioYActividadesPage() {
             <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
               <Reveal>
                 <Badge variant="secondary">Antes de cada actividad</Badge>
-                <h2 className="mt-6 text-3xl font-semibold tracking-[-0.035em] text-main sm:text-4xl">Requisitos claros, experiencia previa no necesaria en general</h2>
+                <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-[-0.035em] text-main sm:text-4xl">Requisitos claros, experiencia previa no necesaria en general</h2>
                 <p className="mt-5 text-lg leading-8 text-muted">No se requiere experiencia outdoor previa en general. Cada actividad puede tener requisitos específicos, y el equipo comunicará el equipamiento final antes del campamento.</p>
               </Reveal>
               <Reveal delay={0.08}>

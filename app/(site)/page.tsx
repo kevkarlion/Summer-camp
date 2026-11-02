@@ -20,7 +20,6 @@ import { ImageLightbox, type ImageLightboxItem } from "@/components/ui/ImageLigh
 import { OrganicMaskImage } from "@/components/ui/OrganicMaskImage";
 import { ParallaxImageContainer } from "@/components/ui/ParallaxImage";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { TypicalDayTimeline } from "@/components/ui/TypicalDayTimeline";
 import { siteConfig } from "@/lib/site";
 
 const description =
@@ -382,22 +381,6 @@ export default function HomePage() {
               </Link>
             </Reveal>
           </div>
-        </Container>
-      </section>
-
-      <section className="relative overflow-hidden bg-surface py-24 sm:py-28 lg:py-36">
-        <Container>
-          <Reveal className="max-w-3xl">
-            <SectionHeader
-              eyebrow="Una jornada ilustrativa"
-              title="Aprender, explorar y compartir."
-              description="Este recorrido visual presenta posibles momentos de la experiencia. Los horarios exactos y el fogón de la tarde son ilustrativos y están pendientes de confirmación."
-            />
-            <Button href="/itinerario-y-actividades" variant="secondary" className="mt-9">Ver actividades <ArrowRight aria-hidden="true" size={17} /></Button>
-          </Reveal>
-          <Reveal delay={0.08} className="mt-14 lg:mt-16">
-            <TypicalDayTimeline />
-          </Reveal>
         </Container>
       </section>
 
