@@ -195,20 +195,6 @@ export function ProgramaView() {
       </section>
 
       <section className="site-section site-section--forest" aria-labelledby="programa-cta-title">
-        <figure className="programa-page__cta-media">
-          <Image
-            src="/camp-media/fogata-en-el-bosque.webp"
-            alt={
-              language === "es"
-                ? "Fotografía real del campamento: fogata con marshmallows en el bosque"
-                : "Real camp photograph: a campfire with marshmallows in the woods"
-            }
-            fill
-            sizes="(max-width: 767px) 100vw, 92vw"
-            className="object-cover"
-          />
-          <figcaption>{copy.cta.caption}</figcaption>
-        </figure>
         <div className="site-wrap programa-page__cta">
           <Reveal>
             <h2 id="programa-cta-title" className="programa-page__cta-title">
@@ -225,6 +211,20 @@ export function ProgramaView() {
             </div>
           </Reveal>
         </div>
+        <figure className="programa-page__cta-media">
+          <Image
+            src="/camp-media/fogata-en-el-bosque.webp"
+            alt={
+              language === "es"
+                ? "Fotografía real del campamento: fogata con marshmallows en el bosque"
+                : "Real camp photograph: a campfire with marshmallows in the woods"
+            }
+            fill
+            sizes="(max-width: 767px) 100vw, 92vw"
+            className="object-cover"
+          />
+          <figcaption>{copy.cta.caption}</figcaption>
+        </figure>
       </section>
     </main>
   );

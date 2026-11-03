@@ -358,3 +358,13 @@
   color: var(--home-paper-ink);
   font-size: 0.85rem;
 }
+
+/* The closing band keeps the photograph first on screen but after the heading in the DOM. */
+section[aria-labelledby="programa-cta-title"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.programa-page__cta-media {
+  order: -1;
+}
