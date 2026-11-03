@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
+import "@/components/site/site.css";
 
 const homeDisplay = Barlow_Condensed({
   subsets: ["latin"],
