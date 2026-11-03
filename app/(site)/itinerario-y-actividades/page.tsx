@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { IMAGE_BLUR_DATA_URL } from "@/components/image/placeholder";
 import { PageHero } from "@/components/marketing/PageHero";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/site";
 
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: "/camp-media/senderismo-con-villa-la-angostura.webp",
+        url: "/camp-media/senderismo-con-villa-al-fondo.webp",
         width: 1200,
         height: 630,
         alt: "Fotografía real del campamento: grupo en un sendero con Villa La Angostura al fondo",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/camp-media/senderismo-con-villa-la-angostura.webp"],
+    images: ["/camp-media/senderismo-con-villa-al-fondo.webp"],
   },
 };
 
@@ -57,7 +58,7 @@ const activities = [
   {
     title: "Trekking",
     description: "Caminatas y observaciones del bosque en contacto con el entorno natural.",
-    src: "/camp-media/senderismo-con-villa-la-angostura.webp",
+    src: "/camp-media/senderismo-con-villa-al-fondo.webp",
     alt: "Fotografía real del campamento: grupo en un sendero con Villa La Angostura al fondo",
     kind: "photo",
     sizes: "(max-width: 767px) 100vw, 34vw",
@@ -121,9 +122,9 @@ export default function ItinerarioYActividadesPage() {
       <main id="main-content">
         <PageHero
           eyebrow="Aventura al aire libre"
-          title="Actividades para descubrir la Patagonia"
+          title="Actividades en Patagonia"
           description="Kayak, trekking y encuentros con productores locales conectan movimiento, equipo, inglés y conocimiento del territorio."
-          image="/camp-media/senderismo-con-villa-la-angostura.webp"
+          image="/camp-media/senderismo-con-villa-al-fondo.webp"
           imageAlt="Fotografía real del campamento: grupo en un sendero con Villa La Angostura al fondo"
         >
           <Button href="/seguridad-y-coordinacion" size="lg">
@@ -136,7 +137,7 @@ export default function ItinerarioYActividadesPage() {
             <div className="site-section__intro">
               <div>
                 <h2 id="itinerario-actividades-title" className="site-heading">
-                  Naturaleza, comunidad y trabajo en equipo
+                  Naturaleza y comunidad
                 </h2>
                 <p className="site-lead site-lead--dark">
                   Cada actividad considera las condiciones meteorológicas y los requisitos de seguridad. El horario definitivo se comunicará con el programa.
@@ -144,6 +145,7 @@ export default function ItinerarioYActividadesPage() {
               </div>
             </div>
 
+            <Reveal>
             <div className="itinerario-lead">
               <figure className="itinerario-lead__media">
                 <Image
@@ -164,10 +166,12 @@ export default function ItinerarioYActividadesPage() {
                 </p>
               </div>
             </div>
+            </Reveal>
 
             <div className="itinerario-list">
               {rest.map((activity) => (
-                <article key={activity.title} className="itinerario-entry">
+                <Reveal key={activity.title}>
+                <article className="itinerario-entry">
                   <figure
                     className="itinerario-entry__media"
                   >
@@ -189,6 +193,7 @@ export default function ItinerarioYActividadesPage() {
                     </p>
                   </div>
                 </article>
+                </Reveal>
               ))}
             </div>
 
@@ -203,10 +208,10 @@ export default function ItinerarioYActividadesPage() {
             <div className="site-section__intro">
               <div>
                 <h2 id="itinerario-requisitos-title" className="site-heading site-heading--light">
-                  Requisitos claros, experiencia previa no necesaria en general
+                  Requisitos claros
                 </h2>
                 <p className="site-lead site-lead--light">
-                  No se requiere experiencia outdoor previa en general. Cada actividad puede tener requisitos específicos, y el equipo comunicará el equipamiento final antes del campamento.
+                  No se requiere experiencia outdoor previa en general. Cada actividad puede tener requisitos específicos, y el equipo comunicará el equipamiento final antes del campamento. Cada actividad puede tener requisitos específicos, y el equipo comunicará el equipamiento final antes del campamento.
                 </p>
               </div>
               <div>

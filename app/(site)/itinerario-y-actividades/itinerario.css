@@ -31,9 +31,6 @@
   grid-template-columns: minmax(13rem, 0.32fr) minmax(0, 1fr);
 }
 
-.itinerario-entry + .itinerario-entry {
-  border-top: 1px solid var(--home-paper-deep);
-}
 
 .itinerario-entry__media {
   position: relative;

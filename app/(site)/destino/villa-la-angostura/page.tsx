@@ -57,7 +57,7 @@ const gallery = [
     sizes: "(max-width: 767px) 100vw, 58vw",
   },
   {
-    src: "/camp-media/senderismo-con-villa-la-angostura.webp",
+    src: "/camp-media/senderismo-con-villa-al-fondo.webp",
     alt: "Fotografía real del campamento: sendero de bosque con Villa La Angostura al fondo",
     eyebrow: "El bosque",
     title: "Bosque nativo everywhere",

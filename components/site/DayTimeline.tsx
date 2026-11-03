@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const dayBlocks = [
-  { time: "8:00", period: "Primera luz", title: "Despertar", description: "Un comienzo tranquilo: camas, mochilas y un poco de estiramiento.", src: "/camp-media/senderismo-con-villa-la-angostura.webp", alt: "Fotografía real del campamento: grupo en un sendero con Villa La Angostura al fondo" },
+  { time: "8:00", period: "Primera luz", title: "Despertar", description: "Un comienzo tranquilo: camas, mochilas y un poco de estiramiento.", src: "/camp-media/senderismo-con-villa-al-fondo.webp", alt: "Fotografía real del campamento: grupo en un sendero con Villa La Angostura al fondo" },
   { time: "8:30", period: "Mañana", title: "Desayuno", description: "Desayuno completo en la residencia.", src: "/camp-media/grupo-jugando.webp", alt: "Fotografía real del campamento: grupo de adolescentes jugando al aire libre" },
   { time: "9:15", period: "Mañana", title: "Misión del día", description: "El desafío del día, explicado en inglés en grupos pequeños.", src: "/camp-media/mirando-el-valle.webp", alt: "Fotografía real del campamento: adolescente sobre un tronco caído contemplando el valle" },
   { time: "10:00", period: "Mañana", title: "Bloque de aventura", description: "Trekking o kayak en los días de aventura; deportes y arte en la residencia los demás días.", src: "/camp-media/kayak-en-el-lago.webp", alt: "Fotografía real del campamento: grupo en kayaks sobre el lago con montañas de fondo" },

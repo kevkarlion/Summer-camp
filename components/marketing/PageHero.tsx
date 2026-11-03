@@ -33,11 +33,11 @@ export function PageHero({ eyebrow, title, description, image, imageAlt, childre
 
       <div className="site-hero__copy">
         <div className="site-hero__intro">
-          <p className="site-label">{eyebrow}</p>
           <h1 id="page-hero-title" className="site-display">
             {title}
           </h1>
           <p className="site-lead">{description}</p>
+          <p className="site-label site-hero__label">{eyebrow}</p>
           {children ? <div className="site-hero__actions">{children}</div> : null}
         </div>
 
