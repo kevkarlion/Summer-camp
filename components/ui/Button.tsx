@@ -39,18 +39,16 @@ interface NativeButtonProps
 export type ButtonProps = ButtonLinkProps | NativeButtonProps;
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary:
-    "bg-brand-primary text-ink shadow-[0_12px_40px_rgba(16,185,129,0.22)] hover:bg-brand-primary-hover hover:-translate-y-0.5",
-  secondary:
-    "bg-brand-secondary text-ink shadow-[0_12px_40px_rgba(230,178,85,0.18)] hover:bg-brand-secondary-hover hover:-translate-y-0.5",
-  ghost: "bg-transparent text-main hover:bg-overlay-hover",
-  outline: "border border-subtle bg-overlay-soft text-main hover:border-primary/50 hover:bg-overlay-hover",
+  primary: "site-button--primary",
+  secondary: "site-button--secondary",
+  ghost: "site-button--ghost",
+  outline: "site-button--outline",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "min-h-10 px-4 py-2 text-sm",
-  md: "min-h-12 px-5 py-3 text-sm",
-  lg: "min-h-14 px-6 py-4 text-base",
+  sm: "min-h-[3.25rem] px-4 py-2 text-sm",
+  md: "min-h-[3.25rem] px-5 py-3 text-sm",
+  lg: "min-h-[3.25rem] px-6 py-4 text-base",
 };
 
 function useFinePointer() {
@@ -85,7 +83,7 @@ export function Button(props: ButtonProps) {
   const contentY = useSpring(targetY, { stiffness: 280, damping: 22, mass: 0.35 });
 
   const classes = cn(
-    "group inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-[0.01em] transition-[transform,opacity,background-color,border-color] duration-300 ease-[var(--ease-out-expo)] motion-reduce:transform-none motion-reduce:transition-none",
+    "site-button group motion-reduce:transform-none motion-reduce:transition-none",
     variantClasses[variant],
     sizeClasses[size],
     className,

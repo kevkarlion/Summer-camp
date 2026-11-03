@@ -1,0 +1,40 @@
+@media (min-width: 1281px) {
+  .site-hero__copy {
+    padding-left: calc(var(--home-margin) + (100vw - 1280px) / 2);
+  }
+}
+
+@media (max-width: 767px) {
+  .site-hero {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .site-hero__media {
+    min-height: 34svh;
+    order: -1;
+  }
+
+  .site-hero__copy {
+    gap: 2.5rem;
+    padding: 1.25rem var(--home-margin) var(--home-margin);
+  }
+
+  .site-display {
+    font-size: 3rem;
+  }
+
+  .site-hero__actions {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 1.5rem;
+  }
+
+  .site-hero__actions .site-button {
+    width: 100%;
+  }
+
+  .site-facts {
+    grid-template-columns: 1fr 1fr;
+  }
+}

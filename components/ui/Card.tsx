@@ -24,9 +24,9 @@ export interface CardProps
 }
 
 const variantClasses: Record<CardVariant, string> = {
-  solid: "border-subtle bg-card",
-  glass: "glass-panel",
-  elevated: "border-subtle bg-card shadow-[0_24px_80px_rgba(2,6,23,0.35)]",
+  solid: "site-card--solid",
+  glass: "site-card--paper",
+  elevated: "site-card--forest",
 };
 
 function useFinePointer() {
@@ -138,7 +138,7 @@ export function Card({
     <div
       ref={cardRef}
       className={cn(
-        "rounded-3xl border transition-[transform,opacity,background-color,border-color] duration-300 ease-[var(--ease-out-expo)] motion-reduce:transform-none motion-reduce:transition-none",
+        "site-card motion-reduce:transform-none motion-reduce:transition-none",
         interactive ? "relative" : null,
         variantClasses[variant],
         className,
@@ -152,7 +152,7 @@ export function Card({
       {interactive ? (
         <motion.span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-10 rounded-[inherit] bg-[radial-gradient(circle_at_var(--mouse-x)_var(--mouse-y),rgba(255,255,255,0.18)_0%,rgba(230,178,85,0.12)_24%,transparent_58%)]"
+          className="site-card__spotlight pointer-events-none absolute inset-0 z-10"
           style={{ opacity: spotlightOpacity }}
         />
       ) : null}

@@ -7,6 +7,7 @@ import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvide
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 import "@/components/site/site.css";
+import "@/components/site/site-responsive.css";
 
 const homeDisplay = Barlow_Condensed({
   subsets: ["latin"],

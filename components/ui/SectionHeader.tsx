@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/Badge";
+
 import { TextReveal } from "@/components/motion/TextReveal";
 
 export interface SectionHeaderProps {
@@ -19,19 +19,15 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
-      {eyebrow ? (
-        <Badge variant="primary" className="mb-5">
-          {eyebrow}
-        </Badge>
-      ) : null}
+      {eyebrow ? <p className="site-label">{eyebrow}</p> : null}
       <TextReveal
         as="h2"
-        className="text-3xl font-semibold leading-[1.08] tracking-[-0.035em] text-main sm:text-4xl lg:text-5xl"
+        className="site-heading"
       >
         {title}
       </TextReveal>
       {description ? (
-        <p className="mt-5 text-base leading-7 text-muted sm:text-lg">{description}</p>
+        <p className="site-lead">{description}</p>
       ) : null}
     </div>
   );
