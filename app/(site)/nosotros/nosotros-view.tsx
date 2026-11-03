@@ -17,16 +17,14 @@ export function NosotrosView() {
     <main id="main-content" className="nosotros-page">
       <section className="site-hero nosotros-page__hero" aria-labelledby="nosotros-title">
         <div className="site-hero__copy">
-          <Reveal>
             <div className="site-hero__intro">
-              <h1 id="nosotros-title" className="site-display nosotros-page__hero-title">
-                {copy.hero.titleLines.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </h1>
-              <p className="site-lead">{copy.hero.lead}</p>
-            </div>
-          </Reveal>
+    <h1 id="nosotros-title" className="site-display nosotros-page__hero-title">
+      {copy.hero.titleLines.map((line) => (
+        <span key={line}>{line}</span>
+      ))}
+    </h1>
+    <p className="site-lead">{copy.hero.lead}</p>
+  </div>
         </div>
         <Reveal delay={0.08}>
           <figure className="site-hero__media">

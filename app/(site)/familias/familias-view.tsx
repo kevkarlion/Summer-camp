@@ -24,16 +24,14 @@ export function FamiliasView() {
     <main id="main-content" className="familias-page">
       <section className="site-hero familias-page__hero" aria-labelledby="familias-title">
         <div className="site-hero__copy">
-          <Reveal>
             <div className="site-hero__intro">
-              <h1 id="familias-title" className="site-display familias-page__hero-title">
-                {copy.hero.titleLines.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </h1>
-              <p className="site-lead">{copy.hero.lead}</p>
-            </div>
-          </Reveal>
+    <h1 id="familias-title" className="site-display familias-page__hero-title">
+      {copy.hero.titleLines.map((line) => (
+        <span key={line}>{line}</span>
+      ))}
+    </h1>
+    <p className="site-lead">{copy.hero.lead}</p>
+  </div>
         </div>
         <Reveal delay={0.08}>
           <figure className="site-hero__media">

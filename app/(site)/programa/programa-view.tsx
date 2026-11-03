@@ -20,16 +20,14 @@ export function ProgramaView() {
     <main id="main-content" className="programa-page">
       <section className="site-hero programa-page__hero" aria-labelledby="programa-title">
         <div className="site-hero__copy">
-          <Reveal>
             <div className="site-hero__intro">
-              <h1 id="programa-title" className="site-display programa-page__hero-title">
-                {copy.hero.titleLines.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </h1>
-              <p className="site-lead">{copy.hero.lead}</p>
-            </div>
-          </Reveal>
+    <h1 id="programa-title" className="site-display programa-page__hero-title">
+      {copy.hero.titleLines.map((line) => (
+        <span key={line}>{line}</span>
+      ))}
+    </h1>
+    <p className="site-lead">{copy.hero.lead}</p>
+  </div>
           <Reveal delay={0.1}>
             <dl className="site-facts programa-page__facts" aria-label={copy.hero.factsLabel}>
               {copy.hero.facts.map((fact) => (

@@ -20,15 +20,13 @@ export function HomeHero() {
     <section className="site-hero home-hero" aria-labelledby="home-hero-title">
       <div className="site-hero__copy">
         <div className="site-hero__intro">
-          <Reveal>
             <h1 id="home-hero-title" className="site-display home-display">
-              {hero.titleLines.map((line) => (
-                <span key={line} className="home-display__line">
-                  {line}
-                </span>
-              ))}
-            </h1>
-          </Reveal>
+    {hero.titleLines.map((line) => (
+      <span key={line} className="home-display__line">
+        {line}
+      </span>
+    ))}
+  </h1>
           <Reveal delay={0.08}>
             <p className="site-lead">{hero.subtitle}</p>
           </Reveal>

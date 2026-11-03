@@ -17,16 +17,14 @@ export function ResidenciaView() {
     <main id="main-content" className="residencia-page">
       <section className="site-hero residencia-page__hero" aria-labelledby="residencia-title">
         <div className="site-hero__copy">
-          <Reveal>
             <div className="site-hero__intro">
-              <h1 id="residencia-title" className="site-display residencia-page__hero-title">
-                {copy.hero.titleLines.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </h1>
-              <p className="site-lead">{copy.hero.lead}</p>
-            </div>
-          </Reveal>
+    <h1 id="residencia-title" className="site-display residencia-page__hero-title">
+      {copy.hero.titleLines.map((line) => (
+        <span key={line}>{line}</span>
+      ))}
+    </h1>
+    <p className="site-lead">{copy.hero.lead}</p>
+  </div>
           <Reveal delay={0.1}>
             <dl className="site-facts residencia-page__facts" aria-label={copy.hero.factsLabel}>
               {copy.hero.facts.map((fact) => (
