@@ -52,3 +52,20 @@ Un único componente `ExperienceSection` combina en tres columnas: aprendizaje a
 - The Home is the surface under work. The daily-routine timeline (components/site/DayTimeline.tsx) must keep its current scroll-driven behaviour and content; it may be labelled "A typical day" in the English dictionary.
 - The site metadata and JSON-LD stay canonical in Spanish (es-AR) for SEO; the visible Home and navigation copy switch at runtime.
 - Inner routes keep their current content and are not migrated in this feature.
+
+### L3 — Delivery slices de la reestructuración
+
+| PR | Rama | Alcance | Líneas |
+| --- | --- | --- | --- |
+| 33 | `feat/33-dictionary-en` | Tipos del diccionario y copy en inglés | 320 |
+| 34 | `feat/34-dictionary-es` | Copy en español | 228 |
+| 35 | `feat/35-language-runtime` | Store, provider, switcher y navegación bilingüe | 243 |
+| 36 | `feat/36-home-sections` | ExperienceSection, timeline, residencia y about snippet | 249 |
+| 37 | `feat/37-packing-and-guide` | PackingList, FamilyGuideModal y cierre | 186 |
+| 38 | `feat/38-home-composition` | Composición de la Home, provider en layout y retiro de WeekRoute | 368 |
+| 39 | `feat/39a-home-core-styles` | CSS core de la Home | 310 |
+| 40 | `feat/40a-home-hero-timeline-styles` | CSS del hero y del timeline | 264 |
+| 41 | `feat/41-home-responsive-styles` | CSS de cierre y responsive | 177 |
+| 42 | `feat/42-packing-layout` | Lista de equipaje como un único campo compuesto | 7 |
+
+Gate visual final de la Home (producción, 1440/768/390): **0 FAIL**, 4 WARN defendidos (escala tipográfica, ausencia de video real, movimiento acotado a un momento autoral y tamaño de imagen).
