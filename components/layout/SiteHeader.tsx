@@ -6,42 +6,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { LanguageSwitcher } from "@/components/home/LanguageSwitcher";
+import { useLanguage } from "@/components/home/LanguageProvider";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/layout/Container";
 import { cn } from "@/lib/utils";
-
-const navigation = [
-  { href: "/", label: "Inicio" },
-  { href: "/programa-ingles", label: "Programa" },
-  { href: "/programa-ingles/adolescentes", label: "13–17 años" },
-  { href: "/itinerario-y-actividades", label: "Experiencias" },
-  { href: "/destino/villa-la-angostura", label: "Destino" },
-  { href: "/seguridad-y-coordinacion", label: "Seguridad" },
-  { href: "/guia-familias", label: "Guía" },
-  { href: "/preguntas-frecuentes", label: "FAQ" },
-  { href: "/sobre-nosotros", label: "Nosotros" },
-  { href: "/contacto", label: "Contacto" },
-];
-
-const mobileGroups = [
-  {
-    label: "La experiencia",
-    items: navigation.slice(1, 5),
-  },
-  {
-    label: "Para las familias",
-    items: navigation.slice(5, 8),
-  },
-  {
-    label: "El proyecto",
-    items: navigation.slice(8),
-  },
-];
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
+  const { dictionary } = useLanguage();
+  const navigation = dictionary.nav.items;
+  const mobileGroups = dictionary.nav.groups.map((group) => ({
+    label: group.label,
+    items: group.hrefs
+      .map((href) => navigation.find((item) => item.href === href))
+      .filter((item): item is (typeof navigation)[number] => Boolean(item)),
+  }));
 
   const closeMenu = () => setIsOpen(false);
 
@@ -51,7 +33,7 @@ export function SiteHeader() {
         <Link
           href="/"
           className="group flex shrink-0 items-center gap-3"
-          aria-label="Patagonia Summer Camp 2027, inicio"
+          aria-label={dictionary.nav.primaryLabel}
         >
           <Image
             src="/patagonia-summer-camp-mark-new.png"
@@ -66,7 +48,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden min-w-0 flex-1 items-center justify-end gap-1 xl:flex" aria-label="Navegación principal">
+        <nav className="hidden min-w-0 flex-1 items-center justify-end gap-1 xl:flex" aria-label={dictionary.nav.primaryNavLabel}>
           {navigation.map((item) => {
             const isActive = pathname === item.href;
             const isContact = item.href === "/contacto";
@@ -87,12 +69,13 @@ export function SiteHeader() {
               </Link>
             );
           })}
+          <LanguageSwitcher id="site-language-switcher-desktop" />
         </nav>
 
         <button
           type="button"
           className="grid size-11 shrink-0 place-items-center rounded-full border border-subtle bg-overlay-soft text-main xl:hidden"
-          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-label={isOpen ? dictionary.nav.closeMenu : dictionary.nav.openMenu}
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
           onClick={() => setIsOpen((current) => !current)}
@@ -111,14 +94,14 @@ export function SiteHeader() {
             exit={shouldReduceMotion ? undefined : { opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
-            <nav className="mx-auto max-w-7xl" aria-label="Navegación móvil">
+            <nav className="mx-auto max-w-7xl" aria-label={dictionary.nav.mobileNavLabel}>
               <Link
                 href="/"
                 onClick={closeMenu}
                 aria-current={pathname === "/" ? "page" : undefined}
                 className="mb-5 flex items-center justify-between border-b border-subtle pb-4 text-base font-semibold text-main"
               >
-                Inicio
+                {dictionary.nav.home}
                 <span aria-hidden="true" className="text-primary-accent">→</span>
               </Link>
 
@@ -150,12 +133,14 @@ export function SiteHeader() {
                 </div>
               ))}
 
+              <LanguageSwitcher id="site-language-switcher-mobile" />
+
               <Button
                 href="/contacto"
                 onClick={closeMenu}
                 className="relative mt-6 w-full rounded-[0.2rem] border border-[var(--scout-oxblood)] bg-[var(--scout-oxblood)] font-sans text-[13px] font-bold uppercase tracking-[0.12em] text-[var(--scout-parchment)] shadow-none before:pointer-events-none before:absolute before:inset-[3px] before:border before:border-dashed before:border-current/40 before:content-[''] hover:bg-[color-mix(in_srgb,var(--scout-oxblood)_86%,black)] hover:text-[var(--scout-parchment)]"
               >
-                Consultar información
+                {dictionary.nav.contactCta}
               </Button>
             </nav>
           </motion.div>
