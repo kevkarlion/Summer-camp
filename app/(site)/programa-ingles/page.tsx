@@ -1,39 +1,34 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, Compass, MessageCircle, Users } from "lucide-react";
-import { Container } from "@/components/layout/Container";
-import { PageHero } from "@/components/marketing/PageHero";
-import { Reveal } from "@/components/motion/Reveal";
+import { DayTimeline } from "@/components/site/DayTimeline";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { CampIcon } from "@/components/ui/CampIcon";
-import { Card } from "@/components/ui/Card";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { TypicalDayTimeline } from "@/components/ui/TypicalDayTimeline";
 import { siteConfig } from "@/lib/site";
+import "@/components/site/routes/programa-ingles.css";
 
 const pagePath = "/programa-ingles";
 const title = "Metodología Learning by Doing | Inmersión Lingüística";
-const description =
-  "Programa residencial de learning by doing para adolescentes de 13 a 17 años: inglés en la vida diaria, naturaleza y actividades en Villa La Angostura.";
+const description = "Programa residencial de learning by doing para adolescentes de 13 a 17 años: inglés en la vida diaria, naturaleza y actividades en Villa La Angostura.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url), title, description,
   keywords: ["inmersion ingles verano", "aprender ingles haciendo", "learning by doing patagonia"],
   alternates: { canonical: pagePath },
-  openGraph: {
-    type: "website", locale: siteConfig.locale, url: pagePath, siteName: siteConfig.name, title, description,
-    images: [{ url: "/camp-media/grupo-caminando.webp", width: 1200, height: 630, alt: "Fotografía real del campamento: grupo caminando con mochilas por el bosque" }],
-  },
+  openGraph: { type: "website", locale: siteConfig.locale, url: pagePath, siteName: siteConfig.name, title, description, images: [{ url: "/camp-media/grupo-caminando.webp", width: 1200, height: 630, alt: "Fotografía real del campamento: grupo caminando con mochilas por el bosque" }] },
   twitter: { card: "summary_large_image", title, description, images: ["/camp-media/grupo-caminando.webp"] },
 };
 
 const methodSteps = [
-  { number: "01", icon: MessageCircle, title: "Escuchar en contexto", description: "Palabras y expresiones aparecen en conversaciones, indicaciones y decisiones del día, para que el idioma tenga un propósito." },
-  { number: "02", icon: Compass, title: "Practicar al aire libre", description: "La exploración, las actividades y la convivencia ofrecen situaciones reales donde usar el inglés deja de sentirse como una clase." },
-  { number: "03", icon: Users, title: "Reflexionar juntos", description: "La experiencia invita a compartir lo vivido, reconocer avances y descubrir nuevas formas de participar y expresarse." },
+  { icon: MessageCircle, title: "Escuchar en contexto", description: "Palabras y expresiones aparecen en conversaciones, indicaciones y decisiones del día, para que el idioma tenga un propósito." },
+  { icon: Compass, title: "Practicar al aire libre", description: "La exploración, las actividades y la convivencia ofrecen situaciones reales donde usar el inglés deja de sentirse como una clase." },
+  { icon: Users, title: "Reflexionar juntos", description: "La experiencia invita a compartir lo vivido, reconocer avances y descubrir nuevas formas de participar y expresarse." },
 ];
-
+const learningRhythm = [
+  ["Por la mañana", "Sesiones participativas de inglés, sin prometer un nivel fijo; el nivel recomendado y el apoyo se comunicarán antes de la inscripción."],
+  ["Durante las actividades", "El idioma sirve para comprender instrucciones, acordar, compartir ideas y descubrir el entorno."],
+  ["En la convivencia", "Conversaciones espontáneas y momentos de encuentro permiten usar el inglés de manera natural y respetuosa."],
+];
 const schema = {
   "@context": "https://schema.org", "@type": "EducationalOccupationalProgram", name: title, description,
   url: `${siteConfig.url}${pagePath}`, inLanguage: "es-AR",
@@ -49,94 +44,82 @@ export default function ProgramaInglesPage() {
   return (
     <>
       <JsonLd data={schema} />
-      <main id="main-content">
-        <PageHero
-          eyebrow="Learning by Doing"
-          title="El inglés se aprende usándolo"
-          description="Una metodología de inmersión convierte cada actividad, conversación y decisión en una razón para aprender inglés haciendo en Patagonia."
-          image="/camp-media/grupo-caminando.webp"
-          imageAlt="Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque"
-        >
-          <Button href="/programa-ingles/adolescentes" size="lg">Conocer el programa para adolescentes <ArrowRight className="size-4" /></Button>
-        </PageHero>
+      <main id="main-content" className="programa-ingles">
+        <section className="site-hero programa-ingles__hero" aria-labelledby="programa-ingles-title">
+          <div className="site-hero__copy">
+            <div className="site-hero__intro">
+              <h1 id="programa-ingles-title" className="site-display programa-ingles__hero-title">El inglés se aprende usándolo</h1>
+              <p className="site-lead programa-ingles__hero-lead"><span className="programa-ingles__method-label">Learning by Doing</span>Una metodología de inmersión convierte cada actividad, conversación y decisión en una razón para aprender inglés haciendo en Patagonia.</p>
+              <div className="site-hero__actions"><Link className="site-button site-button--primary" href="/programa-ingles/adolescentes">Conocer el programa para adolescentes <ArrowRight aria-hidden="true" size={18} /></Link></div>
+            </div>
+            <dl className="site-facts programa-ingles__facts" aria-label="Datos principales del programa">
+              <div className="site-fact"><dt>Edad</dt><dd>13–17 años</dd></div>
+              <div className="site-fact"><dt>Fechas</dt><dd>4–12 de diciembre de 2027</dd></div>
+              <div className="site-fact"><dt>Formato</dt><dd>Residencial</dd></div>
+              <div className="site-fact"><dt>Lugar</dt><dd>Villa La Angostura</dd></div>
+            </dl>
+          </div>
+          <figure className="site-hero__media">
+            <Image src="/camp-media/grupo-caminando.webp" alt="Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque" fill priority sizes="(max-width: 767px) 100vw, 54vw" className="site-hero__image" />
+          </figure>
+        </section>
 
-        <section className="py-20 sm:py-28">
-          <Container>
-            <Reveal><SectionHeader eyebrow="Nuestro enfoque" title="Aprender haciendo, en un entorno que invita a participar" description="El inglés se integra en las rutinas del campamento: comprendemos el contexto, usamos el idioma y volvemos sobre lo aprendido." /></Reveal>
-            <div className="mt-12 grid gap-5 md:grid-cols-3">
-              {methodSteps.map((step, index) => {
+        <section className="site-section site-section--paper programa-ingles__method" aria-labelledby="programa-ingles-method-title">
+          <div className="site-wrap">
+            <div className="programa-ingles__section-intro">
+              <div><h2 id="programa-ingles-method-title" className="site-heading">Nuestro enfoque</h2><p className="site-lead site-lead--dark">Aprender haciendo, en un entorno que invita a participar</p></div>
+              <p className="site-body programa-ingles__section-copy">El inglés se integra en las rutinas del campamento: comprendemos el contexto, usamos el idioma y volvemos sobre lo aprendido.</p>
+            </div>
+            <ol className="programa-ingles__method-list">
+              {methodSteps.map((step) => {
                 const Icon = step.icon;
-                return (
-                  <Reveal key={step.number} delay={index * 0.08}>
-                    <Card variant="glass" className="h-full p-6 sm:p-7">
-                      <div className="flex items-center justify-between"><span className="text-sm font-semibold tracking-[0.16em] text-secondary-accent">{step.number}</span><CampIcon icon={Icon} size="sm" /></div>
-                      <h3 className="mt-8 text-xl font-semibold text-main">{step.title}</h3>
-                      <p className="mt-3 leading-7 text-muted">{step.description}</p>
-                    </Card>
-                  </Reveal>
-                );
+                return <li key={step.title} className="programa-ingles__method-item"><span className="programa-ingles__method-icon" aria-hidden="true"><Icon size={26} strokeWidth={1.8} /></span><div><h3 className="programa-ingles__item-title">{step.title}</h3><p className="programa-ingles__item-copy">{step.description}</p></div></li>;
               })}
-            </div>
-          </Container>
+            </ol>
+          </div>
         </section>
 
-        <section className="border-y border-subtle bg-surface py-20 sm:py-28">
-          <Container>
-            <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-              <Reveal>
-                <Badge variant="secondary">El ritmo de aprendizaje</Badge>
-                <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-[-0.035em] text-main sm:text-4xl">El inglés vive en la experiencia</h2>
-                <p className="mt-5 leading-7 text-muted">Además de sesiones breves y participativas cada mañana, el inglés está presente en actividades, conversaciones y vida cotidiana.</p>
-              </Reveal>
-              <div className="grid gap-4">
-                {[
-                  ["Por la mañana", "Sesiones participativas de inglés, sin prometer un nivel fijo; el nivel recomendado y el apoyo se comunicarán antes de la inscripción."],
-                  ["Durante las actividades", "El idioma sirve para comprender instrucciones, acordar, compartir ideas y descubrir el entorno."],
-                  ["En la convivencia", "Conversaciones espontáneas y momentos de encuentro permiten usar el inglés de manera natural y respetuosa."],
-                ].map(([label, text], index) => (
-                  <Reveal key={label} delay={index * 0.08}>
-                    <Card className="grid gap-3 p-6 sm:grid-cols-[10rem_1fr] sm:items-start sm:gap-7">
-                      <Badge variant="primary" className="w-fit">{label}</Badge><p className="leading-7 text-muted">{text}</p>
-                    </Card>
-                  </Reveal>
-                ))}
-              </div>
+        <section className="site-section site-section--forest programa-ingles__rhythm" aria-labelledby="programa-ingles-rhythm-title">
+          <div className="site-wrap programa-ingles__rhythm-grid">
+            <div className="programa-ingles__rhythm-copy">
+              <h2 id="programa-ingles-rhythm-title" className="site-heading site-heading--light">El ritmo de aprendizaje</h2>
+              <h3 className="programa-ingles__section-statement">El inglés vive en la experiencia</h3>
+              <p className="site-lead site-lead--light">Además de sesiones breves y participativas cada mañana, el inglés está presente en actividades, conversaciones y vida cotidiana.</p>
             </div>
-          </Container>
+            <ol className="programa-ingles__rhythm-list">
+              {learningRhythm.map(([label, text]) => <li key={label} className="programa-ingles__rhythm-item"><p className="programa-ingles__rhythm-label">{label}</p><p className="programa-ingles__rhythm-text">{text}</p></li>)}
+            </ol>
+          </div>
         </section>
 
-        <section className="relative overflow-hidden py-20 sm:py-28 lg:py-36">
-          <div aria-hidden="true" className="pointer-events-none absolute -left-28 top-12 size-[30rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
-          <div aria-hidden="true" className="pointer-events-none absolute -right-24 bottom-4 size-[28rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
-          <Container className="relative">
-            <Reveal>
-              <SectionHeader
-                eyebrow="El itinerario diario"
-                title="Aprender, explorar y compartir."
-                description="Así se vive un día en Patagonia Summer Camp: de la primera luz al último cuento antes de dormir. Los horarios son aproximados y pueden variar según el clima, los requisitos de cada actividad y la organización de cada día."
-              />
-            </Reveal>
-            <div className="mt-12 lg:mt-14">
-              <TypicalDayTimeline />
+        <section className="site-section site-section--paper programa-ingles__itinerary" aria-labelledby="programa-ingles-itinerary-title">
+          <div className="site-wrap">
+            <div className="programa-ingles__itinerary-intro">
+              <h2 id="programa-ingles-itinerary-title" className="site-heading">El itinerario diario</h2>
+              <h3 className="programa-ingles__section-statement">Aprender, explorar y compartir.</h3>
+              <p className="site-body programa-ingles__section-copy">Así se vive un día en Patagonia Summer Camp: de la primera luz al último cuento antes de dormir. Los horarios son aproximados y pueden variar según el clima, los requisitos de cada actividad y la organización de cada día.</p>
             </div>
-          </Container>
+            <DayTimeline />
+          </div>
         </section>
 
-        <section className="py-20 sm:py-28">
-          <Container>
-            <Reveal>
-              <Card variant="elevated" className="overflow-hidden p-8 sm:p-12 lg:p-16">
-                <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
-                  <div className="max-w-3xl">
-                    <Badge variant="primary">13–17 años · 4–12 de diciembre de 2027</Badge>
-                    <h2 className="mt-6 text-3xl font-semibold tracking-[-0.035em] text-main sm:text-4xl">Una experiencia residencial para descubrir, conversar y crecer</h2>
-                    <p className="mt-5 text-lg leading-8 text-muted">El programa combina naturaleza, conocimiento local, actividades al aire libre, inmersión en inglés y trabajo en equipo en Villa La Angostura.</p>
-                  </div>
-                  <Button href="/programa-ingles/adolescentes" variant="outline">Ver programa para adolescentes <ArrowRight className="size-4" /></Button>
-                </div>
-              </Card>
-            </Reveal>
-          </Container>
+        <section className="site-section site-section--lake programa-ingles__residence" aria-labelledby="programa-ingles-residence-title">
+          <div className="site-wrap programa-ingles__residence-grid">
+            <figure className="programa-ingles__residence-media"><Image src="/camp-media/residencia-de-piedra-y-madera.png" alt="La residencia de piedra y madera" fill sizes="(max-width: 767px) 100vw, 46vw" className="programa-ingles__cover-image" /></figure>
+            <div className="programa-ingles__residence-copy">
+              <h2 id="programa-ingles-residence-title" className="site-heading">Una experiencia residencial</h2>
+              <p className="programa-ingles__residence-badge">13–17 años · 4–12 de diciembre de 2027</p>
+              <p className="site-lead site-lead--dark">Una experiencia residencial para descubrir, conversar y crecer. El programa combina naturaleza, conocimiento local, actividades al aire libre, inmersión en inglés y trabajo en equipo en Villa La Angostura.</p>
+              <Link className="site-button site-button--primary" href="/programa-ingles/adolescentes">Ver programa para adolescentes <ArrowRight aria-hidden="true" size={18} /></Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="site-section site-section--forest programa-ingles__inquiry" aria-labelledby="programa-ingles-inquiry-title">
+          <div className="site-wrap programa-ingles__inquiry-grid">
+            <h2 id="programa-ingles-inquiry-title" className="programa-ingles__inquiry-title">¿Querés conocer el programa?</h2>
+            <div className="programa-ingles__inquiry-action"><p>Consultá las fechas, el destino y la disponibilidad para adolescentes de 13 a 17 años.</p><Link className="site-button site-button--paper" href="/contacto">Consultar disponibilidad <ArrowRight aria-hidden="true" size={18} /></Link></div>
+          </div>
         </section>
       </main>
     </>
