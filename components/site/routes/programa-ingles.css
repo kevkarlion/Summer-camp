@@ -58,8 +58,9 @@
 .day-timeline__block { max-width: 42rem; padding: clamp(1.4rem, 2.6vw, 2rem); will-change: transform, opacity; }
 .day-timeline__media { position: relative; min-height: 14rem; overflow: hidden; background: var(--home-paper-deep); }
 .day-timeline__media img { object-fit: cover; }
-.day-timeline__time { margin-left: 0.65rem; color: var(--home-lake); font-family: Arial, Helvetica, sans-serif; font-size: 0.42em; font-weight: 700; letter-spacing: 0.08em; vertical-align: 0.9em; }
-.day-timeline__period { margin: 0.45rem 0 0; color: var(--home-muted); font-size: 0.95rem; line-height: 1.4; }
+.day-timeline__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.9rem; margin: 0.7rem 0 0; }
+.day-timeline__time { color: var(--home-lake); font-family: Arial, Helvetica, sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.02em; }
+.day-timeline__period { margin: 0; color: var(--home-muted); font-size: 0.95rem; line-height: 1.4; }
 .day-timeline__title { margin: 0.8rem 0 0; font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif; font-size: clamp(1.7rem, 2.6vw, 2.35rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; text-wrap: balance; }
 .day-timeline__description { max-width: 68ch; margin: 0.8rem 0 0; color: var(--home-ink); font-size: 1rem; line-height: 1.62; }
 .day-timeline__note { max-width: 48rem; margin-top: clamp(3rem, 6vw, 5rem); padding: clamp(1.4rem, 2.6vw, 2rem); background: var(--home-paper-deep); }

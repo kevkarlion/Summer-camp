@@ -46,9 +46,10 @@ export function DayTimeline() {
         const blockDocumentTop = rect.top + scrollPosition;
         const travel = Math.max(1, rect.height + viewportHeight * 0.76);
         const progress = clamp01((scrollPosition + viewportHeight * 0.88 - blockDocumentTop) / travel);
-        const opacity = clamp01(Math.min(progress / 0.16, (1 - progress) / 0.16));
-        block.style.opacity = opacity.toString();
-        block.style.transform = `translate3d(0, ${(1 - opacity) * 36}px, 0)`;
+        // The text always stays legible: the scroll reads through the drifting
+        // offset, the filling rail and the travelling marker.
+        block.style.opacity = "1";
+        block.style.transform = `translate3d(0, ${(1 - progress) * 28}px, 0)`;
       });
     };
     const scheduleDraw = () => {
@@ -102,11 +103,11 @@ export function DayTimeline() {
               />
             </figure>
             <article data-timeline-block className="day-timeline__block site-card site-card--paper">
-              <h3 className="day-timeline__title">
-                {block.title}
+              <h3 className="day-timeline__title">{block.title}</h3>
+              <p className="day-timeline__meta">
                 <span className="day-timeline__time">{block.time}</span>
-              </h3>
-              <p className="day-timeline__period">{block.period}</p>
+                <span className="day-timeline__period">{block.period}</span>
+              </p>
               <p className="day-timeline__description">{block.description}</p>
             </article>
           </li>
