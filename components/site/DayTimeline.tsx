@@ -1,19 +1,20 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const dayBlocks = [
-  { time: "8:00", period: "Primera luz", title: "Despertar", description: "Un comienzo tranquilo: camas, mochilas y un poco de estiramiento." },
-  { time: "8:30", period: "Mañana", title: "Desayuno", description: "Desayuno completo en la residencia." },
-  { time: "9:15", period: "Mañana", title: "Misión del día", description: "El desafío del día, explicado en inglés en grupos pequeños." },
-  { time: "10:00", period: "Mañana", title: "Bloque de aventura", description: "Trekking o kayak en los días de aventura; deportes y arte en la residencia los demás días." },
-  { time: "13:30", period: "Mediodía", title: "Almuerzo", description: "Picnic en el sendero o en la residencia." },
-  { time: "15:00", period: "Tarde", title: "Descanso y tiempo libre", description: "Una hora de calma, juegos, lectura y llamadas a casa." },
-  { time: "16:00", period: "Tarde", title: "Inglés en acción", description: "Desafíos reales: pedir, orientarse y trabajar en equipo." },
-  { time: "18:00", period: "Tarde", title: "Duchas", description: "Un buen baño después de un día entero al aire libre." },
-  { time: "19:30", period: "Noche", title: "Cena", description: "Todos juntos, alrededor de la mesa." },
-  { time: "21:00", period: "Noche", title: "Actividad nocturna", description: "Observación de estrellas, relatos y juegos. La gran fogata es la última noche." },
-  { time: "22:30", period: "Noche", title: "A dormir", description: "Todos a dormir después de un día completo. ¡Dulces sueños!" },
+  { time: "8:00", period: "Primera luz", title: "Despertar", description: "Un comienzo tranquilo: camas, mochilas y un poco de estiramiento.", src: "/camp-dia/despertar.webp" },
+  { time: "8:30", period: "Mañana", title: "Desayuno", description: "Desayuno completo en la residencia.", src: "/camp-dia/desayuno.webp" },
+  { time: "9:15", period: "Mañana", title: "Misión del día", description: "El desafío del día, explicado en inglés en grupos pequeños.", src: "/camp-dia/mision-del-dia.webp" },
+  { time: "10:00", period: "Mañana", title: "Bloque de aventura", description: "Trekking o kayak en los días de aventura; deportes y arte en la residencia los demás días.", src: "/camp-dia/bloque-aventura.webp" },
+  { time: "13:30", period: "Mediodía", title: "Almuerzo", description: "Picnic en el sendero o en la residencia.", src: "/camp-dia/almuerzo.webp" },
+  { time: "15:00", period: "Tarde", title: "Descanso y tiempo libre", description: "Una hora de calma, juegos, lectura y llamadas a casa.", src: "/camp-dia/momento-libre.webp" },
+  { time: "16:00", period: "Tarde", title: "Inglés en acción", description: "Desafíos reales: pedir, orientarse y trabajar en equipo.", src: "/camp-dia/ingles-en-accion.webp" },
+  { time: "18:00", period: "Tarde", title: "Duchas", description: "Un buen baño después de un día entero al aire libre.", src: "/camp-dia/duchas.webp" },
+  { time: "19:30", period: "Noche", title: "Cena", description: "Todos juntos, alrededor de la mesa.", src: "/camp-dia/cena.webp" },
+  { time: "21:00", period: "Noche", title: "Actividad nocturna", description: "Observación de estrellas, relatos y juegos. La gran fogata es la última noche.", src: "/camp-dia/actividad-nocturna.webp" },
+  { time: "22:30", period: "Noche", title: "A dormir", description: "Todos a dormir después de un día completo. ¡Dulces sueños!", src: "/camp-dia/dormir.webp" },
 ];
 const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
 
@@ -91,9 +92,21 @@ export function DayTimeline() {
         {dayBlocks.map((block, index) => (
           <li key={block.time} className={`day-timeline__item day-timeline__item--${index % 2 === 0 ? "left" : "right"}`}>
             <div className="day-timeline__stop" aria-hidden="true"><span className="day-timeline__dot" /></div>
+            <figure className="day-timeline__media">
+              <Image
+                src={block.src}
+                alt={`Ilustración del programa: ${block.title}`}
+                fill
+                sizes="(max-width: 899px) 100vw, 38vw"
+                className="object-cover"
+              />
+            </figure>
             <article data-timeline-block className="day-timeline__block site-card site-card--paper">
-              <div className="day-timeline__meta"><span className="day-timeline__time">{block.time}</span><span className="day-timeline__period">{block.period}</span></div>
-              <h3 className="day-timeline__title">{block.title}</h3>
+              <h3 className="day-timeline__title">
+                {block.title}
+                <span className="day-timeline__time">{block.time}</span>
+              </h3>
+              <p className="day-timeline__period">{block.period}</p>
               <p className="day-timeline__description">{block.description}</p>
             </article>
           </li>

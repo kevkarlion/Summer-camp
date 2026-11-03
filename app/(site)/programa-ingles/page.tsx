@@ -48,7 +48,7 @@ export default function ProgramaInglesPage() {
         <section className="site-hero programa-ingles__hero" aria-labelledby="programa-ingles-title">
           <div className="site-hero__copy">
             <div className="site-hero__intro">
-              <h1 id="programa-ingles-title" className="site-display programa-ingles__hero-title">El inglés se aprende usándolo</h1>
+              <h1 id="programa-ingles-title" className="site-display programa-ingles__hero-title">Inglés que se vive</h1>
               <p className="site-lead programa-ingles__hero-lead"><span className="programa-ingles__method-label">Learning by Doing</span>Una metodología de inmersión convierte cada actividad, conversación y decisión en una razón para aprender inglés haciendo en Patagonia.</p>
               <div className="site-hero__actions"><Link className="site-button site-button--primary" href="/programa-ingles/adolescentes">Conocer el programa para adolescentes <ArrowRight aria-hidden="true" size={18} /></Link></div>
             </div>
@@ -107,9 +107,9 @@ export default function ProgramaInglesPage() {
           <div className="site-wrap programa-ingles__residence-grid">
             <figure className="programa-ingles__residence-media"><Image src="/camp-media/residencia-de-piedra-y-madera.png" alt="La residencia de piedra y madera" fill sizes="(max-width: 767px) 100vw, 46vw" className="programa-ingles__cover-image" /></figure>
             <div className="programa-ingles__residence-copy">
-              <h2 id="programa-ingles-residence-title" className="site-heading">Una experiencia residencial</h2>
+              <h2 id="programa-ingles-residence-title" className="site-heading site-heading--light">Una experiencia residencial</h2>
               <p className="programa-ingles__residence-badge">13–17 años · 4–12 de diciembre de 2027</p>
-              <p className="site-lead site-lead--dark">Una experiencia residencial para descubrir, conversar y crecer. El programa combina naturaleza, conocimiento local, actividades al aire libre, inmersión en inglés y trabajo en equipo en Villa La Angostura.</p>
+              <p className="site-lead site-lead--light">Una experiencia residencial para descubrir, conversar y crecer. El programa combina naturaleza, conocimiento local, actividades al aire libre, inmersión en inglés y trabajo en equipo en Villa La Angostura.</p>
               <Link className="site-button site-button--primary" href="/programa-ingles/adolescentes">Ver programa para adolescentes <ArrowRight aria-hidden="true" size={18} /></Link>
             </div>
           </div>

@@ -27,7 +27,7 @@ export function SiteFooter() {
             height={229}
             className="h-auto w-48 sm:w-56"
           />
-          <h2 className="site-footer__heading mt-5 max-w-sm text-3xl font-semibold leading-tight tracking-[-0.03em] text-main">
+          <h2 className="site-footer__heading mt-5 max-w-md text-2xl font-semibold leading-tight tracking-[-0.03em] text-main">
             Aventura que transforma el idioma.
           </h2>
           <p className="mt-7 flex items-center gap-3 text-sm text-muted"><MapPin aria-hidden="true" size={17} className="text-secondary-accent" /> Villa La Angostura, Neuquén, Patagonia</p>
