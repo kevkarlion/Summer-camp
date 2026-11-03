@@ -223,7 +223,6 @@ export function ProgramaView() {
             sizes="(max-width: 767px) 100vw, 92vw"
             className="object-cover"
           />
-          <figcaption>{copy.cta.caption}</figcaption>
         </figure>
       </section>
     </main>

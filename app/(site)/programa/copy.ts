@@ -55,7 +55,6 @@ export type ProgrammeCopy = {
     heading: string;
     text: string;
     button: string;
-    caption: string;
   };
 };
 
@@ -177,7 +176,6 @@ const en: ProgrammeCopy = {
     heading: "Do you want to know the programme?",
     text: "Ask about the dates, the destination and the availability for teenagers aged 13 to 17.",
     button: "Request availability",
-    caption: "The campfire at the end of the day.",
   },
 };
 
@@ -299,7 +297,6 @@ const es: ProgrammeCopy = {
     heading: "¿Querés conocer el programa?",
     text: "Consultá las fechas, el destino y la disponibilidad para adolescentes de 13 a 17 años.",
     button: "Consultar disponibilidad",
-    caption: "La fogata al final del día.",
   },
 };
 
