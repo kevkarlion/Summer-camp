@@ -14,6 +14,7 @@ export type NosotrosCopy = {
     heading: string;
     aside: string;
     paragraphs: string[];
+    photo: { src: string; alt: string };
   };
   values: {
     heading: string;
@@ -48,7 +49,7 @@ const en: NosotrosCopy = {
     },
   },
   biography: {
-    heading: "From an experience in Lapland to a project in Patagonia",
+    heading: "Lapland to Patagonia",
     aside: "Where the idea came from",
     paragraphs: [
       "In 2011, Hernán studied English at the Instituto de Formación Docente y Técnica N° 55 in Escobar, Buenos Aires. He then taught English in Argentina for many years.",
@@ -57,6 +58,10 @@ const en: NosotrosCopy = {
       "He then worked in Lapland, Finland, collaborating with Finnish tourism companies. He guided visitors under the northern lights and took huskies into snowy forests at -35°C.",
       "After spending a week camping in El Chaltén, he promised himself to return to Patagonia and share an experience that would help others explore other worlds through the language.",
     ],
+    photo: {
+      src: "/camp-media/grupo-caminando.webp",
+      alt: "Real camp photograph: a group walking with backpacks along a forest trail",
+    },
   },
   values: {
     heading: "A mission to share Patagonia",
@@ -111,7 +116,7 @@ const es: NosotrosCopy = {
     },
   },
   biography: {
-    heading: "De una experiencia en Laponia a un proyecto en Patagonia",
+    heading: "Laponia a Patagonia",
     aside: "El origen de la idea",
     paragraphs: [
       "En 2011, Hernán estudió inglés en el Instituto de Formación Docente y Técnica N° 55 de Escobar, Buenos Aires. Después enseñó inglés en Argentina durante muchos años.",
@@ -120,6 +125,10 @@ const es: NosotrosCopy = {
       "Luego trabajó en Laponia, Finlandia, colaborando con empresas de turismo finlandesas. Guió visitantes bajo las auroras boreales y llevó huskies a bosques nevados a -35°C.",
       "Después de pasar una semana acampando en El Chaltén, se prometió a sí mismo volver a Patagonia y compartir una experiencia que ayudara a otros a explorar otros mundos a través del idioma.",
     ],
+    photo: {
+      src: "/camp-media/grupo-caminando.webp",
+      alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque",
+    },
   },
   values: {
     heading: "Una misión para compartir la Patagonia",

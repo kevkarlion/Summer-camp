@@ -39,6 +39,12 @@
   background: var(--home-forest-deep);
 }
 
+.nosotros-page__value-reveal {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
 .nosotros-page__value:first-child {
   padding-left: 0;
 }
@@ -78,11 +84,35 @@
 .nosotros-page__interests li {
   padding: clamp(1rem, 2vw, 1.4rem);
   background: rgba(244, 246, 242, 0.14);
+  color: var(--home-paper-ink);
   font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
   font-size: clamp(1.35rem, 2vw, 1.8rem);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.15;
+}
+
+.nosotros-page__story-reveal {
+  grid-column: 1 / -1;
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.nosotros-page__story-band {
+  margin: 0;
+}
+
+.nosotros-page__story-media {
+  position: relative;
+  min-height: clamp(20rem, 42vw, 34rem);
+  overflow: hidden;
+  background: var(--home-paper-deep);
+}
+
+/* Lake fields use the paper foreground throughout the route. */
+.nosotros-page .site-section--lake,
+.nosotros-page .site-section--lake p,
+.nosotros-page .site-section--lake li {
+  color: var(--home-paper-ink);
 }
 
 .nosotros-page__cta {
