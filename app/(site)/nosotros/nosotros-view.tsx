@@ -58,17 +58,22 @@ export function NosotrosView() {
             </div>
           </Reveal>
           <Reveal className="nosotros-page__story-reveal" delay={0.08}>
-            <figure className="nosotros-page__story-band">
-              <div className="nosotros-page__story-media">
-                <Image
-                  src={copy.biography.photo.src}
-                  alt={copy.biography.photo.alt}
-                  fill
-                  sizes="(max-width: 767px) 100vw, 88vw"
-                  className="object-cover"
-                />
-              </div>
-            </figure>
+            <div className="nosotros-page__story-gallery">
+              {copy.biography.photos.map((photo) => (
+                <figure key={photo.src} className="nosotros-page__story-band">
+                  <div className="nosotros-page__story-media">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="(max-width: 767px) 100vw, 44vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <figcaption>{photo.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
           </Reveal>
         </div>
       </section>

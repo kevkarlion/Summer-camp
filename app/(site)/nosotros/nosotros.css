@@ -97,8 +97,26 @@
   margin-top: clamp(2rem, 5vw, 4rem);
 }
 
+.nosotros-page__story-gallery {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .nosotros-page__story-band {
   margin: 0;
+}
+
+.nosotros-page__story-gallery > .nosotros-page__story-band:first-child {
+  grid-column: 1 / -1;
+}
+
+.nosotros-page__story-band figcaption {
+  margin-top: 0.75rem;
+  color: var(--home-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .nosotros-page__story-media {
@@ -145,7 +163,12 @@
     grid-template-columns: 1fr;
   }
 
-  .nosotros-page__cta {
+  .nosotros-page__cta,
+  .nosotros-page__story-gallery {
     grid-template-columns: 1fr;
+  }
+
+  .nosotros-page__story-gallery > .nosotros-page__story-band:first-child {
+    grid-column: auto;
   }
 }

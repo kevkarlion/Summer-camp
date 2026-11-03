@@ -17,6 +17,18 @@
   font-size: clamp(2.4rem, 4.6vw, 4.5rem);
 }
 
+.home-hero__media {
+  display: grid;
+  grid-template-rows: minmax(0, 1.45fr) minmax(0, 0.75fr);
+}
+
+.home-hero__media-figure {
+  position: relative;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
 .home-hero__media figcaption {
   position: absolute;
   right: 0;
@@ -27,6 +39,14 @@
   color: var(--home-paper-ink);
   font-size: 0.82rem;
   line-height: 1.45;
+}
+
+.home-fact-reveal {
+  min-width: 0;
+}
+
+.home-fact-reveal:nth-child(odd) .site-fact {
+  padding-left: 0;
 }
 
 .home-link__heading {
@@ -74,6 +94,10 @@
 
   .site-hero.home-hero .site-display {
     font-size: clamp(2.25rem, 9vw, 3rem);
+  }
+
+  .home-hero__media {
+    min-height: 72svh;
   }
 
   .home-hero__media figcaption {

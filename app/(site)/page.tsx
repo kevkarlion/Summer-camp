@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeLinks } from "@/components/home/HomeLinks";
 import { HomeSummary } from "@/components/home/HomeSummary";
+import { Reveal } from "@/components/motion/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site";
 
@@ -82,7 +83,9 @@ export default function HomePage() {
     <main id="main-content" className="home-page">
       <HomeHero />
 
-      <HomeSummary />
+      <Reveal>
+        <HomeSummary />
+      </Reveal>
 
       <HomeLinks />
 

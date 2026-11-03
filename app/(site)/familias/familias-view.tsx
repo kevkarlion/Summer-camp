@@ -48,19 +48,24 @@ export function FamiliasView() {
       </section>
 
       <Reveal>
-        <section className="site-section site-section--paper familias-page__photo-band" aria-label={copy.hero.photo.alt}>
+        <section className="site-section site-section--paper familias-page__photo-band" aria-label={copy.hero.photos[0].alt}>
           <div className="site-wrap">
-            <figure className="familias-page__photo-band-figure">
-              <div className="familias-page__photo-band-media">
-                <Image
-                  src={copy.hero.photo.src}
-                  alt={copy.hero.photo.alt}
-                  fill
-                  sizes="(max-width: 767px) 100vw, 88vw"
-                  className="object-cover"
-                />
-              </div>
-            </figure>
+            <div className="familias-page__photo-band-grid">
+              {copy.hero.photos.map((photo) => (
+                <figure key={photo.src} className="familias-page__photo-band-figure">
+                  <div className="familias-page__photo-band-media">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="(max-width: 767px) 100vw, 44vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <figcaption>{photo.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </section>
       </Reveal>

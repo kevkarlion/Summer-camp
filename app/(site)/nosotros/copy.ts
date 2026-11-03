@@ -14,7 +14,7 @@ export type NosotrosCopy = {
     heading: string;
     aside: string;
     paragraphs: string[];
-    photo: { src: string; alt: string };
+    photos: { src: string; alt: string; caption: string }[];
   };
   values: {
     heading: string;
@@ -58,10 +58,23 @@ const en: NosotrosCopy = {
       "He then worked in Lapland, Finland, collaborating with Finnish tourism companies. He guided visitors under the northern lights and took huskies into snowy forests at -35°C.",
       "After spending a week camping in El Chaltén, he promised himself to return to Patagonia and share an experience that would help others explore other worlds through the language.",
     ],
-    photo: {
-      src: "/camp-media/grupo-caminando.webp",
-      alt: "Real camp photograph: a group walking with backpacks along a forest trail",
-    },
+    photos: [
+      {
+        src: "/camp-media/grupo-caminando.webp",
+        alt: "Real camp photograph: a group walking with backpacks along a forest trail",
+        caption: "The group walking through the native forest.",
+      },
+      {
+        src: "/camp-media/senderismo-con-villa-al-fondo.webp",
+        alt: "Real camp photograph: a forest trail with Villa La Angostura visible below",
+        caption: "A trail through the forest above Villa La Angostura.",
+      },
+      {
+        src: "/camp-media/mirando-el-valle.webp",
+        alt: "Real camp photograph: a participant on fallen trunks looking over Villa La Angostura",
+        caption: "A participant looking over Villa La Angostura from the forest.",
+      },
+    ],
   },
   values: {
     heading: "A mission to share Patagonia",
@@ -125,10 +138,23 @@ const es: NosotrosCopy = {
       "Luego trabajó en Laponia, Finlandia, colaborando con empresas de turismo finlandesas. Guió visitantes bajo las auroras boreales y llevó huskies a bosques nevados a -35°C.",
       "Después de pasar una semana acampando en El Chaltén, se prometió a sí mismo volver a Patagonia y compartir una experiencia que ayudara a otros a explorar otros mundos a través del idioma.",
     ],
-    photo: {
-      src: "/camp-media/grupo-caminando.webp",
-      alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque",
-    },
+    photos: [
+      {
+        src: "/camp-media/grupo-caminando.webp",
+        alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque",
+        caption: "El grupo caminando por el bosque nativo.",
+      },
+      {
+        src: "/camp-media/senderismo-con-villa-al-fondo.webp",
+        alt: "Fotografía real del campamento: sendero de bosque con Villa La Angostura al fondo",
+        caption: "Un sendero por el bosque sobre Villa La Angostura.",
+      },
+      {
+        src: "/camp-media/mirando-el-valle.webp",
+        alt: "Fotografía real del campamento: participante sobre troncos caídos mirando Villa La Angostura",
+        caption: "Un participante mira Villa La Angostura desde el bosque.",
+      },
+    ],
   },
   values: {
     heading: "Una misión para compartir la Patagonia",

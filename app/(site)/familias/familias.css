@@ -205,15 +205,29 @@
   padding-block: 0;
 }
 
+.familias-page__photo-band-grid {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .familias-page__photo-band-figure {
   margin: 0;
 }
 
 .familias-page__photo-band-media {
   position: relative;
-  min-height: clamp(20rem, 42vw, 34rem);
+  min-height: clamp(20rem, 34vw, 28rem);
   overflow: hidden;
   background: var(--home-paper-deep);
+}
+
+.familias-page__photo-band-figure figcaption {
+  margin-top: 0.75rem;
+  color: var(--home-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 @media (max-width: 899px) {
@@ -224,7 +238,8 @@
 }
 
 @media (max-width: 767px) {
-  .familias-page__download {
+  .familias-page__download,
+  .familias-page__photo-band-grid {
     grid-template-columns: 1fr;
   }
 }

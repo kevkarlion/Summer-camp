@@ -11,7 +11,7 @@ export type FamiliasCopy = {
     titleLines: string[];
     lead: string;
     image: { src: string; alt: string };
-    photo: { src: string; alt: string };
+    photos: { src: string; alt: string; caption: string }[];
   };
   faq: {
     heading: string;
@@ -57,10 +57,23 @@ const en: FamiliasCopy = {
       src: "/camp-media/grupo-caminando.webp",
       alt: "Real camp photograph: a group walking with backpacks along a forest trail",
     },
-    photo: {
-      src: "/camp-media/grupo-jugando.webp",
-      alt: "Real camp photograph: camp participants spending time together outdoors",
-    },
+    photos: [
+      {
+        src: "/camp-media/grupo-jugando.webp",
+        alt: "Real camp photograph: camp participants playing volleyball outdoors",
+        caption: "An outdoor game with the mountains behind.",
+      },
+      {
+        src: "/camp-media/kayak-en-el-lago.webp",
+        alt: "Real camp photograph: four people paddling kayaks on Lake Nahuel Huapi",
+        caption: "Kayaking on Lake Nahuel Huapi.",
+      },
+      {
+        src: "/camp-media/fogata-en-el-bosque.webp",
+        alt: "Real camp photograph: people roasting marshmallows around a campfire",
+        caption: "The campfire at the end of the day.",
+      },
+    ],
   },
   faq: {
     heading: "The questions families ask most",
@@ -268,10 +281,23 @@ const es: FamiliasCopy = {
       src: "/camp-media/grupo-caminando.webp",
       alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque",
     },
-    photo: {
-      src: "/camp-media/grupo-jugando.webp",
-      alt: "Fotografía real del campamento: participantes del campamento compartiendo tiempo al aire libre",
-    },
+    photos: [
+      {
+        src: "/camp-media/grupo-jugando.webp",
+        alt: "Fotografía real del campamento: participantes jugando al voleibol al aire libre",
+        caption: "Un juego al aire libre con las montañas de fondo.",
+      },
+      {
+        src: "/camp-media/kayak-en-el-lago.webp",
+        alt: "Fotografía real del campamento: cuatro personas remando en kayaks sobre el lago Nahuel Huapi",
+        caption: "Kayak sobre el lago Nahuel Huapi.",
+      },
+      {
+        src: "/camp-media/fogata-en-el-bosque.webp",
+        alt: "Fotografía real del campamento: personas tostando marshmallows alrededor de una fogata",
+        caption: "La fogata al final del día.",
+      },
+    ],
   },
   faq: {
     heading: "Las dudas más comunes, reunidas en un mismo lugar",
