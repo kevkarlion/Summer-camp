@@ -263,7 +263,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 3rem;
-  padding: clamp(6rem, 9vw, 8rem) var(--home-margin) var(--home-margin);
+  padding: calc(var(--home-header-h) + 1.5rem) var(--home-margin) var(--home-margin);
 }
 
 .site-hero__intro {
@@ -318,6 +318,7 @@
 
 .site-facts {
   display: grid;
+  align-items: start;
   margin: 0;
   background: var(--home-forest);
   color: var(--home-paper-ink);
@@ -328,7 +329,7 @@
   display: flex;
   min-width: 0;
   flex-direction: column-reverse;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.25rem;
   padding: 1rem;
 }
@@ -357,6 +358,9 @@
 :root {
   --home-safe-top: env(safe-area-inset-top, 0px);
   --home-safe-bottom: env(safe-area-inset-bottom, 0px);
+  /* The fixed header: its own height plus the iOS status bar inset. Pages
+     reserve this space so the first heading never hides under it. */
+  --home-header-h: calc(5rem + var(--home-safe-top));
 }
 
 .site-header {
