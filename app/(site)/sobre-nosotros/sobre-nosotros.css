@@ -1,0 +1,129 @@
+.sobre-page {
+  background: var(--home-paper);
+  color: var(--home-ink);
+}
+
+.sobre-title,
+.sobre-heading {
+  max-width: none;
+}
+
+.sobre-title {
+  font-size: clamp(1.8rem, 3.8vw, 3.15rem);
+}
+
+.sobre-title span,
+.sobre-heading span {
+  display: block;
+  white-space: nowrap;
+}
+
+.sobre-heading {
+  font-size: clamp(1.65rem, 3.3vw, 2.8rem);
+}
+
+.sobre-biography__copy {
+  display: grid;
+  gap: 1.35rem;
+  max-width: 68ch;
+}
+
+.sobre-biography__copy p {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.68;
+}
+
+.sobre-values__list {
+  display: grid;
+  gap: 0;
+}
+
+.sobre-values__list article {
+  display: grid;
+  align-items: start;
+  gap: 1rem clamp(2rem, 6vw, 6rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--home-forest-deep);
+  grid-template-columns: minmax(14rem, 0.75fr) minmax(0, 1.25fr);
+}
+
+.sobre-values__list article:nth-child(even) {
+  background: var(--home-lake);
+  color: var(--home-ink);
+}
+
+.sobre-values__list h3 {
+  margin: 0;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.7rem, 2.7vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.sobre-values__list p {
+  max-width: 68ch;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+.sobre-clarity__actions {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  background: var(--home-paper-deep);
+}
+
+.sobre-clarity__actions p {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+
+.sobre-closing {
+  background: var(--home-paper-deep);
+}
+
+.sobre-closing__grid {
+  display: grid;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+  grid-template-columns: minmax(0, 1.25fr) auto;
+}
+
+.sobre-closing h2 {
+  margin: 0;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.sobre-closing p {
+  max-width: 62ch;
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+@media (max-width: 767px) {
+  .sobre-title {
+    font-size: clamp(1.65rem, 7.4vw, 2.3rem);
+  }
+
+  .sobre-heading {
+    font-size: clamp(1.55rem, 6.8vw, 2.1rem);
+  }
+
+  .sobre-values__list article,
+  .sobre-closing__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre-closing__grid .site-button {
+    width: 100%;
+  }
+}

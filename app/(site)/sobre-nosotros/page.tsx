@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { ArrowRight, Compass, Heart, Mountain, Sparkles } from "lucide-react";
-import { Container } from "@/components/layout/Container";
-import { PageHero } from "@/components/marketing/PageHero";
-import { Reveal } from "@/components/motion/Reveal";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { CampIcon } from "@/components/ui/CampIcon";
-import { Card } from "@/components/ui/Card";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
+
+import "./sobre-nosotros.css";
 
 const pagePath = "/sobre-nosotros";
 const title = "De Laponia a la Patagonia | Nuestra Historia";
@@ -28,9 +25,9 @@ export const metadata: Metadata = {
 };
 
 const values = [
-  { icon: Compass, title: "Aprender con propósito", description: "Cada experiencia ofrece una razón para observar, participar, conversar y descubrir." },
-  { icon: Heart, title: "Valorar el territorio", description: "La amistad, el idioma, el respeto por la cultura local y la curiosidad por la naturaleza guían la misión." },
-  { icon: Sparkles, title: "Compartir claridad y energía", description: "Hernán quiere compartir con los adolescentes la claridad, la energía y la autenticidad que encuentra en la montaña y las actividades outdoors." },
+  { title: "Aprender con propósito", description: "Cada experiencia ofrece una razón para observar, participar, conversar y descubrir." },
+  { title: "Valorar el territorio", description: "La amistad, el idioma, el respeto por la cultura local y la curiosidad por la naturaleza guían la misión." },
+  { title: "Compartir claridad y energía", description: "Hernán quiere compartir con los adolescentes la claridad, la energía y la autenticidad que encuentra en la montaña y las actividades outdoors." },
 ];
 
 const schema = {
@@ -44,84 +41,114 @@ export default function SobreNosotrosPage() {
   return (
     <>
       <JsonLd data={schema} />
-      <main id="main-content">
-        <PageHero
-          eyebrow="Nuestra historia"
-          title="Una mirada amplia para una aventura que transforma"
-          description="Hernán Paulitti, fundador Patagonia Summer Camp, imaginó una experiencia donde el paisaje patagónico se convierte en escenario para aprender y crecer."
-          image="/camp-media/hernan-bajo-las-auroras.webp"
-          imageAlt="Fotografía real de Hernán Paulitti bajo las auroras boreales en Laponia"
-        >
-          <Button href="/programa-ingles" size="lg">Conocer nuestra metodología <ArrowRight className="size-4" /></Button>
-        </PageHero>
-
-        <section className="py-20 sm:py-28">
-          <Container>
-            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-              <Reveal>
-                <Badge variant="secondary">El origen de la idea</Badge>
-                <h2 className="mt-6 text-3xl font-semibold tracking-[-0.035em] text-main sm:text-4xl">De una experiencia en Laponia a un proyecto en Patagonia</h2>
-              </Reveal>
-              <Reveal delay={0.08}>
-                <div className="space-y-6 text-lg leading-8 text-muted">
-                  <p>En 2011, Hernán estudió inglés en el Instituto de Formación Docente y Técnica N° 55 de Escobar, Buenos Aires. Después enseñó inglés en Argentina durante muchos años.</p>
-                  <p>Se mudó a Bolonia, Italia, donde estudió italiano en Academia Lingue y trabajó con empresas italianas de agritech, diseño y tecnología, enseñando inglés a arquitectos, diseñadores, operadores y otros profesionales.</p>
-                  <p>Organizó viajes de aprendizaje de inglés para adultos y adolescentes a Irlanda y Inglaterra, y trabajó como profesor y responsable de actividades en campamentos de verano del norte de Italia.</p>
-                  <p>Luego trabajó en Laponia, Finlandia, colaborando con empresas de turismo finlandesas. Guió visitantes bajo las auroras boreales y llevó huskies a bosques nevados a -35°C.</p>
-                  <p>Después de pasar una semana acampando en El Chaltén, se prometió a sí mismo volver a Patagonia y compartir una experiencia que ayudara a otros a explorar otros mundos a través del idioma.</p>
-                </div>
-              </Reveal>
-            </div>
-          </Container>
-        </section>
-
-        <section className="border-y border-subtle bg-surface py-20 sm:py-28">
-          <Container>
-            <Reveal><SectionHeader eyebrow="Lo que guía nuestro trabajo" title="Una misión para compartir la Patagonia" description="Patagonia Summer Camp cumple esa promesa valorando la región a través de la amistad, el idioma, el respeto por la cultura local y la curiosidad por la naturaleza." /></Reveal>
-            <div className="mt-12 grid gap-5 md:grid-cols-3">
-              {values.map((value, index) => {
-                const Icon = value.icon;
-                return (
-                  <Reveal key={value.title} delay={index * 0.07}>
-                    <Card variant="glass" className="h-full p-6 sm:p-8">
-                      <CampIcon icon={Icon} />
-                      <h3 className="mt-7 text-xl font-semibold text-main">{value.title}</h3>
-                      <p className="mt-3 leading-7 text-muted">{value.description}</p>
-                    </Card>
-                  </Reveal>
-                );
-              })}
-            </div>
-          </Container>
-        </section>
-
-        <section className="py-20 sm:py-28">
-          <Container>
-            <Reveal>
-              <Card variant="elevated" className="grid gap-8 p-8 sm:p-12 lg:grid-cols-[1fr_auto] lg:items-center">
-                <div className="max-w-3xl">
-                  <Badge variant="primary">Pasión y liderazgo</Badge>
-                  <h2 className="mt-6 text-3xl font-semibold tracking-[-0.035em] text-main sm:text-4xl">Claridad, energía y autenticidad</h2>
-                  <p className="mt-5 text-lg leading-8 text-muted">A Hernán le gustan CrossFit, yoga, ciclismo, la producción musical, las montañas y las actividades al aire libre. Quiere compartir esa sensación con los adolescentes que participan del programa.</p>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <Button href="/itinerario-y-actividades" variant="secondary">Ver actividades <ArrowRight className="size-4" /></Button>
-                  <Button href="/destino/villa-la-angostura" variant="outline">Conocer el destino</Button>
-                </div>
-              </Card>
-            </Reveal>
-          </Container>
-        </section>
-
-        <section className="border-t border-subtle py-16 sm:py-20">
-          <Container>
-            <Reveal>
-              <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex items-start gap-4"><CampIcon icon={Mountain} size="sm" /><div><h2 className="text-xl font-semibold text-main">El explorador</h2><p className="mt-2 leading-7 text-muted">Un espacio para descubrir qué significa aprender afuera, juntos y con propósito.</p></div></div>
-                <Button href="/preguntas-frecuentes" variant="outline">Consultar las preguntas frecuentes</Button>
+      <main id="main-content" className="sobre-page">
+        <section className="site-hero sobre-hero" aria-labelledby="sobre-title">
+          <div className="site-hero__copy">
+            <div className="site-hero__intro">
+              <h1 id="sobre-title" className="site-display sobre-title">
+                <span>Una mirada amplia para</span>
+                <span>una aventura que transforma</span>
+              </h1>
+              <p className="site-lead">
+                Hernán Paulitti, fundador Patagonia Summer Camp, imaginó una experiencia donde el paisaje patagónico se convierte en escenario para aprender y crecer.
+              </p>
+              <div className="site-hero__actions">
+                <Link className="site-button site-button--primary" href="/programa-ingles">
+                  Conocer nuestra metodología <ArrowRight aria-hidden="true" size={18} />
+                </Link>
               </div>
-            </Reveal>
-          </Container>
+            </div>
+          </div>
+          <figure className="site-hero__media">
+            <Image
+              src="/camp-media/hernan-bajo-las-auroras.webp"
+              alt="Fotografía real de Hernán Paulitti bajo las auroras boreales en Laponia"
+              fill
+              priority
+              sizes="(max-width: 767px) 100vw, 54vw"
+              className="site-hero__image"
+            />
+          </figure>
+        </section>
+
+        <section className="site-section site-section--paper sobre-biography" aria-labelledby="sobre-biography-title">
+          <div className="site-wrap site-section__split">
+            <div>
+              <h2 id="sobre-biography-title" className="site-heading sobre-heading">
+                <span>De una experiencia en Laponia</span>
+                <span>a un proyecto en Patagonia</span>
+              </h2>
+              <p className="site-section__aside site-section__aside--dark">El origen de la idea</p>
+            </div>
+            <div className="sobre-biography__copy">
+              <p>En 2011, Hernán estudió inglés en el Instituto de Formación Docente y Técnica N° 55 de Escobar, Buenos Aires. Después enseñó inglés en Argentina durante muchos años.</p>
+              <p>Se mudó a Bolonia, Italia, donde estudió italiano en Academia Lingue y trabajó con empresas italianas de agritech, diseño y tecnología, enseñando inglés a arquitectos, diseñadores, operadores y otros profesionales.</p>
+              <p>Organizó viajes de aprendizaje de inglés para adultos y adolescentes a Irlanda e Inglaterra, y trabajó como profesor y responsable de actividades en campamentos de verano del norte de Italia.</p>
+              <p>Luego trabajó en Laponia, Finlandia, colaborando con empresas de turismo finlandesas. Guió visitantes bajo las auroras boreales y llevó huskies a bosques nevados a -35°C.</p>
+              <p>Después de pasar una semana acampando en El Chaltén, se prometió a sí mismo volver a Patagonia y compartir una experiencia que ayudara a otros a explorar otros mundos a través del idioma.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="site-section site-section--forest sobre-values" aria-labelledby="sobre-values-title">
+          <div className="site-wrap">
+            <div className="site-section__intro site-section__intro--wide">
+              <div>
+                <h2 id="sobre-values-title" className="site-heading site-heading--light sobre-heading">
+                  <span>Una misión para compartir</span>
+                  <span>la Patagonia</span>
+                </h2>
+                <p className="site-lead site-lead--light">
+                  Patagonia Summer Camp cumple esa promesa valorando la región a través de la amistad, el idioma, el respeto por la cultura local y la curiosidad por la naturaleza.
+                </p>
+              </div>
+              <p className="site-section__aside">Lo que guía nuestro trabajo</p>
+            </div>
+
+            <div className="sobre-values__list">
+              {values.map((value) => (
+                <article key={value.title}>
+                  <h3>{value.title}</h3>
+                  <p>{value.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="site-section site-section--lake sobre-clarity" aria-labelledby="sobre-clarity-title">
+          <div className="site-wrap site-section__split">
+            <div>
+              <h2 id="sobre-clarity-title" className="site-heading sobre-heading">
+                <span>Claridad, energía</span>
+                <span>y autenticidad</span>
+              </h2>
+              <p className="site-lead site-lead--dark">
+                A Hernán le gustan CrossFit, yoga, ciclismo, la producción musical, las montañas y las actividades al aire libre. Quiere compartir esa sensación con los adolescentes que participan del programa.
+              </p>
+            </div>
+            <div className="sobre-clarity__actions">
+              <p>Pasión y liderazgo</p>
+              <Link className="site-button site-button--primary" href="/itinerario-y-actividades">
+                Ver actividades <ArrowRight aria-hidden="true" size={18} />
+              </Link>
+              <Link className="site-button site-button--outline" href="/destino/villa-la-angostura">
+                Conocer el destino
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="site-section sobre-closing" aria-labelledby="sobre-closing-title">
+          <div className="site-wrap sobre-closing__grid">
+            <div>
+              <h2 id="sobre-closing-title">El explorador</h2>
+              <p>Un espacio para descubrir qué significa aprender afuera, juntos y con propósito.</p>
+            </div>
+            <Link className="site-button site-button--primary" href="/preguntas-frecuentes">
+              Consultar las preguntas frecuentes
+            </Link>
+          </div>
         </section>
       </main>
     </>
