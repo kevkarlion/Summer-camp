@@ -87,3 +87,8 @@ Cada PR queda por debajo de 400 líneas contra su base inmediata:
 | 22 | `feat/22-sobre-nosotros` | Ruta de quiénes somos | 318 |
 | 23 | `feat/23-contacto` | Ruta de contacto con el formulario intacto | 186 |
 | 24 | `feat/24-programa-polish` | Imágenes, contraste y jerarquía del itinerario diario | 56 |
+| 25 | `feat/25-timeline-legible` | Legibilidad del timeline con drift de transform | 20 |
+| 26 | `feat/26-contact-form` | Formulario de contacto legible sobre superficie canónica | 236 |
+| 27 | `feat/27-real-photography` | Fotografía real del campamento en itinerario y timeline | 56 |
+| 28 | `feat/28-faq-contrast` | Contraste del cierre de preguntas frecuentes | 4 |
+| 29 | `feat/29-remove-illustrations` | Retiro de las ilustraciones y capturas de diagnóstico | binarios |
