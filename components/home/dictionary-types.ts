@@ -28,6 +28,7 @@ export type Dictionary = {
       imageAlt: string;
       imageCaption: string;
     };
+    summaryTitle: string;
     summary: string;
     summaryImage: { src: string; alt: string; caption: string };
     gallery: { label: string; items: { src: string; alt: string; caption: string }[] };

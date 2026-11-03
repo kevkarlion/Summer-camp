@@ -11,7 +11,10 @@ export function HomeSummary() {
     <section className="site-section site-section--paper">
       <div className="site-wrap">
         <div className="home-summary__grid">
-          <p className="site-body home-summary">{dictionary.home.summary}</p>
+          <div className="home-summary__copy">
+            <h2 className="site-heading home-summary__title">{dictionary.home.summaryTitle}</h2>
+            <p className="site-body home-summary">{dictionary.home.summary}</p>
+          </div>
           <figure className="home-summary__media">
             <Image
               src={dictionary.home.summaryImage.src}

@@ -133,3 +133,12 @@
     min-height: 13rem;
   }
 }
+
+.home-summary__copy {
+  max-width: 46rem;
+}
+
+.home-summary__title {
+  max-width: 24ch;
+  margin: 0 0 1.25rem;
+}
