@@ -5,13 +5,13 @@ import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 
 const footerLinks = [
-  { href: "/programa-ingles", label: "Programa de inglés" },
-  { href: "/destino/villa-la-angostura", label: "Villa La Angostura" },
+  { href: "/", label: "Inicio" },
+  { href: "/programa", label: "Programa" },
+  { href: "/residencia", label: "Residencia" },
+  { href: "/nosotros", label: "Nosotros" },
+  { href: "/familias", label: "Familias" },
   { href: "/itinerario-y-actividades", label: "Itinerario" },
   { href: "/seguridad-y-coordinacion", label: "Seguridad" },
-  { href: "/preguntas-frecuentes", label: "Preguntas frecuentes" },
-  { href: "/guia-familias", label: "Guía para familias" },
-  { href: "/sobre-nosotros", label: "Sobre nosotros" },
   { href: "/contacto", label: "Contacto" },
 ];
 
