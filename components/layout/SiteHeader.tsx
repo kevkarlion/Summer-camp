@@ -60,6 +60,12 @@ export function SiteHeader() {
               </Link>
             );
           })}
+          <Link
+            href="/contacto"
+            className="site-header__contact hidden shrink-0 xl:inline-flex"
+          >
+            {dictionary.nav.contactCta}
+          </Link>
           <LanguageSwitcher id="site-language-switcher-desktop" />
         </nav>
 

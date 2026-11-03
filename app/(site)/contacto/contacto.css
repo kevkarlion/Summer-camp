@@ -4,23 +4,67 @@
 }
 
 .contacto-hero {
-  padding-block: clamp(7rem, 12vw, 11rem);
+  padding-block: clamp(6rem, 10vw, 9rem);
   background: var(--home-forest);
   color: var(--home-paper-ink);
 }
 
+.contacto-hero__grid {
+  display: grid;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+}
+
+.contacto-hero__grid > * {
+  min-width: 0;
+}
+
+.contacto-hero__copy {
+  max-width: 40rem;
+}
+
 .contacto-title {
-  max-width: 16ch;
+  max-width: 18ch;
   color: var(--home-paper-ink);
-  font-size: clamp(2rem, 4.6vw, 4.2rem);
+  font-size: clamp(2.25rem, 3.8vw, 3.4rem);
 }
 
 .contacto-title span {
   display: block;
+  white-space: normal;
 }
 
 .contacto-hero .site-lead {
+  max-width: 40ch;
+  margin-top: 1.25rem;
   color: var(--home-paper-ink);
+}
+
+.contacto-hero .site-button {
+  margin-top: 1.75rem;
+}
+
+.contacto-hero__media {
+  position: relative;
+  min-height: clamp(24rem, 46vh, 34rem);
+  overflow: hidden;
+  background: var(--home-forest-deep);
+}
+
+.contacto-hero__media img {
+  object-fit: cover;
+  animation: contacto-drift 18s cubic-bezier(0.33, 1, 0.68, 1) infinite alternate;
+}
+
+@keyframes contacto-drift {
+  from {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: scale(1.08) translate3d(-0.8%, -0.6%, 0);
+  }
 }
 
 .contacto-grid {
@@ -75,9 +119,15 @@
   content: "";
 }
 
+@media (max-width: 959px) {
+  .contacto-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+}
+
 @media (max-width: 767px) {
   .contacto-title {
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    font-size: clamp(1.75rem, 7vw, 2rem);
   }
 
   .contacto-heading {
@@ -100,23 +150,7 @@
   color: var(--home-ink);
 }
 
-.contacto-hero__grid {
-  display: grid;
-  align-items: center;
-  gap: clamp(2rem, 6vw, 6rem);
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-}
 
-.contacto-hero__grid > * {
-  min-width: 0;
-}
-
-.contacto-hero__media {
-  position: relative;
-  min-height: 26rem;
-  overflow: hidden;
-  background: var(--home-forest-deep);
-}
 
 .contacto-hero__media img {
   object-fit: cover;
@@ -174,13 +208,20 @@
   }
 }
 
-@media (max-width: 767px) {
+.contacto-closing__action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 959px) {
   .contacto-hero__grid {
     grid-template-columns: 1fr;
   }
+}
 
-  .contacto-hero__media {
-    min-height: 18rem;
+@media (max-width: 767px) {
+  .contacto-closing__action {
+    justify-content: flex-start;
   }
 
   .contacto-band {
