@@ -1,0 +1,127 @@
+.preguntas-page {
+  background: var(--home-paper);
+  color: var(--home-ink);
+}
+
+.preguntas-title,
+.preguntas-heading {
+  max-width: none;
+}
+
+.preguntas-title {
+  font-size: clamp(1.75rem, 3.7vw, 3.15rem);
+}
+
+.preguntas-title span,
+.preguntas-heading span {
+  display: block;
+  white-space: nowrap;
+}
+
+.preguntas-heading {
+  font-size: clamp(1.65rem, 3.4vw, 2.8rem);
+}
+
+.preguntas-list {
+  max-width: 62rem;
+  background: var(--home-paper-deep);
+}
+
+.preguntas-disclosure {
+  background: var(--home-paper-deep);
+}
+
+.preguntas-disclosure:nth-child(even) {
+  background: var(--home-paper);
+}
+
+.preguntas-disclosure summary {
+  display: grid;
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  cursor: pointer;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.35rem, 2.1vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.12;
+  list-style: none;
+  grid-template-columns: minmax(0, 1fr) 1.5rem;
+}
+
+.preguntas-disclosure summary::-webkit-details-marker {
+  display: none;
+}
+
+.preguntas-disclosure__icon {
+  position: relative;
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--home-forest);
+}
+
+.preguntas-disclosure__icon::before,
+.preguntas-disclosure__icon::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.75rem;
+  height: 0.12rem;
+  background: var(--home-paper-ink);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.preguntas-disclosure__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition: transform 180ms ease;
+}
+
+.preguntas-disclosure[open] .preguntas-disclosure__icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.preguntas-disclosure__answer {
+  max-width: 68ch;
+  padding: 0 clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.5rem, 3vw, 2rem);
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+.preguntas-particular__action,
+.preguntas-closing__actions {
+  padding: clamp(1.75rem, 4vw, 3rem);
+  background: var(--home-paper);
+  color: var(--home-ink);
+}
+
+.preguntas-particular__action p {
+  margin: 0 0 1.5rem;
+  font-weight: 700;
+}
+
+.preguntas-closing__actions {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+@media (max-width: 767px) {
+  .preguntas-title {
+    font-size: clamp(1.65rem, 7.4vw, 2.25rem);
+  }
+
+  .preguntas-heading {
+    font-size: clamp(1.55rem, 6.8vw, 2.1rem);
+  }
+
+  .preguntas-disclosure summary {
+    gap: 1rem;
+  }
+
+  .preguntas-closing__actions .site-button {
+    width: 100%;
+  }
+}

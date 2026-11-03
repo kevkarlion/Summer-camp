@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { ArrowRight, CircleHelp } from "lucide-react";
-import { Container } from "@/components/layout/Container";
-import { PageHero } from "@/components/marketing/PageHero";
-import { Reveal } from "@/components/motion/Reveal";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { CampIcon } from "@/components/ui/CampIcon";
-import { Card } from "@/components/ui/Card";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
+
+import "./preguntas.css";
 
 const pagePath = "/preguntas-frecuentes";
 const title = "Preguntas Frecuentes | Patagonia Summer Camp 2027";
@@ -54,67 +51,105 @@ export default function PreguntasFrecuentesPage() {
   return (
     <>
       <JsonLd data={schema} />
-      <main id="main-content">
-        <PageHero
-          eyebrow="FAQ · Respuestas claras"
-          title="Las dudas más comunes, reunidas en un mismo lugar"
-          description="Información inicial sobre el programa, la experiencia, la logística y la seguridad para que las familias puedan avanzar con claridad."
-          image="/camp-media/grupo-jugando.webp"
-          imageAlt="Fotografía real del campamento: grupo de adolescentes jugando al aire libre"
-        >
-          <Button href="/guia-familias" size="lg">Consultar la guía para familias <ArrowRight className="size-4" /></Button>
-        </PageHero>
+      <main id="main-content" className="preguntas-page">
+        <section className="site-hero preguntas-hero" aria-labelledby="preguntas-title">
+          <div className="site-hero__copy">
+            <div className="site-hero__intro">
+              <h1 id="preguntas-title" className="site-display preguntas-title">
+                <span>Las dudas más comunes,</span>
+                <span>reunidas en un mismo lugar</span>
+              </h1>
+              <p className="site-lead">
+                Información inicial sobre el programa, la experiencia, la logística y la seguridad para que las familias puedan avanzar con claridad.
+              </p>
+              <div className="site-hero__actions">
+                <Link className="site-button site-button--primary" href="/guia-familias">
+                  Consultar la guía para familias <ArrowRight aria-hidden="true" size={18} />
+                </Link>
+              </div>
+            </div>
+          </div>
+          <figure className="site-hero__media">
+            <Image
+              src="/camp-media/grupo-jugando.webp"
+              alt="Fotografía real del campamento: grupo de adolescentes jugando al aire libre"
+              fill
+              priority
+              sizes="(max-width: 767px) 100vw, 54vw"
+              className="site-hero__image"
+            />
+          </figure>
+        </section>
 
-        <section className="py-20 sm:py-28">
-          <Container>
-            <Reveal><SectionHeader eyebrow="Antes de decidirse" title="Información para responder las preguntas más importantes" description="Estas respuestas resumen los datos confirmados. Los detalles pendientes se comunicarán antes de la inscripción y antes de viajar." /></Reveal>
-            <div className="mx-auto mt-12 max-w-4xl space-y-4">
-              {faqs.map((faq, index) => (
-                <Reveal key={faq.question} delay={Math.min(index * 0.04, 0.24)}>
-                  <Card variant="glass">
-                    <details className="group">
-                      <summary className="flex cursor-pointer list-none items-start justify-between gap-5 p-6 text-lg font-semibold text-main marker:hidden sm:p-7 sm:text-xl">
-                        <span>{faq.question}</span>
-                        <span className="grid size-8 shrink-0 place-items-center rounded-full border border-subtle bg-overlay-soft text-primary-accent transition-transform duration-300 motion-reduce:transform-none" aria-hidden="true">+</span>
-                      </summary>
-                      <div className="px-6 pb-6 pr-14 leading-7 text-muted sm:px-7 sm:pb-7 sm:pr-20">{faq.answer}</div>
-                    </details>
-                  </Card>
-                </Reveal>
+        <section className="site-section site-section--paper preguntas-list-section" aria-labelledby="preguntas-list-title">
+          <div className="site-wrap">
+            <div className="site-section__intro site-section__intro--wide">
+              <div>
+                <h2 id="preguntas-list-title" className="site-heading preguntas-heading">
+                  <span>Información para responder</span>
+                  <span>las preguntas más importantes</span>
+                </h2>
+                <p className="site-lead site-lead--dark">
+                  Estas respuestas resumen los datos confirmados. Los detalles pendientes se comunicarán antes de la inscripción y antes de viajar.
+                </p>
+              </div>
+              <p className="site-section__aside site-section__aside--dark">Antes de decidirse</p>
+            </div>
+
+            <div className="preguntas-list">
+              {faqs.map((faq) => (
+                <details key={faq.question} className="preguntas-disclosure">
+                  <summary>
+                    <span>{faq.question}</span>
+                    <span className="preguntas-disclosure__icon" aria-hidden="true" />
+                  </summary>
+                  <div className="preguntas-disclosure__answer">{faq.answer}</div>
+                </details>
               ))}
             </div>
-          </Container>
+          </div>
         </section>
 
-        <section className="border-y border-subtle bg-surface py-20 sm:py-28">
-          <Container>
-            <Reveal>
-              <Card variant="elevated" className="grid gap-8 p-8 sm:p-12 lg:grid-cols-[1fr_auto] lg:items-center">
-                <div className="max-w-3xl">
-                  <Badge variant="primary">Solicitar información</Badge>
-                  <h2 className="mt-6 text-3xl font-semibold tracking-[-0.035em] text-main sm:text-4xl">Tu familia tiene una pregunta particular</h2>
-                  <p className="mt-5 text-lg leading-8 text-muted">Podés solicitar a la organización el programa y la información sobre fechas, actividades, alojamiento, costos e inscripción.</p>
-                </div>
-                <Button href="/programa-ingles/adolescentes" variant="secondary">Conocer el programa <ArrowRight className="size-4" /></Button>
-              </Card>
-            </Reveal>
-          </Container>
+        <section className="site-section site-section--forest preguntas-particular" aria-labelledby="preguntas-particular-title">
+          <div className="site-wrap site-section__split">
+            <div>
+              <h2 id="preguntas-particular-title" className="site-heading site-heading--light preguntas-heading">
+                <span>Tu familia tiene</span>
+                <span>una pregunta particular</span>
+              </h2>
+              <p className="site-lead site-lead--light">
+                Podés solicitar a la organización el programa y la información sobre fechas, actividades, alojamiento, costos e inscripción.
+              </p>
+            </div>
+            <div className="site-card site-card--paper preguntas-particular__action">
+              <p>Solicitar información</p>
+              <Link className="site-button site-button--paper" href="/programa-ingles/adolescentes">
+                Conocer el programa <ArrowRight aria-hidden="true" size={18} />
+              </Link>
+            </div>
+          </div>
         </section>
 
-        <section className="py-20 sm:py-28">
-          <Container>
-            <Reveal>
-              <div className="mx-auto max-w-3xl text-center">
-                <CampIcon icon={CircleHelp} size="lg" tone="oxblood" className="mx-auto" />
-                <h2 className="mt-5 text-3xl font-semibold tracking-[-0.035em] text-main sm:text-4xl">Una respuesta útil empieza con una buena pregunta</h2>
-                <p className="mt-5 text-lg leading-8 text-muted">Explorá el programa, las actividades y el destino para construir una visión completa antes de solicitar información.</p>
-                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                  <Button href="/programa-ingles" variant="secondary">Conocer el programa <ArrowRight className="size-4" /></Button>
-                  <Button href="/itinerario-y-actividades" variant="outline">Ver actividades</Button>
-                </div>
-              </div>
-            </Reveal>
-          </Container>
+        <section className="site-section site-section--lake preguntas-closing" aria-labelledby="preguntas-closing-title">
+          <div className="site-wrap site-section__split">
+            <div>
+              <h2 id="preguntas-closing-title" className="site-heading preguntas-heading">
+                <span>Una respuesta útil empieza</span>
+                <span>con una buena pregunta</span>
+              </h2>
+              <p className="site-lead site-lead--dark">
+                Explorá el programa, las actividades y el destino para construir una visión completa antes de solicitar información.
+              </p>
+            </div>
+            <div className="preguntas-closing__actions">
+              <Link className="site-button site-button--primary" href="/programa-ingles">
+                Conocer el programa <ArrowRight aria-hidden="true" size={18} />
+              </Link>
+              <Link className="site-button site-button--outline" href="/itinerario-y-actividades">
+                Ver actividades
+              </Link>
+            </div>
+          </div>
         </section>
       </main>
     </>
