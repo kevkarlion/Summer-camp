@@ -12,18 +12,14 @@
   display: block;
 }
 
-/* Frequent questions: native disclosure, no script. */
+/* Frequent questions: native disclosure, separated by space and type. */
 .familias-page__faq {
   display: grid;
+  gap: clamp(1.25rem, 2.5vw, 1.9rem);
 }
 
 .familias-page__disclosure {
-  padding-block: clamp(1.25rem, 2.4vw, 1.75rem);
-  border-bottom: 1px solid rgba(23, 34, 28, 0.14);
-}
-
-.familias-page__disclosure:first-child {
-  border-top: 1px solid rgba(23, 34, 28, 0.14);
+  padding-block: 0;
 }
 
 .familias-page__disclosure summary {
@@ -83,16 +79,18 @@
   line-height: 1.62;
 }
 
-/* Packing: four categories, each with its own drawn icon. */
+/* Packing: one tonal field with four categories composed side by side. */
 .familias-page__packing {
   display: grid;
   gap: clamp(1.5rem, 3vw, 2.5rem);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: clamp(1.4rem, 2.6vw, 2rem);
+  background: var(--home-forest-deep);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .familias-page__group {
-  padding: clamp(1.4rem, 2.6vw, 2rem);
-  background: var(--home-forest-deep);
+  padding: 0;
+  background: transparent;
 }
 
 .familias-page__group-title {
@@ -200,6 +198,22 @@
 .familias-page__closing-action {
   display: flex;
   justify-content: flex-start;
+}
+
+/* A single full-width camp photograph between the hero and practical guidance. */
+.familias-page__photo-band {
+  padding-block: 0;
+}
+
+.familias-page__photo-band-figure {
+  margin: 0;
+}
+
+.familias-page__photo-band-media {
+  position: relative;
+  min-height: clamp(20rem, 42vw, 34rem);
+  overflow: hidden;
+  background: var(--home-paper-deep);
 }
 
 @media (max-width: 899px) {

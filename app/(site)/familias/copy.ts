@@ -11,6 +11,7 @@ export type FamiliasCopy = {
     titleLines: string[];
     lead: string;
     image: { src: string; alt: string };
+    photo: { src: string; alt: string };
   };
   faq: {
     heading: string;
@@ -50,11 +51,15 @@ const en: FamiliasCopy = {
       "Frequent questions, what to pack, the rules of living together and the family guide for the residential English camp for teenagers aged 13 to 17.",
   },
   hero: {
-    titleLines: ["Preparing the trip", "is also building trust"],
+    titleLines: ["Trust before departure"],
     lead: "A concrete guide to organise the arrival, the health, the safety, the coexistence and the luggage of every participant.",
     image: {
       src: "/camp-media/grupo-caminando.webp",
       alt: "Real camp photograph: a group walking with backpacks along a forest trail",
+    },
+    photo: {
+      src: "/camp-media/grupo-jugando.webp",
+      alt: "Real camp photograph: camp participants spending time together outdoors",
     },
   },
   faq: {
@@ -257,11 +262,15 @@ const es: FamiliasCopy = {
       "Preguntas frecuentes, qué llevar, las normas de convivencia y la guía para familias del campamento residencial de inglés para adolescentes de 13 a 17 años.",
   },
   hero: {
-    titleLines: ["Preparar el viaje", "también es construir confianza"],
+    titleLines: ["Confianza antes de partir"],
     lead: "Una guía concreta para organizar la llegada, la salud, la seguridad, la convivencia y el equipaje de cada participante.",
     image: {
       src: "/camp-media/grupo-caminando.webp",
       alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque",
+    },
+    photo: {
+      src: "/camp-media/grupo-jugando.webp",
+      alt: "Fotografía real del campamento: participantes del campamento compartiendo tiempo al aire libre",
     },
   },
   faq: {
