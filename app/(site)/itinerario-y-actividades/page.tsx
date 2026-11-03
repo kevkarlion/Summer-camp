@@ -49,7 +49,7 @@ const activities = [
   {
     title: "Kayak",
     description: "Una experiencia sobre el agua para compartir el día con trabajo en equipo y atención a la seguridad.",
-    src: "/camp-actividades/kayak.webp",
+    src: "/camp-media/kayak-en-el-lago.webp",
     alt: "Fotografía real del campamento: grupo en kayaks sobre el lago con montañas de fondo",
     kind: "photo",
     sizes: "(max-width: 767px) 100vw, 34vw",
@@ -57,16 +57,16 @@ const activities = [
   {
     title: "Trekking",
     description: "Caminatas y observaciones del bosque en contacto con el entorno natural.",
-    src: "/camp-actividades/trekking.webp",
-    alt: "Ilustración del programa: un adolescente con mochila y bastones de trekking frente a las montañas",
-    kind: "illustration",
+    src: "/camp-media/senderismo-con-villa-la-angostura.webp",
+    alt: "Fotografía real del campamento: grupo en un sendero con Villa La Angostura al fondo",
+    kind: "photo",
     sizes: "(max-width: 767px) 100vw, 34vw",
   },
   {
     title: "Visitas a productores locales",
     description:
       "Encuentros con quienes producen y trabajan en el territorio para conocer su historia y su oficio.",
-    src: "/camp-actividades/productores-locales.webp",
+    src: "/camp-media/productores-locales.webp",
     alt: "Fotografía real del campamento: visita a productores locales y su oficio",
     kind: "photo",
     sizes: "(max-width: 767px) 100vw, 34vw",
@@ -75,17 +75,17 @@ const activities = [
     title: "Convivencia y naturaleza",
     description:
       "Tiempo para compartir experiencias, explorar el entorno natural y construir vínculos con el grupo.",
-    src: "/camp-actividades/convivencia.webp",
-    alt: "Ilustración del programa: el grupo alrededor de la fogata con la guitarra, bajo las estrellas",
-    kind: "illustration",
+    src: "/camp-media/fogata-en-el-bosque.webp",
+    alt: "Fotografía real del campamento: fogata con marshmallows en el bosque",
+    kind: "photo",
     sizes: "(max-width: 767px) 100vw, 34vw",
   },
   {
     title: "Exploración del entorno",
     description: "Observación y descubrimiento de la naturaleza con una mirada curiosa y respetuosa.",
-    src: "/camp-actividades/exploracion.webp",
-    alt: "Ilustración del programa: un adolescente leyendo al aire libre, tumbado en la hierba",
-    kind: "illustration",
+    src: "/camp-media/mirando-el-valle.webp",
+    alt: "Fotografía real del campamento: adolescente sobre un tronco caído contemplando el valle",
+    kind: "photo",
     sizes: "(max-width: 767px) 100vw, 34vw",
   },
 ];
@@ -160,7 +160,7 @@ export default function ItinerarioYActividadesPage() {
                 <h3 className="site-heading">{lead.title}</h3>
                 <p className="site-lead site-lead--dark">{lead.description}</p>
                 <p className="itinerario-entry__kind">
-                  {lead.kind === "illustration" ? "Ilustración del programa" : "Fotografía real del campamento"}
+                  Fotografía real del campamento
                 </p>
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function ItinerarioYActividadesPage() {
               {rest.map((activity) => (
                 <article key={activity.title} className="itinerario-entry">
                   <figure
-                    className={`itinerario-entry__media${activity.kind === "illustration" ? " itinerario-entry__media--illustration" : ""}`}
+                    className="itinerario-entry__media"
                   >
                     <Image
                       src={activity.src}
@@ -178,16 +178,14 @@ export default function ItinerarioYActividadesPage() {
                       sizes={activity.sizes}
                       placeholder="blur"
                       blurDataURL={IMAGE_BLUR_DATA_URL}
-                      className={activity.kind === "illustration" ? "object-contain" : "object-cover"}
+                      className="object-cover"
                     />
                   </figure>
                   <div>
                     <h3>{activity.title}</h3>
                     <p>{activity.description}</p>
                     <p className="itinerario-entry__kind">
-                      {activity.kind === "illustration"
-                        ? "Ilustración del programa"
-                        : "Fotografía real del campamento"}
+                      Fotografía real del campamento
                     </p>
                   </div>
                 </article>

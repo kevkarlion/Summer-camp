@@ -4,17 +4,17 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const dayBlocks = [
-  { time: "8:00", period: "Primera luz", title: "Despertar", description: "Un comienzo tranquilo: camas, mochilas y un poco de estiramiento.", src: "/camp-dia/despertar.webp" },
-  { time: "8:30", period: "Mañana", title: "Desayuno", description: "Desayuno completo en la residencia.", src: "/camp-dia/desayuno.webp" },
-  { time: "9:15", period: "Mañana", title: "Misión del día", description: "El desafío del día, explicado en inglés en grupos pequeños.", src: "/camp-dia/mision-del-dia.webp" },
-  { time: "10:00", period: "Mañana", title: "Bloque de aventura", description: "Trekking o kayak en los días de aventura; deportes y arte en la residencia los demás días.", src: "/camp-dia/bloque-aventura.webp" },
-  { time: "13:30", period: "Mediodía", title: "Almuerzo", description: "Picnic en el sendero o en la residencia.", src: "/camp-dia/almuerzo.webp" },
-  { time: "15:00", period: "Tarde", title: "Descanso y tiempo libre", description: "Una hora de calma, juegos, lectura y llamadas a casa.", src: "/camp-dia/momento-libre.webp" },
-  { time: "16:00", period: "Tarde", title: "Inglés en acción", description: "Desafíos reales: pedir, orientarse y trabajar en equipo.", src: "/camp-dia/ingles-en-accion.webp" },
-  { time: "18:00", period: "Tarde", title: "Duchas", description: "Un buen baño después de un día entero al aire libre.", src: "/camp-dia/duchas.webp" },
-  { time: "19:30", period: "Noche", title: "Cena", description: "Todos juntos, alrededor de la mesa.", src: "/camp-dia/cena.webp" },
-  { time: "21:00", period: "Noche", title: "Actividad nocturna", description: "Observación de estrellas, relatos y juegos. La gran fogata es la última noche.", src: "/camp-dia/actividad-nocturna.webp" },
-  { time: "22:30", period: "Noche", title: "A dormir", description: "Todos a dormir después de un día completo. ¡Dulces sueños!", src: "/camp-dia/dormir.webp" },
+  { time: "8:00", period: "Primera luz", title: "Despertar", description: "Un comienzo tranquilo: camas, mochilas y un poco de estiramiento.", src: "/camp-media/senderismo-con-villa-la-angostura.webp", alt: "Fotografía real del campamento: grupo en un sendero con Villa La Angostura al fondo" },
+  { time: "8:30", period: "Mañana", title: "Desayuno", description: "Desayuno completo en la residencia.", src: "/camp-media/grupo-jugando.webp", alt: "Fotografía real del campamento: grupo de adolescentes jugando al aire libre" },
+  { time: "9:15", period: "Mañana", title: "Misión del día", description: "El desafío del día, explicado en inglés en grupos pequeños.", src: "/camp-media/mirando-el-valle.webp", alt: "Fotografía real del campamento: adolescente sobre un tronco caído contemplando el valle" },
+  { time: "10:00", period: "Mañana", title: "Bloque de aventura", description: "Trekking o kayak en los días de aventura; deportes y arte en la residencia los demás días.", src: "/camp-media/kayak-en-el-lago.webp", alt: "Fotografía real del campamento: grupo en kayaks sobre el lago con montañas de fondo" },
+  { time: "13:30", period: "Mediodía", title: "Almuerzo", description: "Picnic en el sendero o en la residencia.", src: "/camp-media/productores-locales.webp", alt: "Fotografía real del campamento: visita a productores locales y su oficio" },
+  { time: "15:00", period: "Tarde", title: "Descanso y tiempo libre", description: "Una hora de calma, juegos, lectura y llamadas a casa.", src: "/camp-media/grupo-caminando.webp", alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque" },
+  { time: "16:00", period: "Tarde", title: "Inglés en acción", description: "Desafíos reales: pedir, orientarse y trabajar en equipo.", src: "/camp-media/grupo-jugando.webp", alt: "Fotografía real del campamento: grupo de adolescentes jugando al aire libre" },
+  { time: "18:00", period: "Tarde", title: "Duchas", description: "Un buen baño después de un día entero al aire libre.", src: "/camp-media/residencia-de-piedra-y-madera.png", alt: "Imagen editorial de referencia: la construcción de piedra y madera de la residencia" },
+  { time: "19:30", period: "Noche", title: "Cena", description: "Todos juntos, alrededor de la mesa.", src: "/camp-media/fogata-en-el-bosque.webp", alt: "Fotografía real del campamento: fogata con marshmallows en el bosque" },
+  { time: "21:00", period: "Noche", title: "Actividad nocturna", description: "Observación de estrellas, relatos y juegos. La gran fogata es la última noche.", src: "/camp-media/fogata-en-el-bosque.webp", alt: "Fotografía real del campamento: fogata con marshmallows en el bosque" },
+  { time: "22:30", period: "Noche", title: "A dormir", description: "Todos a dormir después de un día completo. ¡Dulces sueños!", src: "/camp-media/residencia-y-parque.png", alt: "Imagen editorial de referencia: la residencia con su parque y el bosque nativo alrededor" },
 ];
 const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
 
@@ -96,7 +96,7 @@ export function DayTimeline() {
             <figure className="day-timeline__media">
               <Image
                 src={block.src}
-                alt={`Ilustración del programa: ${block.title}`}
+                alt={block.alt}
                 fill
                 sizes="(max-width: 899px) 100vw, 38vw"
                 className="object-cover"
