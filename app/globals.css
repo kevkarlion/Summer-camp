@@ -81,7 +81,9 @@
 
   body {
     min-height: 100vh;
-    background: var(--bg-main);
+    /* iOS 26 Safari usa el fondo del header fijo para la barra de estado
+       cuando difiere del body; mantenerlos separados evita contenido translúcido. */
+    background: var(--bg-surface);
     color: var(--text-main);
     font-family: Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
