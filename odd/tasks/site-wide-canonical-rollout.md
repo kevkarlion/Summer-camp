@@ -79,3 +79,11 @@ Cada PR queda por debajo de 400 líneas contra su base inmediata:
 | 14 | `feat/14-itinerario-page` | Ruta de actividades | 291 |
 | 15 | `feat/15-destino-styles` | CSS de la ruta de destino | 147 |
 | 16 | `feat/16-destino-page` | Ruta de destino | 288 |
+| 17 | `feat/17-programa-timeline` | Timeline diario scroll-driven con imagen y fallback sin JS | 210 |
+| 18 | `feat/18-programa-page` | Ruta de programa de inglés | 173 |
+| 19 | `feat/19-adolescentes` | Ruta del programa para adolescentes | 398 |
+| 20 | `feat/20-guia-familias` | Ruta de guía para familias | 378 |
+| 21 | `feat/21-preguntas` | Ruta de preguntas frecuentes | 288 |
+| 22 | `feat/22-sobre-nosotros` | Ruta de quiénes somos | 318 |
+| 23 | `feat/23-contacto` | Ruta de contacto con el formulario intacto | 186 |
+| 24 | `feat/24-programa-polish` | Imágenes, contraste y jerarquía del itinerario diario | 56 |
