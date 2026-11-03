@@ -18,12 +18,6 @@ export function SiteHeader() {
   const shouldReduceMotion = useReducedMotion();
   const { dictionary } = useLanguage();
   const navigation = dictionary.nav.items;
-  const mobileGroups = dictionary.nav.groups.map((group) => ({
-    label: group.label,
-    items: group.hrefs
-      .map((href) => navigation.find((item) => item.href === href))
-      .filter((item): item is (typeof navigation)[number] => Boolean(item)),
-  }));
 
   const closeMenu = () => setIsOpen(false);
 
@@ -51,7 +45,6 @@ export function SiteHeader() {
         <nav className="hidden min-w-0 flex-1 items-center justify-end gap-1 xl:flex" aria-label={dictionary.nav.primaryNavLabel}>
           {navigation.map((item) => {
             const isActive = pathname === item.href;
-            const isContact = item.href === "/contacto";
 
             return (
               <Link
@@ -61,8 +54,6 @@ export function SiteHeader() {
                 className={cn(
                   "relative rounded-full px-2.5 py-2 text-[13px] font-medium text-white/90 transition-[color,background-color,opacity] duration-300 hover:bg-overlay-soft hover:text-white 2xl:px-3",
                   isActive ? "bg-overlay-soft text-white" : "text-white/90",
-                  isContact &&
-                    "ml-1 rounded-[0.2rem] border border-[var(--scout-oxblood)] bg-[var(--scout-oxblood)] px-3 py-2 font-sans text-[13px] font-bold uppercase tracking-[0.12em] text-[var(--scout-parchment)] shadow-none before:pointer-events-none before:absolute before:inset-[2px] before:border before:border-dashed before:border-current/40 before:content-[''] hover:bg-[color-mix(in_srgb,var(--scout-oxblood)_86%,black)] hover:text-[var(--scout-parchment)]",
                 )}
               >
                 {item.label}
@@ -95,43 +86,27 @@ export function SiteHeader() {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
             <nav className="mx-auto max-w-7xl" aria-label={dictionary.nav.mobileNavLabel}>
-              <Link
-                href="/"
-                onClick={closeMenu}
-                aria-current={pathname === "/" ? "page" : undefined}
-                className="mb-5 flex items-center justify-between border-b border-subtle pb-4 text-base font-semibold text-main"
-              >
-                {dictionary.nav.home}
-                <span aria-hidden="true" className="text-primary-accent">→</span>
-              </Link>
+              <ul className="mb-6 grid grid-cols-2 gap-2 sm:grid-cols-3">
+                {navigation.map((item) => {
+                  const isActive = pathname === item.href;
 
-              {mobileGroups.map((group) => (
-                <div key={group.label} className="mb-6 last:mb-0">
-                  <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.16em] text-secondary-accent">
-                    {group.label}
-                  </p>
-                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-                    {group.items.map((item) => {
-                      const isActive = pathname === item.href;
-
-                      return (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          onClick={closeMenu}
-                          aria-current={isActive ? "page" : undefined}
-                          className={cn(
-                            "rounded-xl border border-subtle bg-overlay-soft px-3 py-3 text-sm font-medium text-white/90 transition-colors hover:border-primary/30 hover:text-white",
-                            isActive && "border-primary/35 bg-primary/10 text-primary-accent",
-                          )}
-                        >
-                          {item.label}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={closeMenu}
+                        aria-current={isActive ? "page" : undefined}
+                        className={cn(
+                          "block rounded-xl border border-subtle bg-overlay-soft px-3 py-3 text-sm font-medium text-white/90 transition-colors hover:border-primary/30 hover:text-white",
+                          isActive && "border-primary/35 bg-primary/10 text-primary-accent",
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
 
               <LanguageSwitcher id="site-language-switcher-mobile" />
 
