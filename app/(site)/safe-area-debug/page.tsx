@@ -40,7 +40,7 @@ function measure(): Reading {
     innerHeight: window.innerHeight,
     visualHeight: window.visualViewport ? Math.round(window.visualViewport.height) : null,
     visualOffsetTop: window.visualViewport ? Math.round(window.visualViewport.offsetTop) : null,
-    standalone: window.navigator.standalone,
+    standalone: (window.navigator as Navigator & { standalone?: boolean }).standalone,
     viewportMeta:
       document.querySelector<HTMLMetaElement>('meta[name="viewport"]')?.content ?? "none",
   };
@@ -53,7 +53,8 @@ export default function SafeAreaDebugPage() {
   const [reading, setReading] = useState<Reading | null>(null);
 
   useEffect(() => {
-    setReading(measure());
+    const frame = window.requestAnimationFrame(() => setReading(measure()));
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   return (
