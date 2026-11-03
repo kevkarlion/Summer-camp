@@ -133,11 +133,11 @@ export default function PreguntasFrecuentesPage() {
         <section className="site-section site-section--lake preguntas-closing" aria-labelledby="preguntas-closing-title">
           <div className="site-wrap site-section__split">
             <div>
-              <h2 id="preguntas-closing-title" className="site-heading preguntas-heading">
+              <h2 id="preguntas-closing-title" className="site-heading site-heading--light preguntas-heading">
                 <span>Una respuesta útil empieza</span>
                 <span>con una buena pregunta</span>
               </h2>
-              <p className="site-lead site-lead--dark">
+              <p className="site-lead site-lead--light">
                 Explorá el programa, las actividades y el destino para construir una visión completa antes de solicitar información.
               </p>
             </div>
