@@ -22,7 +22,7 @@ export function SiteHeader() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 w-full isolate bg-main">
+    <header className="site-header fixed inset-x-0 top-0 z-50 w-full isolate bg-main">
       <Container className="flex h-20 items-center justify-between gap-5 xl:gap-8">
         <Link
           href="/"

@@ -349,3 +349,20 @@
   font-weight: 700;
   line-height: 1.2;
 }
+
+/* iOS safe areas.
+   With viewport-fit=cover the page reaches the physical screen edges, so the
+   fixed header pads itself below the status bar and the page bottom clears
+   the home indicator. The insets are 0 on every other platform. */
+:root {
+  --home-safe-top: env(safe-area-inset-top, 0px);
+  --home-safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.site-header {
+  padding-top: var(--home-safe-top);
+}
+
+.site-footer {
+  padding-bottom: calc(clamp(1.5rem, 3vw, 2.25rem) + var(--home-safe-bottom));
+}
