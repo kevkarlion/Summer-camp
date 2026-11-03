@@ -1,61 +1,79 @@
-import { MapPin } from "lucide-react";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Container } from "@/components/layout/Container";
-import { Button } from "@/components/ui/Button";
 
-const footerLinks = [
-  { href: "/", label: "Inicio" },
-  { href: "/programa", label: "Programa" },
-  { href: "/residencia", label: "Residencia" },
-  { href: "/nosotros", label: "Nosotros" },
-  { href: "/familias", label: "Familias" },
-  { href: "/itinerario-y-actividades", label: "Itinerario" },
-  { href: "/seguridad-y-coordinacion", label: "Seguridad" },
-  { href: "/contacto", label: "Contacto" },
-];
+import { useLanguage } from "@/components/home/LanguageProvider";
 
 export function SiteFooter() {
+  const { dictionary } = useLanguage();
+  const { footer, nav } = dictionary;
+
   return (
-    <footer className="bg-surface">
-      <Container className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr] lg:py-20">
-        <div>
-          <Image
-            src="/logo.png"
-            alt="Patagonia Summer Camp — Explore Beyond"
-            width={220}
-            height={229}
-            className="h-auto w-48 sm:w-56"
-          />
-          <h2 className="site-footer__heading mt-5 max-w-md text-2xl font-semibold leading-tight tracking-[-0.03em] text-main">
-            Aventura que transforma el idioma.
-          </h2>
-          <p className="mt-7 flex items-center gap-3 text-sm text-muted"><MapPin aria-hidden="true" size={17} className="text-secondary-accent" /> Villa La Angostura, Neuquén, Patagonia</p>
-        </div>
+    <footer className="site-footer">
+      <div className="site-wrap">
+        <div className="site-footer__grid">
+          <div className="site-footer__brand">
+            <Link href="/" className="site-footer__brand-link" aria-label={nav.primaryLabel}>
+              <Image
+                src="/patagonia-summer-camp-mark-new.png"
+                alt=""
+                width={44}
+                height={44}
+                className="site-footer__mark"
+              />
+              <span className="site-footer__wordmark">
+                <span className="site-footer__wordmark-top">Patagonia</span>
+                <span className="site-footer__wordmark-bottom">Summer Camp</span>
+              </span>
+            </Link>
+            <p className="site-footer__tagline">{footer.tagline}</p>
+          </div>
 
-        <nav aria-label="Navegación del pie de página">
-          <p className="text-sm font-semibold text-main">Explorá</p>
-          <ul className="mt-5 space-y-3">
-            {footerLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="text-sm text-muted transition-colors hover:text-primary-accent">{link.label}</Link>
+          <nav className="site-footer__column" aria-label={footer.navLabel}>
+            <h2 className="site-footer__title">{footer.exploreTitle}</h2>
+            <ul className="site-footer__list">
+              {nav.items.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="site-footer__link">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/contacto" className="site-footer__link">
+                  {nav.contactCta}
+                </Link>
               </li>
-            ))}
-          </ul>
-        </nav>
+            </ul>
+          </nav>
 
-        <div>
-          <p className="text-sm font-semibold text-main">Sumate a la aventura</p>
-          <p className="mt-5 text-sm leading-6 text-muted">
-            Solicitá información sobre el programa para adolescentes de 13 a 17 años, las fechas, las actividades y la inscripción.
-          </p>
-          <Button href="/contacto" variant="secondary" className="mt-6 shadow-none">Consultar información</Button>
+          <div className="site-footer__column">
+            <h2 className="site-footer__title">{footer.campTitle}</h2>
+            <ul className="site-footer__facts">
+              {footer.facts.map((fact) => (
+                <li key={fact.label} className="site-footer__fact">
+                  <span className="site-footer__fact-label">{fact.label}</span>
+                  <span className="site-footer__fact-value">{fact.value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="site-footer__column site-footer__action">
+            <h2 className="site-footer__title">{footer.actionTitle}</h2>
+            <p className="site-footer__body">{footer.actionBody}</p>
+            <Link href="/contacto" className="site-button site-button--paper">
+              {footer.actionCta}
+            </Link>
+          </div>
         </div>
-      </Container>
-      <Container className="flex flex-col gap-3 py-6 text-[13px] text-muted sm:flex-row sm:items-center sm:justify-between">
-        <p>© 2027 Patagonia Summer Camp. Todos los derechos reservados.</p>
-        <p>Diseñado para familias que buscan aprender explorando.</p>
-      </Container>
+
+        <div className="site-footer__bottom">
+          <p>{footer.copyright}</p>
+          <p>{footer.closing}</p>
+        </div>
+      </div>
     </footer>
   );
 }

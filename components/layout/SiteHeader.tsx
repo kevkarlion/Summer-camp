@@ -113,7 +113,7 @@ export function SiteHeader() {
               <Button
                 href="/contacto"
                 onClick={closeMenu}
-                className="relative mt-6 w-full rounded-[0.2rem] border border-[var(--scout-oxblood)] bg-[var(--scout-oxblood)] font-sans text-[13px] font-bold uppercase tracking-[0.12em] text-[var(--scout-parchment)] shadow-none before:pointer-events-none before:absolute before:inset-[3px] before:border before:border-dashed before:border-current/40 before:content-[''] hover:bg-[color-mix(in_srgb,var(--scout-oxblood)_86%,black)] hover:text-[var(--scout-parchment)]"
+                className="site-button site-button--paper mt-6 w-full"
               >
                 {dictionary.nav.contactCta}
               </Button>

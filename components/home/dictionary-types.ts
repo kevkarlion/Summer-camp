@@ -5,6 +5,19 @@ export type HomeBadge = { text: string; tone: "primary" | "neutral" };
 export type HomeFact = { label: string; value: string };
 export type HomeLink = { href: string; title: string; context: string; seePage: string };
 
+export type FooterCopy = {
+  tagline: string;
+  exploreTitle: string;
+  campTitle: string;
+  actionTitle: string;
+  actionBody: string;
+  actionCta: string;
+  facts: HomeFact[];
+  copyright: string;
+  closing: string;
+  navLabel: string;
+};
+
 export type Dictionary = {
   nav: {
     items: NavItem[];
@@ -35,4 +48,5 @@ export type Dictionary = {
     linksLabel: string;
     links: HomeLink[];
   };
+  footer: FooterCopy;
 };

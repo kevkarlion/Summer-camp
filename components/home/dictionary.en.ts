@@ -17,6 +17,23 @@ export const en: Dictionary = {
     primaryNavLabel: "Main navigation",
     mobileNavLabel: "Mobile navigation",
   },
+  footer: {
+    tagline: "English immersion in Patagonia for teenagers aged 13 to 17.",
+    exploreTitle: "Explore",
+    campTitle: "The camp",
+    actionTitle: "Ready for Patagonia?",
+    actionBody: "Ask us about dates, activities, accommodation and how to enrol.",
+    actionCta: "Request information",
+    facts: [
+      { label: "Place", value: "Villa La Angostura, Patagonia" },
+      { label: "Dates", value: "4–12 December 2027" },
+      { label: "Ages", value: "13–17 years" },
+      { label: "Format", value: "Residential" },
+    ],
+    copyright: "© 2027 Patagonia Summer Camp. All rights reserved.",
+    closing: "Designed for families who learn by exploring.",
+    navLabel: "Footer navigation",
+  },
   home: {
     hero: {
       titleLines: ["English immersion", "in Patagonia"],

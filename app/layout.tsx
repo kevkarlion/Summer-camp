@@ -9,6 +9,7 @@ import "./globals.css";
 import "@/components/site/site.css";
 import "@/components/site/site-responsive.css";
 import "@/components/site/site-sections.css";
+import "@/components/site/site-footer.css";
 
 const homeDisplay = Barlow_Condensed({
   subsets: ["latin"],
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="es-AR" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
