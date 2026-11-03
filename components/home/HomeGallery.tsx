@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 
+import { Reveal } from "@/components/motion/Reveal";
+
 import { useLanguage } from "./LanguageProvider";
 
 export function HomeGallery() {
@@ -13,7 +15,8 @@ export function HomeGallery() {
       <div className="site-wrap">
         <div className="home-gallery-band">
           {gallery.items.map((item) => (
-            <figure key={item.src} className="home-gallery-band__item">
+            <Reveal key={item.src}>
+            <figure className="home-gallery-band__item">
               <div className="home-gallery-band__media">
                 <Image
                   src={item.src}
@@ -25,6 +28,7 @@ export function HomeGallery() {
               </div>
               <figcaption>{item.caption}</figcaption>
             </figure>
+            </Reveal>
           ))}
         </div>
       </div>
