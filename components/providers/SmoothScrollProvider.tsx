@@ -10,6 +10,7 @@ type SmoothScrollProviderProps = {
 export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
   useEffect(() => {
     const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
     let lenis: Lenis | null = null;
     let animationFrame = 0;
 
@@ -21,7 +22,7 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
     };
 
     const start = () => {
-      if (reducedMotionQuery.matches || lenis) {
+      if (reducedMotionQuery.matches || !finePointerQuery.matches || lenis) {
         return;
       }
 
@@ -47,11 +48,21 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
       }
     };
 
+    const handlePointerCapabilityChange = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        start();
+      } else {
+        stop();
+      }
+    };
+
     start();
     reducedMotionQuery.addEventListener("change", handleMotionPreferenceChange);
+    finePointerQuery.addEventListener("change", handlePointerCapabilityChange);
 
     return () => {
       reducedMotionQuery.removeEventListener("change", handleMotionPreferenceChange);
+      finePointerQuery.removeEventListener("change", handlePointerCapabilityChange);
       stop();
     };
   }, []);

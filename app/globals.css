@@ -84,8 +84,11 @@
     background: var(--bg-main);
     color: var(--text-main);
     font-family: Arial, Helvetica, sans-serif;
-    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+
+    @media (min-width: 768px) {
+      text-rendering: optimizeLegibility;
+    }
   }
 
   /* Grano editorial fijo: no captura interacción y conserva el contraste del texto. */
@@ -140,11 +143,20 @@
 }
 @utility hero-copy-shadow {
   text-shadow: 0 2px 18px rgba(2, 6, 23, 0.65), 0 1px 4px rgba(2, 6, 23, 0.45);
+
+  @media (max-width: 767px) {
+    text-shadow: 0 1px 4px rgba(2, 6, 23, 0.58);
+  }
 }
 @utility text-outlined {
   -webkit-text-stroke: 0.6px var(--text-outline);
   paint-order: stroke fill;
   text-shadow: 0 2px 12px rgba(2, 6, 23, 0.55);
+
+  @media (max-width: 767px) {
+    -webkit-text-stroke-width: 0.35px;
+    text-shadow: 0 1px 6px rgba(2, 6, 23, 0.52);
+  }
 }
 @utility surface-cta {
   background-image: radial-gradient(circle at top right, rgba(16, 185, 129, 0.18), transparent 38%), linear-gradient(135deg, var(--surface-cta-start), var(--surface-cta-end));

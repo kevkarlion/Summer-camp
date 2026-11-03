@@ -48,8 +48,11 @@ export function TextReveal({ as, children, className }: TextRevealProps) {
       >
         {words.map((word, index) => (
           <Fragment key={`${word}-${index}`}>
-            <span className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-bottom">
-              <motion.span className="inline-block" variants={wordVariants}>
+            <span className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-bottom [contain:paint]">
+              <motion.span
+                className="inline-block will-change-transform backface-hidden"
+                variants={wordVariants}
+              >
                 {word}
               </motion.span>
             </span>

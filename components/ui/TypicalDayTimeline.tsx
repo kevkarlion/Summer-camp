@@ -13,8 +13,16 @@ import {
   Sunrise,
   Utensils,
 } from "lucide-react";
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
-import { useRef } from "react";
+import {
+  motion,
+  type MotionValue,
+  useMotionValue,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+} from "motion/react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { IMAGE_BLUR_DATA_URL } from "@/components/image/placeholder";
 import { CampIcon } from "@/components/ui/CampIcon";
@@ -135,21 +143,57 @@ const dayBlocks: DayBlock[] = [
 interface TimelineRowProps {
   block: DayBlock;
   side: "left" | "right";
+  registry: TimelineMotionRegistry;
 }
 
-function TimelineRow({ block, side }: TimelineRowProps) {
+interface TimelineMotionValues {
+  cardY: MotionValue<number>;
+  markerY: MotionValue<number>;
+  opacity: MotionValue<number>;
+  scale: MotionValue<number>;
+  photoOpacity: MotionValue<number>;
+}
+
+interface TimelineMotionState extends TimelineMotionValues {
+  element: HTMLLIElement;
+  documentTop: number;
+  height: number;
+}
+
+type TimelineMotionRegistry = Map<string, TimelineMotionState>;
+
+const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
+
+function TimelineRow({ block, side, registry }: TimelineRowProps) {
   const rowRef = useRef<HTMLLIElement>(null);
   const shouldReduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: rowRef,
-    offset: ["start end", "end start"],
-  });
+  const cardY = useMotionValue(88);
+  const markerY = useMotionValue(-30);
+  const opacity = useMotionValue(0);
+  const scale = useMotionValue(0.94);
+  const photoOpacity = useMotionValue(0);
 
-  const cardY = useTransform(scrollYProgress, [0, 1], [88, -88]);
-  const markerY = useTransform(scrollYProgress, [0, 1], [-30, 30]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0.94, 1, 1, 0.94]);
-  const photoOpacity = useTransform(scrollYProgress, [0, 0.16, 0.84, 1], [0, 0.9, 0.9, 0]);
+  useLayoutEffect(() => {
+    const element = rowRef.current;
+    if (!element) {
+      return;
+    }
+
+    registry.set(block.time, {
+      element,
+      documentTop: 0,
+      height: 0,
+      cardY,
+      markerY,
+      opacity,
+      scale,
+      photoOpacity,
+    });
+
+    return () => {
+      registry.delete(block.time);
+    };
+  }, [block.time, cardY, markerY, opacity, photoOpacity, registry, scale]);
 
   const Icon = block.icon;
 
@@ -166,7 +210,7 @@ function TimelineRow({ block, side }: TimelineRowProps) {
           scale: shouldReduceMotion ? 1 : scale,
         }}
       >
-        <CampIcon icon={Icon} size="lg" tone="oxblood" />
+        <CampIcon icon={Icon} size="lg" tone="oxblood" className="shadow-none" />
         <span className="font-display text-base leading-none tracking-[0.12em] text-secondary-accent">
           {block.time}
         </span>
@@ -174,7 +218,7 @@ function TimelineRow({ block, side }: TimelineRowProps) {
 
       <motion.article
         className={cn(
-          "group relative isolate col-start-2 row-start-1 overflow-hidden rounded-[1.75rem] border border-subtle bg-card/95 p-6 backdrop-blur-sm transition-[transform,border-color] duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-secondary/35 focus-within:-translate-y-1 focus-within:border-secondary/35 sm:p-7",
+          "group relative isolate col-start-2 row-start-1 overflow-hidden rounded-[1.75rem] border border-subtle bg-card/95 p-6 backface-hidden transition-transform duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-secondary/35 focus-within:-translate-y-1 focus-within:border-secondary/35 sm:p-7",
           side === "left" ? "md:col-start-1" : "md:col-start-3",
         )}
         style={{
@@ -185,12 +229,16 @@ function TimelineRow({ block, side }: TimelineRowProps) {
       >
         {block.src ? (
           <div className="absolute inset-0 -z-10 overflow-hidden">
-            <motion.div className="absolute inset-0" style={{ opacity: shouldReduceMotion ? 1 : photoOpacity }}>
+            <motion.div
+              className="absolute inset-0 transform-gpu backface-hidden"
+              style={{ opacity: shouldReduceMotion ? 1 : photoOpacity }}
+            >
               <Image
                 src={block.src}
                 alt={block.alt ?? ""}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 42vw"
+                sizes="(max-width: 767px) calc(100vw - 7rem), (max-width: 1279px) 42vw, 37vw"
+                decoding="async"
                 placeholder="blur"
                 blurDataURL={IMAGE_BLUR_DATA_URL}
                 className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 group-focus-within:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
@@ -221,13 +269,92 @@ function TimelineRow({ block, side }: TimelineRowProps) {
 
 export function TypicalDayTimeline() {
   const railRef = useRef<HTMLDivElement>(null);
+  const [registry] = useState<TimelineMotionRegistry>(() => new Map());
+  const railMetricsRef = useRef({ documentTop: 0, height: 0 });
   const shouldReduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: railRef,
-    offset: ["start 65%", "end 85%"],
-  });
-  const railScale = useSpring(scrollYProgress, { stiffness: 110, damping: 30, mass: 0.4 });
-  const dotY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const { scrollY } = useScroll();
+  const railProgress = useMotionValue(0);
+  const railScale = useSpring(railProgress, { stiffness: 110, damping: 30, mass: 0.4 });
+  const dotY = useMotionValue("0%");
+
+  const measureRegistry = useCallback(() => {
+    const viewportHeight = window.innerHeight;
+
+    registry.forEach((state) => {
+      const rect = state.element.getBoundingClientRect();
+      state.documentTop = rect.top + window.scrollY;
+      state.height = rect.height;
+    });
+
+    const rail = railRef.current;
+    if (rail) {
+      const railRect = rail.getBoundingClientRect();
+      railMetricsRef.current = {
+        documentTop: railRect.top + window.scrollY,
+        height: railRect.height,
+      };
+      const railStart = railMetricsRef.current.documentTop - viewportHeight * 0.65;
+      const railEnd = railMetricsRef.current.documentTop + railMetricsRef.current.height - viewportHeight * 0.85;
+      const railRatio = railEnd === railStart ? 0 : clamp01((window.scrollY - railStart) / (railEnd - railStart));
+      railProgress.set(railRatio);
+      dotY.set(`${railRatio * 100}%`);
+    }
+  }, [dotY, railProgress, registry]);
+
+  const updateTimeline = useCallback((latestScrollY: number) => {
+    if (shouldReduceMotion) {
+      return;
+    }
+
+    const viewportHeight = window.innerHeight;
+
+    registry.forEach((state) => {
+      const start = state.documentTop - viewportHeight;
+      const end = state.documentTop + state.height;
+
+      if (latestScrollY < start - viewportHeight || latestScrollY > end + viewportHeight) {
+        return;
+      }
+
+      const progress = clamp01((latestScrollY - start) / Math.max(1, end - start));
+      const opacityProgress = progress < 0.2 ? progress / 0.2 : progress > 0.8 ? (1 - progress) / 0.2 : 1;
+      const scaleProgress = progress < 0.25 ? progress / 0.25 : progress > 0.75 ? (1 - progress) / 0.25 : 1;
+      const photoProgress = progress < 0.16 ? progress / 0.16 : progress > 0.84 ? (1 - progress) / 0.16 : 1;
+
+      state.cardY.set(88 - progress * 176);
+      state.markerY.set(-30 + progress * 60);
+      state.opacity.set(opacityProgress);
+      state.scale.set(0.94 + scaleProgress * 0.06);
+      state.photoOpacity.set(photoProgress * 0.9);
+    });
+
+    const rail = railRef.current;
+    if (rail) {
+      const railStart = railMetricsRef.current.documentTop - viewportHeight * 0.65;
+      const railEnd = railMetricsRef.current.documentTop + railMetricsRef.current.height - viewportHeight * 0.85;
+      const progress = clamp01((latestScrollY - railStart) / Math.max(1, railEnd - railStart));
+      railProgress.set(progress);
+      dotY.set(`${progress * 100}%`);
+    }
+  }, [dotY, railProgress, registry, shouldReduceMotion]);
+
+  useMotionValueEvent(scrollY, "change", updateTimeline);
+
+  useEffect(() => {
+    measureRegistry();
+    updateTimeline(scrollY.get());
+
+    const handleResize = () => {
+      measureRegistry();
+      updateTimeline(scrollY.get());
+    };
+
+    window.addEventListener("resize", handleResize, { passive: true });
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [measureRegistry, scrollY, updateTimeline]);
 
   return (
     <div>
@@ -246,12 +373,17 @@ export function TypicalDayTimeline() {
           className="pointer-events-none absolute left-0 top-0 h-full w-0 md:left-1/2 md:-translate-x-1/2"
           style={{ y: shouldReduceMotion ? 0 : dotY }}
         >
-          <span className="absolute left-1/2 top-0 size-2 -translate-x-1/2 rounded-full bg-secondary shadow-[0_0_18px_var(--color-secondary)]" />
+          <span className="absolute left-1/2 top-0 size-2 -translate-x-1/2 rounded-full bg-secondary" />
         </motion.div>
 
         <ol className="relative flex flex-col gap-14 md:gap-20 lg:gap-24">
           {dayBlocks.map((block, index) => (
-            <TimelineRow key={block.time} block={block} side={index % 2 === 0 ? "left" : "right"} />
+            <TimelineRow
+              key={block.time}
+              block={block}
+              side={index % 2 === 0 ? "left" : "right"}
+              registry={registry}
+            />
           ))}
         </ol>
       </div>

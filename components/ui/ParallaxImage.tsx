@@ -35,7 +35,7 @@ export function ParallaxImageContainer({
   return (
     <div ref={containerRef} className={cn("relative overflow-hidden", className)}>
       <motion.div
-        className="absolute -inset-y-[12%] inset-x-0"
+        className="absolute -inset-y-[12%] inset-x-0 will-change-transform backface-hidden"
         style={{ y: shouldReduceMotion ? 0 : y }}
       >
         <Image
@@ -44,6 +44,7 @@ export function ParallaxImageContainer({
           fill
           sizes={sizes}
           priority={priority}
+          decoding="async"
           placeholder="blur"
           blurDataURL={IMAGE_BLUR_DATA_URL}
           className={cn("scale-110 object-cover", imageClassName)}
