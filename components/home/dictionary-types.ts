@@ -2,7 +2,8 @@ export type Language = "en" | "es";
 
 export type NavItem = { href: string; label: string };
 export type HomeBadge = { text: string; tone: "primary" | "neutral" };
-export type HomeLink = { href: string; title: string; line: string };
+export type HomeFact = { label: string; value: string };
+export type HomeLink = { href: string; title: string; context: string; seePage: string };
 
 export type Dictionary = {
   nav: {
@@ -21,6 +22,8 @@ export type Dictionary = {
       subtitle: string;
       badges: HomeBadge[];
       cta: string;
+      factsLabel: string;
+      facts: HomeFact[];
       imageAlt: string;
       imageCaption: string;
     };
