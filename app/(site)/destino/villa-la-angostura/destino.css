@@ -145,3 +145,8 @@
     aspect-ratio: 16 / 10;
   }
 }
+
+.site-section--forest .destino-figure__eyebrow,
+.site-section--forest .destino-figure__kind {
+  color: var(--home-paper-muted);
+}

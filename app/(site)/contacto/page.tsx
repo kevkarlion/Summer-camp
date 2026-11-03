@@ -104,6 +104,7 @@ export default function ContactoPage() {
 
         <section className="site-section contacto-body" aria-labelledby="contacto-body-title">
           <div className="site-wrap contacto-grid">
+            <Reveal>
             <div className="contacto-copy">
               <div className="contacto-copy__sticky">
                 <h2 id="contacto-body-title" className="site-heading contacto-heading">
@@ -118,15 +119,19 @@ export default function ContactoPage() {
                 </ul>
               </div>
             </div>
+            </Reveal>
+            <Reveal>
             <div className="contacto-form-area">
               <ContactForm />
             </div>
+            </Reveal>
           </div>
         </section>
 
         <section className="site-section site-section--paper" aria-labelledby="contacto-galeria-title">
           <div className="site-wrap">
             <div className="site-section__intro">
+              <Reveal>
               <div>
                 <h2 id="contacto-galeria-title" className="site-heading">
                   El campamento que estás por conocer
@@ -135,6 +140,7 @@ export default function ContactoPage() {
                   El equipo, el territorio y la convivencia que hacen posible una semana en Villa La Angostura.
                 </p>
               </div>
+              </Reveal>
             </div>
             <Reveal>
               <div className="contacto-band">

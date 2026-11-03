@@ -197,9 +197,11 @@ export default function ItinerarioYActividadesPage() {
               ))}
             </div>
 
-            <p className="site-body itinerary-note">
-              Fotografías reales de Patagonia Summer Camp 2027: kayak, trekking, productores locales y la convivencia del grupo.
+            <Reveal>
+            <p className="site-body itinerario-note">
+               Fotografías reales de Patagonia Summer Camp 2027: kayak, trekking, productores locales y la convivencia del grupo.
             </p>
+            </Reveal>
           </div>
         </section>
 
@@ -214,20 +216,23 @@ export default function ItinerarioYActividadesPage() {
                   No se requiere experiencia outdoor previa en general. Cada actividad puede tener requisitos específicos, y el equipo comunicará el equipamiento final antes del campamento. Cada actividad puede tener requisitos específicos, y el equipo comunicará el equipamiento final antes del campamento.
                 </p>
               </div>
+              <Reveal>
               <div>
-                <h3 className="site-heading site-heading--light">La experiencia se adapta a las condiciones</h3>
+                <h3 className="site-heading site-heading--light">Una experiencia adaptable</h3>
                 <ul className="itinerario-requirements">
                   {requirements.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
               </div>
+              </Reveal>
             </div>
           </div>
         </section>
 
         <section className="site-section site-section--paper" aria-labelledby="itinerario-cierre-title">
           <div className="site-wrap">
+            <Reveal>
             <div className="site-section__intro">
               <div>
                 <h2 id="itinerario-cierre-title" className="site-heading">
@@ -243,6 +248,7 @@ export default function ItinerarioYActividadesPage() {
                 </Button>
               </div>
             </div>
+            </Reveal>
           </div>
         </section>
       </main>

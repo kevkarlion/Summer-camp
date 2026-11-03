@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { IMAGE_BLUR_DATA_URL } from "@/components/image/placeholder";
 import { PageHero } from "@/components/marketing/PageHero";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/site";
 
@@ -138,7 +139,7 @@ export default function DestinoVillaLaAngosturaPage() {
       <main id="main-content">
         <PageHero
           eyebrow="Villa La Angostura · Patagonia"
-          title="Entre lagos, bosques y montañas"
+          title="Entre lagos y montañas"
           description="La experiencia se realiza en una residencia a 2 km del centro de Villa La Angostura, rodeada de parque, bosque nativo y naturaleza."
           image="/camp-media/lago-al-atardecer.png"
           imageAlt="Fotografía real del campamento: el lago al atardecer con las montañas de fondo"
@@ -161,9 +162,11 @@ export default function DestinoVillaLaAngosturaPage() {
               </div>
             </div>
 
+            <Reveal>
             <div className="destino-gallery">
               {gallery.map((item) => (
-                <figure key={item.title} className={`destino-figure destino-figure--${item.size}`}>
+                <Reveal key={item.title}>
+                <figure className={`destino-figure destino-figure--${item.size}`}>
                   <div className="destino-figure__media">
                     <Image
                       src={item.src}
@@ -182,8 +185,10 @@ export default function DestinoVillaLaAngosturaPage() {
                     <p className="destino-figure__kind">Fotografía real del campamento</p>
                   </figcaption>
                 </figure>
+                </Reveal>
               ))}
             </div>
+            </Reveal>
 
             <p className="destino-note">
               Fotografías reales de Patagonia Summer Camp 2027: el lago, el bosque nativo, la residencia y las experiencias del programa.
@@ -193,6 +198,7 @@ export default function DestinoVillaLaAngosturaPage() {
 
         <section className="site-section site-section--forest" aria-labelledby="destino-residencia-title">
           <div className="site-wrap">
+            <Reveal>
             <div className="site-section__split">
               <figure className="destino-fogata">
                 <Image
@@ -204,13 +210,13 @@ export default function DestinoVillaLaAngosturaPage() {
                 />
               </figure>
               <div>
-                <p className="destino-figure__eyebrow">La tarde</p>
                 <h2 id="destino-residencia-title" className="site-heading site-heading--light">
-                  Una residencia en contacto con el territorio
+                  Una residencia en el territorio
                 </h2>
                 <p className="site-lead site-lead--light">
                   El programa se basa en una residencia de Villa La Angostura; el pueblo y su entorno constituyen el contexto de las experiencias, no el lugar de cada actividad.
                 </p>
+                <p className="destino-figure__eyebrow">La tarde</p>
                 <p className="destino-figure__kind">
                   Fotografía real del campamento. El fogón nocturno es ilustrativo y queda sujeto a confirmación del programa.
                 </p>
@@ -224,15 +230,17 @@ export default function DestinoVillaLaAngosturaPage() {
                 </div>
               </div>
             </div>
+            </Reveal>
           </div>
         </section>
 
         <section className="site-section site-section--paper" aria-labelledby="destino-cierre-title">
           <div className="site-wrap">
             <div className="site-section__intro">
+              <Reveal>
               <div>
                 <h2 id="destino-cierre-title" className="site-heading">
-                  Un destino para descubrir Villa La Angostura
+                  Un destino para descubrir
                 </h2>
                 <p className="site-lead site-lead--dark">
                   El programa residencial se realiza del 4 al 12 de diciembre de 2027 y combina inglés, actividades al aire libre y conocimiento local.
@@ -243,6 +251,7 @@ export default function DestinoVillaLaAngosturaPage() {
                   Programa para adolescentes <ArrowRight className="size-4" />
                 </Button>
               </div>
+              </Reveal>
             </div>
           </div>
         </section>
