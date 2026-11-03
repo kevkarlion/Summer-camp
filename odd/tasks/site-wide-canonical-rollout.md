@@ -63,3 +63,19 @@ Cada PR queda por debajo de 400 líneas contra su base inmediata.
 ### L5 — Dirección heredada
 
 La Home ya define el sistema canónico y su brief (`odd/tasks/summer-camp-home-redesign.md`, `.impeccable/surfaces/app-site-page-tsx.md`, `DESIGN.md`). El rollout extiende ese sistema; no crea un segundo lenguaje visual.
+
+### L6 — Delivery slices del rollout
+
+Cada PR queda por debajo de 400 líneas contra su base inmediata:
+
+| PR | Rama | Alcance | Líneas |
+| --- | --- | --- | --- |
+| 8 | `feat/08-site-kit` | Kit canónico compartido, layout `(site)` y tokens globales | 373 |
+| 9 | `feat/09-shared-primitives` | Button, Badge, Card, SectionHeader y CSS responsive | 156 |
+| 10 | `feat/10-page-hero` | Hero compartido canónico | 59 |
+| 11 | `feat/11-section-layouts` | Layouts compartidos de sección | 64 |
+| 12 | `feat/12-seguridad` | Ruta de seguridad y coordinación | 276 |
+| 13 | `feat/13-itinerario-styles` | CSS de la ruta de actividades | 126 |
+| 14 | `feat/14-itinerario-page` | Ruta de actividades | 291 |
+| 15 | `feat/15-destino-styles` | CSS de la ruta de destino | 147 |
+| 16 | `feat/16-destino-page` | Ruta de destino | 288 |
