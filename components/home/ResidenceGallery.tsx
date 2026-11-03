@@ -1,29 +1,36 @@
+"use client";
+
 import Image from "next/image";
 
-const images = [
-  {
-    src: "/camp-media/residencia-y-parque.png",
-    alt: "Residencia de piedra y madera junto a un área abierta de referencia editorial",
-    caption: "La residencia y su parque",
-    className: "home-gallery__item--wide",
-  },
-  {
-    src: "/camp-media/residencia-de-piedra-y-madera.png",
-    alt: "Construcción de piedra y madera integrada en un entorno boscoso de referencia editorial",
-    caption: "Piedra, madera y bosque",
-    className: "",
-  },
-  {
-    src: "/camp-media/lago-al-atardecer.png",
-    alt: "Lago al atardecer con montañas de Patagonia al fondo",
-    caption: "El lago al atardecer",
-    className: "",
-  },
-];
+import { useLanguage } from "./LanguageProvider";
 
 export function ResidenceGallery() {
+  const { dictionary } = useLanguage();
+  const { residence } = dictionary;
+
+  const images = [
+    {
+      src: "/camp-media/residencia-y-parque.png",
+      alt: residence.galleryAlts[0],
+      caption: residence.galleryCaptions[0],
+      className: "home-gallery__item--wide",
+    },
+    {
+      src: "/camp-media/residencia-de-piedra-y-madera.png",
+      alt: residence.galleryAlts[1],
+      caption: residence.galleryCaptions[1],
+      className: "",
+    },
+    {
+      src: "/camp-media/lago-al-atardecer.png",
+      alt: residence.galleryAlts[2],
+      caption: residence.galleryCaptions[2],
+      className: "",
+    },
+  ];
+
   return (
-    <figure className="home-gallery home-wrap">
+    <figure className="home-gallery site-wrap">
       <div className="home-gallery__grid">
         {images.map((image) => (
           <div key={image.src} className={`home-gallery__item ${image.className}`}>
@@ -38,9 +45,7 @@ export function ResidenceGallery() {
           </div>
         ))}
       </div>
-      <p className="home-gallery__disclaimer">
-        Imágenes editoriales de referencia para ilustrar la experiencia envisioned; no muestran la residencia real.
-      </p>
+      <p className="home-gallery__disclaimer">{residence.galleryDisclaimer}</p>
     </figure>
   );
 }
