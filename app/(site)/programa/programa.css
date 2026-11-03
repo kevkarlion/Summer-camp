@@ -266,7 +266,7 @@
   .programa-page .day-timeline__item .day-timeline__media {
     grid-column: 2;
     grid-row: 2;
-    min-height: 18rem;
+    min-height: 12rem;
   }
 }
 
@@ -327,4 +327,12 @@
   .programa-page__cta-title {
     max-width: 16ch;
   }
+}
+
+.programa-page .day-timeline__item {
+  padding-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.programa-page .day-timeline__block {
+  padding-block: clamp(1rem, 1.8vw, 1.4rem);
 }

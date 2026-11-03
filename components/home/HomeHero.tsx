@@ -69,11 +69,6 @@ export function HomeHero() {
             sizes="(max-width: 767px) 100vw, 54vw"
             className="site-hero__image"
           />
-          <figcaption>
-            {language === "es"
-              ? "Mirar el valle desde el bosque."
-              : "Looking at the valley from the forest."}
-          </figcaption>
         </figure>
       </div>
     </section>
