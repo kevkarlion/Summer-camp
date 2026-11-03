@@ -23,6 +23,7 @@ export function DayTimeline() {
     const fill = root.querySelector<HTMLElement>("[data-timeline-fill]");
     const marker = root.querySelector<HTMLElement>("[data-timeline-marker]");
     const blocks = Array.from(root.querySelectorAll<HTMLElement>("[data-timeline-block]"));
+    const media = Array.from(root.querySelectorAll<HTMLElement>("[data-timeline-media]"));
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let animationFrame = 0;
 
@@ -34,18 +35,33 @@ export function DayTimeline() {
       const railRect = rail.getBoundingClientRect();
       const railDocumentTop = railRect.top + scrollPosition;
       const railProgress = clamp01((scrollPosition + viewportHeight * 0.56 - railDocumentTop) / Math.max(1, railRect.height));
+      const isAlternating = window.innerWidth >= 900;
       fill.style.transform = `scaleY(${railProgress})`;
       marker.style.transform = `translate3d(-50%, ${railProgress * railRect.height}px, 0)`;
-      blocks.forEach((block) => {
+      blocks.forEach((block, index) => {
         const rect = block.getBoundingClientRect();
         const blockDocumentTop = rect.top + scrollPosition;
         const travel = Math.max(1, rect.height + viewportHeight * 0.76);
         const progress = clamp01((scrollPosition + viewportHeight * 0.88 - blockDocumentTop) / travel);
         // Parallax drift: the card travels with the scroll while staying legible.
-        const drift = 88 - progress * 176;
+        // On the single column layout the card and its photograph stay together.
+        if (!isAlternating) {
+          block.style.opacity = "1";
+          block.style.transform = "none";
+          const photo = media[index];
+          if (photo) photo.style.transform = "none";
+          return;
+        }
+        const drift = 96 - progress * 192;
         const scale = progress < 0.25 ? 0.96 + (progress / 0.25) * 0.04 : progress > 0.75 ? 1 - ((progress - 0.75) / 0.25) * 0.04 : 1;
         block.style.opacity = "1";
         block.style.transform = `translate3d(0, ${drift}px, 0) scale(${scale})`;
+        const photo = media[index];
+        if (photo) {
+          // The photograph travels the other way: the pair reads as depth.
+          const photoDrift = progress * 128 - 64;
+          photo.style.transform = `translate3d(0, ${photoDrift}px, 0) scale(${1.04 - (progress < 0.5 ? progress * 0.08 : (1 - progress) * 0.08)})`;
+        }
       });
     };
     const scheduleDraw = () => {
@@ -60,6 +76,7 @@ export function DayTimeline() {
         fill.style.transform = "scaleY(0)";
         marker.style.transform = "translate3d(-50%, 0, 0)";
         blocks.forEach((block) => { block.style.opacity = "1"; block.style.transform = "none"; });
+        media.forEach((photo) => { photo.style.transform = "none"; });
         return;
       }
       root.classList.add("day-timeline--motion");
@@ -80,18 +97,19 @@ export function DayTimeline() {
 
   return (
     <div ref={rootRef} className="day-timeline">
-      <div className="day-timeline__track" aria-hidden="true">
-        <div data-timeline-rail className="day-timeline__rail" />
-        <div data-timeline-fill className="day-timeline__rail-fill" />
-        <div data-timeline-marker className="day-timeline__travelling-marker" />
-      </div>
-      <ol className="day-timeline__list">
+      <div className="day-timeline__body">
+        <div className="day-timeline__track" aria-hidden="true">
+          <div data-timeline-rail className="day-timeline__rail" />
+          <div data-timeline-fill className="day-timeline__rail-fill" />
+          <div data-timeline-marker className="day-timeline__travelling-marker" />
+        </div>
+        <ol className="day-timeline__list">
         {blocks.map((block, index) => (
           <li key={block.time} className={`day-timeline__item day-timeline__item--${index % 2 === 0 ? "left" : "right"}`}>
             <div className="day-timeline__stop">
               <TimelineClock time={block.time} />
             </div>
-            <figure className="day-timeline__media">
+            <figure className="day-timeline__media" data-timeline-media>
               <Image
                 src={block.src}
                 alt={block.alt}
@@ -109,7 +127,8 @@ export function DayTimeline() {
             </article>
           </li>
         ))}
-      </ol>
+        </ol>
+      </div>
       <aside className="day-timeline__note" aria-label={note.label}>
         <p className="day-timeline__note-title">{note.title}</p>
         <p>{note.body}</p>
