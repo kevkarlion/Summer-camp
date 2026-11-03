@@ -46,7 +46,7 @@ export function SiteHeader() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 w-full isolate border-b border-subtle bg-main">
+    <header className="fixed inset-x-0 top-0 z-50 w-full isolate bg-main">
       <Container className="flex h-20 items-center justify-between gap-5 xl:gap-8">
         <Link
           href="/"
@@ -61,8 +61,8 @@ export function SiteHeader() {
             className="size-10 shrink-0 transition-transform duration-300 ease-expo group-hover:-translate-y-0.5"
           />
           <span className="leading-tight">
-            <span className="block text-sm font-bold tracking-[0.08em] text-main">PATAGONIA</span>
-            <span className="block text-[10px] font-semibold tracking-[0.24em] text-secondary-accent">SUMMER CAMP</span>
+            <span className="block text-[15px] font-bold tracking-[0.08em] text-main">PATAGONIA</span>
+            <span className="block text-[13px] font-semibold tracking-[0.2em] text-secondary-accent">SUMMER CAMP</span>
           </span>
         </Link>
 
@@ -77,19 +77,13 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "relative rounded-full px-2.5 py-2 text-xs font-medium text-white/90 transition-[color,background-color,opacity] duration-300 hover:bg-overlay-soft hover:text-white 2xl:px-3 2xl:text-sm",
+                  "relative rounded-full px-2.5 py-2 text-[13px] font-medium text-white/90 transition-[color,background-color,opacity] duration-300 hover:bg-overlay-soft hover:text-white 2xl:px-3",
                   isActive ? "bg-overlay-soft text-white" : "text-white/90",
                   isContact &&
-                    "ml-1 rounded-[0.2rem] border border-[var(--scout-oxblood)] bg-[var(--scout-oxblood)] px-3 py-2 font-sans text-[0.65rem] font-bold uppercase tracking-[0.16em] text-[var(--scout-parchment)] shadow-[0_5px_18px_rgba(2,6,23,0.24)] before:pointer-events-none before:absolute before:inset-[2px] before:border before:border-dashed before:border-current/40 before:content-[''] hover:bg-[color-mix(in_srgb,var(--scout-oxblood)_86%,black)] hover:text-[var(--scout-parchment)]",
+                    "ml-1 rounded-[0.2rem] border border-[var(--scout-oxblood)] bg-[var(--scout-oxblood)] px-3 py-2 font-sans text-[13px] font-bold uppercase tracking-[0.12em] text-[var(--scout-parchment)] shadow-none before:pointer-events-none before:absolute before:inset-[2px] before:border before:border-dashed before:border-current/40 before:content-[''] hover:bg-[color-mix(in_srgb,var(--scout-oxblood)_86%,black)] hover:text-[var(--scout-parchment)]",
                 )}
               >
                 {item.label}
-                {isActive ? (
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-x-2.5 -bottom-[1.15rem] h-px bg-secondary/80"
-                  />
-                ) : null}
               </Link>
             );
           })}
@@ -130,7 +124,7 @@ export function SiteHeader() {
 
               {mobileGroups.map((group) => (
                 <div key={group.label} className="mb-6 last:mb-0">
-                  <p className="mb-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-secondary-accent">
+                  <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.16em] text-secondary-accent">
                     {group.label}
                   </p>
                   <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
@@ -159,7 +153,7 @@ export function SiteHeader() {
               <Button
                 href="/contacto"
                 onClick={closeMenu}
-                className="relative mt-6 w-full rounded-[0.2rem] border border-[var(--scout-oxblood)] bg-[var(--scout-oxblood)] font-sans text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[var(--scout-parchment)] shadow-[0_5px_18px_rgba(2,6,23,0.24)] before:pointer-events-none before:absolute before:inset-[3px] before:border before:border-dashed before:border-current/40 before:content-[''] hover:bg-[color-mix(in_srgb,var(--scout-oxblood)_86%,black)] hover:text-[var(--scout-parchment)]"
+                className="relative mt-6 w-full rounded-[0.2rem] border border-[var(--scout-oxblood)] bg-[var(--scout-oxblood)] font-sans text-[13px] font-bold uppercase tracking-[0.12em] text-[var(--scout-parchment)] shadow-none before:pointer-events-none before:absolute before:inset-[3px] before:border before:border-dashed before:border-current/40 before:content-[''] hover:bg-[color-mix(in_srgb,var(--scout-oxblood)_86%,black)] hover:text-[var(--scout-parchment)]"
               >
                 Consultar información
               </Button>

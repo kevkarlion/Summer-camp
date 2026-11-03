@@ -17,7 +17,7 @@ const footerLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-subtle bg-surface">
+    <footer className="bg-surface">
       <Container className="grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr] lg:py-20">
         <div>
           <Image
@@ -27,8 +27,8 @@ export function SiteFooter() {
             height={229}
             className="h-auto w-48 sm:w-56"
           />
-          <h2 className="mt-5 max-w-sm text-3xl font-semibold leading-tight tracking-[-0.03em] text-main">
-            Una aventura que también transforma el idioma.
+          <h2 className="site-footer__heading mt-5 max-w-sm text-3xl font-semibold leading-tight tracking-[-0.03em] text-main">
+            Aventura que transforma el idioma.
           </h2>
           <p className="mt-7 flex items-center gap-3 text-sm text-muted"><MapPin aria-hidden="true" size={17} className="text-secondary-accent" /> Villa La Angostura, Neuquén, Patagonia</p>
         </div>
@@ -49,10 +49,10 @@ export function SiteFooter() {
           <p className="mt-5 text-sm leading-6 text-muted">
             Solicitá información sobre el programa para adolescentes de 13 a 17 años, las fechas, las actividades y la inscripción.
           </p>
-          <Button href="/contacto" variant="secondary" className="mt-6">Consultar información</Button>
+          <Button href="/contacto" variant="secondary" className="mt-6 shadow-none">Consultar información</Button>
         </div>
       </Container>
-      <Container className="flex flex-col gap-3 border-t border-subtle py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+      <Container className="flex flex-col gap-3 py-6 text-[13px] text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>© 2027 Patagonia Summer Camp. Todos los derechos reservados.</p>
         <p>Diseñado para familias que buscan aprender explorando.</p>
       </Container>

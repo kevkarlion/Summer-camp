@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import {
-  ArrowRight,
-  CheckCircle2,
-  MapPin,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import Link from "next/link";
-import { Container } from "@/components/layout/Container";
-import { Reveal } from "@/components/motion/Reveal";
-import { TextReveal } from "@/components/motion/TextReveal";
+
+import { HomeHero } from "@/components/home/HomeHero";
+import { ResidenceGallery } from "@/components/home/ResidenceGallery";
+import { WeekRoute } from "@/components/home/WeekRoute";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
-import { IMAGE_BLUR_DATA_URL } from "@/components/image/placeholder";
-import { ImageLightbox, type ImageLightboxItem } from "@/components/ui/ImageLightbox";
-import { OrganicMaskImage } from "@/components/ui/OrganicMaskImage";
-import { ParallaxImageContainer } from "@/components/ui/ParallaxImage";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
+
+import { HomeHero } from "@/components/home/HomeHero";
+import { WeekRoute } from "@/components/home/WeekRoute";
+import "@/components/home/home-core.css";
+import "@/components/home/home-hero.css";
+import "@/components/home/home-journey.css";
+
+import "@/components/home/home-core.css";
+import "@/components/home/home-hero.css";
+import "@/components/home/home-journey.css";
+import "@/components/home/home-residence.css";
+import "@/components/home/home-finish-a.css";
+import "@/components/home/home-finish-b.css";
 
 const description =
   "Summer camp residencial para adolescentes de 13 a 17 años en Villa La Angostura: inglés por inmersión, naturaleza y aventura del 4 al 12 de diciembre de 2027.";
@@ -48,68 +48,26 @@ export const metadata: Metadata = {
   },
 };
 
-const pillars = [
+const programPoints = [
   {
-    title: "Aventura y confianza",
-    text: "Explorar y superar desafíos para ganar confianza en uno mismo y en los demás.",
-    src: "/camp-media/senderismo-con-villa-al-fondo.webp",
-    alt: "Fotografía real del campamento: grupo caminando por un sendero con Villa La Angostura al fondo",
+    title: "Explorar con propósito",
+    text: "Trekking, kayak, deportes y conocimiento local convierten cada jornada en una razón para participar.",
   },
   {
-    title: "Aprender haciendo",
-    text: "Vivir el inglés en situaciones reales, comunicar ideas y descubrir nuevas perspectivas.",
-    src: "/camp-media/kayak-en-el-lago.webp",
-    alt: "Fotografía real del campamento: grupo en kayaks sobre el lago con montañas de fondo",
+    title: "Usar el inglés",
+    text: "La misión diaria, las indicaciones y las conversaciones dan sentido real al idioma.",
   },
   {
-    title: "Libertad para expresarse",
-    text: "Ser uno mismo, compartir ideas y encontrar diferentes formas de participar.",
-    src: "/camp-media/mirando-el-valle.webp",
-    alt: "Fotografía real del campamento: adolescente sobre un tronco caído contemplando el valle",
-  },
-  {
-    title: "Comunidad y respeto",
-    text: "Crear amistades, valorar las diferencias y aprender a cuidarnos unos a otros.",
-    src: "/camp-media/grupo-caminando.webp",
-    alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque",
-  },
-  {
-    title: "Cuerpo y mente en equilibrio",
-    text: "Mover el cuerpo, cuidar la mente y disfrutar del aire libre.",
-    src: "/camp-media/grupo-jugando.webp",
-    alt: "Fotografía real del campamento: grupo de adolescentes jugando al aire libre",
+    title: "Aprender a convivir",
+    text: "Cuidar el equipo, asumir responsabilidades y descubrir otras formas de participar.",
   },
 ];
 
-const residenceImages: ImageLightboxItem[] = [
-  {
-    src: "/camp-media/residencia-y-parque.png",
-    alt: "Fotografía real del campamento: la residencia de piedra y madera con su parque",
-    title: "La residencia y su parque",
-    description: "La casa donde se vive la experiencia, con el bosque nativo y el área abierta alrededor.",
-    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 58vw",
-  },
-  {
-    src: "/camp-media/residencia-de-piedra-y-madera.png",
-    alt: "Fotografía real del campamento: la residencia entre los árboles del(predio",
-    title: "Piedra, madera y bosque",
-    description: "La construcción de la residencia integrada en el entorno natural de la Patagonia.",
-    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 42vw",
-  },
-  {
-    src: "/camp-media/lago-al-atardecer.png",
-    alt: "Fotografía real del campamento: el lago al atardecer con las montañas de fondo",
-    title: "El lago al atardecer",
-    description: "La costa sobre el Nahuel Huapi, el horizonte que acompaña cada jornada.",
-    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 42vw",
-  },
-  {
-    src: "/camp-media/productores-locales.webp",
-    alt: "Fotografía real del campamento: visita a productores locales",
-    title: "Territorio que se conoce",
-    description: "Encuentros con quienes trabajan y producen en el lugar, para entenderlo desde adentro.",
-    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 58vw",
-  },
+const benefits = [
+  "Inmersión en actividades, conversaciones y vida cotidiana",
+  "Sesiones breves y participativas de inglés cada mañana",
+  "Aprendizaje a través de la naturaleza y la convivencia",
+  "Acompañamiento de un equipo de coordinación",
 ];
 
 export default function HomePage() {
@@ -156,48 +114,12 @@ export default function HomePage() {
   };
 
   return (
-    <main id="main-content">
-      <section className="relative isolate flex min-h-[100svh] items-start overflow-hidden pb-14 pt-28 sm:min-h-[48rem] sm:pb-16 sm:pt-32 lg:min-h-[100svh] lg:items-start lg:pb-20 lg:pt-32">
-        <Image
-          src="/hero-villa-la-angostura.webp"
-          alt="Vista panorámica de verano de Villa La Angostura: lago turquesa, bosque nativo y montañas"
-          fill
-          priority
-          placeholder="blur"
-          blurDataURL={IMAGE_BLUR_DATA_URL}
-          sizes="100vw"
-          className="-z-20 object-cover object-[58%_center] lg:object-center"
-        />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(11,19,32,0.82)_0%,rgba(11,19,32,0.48)_48%,rgba(11,19,32,0.08)_100%)]" />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(11,19,32,0.08)_0%,rgba(11,19,32,0.22)_62%,rgba(11,19,32,0.48)_100%)]" />
-        <div aria-hidden="true" className="pointer-events-none absolute -left-32 top-24 -z-10 size-[30rem] rounded-full orb-emerald-glow" />
-        <div aria-hidden="true" className="pointer-events-none absolute -right-28 bottom-10 -z-10 size-[26rem] rounded-full orb-amber-glow" />
+    <main id="main-content" className="home-page">
+      <HomeHero />
 
-        <Container className="relative py-10 sm:py-12 lg:py-0">
-          <div className="max-w-5xl lg:max-w-[58rem]">
-            <Badge variant="secondary" className="mb-7"><Sparkles aria-hidden="true" size={14} /> Temporada 2027</Badge>
-            <TextReveal as="h1" className="hero-title-shadow text-[clamp(3.25rem,7.2vw,7.25rem)] font-semibold leading-[0.94] tracking-[-0.055em] text-main">
-              Inglés, aventura y Patagonia.
-            </TextReveal>
-            <p className="hero-copy-shadow mt-6 max-w-2xl text-lg leading-8 text-main sm:mt-7 sm:text-xl">
-              Una experiencia residencial al aire libre para que cada adolescente vuelva más seguro, curioso y conectado con el mundo.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">
-              <Button href="/preguntas-frecuentes" size="lg">Consultar disponibilidad <ArrowRight aria-hidden="true" size={18} /></Button>
-              <Button href="/programa-ingles" variant="outline" size="lg">Conocer el programa</Button>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted sm:mt-10">
-              {["Adolescentes de 13–17 años", "4–12 de diciembre de 2027", "Formato residencial", "Villa La Angostura"].map((item) => (
-                <span key={item} className="inline-flex items-center gap-2">
-                  <CheckCircle2 aria-hidden="true" size={16} className="shrink-0 text-secondary-accent" /> {item}
-                </span>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
+            <HomeHero />
 
-      <section className="border-y border-subtle bg-surface/70 py-8">
+<section className="border-y border-subtle bg-surface/70 py-8">
         <Container className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {[
             ["13–17", "Años"],
@@ -213,45 +135,26 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
-        <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-10 size-[32rem] -translate-x-1/2 rounded-full orb-emerald-glow animate-pulse-slow" />
-        <Container className="relative">
-          <Reveal>
-            <SectionHeader
-              eyebrow="Nuestra filosofía"
-              title="Crecer es explorar, expresarse y conectar."
-              description="Cinco formas de vivir una experiencia que combina naturaleza, inglés, autonomía y comunidad con respeto por el entorno y las personas."
-            />
-          </Reveal>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-12">
-            {pillars.map((pillar, index) => (
-              <Reveal
-                key={pillar.title}
-                delay={index * 0.06}
-                className={index < 2 ? "lg:col-span-6" : "lg:col-span-4"}
-              >
-                <article className="group relative isolate min-h-[25rem] overflow-hidden rounded-[2rem] border border-subtle bg-card focus-within:ring-2 focus-within:ring-secondary">
-                  <Image
-                    src={pillar.src}
-                    alt={pillar.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    placeholder="blur"
-                    blurDataURL={IMAGE_BLUR_DATA_URL}
-                    className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
-                  />
-                  <div className="absolute inset-x-4 bottom-4 copy-scrim rounded-2xl p-5 sm:inset-x-6 sm:bottom-6 sm:p-6">
-                    <h3 className="text-2xl font-semibold tracking-[-0.025em] text-main">{pillar.title}</h3>
-                    <p className="mt-3 max-w-md leading-7 text-main/90">{pillar.text}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+<section className="home-section home-section--forest home-language" aria-labelledby="home-language-title">
+        <div className="home-wrap">
+          <div className="home-section__intro home-section__intro--wide">
+            <div>
+              <h2 id="home-language-title" className="home-heading home-heading--light">
+                Una semana, una ruta diaria.
+              </h2>
+              <p className="home-lead home-lead--light">
+                Cada jornada vuelve a unir actividad, inglés y responsabilidad compartida. Así se vive un día dentro del campamento.
+              </p>
+            </div>
+            <p className="home-section__aside">
+              El horario definitivo se comunicará con el programa. La secuencia del recorrido muestra los momentos del día ya publicados.
+            </p>
           </div>
-        </Container>
+          <WeekRoute />
+        </div>
       </section>
 
-      <section className="relative isolate overflow-hidden bg-surface py-24 sm:py-28 lg:py-36">
+<section className="relative isolate overflow-hidden bg-surface py-24 sm:py-28 lg:py-36">
         <div aria-hidden="true" className="pointer-events-none absolute -left-24 top-20 -z-10 size-[30rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 bottom-8 -z-10 size-[28rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
@@ -292,7 +195,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
+<section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-16 size-[32rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
         <Container className="relative">
           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
@@ -337,7 +240,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden bg-surface py-24 sm:py-28 lg:py-36">
+<section className="relative overflow-hidden bg-surface py-24 sm:py-28 lg:py-36">
         <Container>
           <Reveal>
             <SectionHeader
@@ -359,7 +262,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
+<section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
         <Container>
           <Reveal>
             <SectionHeader
@@ -384,7 +287,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
+<section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
         <Container>
           <Reveal className="relative overflow-hidden rounded-[2rem] border border-primary/20 surface-cta p-8 sm:p-12 lg:p-16">
             <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-20 size-72 rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />

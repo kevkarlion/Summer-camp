@@ -1,10 +1,18 @@
 import type { Metadata, Viewport } from "next";
+import { Barlow_Condensed } from "next/font/google";
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
+
+const homeDisplay = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-home-display",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -52,7 +60,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="es-AR">
-      <body>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
+      <body className={homeDisplay.variable}>
         <SmoothScrollProvider>
           <a
             href="#main-content"
