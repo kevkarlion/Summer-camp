@@ -9,7 +9,6 @@ import "./globals.css";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  viewportFit: "cover",
   themeColor: "#0b1320",
 };
 
@@ -43,7 +42,10 @@ export const metadata: Metadata = {
     follow: true,
   },
   other: {
-    "apple-mobile-web-app-status-bar-style": "black",
+    "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "apple-mobile-web-app-title": "Patagonia Summer Camp 2027",
   },
 };
 
