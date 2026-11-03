@@ -1,9 +1,29 @@
+/* Safety reassurance with the family guide call to action, and the closing statement. */
+.home-safety__copy {
+  max-width: 44rem;
+}
+
+.home-safety__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.home-closing {
+  padding-block: clamp(5rem, 10vw, 9rem);
+  background: var(--home-forest-deep);
+  color: var(--home-paper-ink);
+}
+
 .home-closing__grid {
   display: grid;
   align-items: end;
   gap: clamp(3rem, 8vw, 8rem);
   grid-template-columns: minmax(0, 1.2fr) minmax(17rem, 0.8fr);
 }
+
 .home-closing h2 {
   max-width: 13ch;
   margin: 0;
@@ -13,6 +33,7 @@
   letter-spacing: -0.02em;
   line-height: 0.92;
 }
+
 .home-closing__action p {
   max-width: 38ch;
   margin: 0 0 1.5rem;
@@ -20,33 +41,24 @@
   font-size: 1.05rem;
   line-height: 1.55;
 }
+
 .home-page :focus-visible {
   outline-color: var(--home-lake);
   outline-offset: 4px;
 }
+
 .site-footer__heading {
   font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
   font-weight: 600;
 }
-html:not(.js) .home-route__stop,
-html:not(.js) .home-route__note {
-  opacity: 1 !important;
-  transform: none !important;
-}
-@media (hover: hover) and (pointer: fine) {
-  .home-route__link:hover {
-    background: color-mix(in srgb, var(--home-paper-ink) 16%, transparent);
-    transform: translateY(-3px);
-  }
 
-  .home-cover-image,
+@media (hover: hover) and (pointer: fine) {
+  .home-about__image,
   .home-gallery__image {
     transition: transform 500ms cubic-bezier(0.33, 1, 0.68, 1);
   }
 
-  .home-mechanism__figure:hover .home-cover-image,
-  .home-founder__media:hover .home-cover-image,
-  .home-safety__figure:hover .home-cover-image,
+  .home-about__media:hover .home-about__image,
   .home-gallery__item:hover .home-gallery__image {
     transform: scale(1.025);
   }
