@@ -9,39 +9,34 @@ import { useLanguage } from "./LanguageProvider";
 
 export function HomeHero() {
   const { dictionary } = useLanguage();
-  const { hero } = dictionary;
+  const { hero } = dictionary.home;
 
   return (
     <section className="site-hero home-hero" aria-labelledby="home-hero-title">
       <div className="site-hero__copy">
         <div className="site-hero__intro">
           <h1 id="home-hero-title" className="site-display home-display">
-            {hero.displayLines.map((line) => (
+            {hero.titleLines.map((line) => (
               <span key={line} className="home-display__line">
                 {line}
               </span>
             ))}
           </h1>
-          <p className="site-lead">{hero.lead}</p>
+          <p className="site-lead">{hero.subtitle}</p>
+          <ul className="home-hero__badges">
+            {hero.badges.map((badge) => (
+              <li key={badge.text} className={`site-badge site-badge--${badge.tone}`}>
+                {badge.text}
+              </li>
+            ))}
+          </ul>
           <div className="site-hero__actions">
             <Link className="site-button site-button--primary" href="/contacto">
-              {hero.ctaPrimary}
+              {hero.cta}
               <ArrowRight aria-hidden="true" size={18} />
-            </Link>
-            <Link className="site-text-link site-text-link--dark" href="/programa-ingles">
-              {hero.ctaSecondary}
             </Link>
           </div>
         </div>
-
-        <dl className="site-facts home-facts" aria-label={hero.factsLabel}>
-          {hero.facts.map((fact) => (
-            <div key={fact.label} className="site-fact">
-              <dt>{fact.label}</dt>
-              <dd>{fact.value}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
 
       <figure className="site-hero__media home-hero__media">

@@ -1,11 +1,24 @@
-/* Home hero: copy on the left, the camp landscape on the right. */
+/* Home hero: a direct title, a subtitle that defines the camp, two badges and one call to action. */
 .site-hero.home-hero {
-  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+}
+
+.site-hero.home-hero .site-hero__copy {
+  justify-content: center;
 }
 
 .site-hero.home-hero .site-display {
-  max-width: 18ch;
-  font-size: clamp(2.4rem, 4.6vw, 4.5rem);
+  max-width: none;
+  font-size: clamp(2.25rem, 4.4vw, 4.5rem);
+}
+
+.home-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
 }
 
 .home-hero__media figcaption {
@@ -20,6 +33,22 @@
   line-height: 1.45;
 }
 
-.home-hero__actions .site-text-link {
-  color: var(--home-forest);
+@media (max-width: 1023px) {
+  .site-hero.home-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .site-hero.home-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .site-hero.home-hero .site-display {
+    font-size: clamp(2.25rem, 9vw, 3rem);
+  }
+
+  .home-hero__media figcaption {
+    max-width: 88%;
+  }
 }
