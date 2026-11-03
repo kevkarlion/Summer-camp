@@ -1,0 +1,130 @@
+/* Route composition for the canonical residence page. */
+.residencia-page {
+  background: var(--home-paper);
+  color: var(--home-ink);
+}
+
+.residencia-page__hero-title {
+  max-width: 16ch;
+}
+
+.residencia-page__hero-title span {
+  display: block;
+}
+
+.residencia-page__facts {
+  width: 100%;
+}
+
+.residencia-page__experiences {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.residencia-page__experience {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: var(--home-forest-deep);
+}
+
+.residencia-page__experience:first-child {
+  padding-left: 0;
+}
+
+.residencia-page__experience:last-child {
+  padding-right: 0;
+}
+
+.residencia-page__experience h3 {
+  margin: 0;
+  color: var(--home-paper-ink);
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.7rem, 2.6vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.residencia-page__experience p {
+  max-width: 68ch;
+  margin: 0;
+  color: var(--home-paper-muted);
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+.residencia-page__gallery {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.residencia-page__figure {
+  margin: 0;
+}
+
+.residencia-page__figure-media {
+  position: relative;
+  min-height: 20rem;
+  overflow: hidden;
+  background: var(--home-paper-deep);
+}
+
+.residencia-page__figure h3 {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.residencia-page__kind {
+  margin: 0.5rem 0 0;
+  color: var(--home-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.residencia-page__disclaimer {
+  max-width: 62ch;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  color: var(--home-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.residencia-page__cta-action {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 899px) {
+  .residencia-page__experiences {
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .residencia-page__experience,
+  .residencia-page__experience:first-child,
+  .residencia-page__experience:last-child {
+    padding: 1.5rem 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .residencia-page__gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .residencia-page__figure-media {
+    min-height: 16rem;
+  }
+}
