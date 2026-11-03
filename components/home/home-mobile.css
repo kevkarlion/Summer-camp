@@ -1,0 +1,126 @@
+@media (max-width: 767px) {
+  .home-hero {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .home-hero__media {
+    min-height: 34svh;
+    order: -1;
+  }
+
+  .home-hero__copy {
+    gap: 2.5rem;
+    padding: 1.25rem var(--home-margin) var(--home-margin);
+  }
+
+  .home-display {
+    max-width: 18ch;
+    font-size: 3rem;
+  }
+
+  .home-hero__actions {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 1.5rem;
+  }
+
+  .home-hero__actions .home-button {
+    width: 100%;
+  }
+
+  .home-hero__media figcaption {
+    max-width: 88%;
+    font-size: 0.82rem;
+  }
+
+  .home-mechanism__grid,
+  .home-program__grid,
+  .home-founder__grid,
+  .home-safety__grid,
+  .home-section__intro,
+  .home-section__intro--wide,
+  .home-residence__intro,
+  .home-closing__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-mechanism__figure,
+  .home-founder__media,
+  .home-safety__figure {
+    min-height: 28rem;
+  }
+
+  .home-route {
+    gap: 1rem;
+  }
+
+  .home-route__link {
+    gap: 0.45rem;
+    padding: 1.1rem;
+    grid-template-columns: 4.25rem minmax(0, 1fr);
+  }
+
+  .home-route__time {
+    font-size: 0.9rem;
+  }
+
+  .home-route__detail {
+    grid-column: 2;
+  }
+
+  .home-route__action {
+    grid-column: 2;
+    grid-row: auto;
+    justify-self: start;
+  }
+
+  .home-program__principles {
+    gap: 1.5rem;
+  }
+
+  .home-program__principle,
+  .home-program__principle:nth-child(2),
+  .home-program__principle:nth-child(3) {
+    padding: 1.5rem 0;
+    background: transparent;
+  }
+
+  .home-section__aside {
+    max-width: 46ch;
+  }
+
+  .home-gallery__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-gallery__item,
+  .home-gallery__item--wide {
+    min-height: 19rem;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .home-gallery__item--wide {
+    min-height: 25rem;
+  }
+
+  .home-closing h2 {
+    max-width: 11ch;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-route__stop,
+  .home-route__note {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .home-button,
+  .home-text-link,
+  .home-route__link,
+  .home-cover-image,
+  .home-gallery__image {
+    transition: none;
+  }
+}

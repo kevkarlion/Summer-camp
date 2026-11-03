@@ -9,19 +9,12 @@ import { WeekRoute } from "@/components/home/WeekRoute";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site";
 
-import { HomeHero } from "@/components/home/HomeHero";
-import { WeekRoute } from "@/components/home/WeekRoute";
 import "@/components/home/home-core.css";
 import "@/components/home/home-hero.css";
 import "@/components/home/home-journey.css";
 import "@/components/home/home-closing.css";
-
-import "@/components/home/home-core.css";
-import "@/components/home/home-hero.css";
-import "@/components/home/home-journey.css";
-import "@/components/home/home-residence.css";
-import "@/components/home/home-finish-a.css";
-import "@/components/home/home-finish-b.css";
+import "@/components/home/home-tablet.css";
+import "@/components/home/home-mobile.css";
 
 const description =
   "Summer camp residencial para adolescentes de 13 a 17 años en Villa La Angostura: inglés por inmersión, naturaleza y aventura del 4 al 12 de diciembre de 2027.";
@@ -118,25 +111,40 @@ export default function HomePage() {
     <main id="main-content" className="home-page">
       <HomeHero />
 
-            <HomeHero />
-
-<section className="border-y border-subtle bg-surface/70 py-8">
-        <Container className="grid grid-cols-2 gap-8 md:grid-cols-4">
-          {[
-            ["13–17", "Años"],
-            ["4–12", "Diciembre 2027"],
-            ["Residencial", "Formato"],
-            ["Villa La Angostura", "Neuquén, Patagonia"],
-          ].map(([value, label]) => (
-            <div key={label} className="text-center">
-              <p className="text-2xl font-semibold tracking-tight text-main sm:text-3xl">{value}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.16em] text-muted">{label}</p>
-            </div>
-          ))}
-        </Container>
+      <section className="home-section home-section--paper home-mechanism" aria-labelledby="home-mechanism-title">
+        <div className="home-wrap home-mechanism__grid">
+          <figure className="home-mechanism__figure">
+            <Image
+              src="/camp-media/senderismo-con-villa-al-fondo.webp"
+              alt="Grupo recorriendo un sendero con Villa La Angostura al fondo"
+              fill
+              sizes="(max-width: 767px) 100vw, 50vw"
+              className="home-cover-image"
+            />
+          </figure>
+          <div className="home-mechanism__copy">
+            <h2 id="home-mechanism-title" className="home-heading">
+              La vida pide una decisión.
+            </h2>
+            <p className="home-lead home-lead--dark">
+              No es una clase trasladada al aire libre. Es aprender a acordar, explicar, pedir ayuda y compartir mientras se recorre un territorio nuevo.
+            </p>
+            <ul className="home-check-list">
+              {benefits.map((item) => (
+                <li key={item}>
+                  <Check aria-hidden="true" size={19} />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Link className="home-text-link home-text-link--dark" href="/programa-ingles">
+              Explorar la metodología <ArrowRight aria-hidden="true" size={17} />
+            </Link>
+          </div>
+        </div>
       </section>
 
-<section className="home-section home-section--forest home-language" aria-labelledby="home-language-title">
+      <section className="home-section home-section--forest home-language" aria-labelledby="home-language-title">
         <div className="home-wrap">
           <div className="home-section__intro home-section__intro--wide">
             <div>
@@ -155,7 +163,7 @@ export default function HomePage() {
         </div>
       </section>
 
-<section className="home-section home-section--paper home-program" aria-labelledby="home-program-title">
+      <section className="home-section home-section--paper home-program" aria-labelledby="home-program-title">
         <div className="home-wrap home-program__grid">
           <div className="home-program__copy">
             <h2 id="home-program-title" className="home-heading">
@@ -179,7 +187,7 @@ export default function HomePage() {
         </div>
       </section>
 
-<section className="home-section home-section--lake home-founder" aria-labelledby="home-founder-title">
+      <section className="home-section home-section--lake home-founder" aria-labelledby="home-founder-title">
         <div className="home-wrap home-founder__grid">
           <div className="home-founder__copy">
             <h2 id="home-founder-title" className="home-heading">
@@ -211,7 +219,7 @@ export default function HomePage() {
         </div>
       </section>
 
-<section className="home-section home-section--paper home-residence" aria-labelledby="home-residence-title">
+      <section className="home-section home-section--paper home-residence" aria-labelledby="home-residence-title">
         <div className="home-wrap home-residence__intro">
           <div>
             <h2 id="home-residence-title" className="home-heading">
@@ -233,7 +241,7 @@ export default function HomePage() {
         <ResidenceGallery />
       </section>
 
-<section className="home-section home-section--paper home-safety" aria-labelledby="home-safety-title">
+      <section className="home-section home-section--paper home-safety" aria-labelledby="home-safety-title">
         <div className="home-wrap home-safety__grid">
           <figure className="home-safety__figure">
             <Image
@@ -261,21 +269,18 @@ export default function HomePage() {
         </div>
       </section>
 
-<section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
-        <Container>
-          <Reveal className="relative overflow-hidden rounded-[2rem] border border-primary/20 surface-cta p-8 sm:p-12 lg:p-16">
-            <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-20 size-72 rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
-            <div className="relative max-w-3xl">
-              <Badge variant="secondary"><ShieldCheck aria-hidden="true" size={14} /> Seguridad responsable</Badge>
-              <TextReveal as="h2" className="mt-6 text-3xl font-semibold leading-tight tracking-[-0.035em] text-main sm:text-5xl">La familia descansa. Nosotros nos ocupamos.</TextReveal>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">Un equipo de coordinación acompaña la experiencia, las actividades se evalúan según las condiciones y los procedimientos de emergencia, seguro y comunicación se confirman antes del campamento.</p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <Button href="/seguridad-y-coordinacion">Conocer la seguridad <ArrowRight aria-hidden="true" size={17} /></Button>
-                <Button href="/preguntas-frecuentes" variant="ghost">Ver preguntas frecuentes</Button>
-              </div>
-            </div>
-          </Reveal>
-        </Container>
+      <section className="home-closing" aria-labelledby="home-closing-title">
+        <div className="home-wrap home-closing__grid">
+          <div>
+            <h2 id="home-closing-title">¿Cómo viven la semana?</h2>
+          </div>
+          <div className="home-closing__action">
+            <p>En Villa La Angostura, cada familia puede consultar el programa, las fechas y la disponibilidad para adolescentes de 13 a 17 años.</p>
+            <Link className="home-button home-button--paper" href="/contacto">
+              Consultar disponibilidad <ArrowRight aria-hidden="true" size={18} />
+            </Link>
+          </div>
+        </div>
       </section>
 
       <JsonLd data={jsonLd} />

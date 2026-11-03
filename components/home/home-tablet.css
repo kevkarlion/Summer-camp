@@ -1,0 +1,19 @@
+@media (max-width: 1000px) {
+  .home-display {
+    font-size: 3rem;
+  }
+
+  .home-route__link {
+    grid-template-columns: 5rem minmax(0, 1fr) auto;
+  }
+
+  .home-route__detail {
+    grid-column: 2 / -1;
+  }
+
+  .home-route__action {
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+  }
+}
