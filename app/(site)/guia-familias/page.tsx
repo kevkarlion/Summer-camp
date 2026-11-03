@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { ArrowRight, Check, FileText, HeartHandshake, ShieldCheck } from "lucide-react";
-import { Container } from "@/components/layout/Container";
-import { PageHero } from "@/components/marketing/PageHero";
-import { Reveal } from "@/components/motion/Reveal";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { CampIcon } from "@/components/ui/CampIcon";
-import { Card } from "@/components/ui/Card";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
+
+import "./guia.css";
 
 const pagePath = "/guia-familias";
 const title = "Guía para Familias: Logística, Equipamiento y Normas";
@@ -60,82 +57,126 @@ export default function GuiaFamiliasPage() {
   return (
     <>
       <JsonLd data={schema} />
-      <main id="main-content">
-        <PageHero
-          eyebrow="Manual operativo para familias"
-          title="Preparar el viaje también es construir confianza"
-          description="Una guía concreta para organizar la llegada, la salud, la seguridad, la convivencia y el equipaje de cada participante."
-          image="/camp-media/grupo-caminando.webp"
-          imageAlt="Fotografía real del campamento: grupo caminando con mochilas por un sendero"
-        >
-          <Button href="/preguntas-frecuentes" size="lg">Resolver otras dudas <ArrowRight className="size-4" /></Button>
-        </PageHero>
-
-        <section className="py-20 sm:py-28">
-          <Container>
-            <Reveal><SectionHeader eyebrow="Antes de viajar" title="La organización familiar, paso a paso" description="Estos son los datos confirmados. Los horarios, cobertura, seguro, dispositivos y demás detalles operativos pendientes se comunicarán antes del campamento." /></Reveal>
-            <div className="mt-12 grid gap-5 md:grid-cols-2">
-              {sections.map((section, index) => (
-                <Reveal key={section.title} delay={index * 0.04}>
-                  <Card variant="glass" className="h-full p-6 sm:p-7">
-                    <h3 className="text-xl font-semibold text-main">{section.title}</h3>
-                    <ul className="mt-5 space-y-3">
-                      {section.items.map((item) => <li key={item} className="flex gap-3 text-sm leading-6 text-muted"><Check className="mt-1 size-4 shrink-0 text-primary-accent" aria-hidden="true" /><span>{item}</span></li>)}
-                    </ul>
-                  </Card>
-                </Reveal>
-              ))}
-            </div>
-          </Container>
-        </section>
-
-        <section className="border-y border-subtle bg-surface py-20 sm:py-28">
-          <Container>
-            <Reveal><SectionHeader eyebrow="Equipamiento confirmado" title="La lista de equipaje" description="Revisá la lista antes de cada actividad. Etiquetá la ropa y los objetos personales con el nombre completo del participante." /></Reveal>
-            <div className="mt-12 grid gap-5 md:grid-cols-2">
-              {Object.entries(packing).map(([title, items], index) => (
-                <Reveal key={title} delay={index * 0.05}>
-                  <Card variant="glass" className="h-full p-6 sm:p-7">
-                    <h3 className="text-xl font-semibold text-main">{title}</h3>
-                    <ul className="mt-5 space-y-3">
-                      {items.map((item) => <li key={item} className="flex gap-3 text-sm leading-6 text-muted"><Check className="mt-1 size-4 shrink-0 text-primary-accent" aria-hidden="true" /><span>{item}</span></li>)}
-                    </ul>
-                  </Card>
-                </Reveal>
-              ))}
-            </div>
-            <Reveal className="mt-8">
-              <Card variant="elevated" className="p-7 sm:p-9">
-                <div className="flex items-start gap-4"><CampIcon icon={ShieldCheck} size="sm" /><div><h3 className="text-xl font-semibold text-main">Recomendaciones para el equipaje</h3><p className="mt-2 leading-7 text-muted">No traigas objetos de valor ni equipamiento especializado sin consulta previa. Esperá las instrucciones del equipo antes de comprar o rentar equipamiento para kayak, rafting u otras actividades.</p></div></div>
-              </Card>
-            </Reveal>
-          </Container>
-        </section>
-
-        <section className="py-20 sm:py-28">
-          <Container>
-            <Reveal>
-              <Card variant="glass" className="grid gap-8 p-8 sm:p-12 lg:grid-cols-[1fr_auto] lg:items-center">
-                <div className="max-w-3xl">
-                  <Badge variant="primary"><HeartHandshake className="size-4" aria-hidden="true" /> Acompañamiento</Badge>
-                  <h2 className="mt-6 text-3xl font-semibold tracking-[-0.035em] text-main sm:text-4xl">Respetar, participar y cuidar el entorno</h2>
-                  <p className="mt-5 text-lg leading-8 text-muted">Las normas de seguridad, convivencia y cuidado de la naturaleza se explican al llegar. Cada participante las conoce y puede pedir ayuda para cumplirlas.</p>
-                </div>
-                <Button href="/seguridad-y-coordinacion" variant="secondary">Conocer la coordinación <ArrowRight className="size-4" /></Button>
-              </Card>
-            </Reveal>
-          </Container>
-        </section>
-
-        <section className="border-t border-subtle py-16 sm:py-20">
-          <Container>
-            <Reveal>
-              <div className="flex flex-col gap-5 rounded-3xl border border-subtle bg-card p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
-                <div className="flex items-start gap-4"><CampIcon icon={FileText} size="sm" /><div><h2 className="text-xl font-semibold text-main">La lista se revisa antes de cada actividad</h2><p className="mt-2 leading-7 text-muted">Consultá las indicaciones operativas y los formularios que la organización comunique antes de salir.</p></div></div>
-                <Button href="/preguntas-frecuentes" variant="outline">Consultar las preguntas frecuentes</Button>
+      <main id="main-content" className="guia-page">
+        <section className="site-hero guia-hero" aria-labelledby="guia-title">
+          <div className="site-hero__copy">
+            <div className="site-hero__intro">
+              <h1 id="guia-title" className="site-display guia-title">
+                <span>Preparar el viaje</span>
+                <span>también es construir confianza</span>
+              </h1>
+              <p className="site-lead">
+                Una guía concreta para organizar la llegada, la salud, la seguridad, la convivencia y el equipaje de cada participante.
+              </p>
+              <div className="site-hero__actions">
+                <Link className="site-button site-button--primary" href="/preguntas-frecuentes">
+                  Resolver otras dudas <ArrowRight aria-hidden="true" size={18} />
+                </Link>
               </div>
-            </Reveal>
-          </Container>
+            </div>
+          </div>
+          <figure className="site-hero__media">
+            <Image
+              src="/camp-media/grupo-caminando.webp"
+              alt="Fotografía real del campamento: grupo caminando con mochilas por un sendero"
+              fill
+              priority
+              sizes="(max-width: 767px) 100vw, 54vw"
+              className="site-hero__image"
+            />
+          </figure>
+        </section>
+
+        <section className="site-section site-section--paper guia-operations" aria-labelledby="guia-operations-title">
+          <div className="site-wrap">
+            <div className="site-section__intro site-section__intro--wide">
+              <div>
+                <h2 id="guia-operations-title" className="site-heading guia-heading">
+                  <span>La organización familiar,</span>
+                  <span>paso a paso</span>
+                </h2>
+                <p className="site-lead site-lead--dark">
+                  Estos son los datos confirmados. Los horarios, cobertura, seguro, dispositivos y demás detalles operativos pendientes se comunicarán antes del campamento.
+                </p>
+              </div>
+              <p className="site-section__aside site-section__aside--dark">Antes de viajar</p>
+            </div>
+
+            <div className="guia-ledger">
+              {sections.map((section) => (
+                <article key={section.title} className="guia-ledger__item">
+                  <h3>{section.title}</h3>
+                  <ul>
+                    {section.items.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="site-section site-section--forest guia-packing" aria-labelledby="guia-packing-title">
+          <div className="site-wrap">
+            <div className="site-section__intro site-section__intro--wide">
+              <div>
+                <h2 id="guia-packing-title" className="site-heading site-heading--light guia-heading">
+                  <span>La lista</span>
+                  <span>de equipaje</span>
+                </h2>
+                <p className="site-lead site-lead--light">
+                  Revisá la lista antes de cada actividad. Etiquetá la ropa y los objetos personales con el nombre completo del participante.
+                </p>
+              </div>
+            </div>
+
+            <div className="guia-packing__groups">
+              {Object.entries(packing).map(([group, items]) => (
+                <article key={group}>
+                  <h3>{group}</h3>
+                  <ul>
+                    {items.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                </article>
+              ))}
+            </div>
+
+            <div className="guia-recommendation">
+              <h3>Recomendaciones para el equipaje</h3>
+              <p>No traigas objetos de valor ni equipamiento especializado sin consulta previa. Esperá las instrucciones del equipo antes de comprar o rentar equipamiento para kayak, rafting u otras actividades.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="site-section site-section--paper guia-environment" aria-labelledby="guia-environment-title">
+          <div className="site-wrap site-section__split">
+            <div>
+              <h2 id="guia-environment-title" className="site-heading guia-heading">
+                <span>Respetar, participar</span>
+                <span>y cuidar el entorno</span>
+              </h2>
+              <p className="site-lead site-lead--dark">
+                Las normas de seguridad, convivencia y cuidado de la naturaleza se explican al llegar. Cada participante las conoce y puede pedir ayuda para cumplirlas.
+              </p>
+            </div>
+            <div className="guia-environment__action">
+              <p>Acompañamiento</p>
+              <Link className="site-button site-button--primary" href="/seguridad-y-coordinacion">
+                Conocer la coordinación <ArrowRight aria-hidden="true" size={18} />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="site-section guia-closing" aria-labelledby="guia-closing-title">
+          <div className="site-wrap guia-closing__grid">
+            <div>
+              <h2 id="guia-closing-title">La lista se revisa antes de cada actividad</h2>
+              <p>Consultá las indicaciones operativas y los formularios que la organización comunique antes de salir.</p>
+            </div>
+            <Link className="site-button site-button--primary" href="/preguntas-frecuentes">
+              Consultar las preguntas frecuentes
+            </Link>
+          </div>
         </section>
       </main>
     </>
