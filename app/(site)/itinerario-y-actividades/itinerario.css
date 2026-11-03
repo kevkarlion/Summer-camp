@@ -1,0 +1,126 @@
+/* Route styles: itinerario y actividades */
+
+.itinerario-lead {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+}
+
+.itinerario-lead__media {
+  position: relative;
+  min-height: 26rem;
+  overflow: hidden;
+  background: var(--home-paper-deep);
+}
+
+.itinerario-lead__media img {
+  object-fit: cover;
+}
+
+.itinerario-list {
+  display: grid;
+  gap: 0;
+}
+
+.itinerario-entry {
+  display: grid;
+  align-items: start;
+  gap: 1rem 2rem;
+  padding: clamp(1.2rem, 2vw, 1.8rem) 0;
+  grid-template-columns: minmax(13rem, 0.32fr) minmax(0, 1fr);
+}
+
+.itinerario-entry + .itinerario-entry {
+  border-top: 1px solid var(--home-paper-deep);
+}
+
+.itinerario-entry__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--home-paper-deep);
+}
+
+.itinerario-entry__media img {
+  object-fit: cover;
+}
+
+.itinerario-entry__media--illustration img {
+  object-fit: contain;
+  padding: 0.5rem;
+}
+
+.itinerario-entry h3 {
+  margin: 0;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.95rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.itinerario-entry p {
+  max-width: 58ch;
+  margin: 0.7rem 0 0;
+  color: var(--home-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.itinerario-entry__kind {
+  margin: 0.9rem 0 0;
+  color: var(--home-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.itinerario-note {
+  max-width: 62ch;
+  margin-top: 1.5rem;
+  color: var(--home-muted);
+  font-size: 0.9rem;
+}
+
+.itinerario-requirements {
+  max-width: 58ch;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.itinerario-requirements li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--home-paper-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.itinerario-requirements li + li {
+  margin-top: 0.7rem;
+}
+
+.itinerario-requirements li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--home-lake);
+  content: "";
+}
+
+@media (max-width: 767px) {
+  .itinerario-lead {
+    grid-template-columns: 1fr;
+  }
+
+  .itinerario-lead__media {
+    min-height: 20rem;
+  }
+
+  .itinerario-entry {
+    grid-template-columns: 1fr;
+  }
+}
