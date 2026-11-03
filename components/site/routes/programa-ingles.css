@@ -20,7 +20,7 @@
 .programa-ingles__item-copy,
 .programa-ingles__rhythm-text { max-width: 68ch; margin: 1rem 0 0; font-size: 1rem; line-height: 1.62; }
 .programa-ingles__rhythm-grid { display: grid; align-items: start; gap: clamp(3rem, 8vw, 8rem); grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); }
-.programa-ingles__rhythm-copy { position: sticky; top: 7rem; }
+.programa-ingles__rhythm-copy { position: sticky; top: calc(var(--home-header-h) + 1.5rem); }
 .programa-ingles__section-statement { max-width: 18ch; margin: 1.25rem 0 0; font-size: clamp(2rem, 3.6vw, 3.25rem); }
 .programa-ingles__rhythm-list { display: grid; margin: 0; padding: 0; list-style: none; }
 .programa-ingles__rhythm-item { display: grid; gap: 1rem; padding-block: clamp(1.75rem, 3vw, 2.5rem); background: var(--home-paper-deep); grid-template-columns: minmax(11rem, 0.42fr) minmax(0, 1fr); }

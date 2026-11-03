@@ -87,7 +87,7 @@
 
 .programa-page__rhythm-copy {
   position: sticky;
-  top: 7rem;
+  top: calc(var(--home-header-h) + 1.5rem);
 }
 
 .programa-page__statement {

@@ -76,7 +76,7 @@
 
 .contacto-copy__sticky {
   position: sticky;
-  top: 7rem;
+  top: calc(var(--home-header-h) + 1.5rem);
 }
 
 .contacto-heading {
