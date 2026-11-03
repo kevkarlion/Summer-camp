@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-03T16:40:00.000Z",
+  "title": "Design System: Patagonia Summer Camp 2027",
+  "extensions": {
+    "colorMeta": {
+      "lenga-forest": {
+        "role": "primary",
+        "displayName": "Bosque de lenga",
+        "canonical": "#12372a",
+        "tonalRamp": ["#061a11", "#0a2a1d", "#12372a", "#2c5c47", "#4d8168", "#7ba88f", "#aecfbe", "#dcebe3"]
+      },
+      "lenga-forest-deep": {
+        "role": "primary",
+        "displayName": "Bosque profundo",
+        "canonical": "#0b291f",
+        "tonalRamp": ["#04120c", "#082017", "#0b291f", "#1a4634", "#2e654b", "#4b8767", "#7aab92", "#b7d3c5"]
+      },
+      "lake-verde": {
+        "role": "secondary",
+        "displayName": "Verde lago",
+        "canonical": "#1f6068",
+        "tonalRamp": ["#051a1d", "#0a3035", "#1f6068", "#3a8087", "#5fa3a8", "#8dc4c6", "#bfe0e1", "#e4f1f1"]
+      },
+      "piedra-patagonia": {
+        "role": "neutral",
+        "displayName": "Piedra de Patagonia",
+        "canonical": "#e8ece9",
+        "tonalRamp": ["#171d1a", "#2b332f", "#414a45", "#5c6660", "#7d8781", "#a5ada8", "#d0d5d2", "#eef1ef"]
+      },
+      "piedra-patagonia-deep": {
+        "role": "neutral",
+        "displayName": "Piedra profunda",
+        "canonical": "#dbe2df",
+        "tonalRamp": ["#141917", "#262e2b", "#3a4340", "#535d59", "#727d78", "#9ba5a0", "#c6cfcb", "#e6ebe8"]
+      },
+      "night-blue": {
+        "role": "neutral",
+        "displayName": "Azul noche",
+        "canonical": "#0b1320",
+        "tonalRamp": ["#04070d", "#070c16", "#0b1320", "#182236", "#2b3b55", "#475d80", "#7b8fac", "#c3ccdb"]
+      },
+      "ink-bosque": {
+        "role": "neutral",
+        "displayName": "Tinta bosque",
+        "canonical": "#17221c",
+        "tonalRamp": ["#050806", "#0d120f", "#17221c", "#314038", "#4f6157", "#75877d", "#a4b2aa", "#dde3df"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero statements only, two lines maximum at every width." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles on mineral or forest fields." },
+      "title": { "displayName": "Title", "purpose": "Program principles, route stops, and gallery captions." },
+      "body": { "displayName": "Body", "purpose": "Running text with a 62-character measure." },
+      "lead": { "displayName": "Lead", "purpose": "The single sentence under a headline, 39-character measure." },
+      "label": { "displayName": "Label", "purpose": "Times, values, and short facts. Never uppercase tracking." }
+    },
+    "shadows": [
+      { "name": "overlay-menu", "value": "0 18px 50px rgba(2, 6, 23, 0.3)", "purpose": "Real floating surfaces only: expanded mobile navigation and dialogs." }
+    ],
+    "motion": [
+      { "name": "ease-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default easing for entrances and state transitions." },
+      { "name": "route-reveal", "value": "720ms, 75ms stagger", "purpose": "The single authored motion moment on the Home: the daily route ledger entering as one sequence." },
+      { "name": "hero-drift", "value": "16s alternate", "purpose": "A slow scale and translate on the hero photograph so the first screen is never static." },
+      { "name": "hover-lift", "value": "140ms cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Buttons and route rows respond to fine pointers only." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one primary action: Bosque de lenga fill, square corners, paper text.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Consultar disponibilidad <svg class=\"ds-btn-icon\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"></path><path d=\"m12 5 7 7-7 7\"></path></svg></a>",
+      "css": ".ds-btn-primary{display:inline-flex;min-height:3.25rem;align-items:center;justify-content:center;gap:0.55rem;padding:0.85rem 1.15rem;border-radius:0.2rem;background:#12372a;color:#f4f6f2;font-family:Arial,Helvetica,sans-serif;font-size:0.95rem;font-weight:700;line-height:1.2;text-decoration:none;transition:transform 140ms cubic-bezier(0.22,1,0.36,1),background-color 180ms ease}.ds-btn-primary:hover{background:#0b291f;transform:translateY(-2px)}.ds-btn-primary:active{transform:scale(0.98)}.ds-btn-primary:focus-visible{outline:2px solid #1f6068;outline-offset:4px}.ds-btn-icon{flex:none}"
+    },
+    {
+      "name": "Paper Button",
+      "kind": "button",
+      "refersTo": "button-paper",
+      "description": "A mineral button used on forest fields, for example the closing availability action.",
+      "html": "<a class=\"ds-btn-paper\" href=\"#\">Consultar disponibilidad <svg class=\"ds-btn-icon\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"></path><path d=\"m12 5 7 7-7 7\"></path></svg></a>",
+      "css": ".ds-btn-paper{display:inline-flex;min-height:3.25rem;align-items:center;justify-content:center;gap:0.55rem;padding:0.85rem 1.15rem;border-radius:0.2rem;background:#e8ece9;color:#0b291f;font-family:Arial,Helvetica,sans-serif;font-size:0.95rem;font-weight:700;line-height:1.2;text-decoration:none;transition:transform 140ms cubic-bezier(0.22,1,0.36,1),background-color 180ms ease}.ds-btn-paper:hover{background:#fffdf6;transform:translateY(-2px)}.ds-btn-paper:active{transform:scale(0.98)}.ds-btn-paper:focus-visible{outline:2px solid #1f6068;outline-offset:4px}.ds-btn-icon{flex:none}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "button",
+      "refersTo": "text-link",
+      "description": "A secondary action with an underline that appears on hover.",
+      "html": "<a class=\"ds-text-link\" href=\"#\">Conocer el programa</a>",
+      "css": ".ds-text-link{display:inline-flex;min-height:2.75rem;align-items:center;gap:0.4rem;color:#12372a;font-family:Arial,Helvetica,sans-serif;font-size:0.95rem;font-weight:700;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:0.07em;text-underline-offset:0.2em;transition:text-decoration-color 180ms ease,transform 140ms cubic-bezier(0.22,1,0.36,1)}.ds-text-link:hover{text-decoration-color:currentColor}.ds-text-link:active{transform:translateY(1px)}.ds-text-link:focus-visible{outline:2px solid #1f6068;outline-offset:4px}"
+    },
+    {
+      "name": "Facts Panel",
+      "kind": "custom",
+      "refersTo": "facts-panel",
+      "description": "The first screen proof strip: age, dates, format, and place.",
+      "html": "<dl class=\"ds-facts\"><div class=\"ds-fact\"><dt>Años</dt><dd>13–17</dd></div><div class=\"ds-fact\"><dt>2027</dt><dd>4–12 dic.</dd></div><div class=\"ds-fact\"><dt>Formato</dt><dd>Residencial</dd></div><div class=\"ds-fact\"><dt>Patagonia</dt><dd>Villa La Angostura</dd></div></dl>",
+      "css": ".ds-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:0;background:#12372a;color:#f4f6f2}.ds-fact{display:flex;flex-direction:column-reverse;gap:0.25rem;padding:1rem}.ds-fact dt{color:#d2ddd7;font-size:0.82rem;line-height:1.3}.ds-fact dd{margin:0;font-size:1.05rem;font-weight:700;line-height:1.2}"
+    },
+    {
+      "name": "Route Row",
+      "kind": "custom",
+      "refersTo": "route-ledger",
+      "description": "One moment of the camp day in the editorial route ledger.",
+      "html": "<a class=\"ds-route-row\" href=\"#\"><span class=\"ds-route-time\">09:15</span><span class=\"ds-route-title\">Misión del día</span><span class=\"ds-route-detail\">El desafío explicado en inglés en grupos pequeños.</span><span class=\"ds-route-action\">Ver detalle <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"></path><path d=\"m12 5 7 7-7 7\"></path></svg></span></a>",
+      "css": ".ds-route-row{display:grid;align-items:start;gap:0.5rem 1.5rem;padding:clamp(1.1rem,2vw,1.5rem);color:#f4f6f2;text-decoration:none;grid-template-columns:minmax(5.5rem,0.25fr) minmax(12rem,0.55fr) minmax(12rem,1fr) auto;transition:background-color 180ms ease,transform 180ms cubic-bezier(0.22,1,0.36,1)}.ds-route-row:hover{background:rgba(244,246,242,0.16);transform:translateY(-3px)}.ds-route-row:focus-visible{outline:2px solid #1f6068;outline-offset:-2px}.ds-route-time{color:#b7e0df;font-size:1rem;font-variant-numeric:tabular-nums;font-weight:700}.ds-route-title{font-family:\"Barlow Condensed\",\"Arial Narrow\",Arial,sans-serif;font-size:clamp(1.55rem,2.4vw,2.2rem);font-weight:600;line-height:1.05}.ds-route-detail{max-width:34ch;color:#d2ddd7;font-size:0.95rem;line-height:1.5}.ds-route-action{display:inline-flex;align-items:center;gap:0.35rem;color:#f4f6f2;font-size:0.9rem;font-weight:700}"
+    },
+    {
+      "name": "Program Principle",
+      "kind": "card",
+      "refersTo": "program-principle",
+      "description": "A tonal block carrying one way the programme works.",
+      "html": "<article class=\"ds-principle\"><h3>Explorar con propósito</h3><p>Trekking, kayak, deportes y conocimiento local convierten cada jornada en una razón para participar.</p></article>",
+      "css": ".ds-principle{padding:clamp(1.4rem,2.6vw,2rem);background:#dbe2df}.ds-principle h3{margin:0;font-family:\"Barlow Condensed\",\"Arial Narrow\",Arial,sans-serif;font-size:clamp(1.7rem,2.6vw,2.35rem);font-weight:600;line-height:1.05;letter-spacing:-0.02em}.ds-principle p{max-width:48ch;margin:0.8rem 0 0;color:#17221c;font-size:0.98rem;line-height:1.55}"
+    },
+    {
+      "name": "Gallery Tile",
+      "kind": "custom",
+      "refersTo": "gallery-item",
+      "description": "A square photographic tile with its caption on the image edge.",
+      "html": "<figure class=\"ds-gallery-item\"><div class=\"ds-gallery-image\"></div><figcaption class=\"ds-gallery-caption\">La residencia y su parque</figcaption></figure>",
+      "css": ".ds-gallery-item{position:relative;min-height:17rem;overflow:hidden;background:#dbe2df}.ds-gallery-image{position:absolute;inset:0;background:linear-gradient(160deg,#7f8f88,#3d5148)}.ds-gallery-caption{position:absolute;right:0.85rem;bottom:0.85rem;margin:0;padding:0.4rem 0.6rem;background:rgba(11,41,31,0.9);color:#f4f6f2;font-size:0.85rem}"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Fixed night-blue chrome with a paper-filled contact badge.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-brand-name\">PATAGONIA</span><span class=\"ds-brand-sub\">SUMMER CAMP</span></a><nav class=\"ds-nav-links\"><a class=\"ds-nav-link\" href=\"#\">Inicio</a><a class=\"ds-nav-contact\" href=\"#\">CONTACTO</a></nav></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:5rem;padding:0 2.5rem;background:#0b1320;color:#f8fafc}.ds-brand{display:flex;flex-direction:column;line-height:1.2}.ds-brand-name{font-size:15px;font-weight:700;letter-spacing:0.08em}.ds-brand-sub{font-size:13px;font-weight:600;letter-spacing:0.2em;color:#e6b255}.ds-nav-links{display:flex;align-items:center;gap:1.5rem}.ds-nav-link{color:rgba(255,255,255,0.9);font-size:13px;font-weight:500;text-decoration:none}.ds-nav-link:hover{background:rgba(255,255,255,0.05);color:#fff}.ds-nav-contact{padding:0.5rem 0.75rem;border:1px solid #7d332b;border-radius:0.2rem;background:#7d332b;color:#f2e6cc;font-size:13px;font-weight:700;letter-spacing:0.12em;text-decoration:none}.ds-nav-link:focus-visible,.ds-nav-contact:focus-visible{outline:2px solid #e6b255;outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "El cuaderno de campo",
+    "overview": "The system is a field notebook: the working surface of a summer expedition where facts are recorded plainly, days are read as a route, and the landscape is shown honestly rather than staged. It is clear and adventurous — the confidence of a well-run camp, not the noise of a marketing campaign. Its voice comes from a single condensed display face against a plain reading face. Depth is tonal: surfaces change by color field and by spacing, never by shadow.",
+    "keyCharacteristics": [
+      "One decisive condensed display voice, one plain reading voice.",
+      "A 1280px shared frame with equal margins, matched to header and footer.",
+      "Full color fields instead of decorative cards, gradients, and hairlines.",
+      "Photography as evidence, with editorial reference material disclosed.",
+      "One authored motion moment per surface, transform and opacity only."
+    ],
+    "rules": [
+      { "name": "The One Field Rule", "body": "Verde lago appears once per surface as a full field. It is a place, not a decoration.", "section": "colors" },
+      { "name": "The Rarity Rule", "body": "The bright brand emerald and gold survive only inside the shared heritage chrome. The Home body never uses them.", "section": "colors" },
+      { "name": "The Two-Line Rule", "body": "Every headline fits two lines at 1440, 768, and 390 px. Cut words before shrinking type.", "section": "typography" },
+      { "name": "The Condensed Voice Rule", "body": "Only the display, headline, and title roles use Barlow Condensed. Body copy never switches faces.", "section": "typography" },
+      { "name": "The Shared Frame Rule", "body": "Home, header, and footer share one 1280px frame and one pair of margins at every width.", "section": "layout" },
+      { "name": "The One Dominant Thing Rule", "body": "Each screen carries one element that wins: a headline, a photograph, or a statement. Everything else supports it.", "section": "layout" },
+      { "name": "The Flat-At-Rest Rule", "body": "No shadow and no decorative hairline on anything that is simply sitting there. Shadow is reserved for genuine overlays such as menus and dialogs.", "section": "elevation" },
+      { "name": "The Field Rule", "body": "Separate surfaces with a tone change or with space, never with a line.", "section": "elevation" },
+      { "name": "The Square Corner Rule", "body": "The Home does not use rounded cards, glass panels, or floating pills.", "section": "shapes" },
+      { "name": "The Honest Crop Rule", "body": "A masked photographic edge is only used when the mask comes from the real subject, not from a radial-gradient approximation.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep every headline to two lines, and cut words before shrinking type.",
+      "Do use Bosque de lenga for the primary action and the facts panel.",
+      "Do label editorial reference photography as reference in the same frame where it appears.",
+      "Do keep one authored motion moment per surface, using transform and opacity only.",
+      "Do match the shared 1280px frame across Home, header, and footer."
+    ],
+    "donts": [
+      "Don't add resting shadows, glass panels, or decorative hairlines.",
+      "Don't use gradients, gradient text, or glows.",
+      "Don't repeat the same section layout twice in a row.",
+      "Don't present provisional photography as documentary evidence of the camp.",
+      "Don't add a stock Patagonia clip to fill a video slot; use real footage or none.",
+      "Don't animate layout properties, filters, or backdrop filters."
+    ]
+  }
+}
