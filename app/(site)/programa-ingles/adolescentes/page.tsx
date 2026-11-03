@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { ArrowRight, Compass, Lightbulb, MessageCircle, Users } from "lucide-react";
-import { Container } from "@/components/layout/Container";
-import { PageHero } from "@/components/marketing/PageHero";
-import { Reveal } from "@/components/motion/Reveal";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { CampIcon } from "@/components/ui/CampIcon";
-import { Card } from "@/components/ui/Card";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
+
+import "./adolescentes.css";
 
 const pagePath = "/programa-ingles/adolescentes";
 const title = "Campamento de Inglés para Adolescentes (13-17 años)";
@@ -27,10 +24,17 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title, description, images: ["/camp-media/grupo-jugando.webp"] },
 };
 
+const facts = [
+  { value: "13–17", label: "Años" },
+  { value: "4–12 dic.", label: "2027" },
+  { value: "Residencial", label: "Formato" },
+  { value: "Villa La Angostura", label: "Patagonia" },
+];
+
 const pillars = [
-  { icon: MessageCircle, title: "Inglés para la vida real", description: "El idioma aparece en actividades, conversaciones y decisiones para ganar confianza y disposición para comunicarte." },
-  { icon: Compass, title: "Autonomía con acompañamiento", description: "La aventura y la convivencia ofrecen nuevas formas de organizar la participación y resolver desafíos." },
-  { icon: Lightbulb, title: "Reflexión y perspectiva", description: "Las experiencias abren espacio para comparar ideas, reconocer avances y descubrir nuevas formas de expresarse." },
+  { title: "Inglés para la vida real", description: "El idioma aparece en actividades, conversaciones y decisiones para ganar confianza y disposición para comunicarte." },
+  { title: "Autonomía con acompañamiento", description: "La aventura y la convivencia ofrecen nuevas formas de organizar la participación y resolver desafíos." },
+  { title: "Reflexión y perspectiva", description: "Las experiencias abren espacio para comparar ideas, reconocer avances y descubrir nuevas formas de expresarse." },
 ];
 
 const schema = {
@@ -48,77 +52,135 @@ export default function ProgramaAdolescentesPage() {
   return (
     <>
       <JsonLd data={schema} />
-      <main id="main-content">
-        <PageHero
-          eyebrow="13–17 años · 4–12 de diciembre de 2027"
-          title="Una experiencia para pensar, decidir y conectar"
-          description="Naturaleza, actividades y conversaciones dan otra dimensión al inglés en una experiencia residencial en Villa La Angostura."
-          image="/camp-media/grupo-jugando.webp"
-          imageAlt="Fotografía real del campamento: grupo de adolescentes jugando al aire libre"
-        >
-          <Button href="#experiencias" size="lg">Explorar el programa <ArrowRight className="size-4" /></Button>
-        </PageHero>
-
-        <section id="experiencias" className="py-20 sm:py-28">
-          <Container>
-            <Reveal><SectionHeader eyebrow="Inmersión con propósito" title="Menos idioma de aula, más idioma para la vida" description="El inglés se integra en la vida diaria, las actividades y las conversaciones. El nivel recomendado y el apoyo para distintos niveles se comunicarán antes de la inscripción." /></Reveal>
-            <div className="mt-12 grid gap-5 md:grid-cols-3">
-              {pillars.map((pillar, index) => {
-                const Icon = pillar.icon;
-                return (
-                  <Reveal key={pillar.title} delay={index * 0.08}>
-                    <Card variant="glass" className="h-full p-6 sm:p-7">
-                      <CampIcon icon={Icon} />
-                      <h3 className="mt-7 text-xl font-semibold text-main">{pillar.title}</h3>
-                      <p className="mt-3 leading-7 text-muted">{pillar.description}</p>
-                    </Card>
-                  </Reveal>
-                );
-              })}
+      <main id="main-content" className="adolescentes-page">
+        <section className="site-hero adolescentes-hero" aria-labelledby="adolescentes-title">
+          <div className="site-hero__copy">
+            <div className="site-hero__intro">
+              <h1 id="adolescentes-title" className="site-display adolescentes-title">
+                <span>Una experiencia para</span>
+                <span>pensar, decidir y conectar</span>
+              </h1>
+              <p className="site-lead">
+                Naturaleza, actividades y conversaciones dan otra dimensión al inglés en una experiencia residencial en Villa La Angostura.
+              </p>
+              <div className="site-hero__actions">
+                <Link className="site-button site-button--primary" href="#experiencias">
+                  Explorar el programa <ArrowRight aria-hidden="true" size={18} />
+                </Link>
+              </div>
             </div>
-          </Container>
+
+            <dl className="site-facts" aria-label="Datos principales del campamento">
+              {facts.map((fact) => (
+                <div key={fact.label} className="site-fact">
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <figure className="site-hero__media">
+            <Image
+              src="/camp-media/grupo-jugando.webp"
+              alt="Fotografía real del campamento: grupo de adolescentes jugando al aire libre"
+              fill
+              priority
+              sizes="(max-width: 767px) 100vw, 54vw"
+              className="site-hero__image"
+            />
+          </figure>
         </section>
 
-        <section className="border-y border-subtle bg-surface py-20 sm:py-28">
-          <Container>
-            <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-              <Reveal>
-                <SectionHeader eyebrow="Convivencia responsable" title="Autonomía, pertenencia y límites claros" description="La experiencia se diseña para fortalecer vínculos, responsabilidades y una convivencia respetuosa." />
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Button href="/itinerario-y-actividades" variant="secondary">Ver actividades <ArrowRight className="size-4" /></Button>
-                  <Button href="/seguridad-y-coordinacion" variant="outline">Conocer la coordinación</Button>
-                </div>
-              </Reveal>
-              <Reveal delay={0.08}>
-                <Card variant="elevated" className="p-7 sm:p-9">
-                  <CampIcon icon={Users} size="lg" tone="oxblood" />
-                  <h3 className="mt-6 text-2xl font-semibold text-main">Una experiencia que se comparte</h3>
-                  <p className="mt-4 leading-7 text-muted">El programa reúne a adolescentes de Buenos Aires y otras provincias. El transporte interprovincial no está incluido.</p>
-                  <ul className="mt-6 space-y-3 text-muted">
-                    <li>Kayak, trekking y exploración del entorno natural.</li>
-                    <li>Visitas a productores locales para conocer el territorio.</li>
-                    <li>Tiempo de convivencia y experiencia compartida en la residencia.</li>
-                  </ul>
-                </Card>
-              </Reveal>
+        <section id="experiencias" className="site-section site-section--paper adolescentes-purpose" aria-labelledby="adolescentes-purpose-title">
+          <div className="site-wrap">
+            <div className="site-section__intro site-section__intro--wide">
+              <div>
+                <h2 id="adolescentes-purpose-title" className="site-heading adolescentes-heading">
+                  <span>Menos idioma de aula,</span>
+                  <span>más idioma para la vida</span>
+                </h2>
+                <p className="site-lead site-lead--dark">
+                  El inglés se integra en la vida diaria, las actividades y las conversaciones. El nivel recomendado y el apoyo para distintos niveles se comunicarán antes de la inscripción.
+                </p>
+              </div>
+              <p className="site-section__aside site-section__aside--dark">Inmersión con propósito</p>
             </div>
-          </Container>
+
+            <div className="adolescentes-pillars">
+              {pillars.map((pillar) => (
+                <article key={pillar.title} className="adolescentes-pillar">
+                  <h3>{pillar.title}</h3>
+                  <p>{pillar.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
         </section>
 
-        <section className="py-20 sm:py-28">
-          <Container>
-            <Reveal>
-              <Card variant="glass" className="grid gap-8 p-8 sm:p-12 lg:grid-cols-[1fr_auto] lg:items-center">
-                <div className="max-w-3xl">
-                  <Badge variant="primary">Residencia en Villa La Angostura</Badge>
-                  <h2 className="mt-6 text-3xl font-semibold tracking-[-0.035em] text-main sm:text-4xl">Naturaleza, comunidad y un espacio para crecer</h2>
-                  <p className="mt-5 text-lg leading-8 text-muted">La residencia está a 2 km del centro, cuenta con 26 hectáreas de parque y bosque nativo, costa sobre el lago Nahuel Huapi, área deportiva y comedor amplio.</p>
-                  <p className="mt-4 leading-7 text-muted">Cada familia organiza y paga su transporte. Las recepciones, el regreso, la distribución de habitaciones, los servicios incluidos y otros detalles operativos se comunicarán antes del campamento.</p>
-                </div>
-                <Button href="/programa-ingles" variant="secondary" size="lg">Ver la metodología <ArrowRight className="size-4" /></Button>
-              </Card>
-            </Reveal>
-          </Container>
+        <section className="site-section site-section--forest adolescentes-responsibility" aria-labelledby="adolescentes-responsibility-title">
+          <div className="site-wrap site-section__split">
+            <div>
+              <h2 id="adolescentes-responsibility-title" className="site-heading site-heading--light">
+                Autonomía, pertenencia y límites claros
+              </h2>
+              <p className="site-lead site-lead--light">
+                La experiencia se diseña para fortalecer vínculos, responsabilidades y una convivencia respetuosa.
+              </p>
+              <div className="adolescentes-actions">
+                <Link className="site-button site-button--paper" href="/itinerario-y-actividades">
+                  Ver actividades <ArrowRight aria-hidden="true" size={18} />
+                </Link>
+                <Link className="site-text-link" href="/seguridad-y-coordinacion">
+                  Conocer la coordinación
+                </Link>
+              </div>
+            </div>
+
+            <div className="adolescentes-shared">
+              <h3>Una experiencia que se comparte</h3>
+              <p>El programa reúne a adolescentes de Buenos Aires y otras provincias. El transporte interprovincial no está incluido.</p>
+              <ul>
+                <li>Kayak, trekking y exploración del entorno natural.</li>
+                <li>Visitas a productores locales para conocer el territorio.</li>
+                <li>Tiempo de convivencia y experiencia compartida en la residencia.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="site-section site-section--lake adolescents-residence" aria-labelledby="adolescentes-residence-title">
+          <div className="site-wrap site-section__split">
+            <div>
+              <h2 id="adolescentes-residence-title" className="site-heading">
+                <span>Naturaleza, comunidad</span>
+                <span>y un espacio para crecer</span>
+              </h2>
+              <p className="site-lead site-lead--dark">
+                La residencia está a 2 km del centro, cuenta con 26 hectáreas de parque y bosque nativo, costa sobre el lago Nahuel Huapi, área deportiva y comedor amplio.
+              </p>
+            </div>
+            <div className="adolescentes-residence-note">
+              <p>
+                Cada familia organiza y paga su transporte. Las recepciones, el regreso, la distribución de habitaciones, los servicios incluidos y otros detalles operativos se comunicarán antes del campamento.
+              </p>
+              <Link className="site-button site-button--primary" href="/programa-ingles">
+                Ver la metodología <ArrowRight aria-hidden="true" size={18} />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="adolescentes-closing" aria-labelledby="adolescentes-closing-title">
+          <div className="site-wrap adolescentes-closing__grid">
+            <h2 id="adolescentes-closing-title">Consultá el programa para tu familia</h2>
+            <div>
+              <p>En Villa La Angostura, cada familia puede consultar el programa, las fechas y la disponibilidad para adolescentes de 13 a 17 años.</p>
+              <Link className="site-button site-button--paper" href="/contacto">
+                Consultar disponibilidad <ArrowRight aria-hidden="true" size={18} />
+              </Link>
+            </div>
+          </div>
         </section>
       </main>
     </>
