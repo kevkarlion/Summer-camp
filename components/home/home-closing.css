@@ -1,0 +1,53 @@
+.home-closing__grid {
+  display: grid;
+  align-items: end;
+  gap: clamp(3rem, 8vw, 8rem);
+  grid-template-columns: minmax(0, 1.2fr) minmax(17rem, 0.8fr);
+}
+.home-closing h2 {
+  max-width: 13ch;
+  margin: 0;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+}
+.home-closing__action p {
+  max-width: 38ch;
+  margin: 0 0 1.5rem;
+  color: var(--home-paper-muted);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+.home-page :focus-visible {
+  outline-color: var(--home-lake);
+  outline-offset: 4px;
+}
+.site-footer__heading {
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-weight: 600;
+}
+html:not(.js) .home-route__stop,
+html:not(.js) .home-route__note {
+  opacity: 1 !important;
+  transform: none !important;
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-route__link:hover {
+    background: color-mix(in srgb, var(--home-paper-ink) 16%, transparent);
+    transform: translateY(-3px);
+  }
+
+  .home-cover-image,
+  .home-gallery__image {
+    transition: transform 500ms cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  .home-mechanism__figure:hover .home-cover-image,
+  .home-founder__media:hover .home-cover-image,
+  .home-safety__figure:hover .home-cover-image,
+  .home-gallery__item:hover .home-gallery__image {
+    transform: scale(1.025);
+  }
+}
