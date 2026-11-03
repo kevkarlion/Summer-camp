@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { JsonLd } from "@/components/seo/JsonLd";
+import { Reveal } from "@/components/motion/Reveal";
 import { siteConfig } from "@/lib/site";
 
 import "./preguntas.css";
@@ -98,13 +99,15 @@ export default function PreguntasFrecuentesPage() {
 
             <div className="preguntas-list">
               {faqs.map((faq) => (
-                <details key={faq.question} className="preguntas-disclosure">
+                <Reveal key={faq.question}>
+                <details className="preguntas-disclosure">
                   <summary>
                     <span>{faq.question}</span>
                     <span className="preguntas-disclosure__icon" aria-hidden="true" />
                   </summary>
                   <div className="preguntas-disclosure__answer">{faq.answer}</div>
                 </details>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -127,6 +130,54 @@ export default function PreguntasFrecuentesPage() {
                 Conocer el programa <ArrowRight aria-hidden="true" size={18} />
               </Link>
             </div>
+          </div>
+        </section>
+
+
+        <section className="site-section site-section--paper" aria-labelledby="preguntas-galeria-title">
+          <div className="site-wrap">
+            <div className="site-section__intro">
+              <div>
+                <h2 id="preguntas-galeria-title" className="site-heading">
+                  El campamento detrás de cada respuesta
+                </h2>
+                <p className="site-lead site-lead--dark">
+                  Estas son las imágenes que acompañan al programa: el grupo, el territorio y las actividades que esperan en diciembre.
+                </p>
+              </div>
+            </div>
+            <Reveal>
+              <div className="preguntas-band">
+                {[
+                  {
+                    src: "/camp-media/grupo-caminando.webp",
+                    alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque",
+                    caption: "El grupo en la montaña",
+                  },
+                  {
+                    src: "/camp-media/productores-locales.webp",
+                    alt: "Fotografía real del campamento: visita a productores locales y su oficio",
+                    caption: "Encuentros con el territorio",
+                  },
+                  {
+                    src: "/camp-media/kayak-en-el-lago.webp",
+                    alt: "Fotografía real del campamento: grupo en kayaks sobre el lago con montañas de fondo",
+                    caption: "El agua como aula",
+                  },
+                ].map((item) => (
+                  <figure key={item.src} className="preguntas-band__item">
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      sizes="(max-width: 767px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                    <figcaption>{item.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </section>
 

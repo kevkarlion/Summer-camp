@@ -155,7 +155,8 @@ export default function ContactoPage() {
                     caption: "El agua como aula",
                   },
                 ].map((item) => (
-                  <figure key={item.src} className="contacto-band__item">
+                  <Reveal key={item.src}>
+                  <figure className="contacto-band__item">
                     <Image
                       src={item.src}
                       alt={item.alt}
@@ -165,6 +166,7 @@ export default function ContactoPage() {
                     />
                     <figcaption>{item.caption}</figcaption>
                   </figure>
+                  </Reveal>
                 ))}
               </div>
             </Reveal>
