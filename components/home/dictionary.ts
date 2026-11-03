@@ -4,13 +4,10 @@ import { es } from "./dictionary.es";
 
 export type {
   Dictionary,
-  ExperienceColumn,
-  Fact,
-  GuideGroup,
+  HomeBadge,
+  HomeLink,
   Language,
-  NavGroup,
   NavItem,
-  PackingCard,
 } from "./dictionary-types";
 
 export const dictionary: Record<Language, Dictionary> = { en, es };
