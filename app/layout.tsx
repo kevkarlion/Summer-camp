@@ -8,6 +8,7 @@ import { siteConfig } from "@/lib/site";
 import "./globals.css";
 import "@/components/site/site.css";
 import "@/components/site/site-responsive.css";
+import "@/components/site/site-sections.css";
 
 const homeDisplay = Barlow_Condensed({
   subsets: ["latin"],
