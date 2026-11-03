@@ -46,7 +46,7 @@ export function SiteHeader() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-subtle bg-main/88 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 w-full isolate border-b border-subtle bg-main/88 backdrop-blur-xl">
       <Container className="flex h-20 items-center justify-between gap-5 xl:gap-8">
         <Link
           href="/"

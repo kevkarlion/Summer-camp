@@ -14,7 +14,7 @@ export interface PageHeroProps {
 
 export function PageHero({ eyebrow, title, description, image, imageAlt, children }: PageHeroProps) {
   return (
-    <section className="relative isolate flex min-h-[100svh] items-start overflow-hidden pb-20 pt-32 sm:min-h-[46rem] sm:pb-24 sm:pt-36 lg:min-h-[100svh] lg:items-start lg:pb-28 lg:pt-32">
+    <section className="relative isolate flex min-h-[100svh] items-start overflow-hidden pb-20 pt-[calc(5rem_+_env(safe-area-inset-top))] sm:min-h-[46rem] sm:pb-24 sm:pt-36 lg:min-h-[100svh] lg:items-start lg:pb-28 lg:pt-32">
       <Image
         src={image}
         alt={imageAlt}
@@ -29,7 +29,7 @@ export function PageHero({ eyebrow, title, description, image, imageAlt, childre
 
       <Container className="max-w-6xl">
         <Badge variant="primary" className="mb-6">{eyebrow}</Badge>
-        <h1 className="hero-copy-shadow max-w-5xl text-[clamp(2.75rem,6vw,6.75rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-main">
+        <h1 className="m-0 hero-copy-shadow max-w-5xl text-[clamp(2.75rem,6vw,6.75rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-main">
           {title}
         </h1>
         <p className="hero-copy-shadow mt-6 max-w-2xl text-lg leading-8 text-muted sm:mt-7 sm:text-xl">{description}</p>
