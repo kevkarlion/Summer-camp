@@ -234,73 +234,6 @@
   line-height: 1.55;
 }
 
-/* Keep the daily route as one continuous column on wide screens. */
-@media (min-width: 900px) {
-  .programa-page .day-timeline__track {
-    right: auto;
-    left: 0;
-    width: 1px;
-  }
-
-  .programa-page .day-timeline__rail,
-  .programa-page .day-timeline__rail-fill,
-  .programa-page .day-timeline__travelling-marker {
-    left: 1.375rem;
-  }
-
-  .programa-page .day-timeline__item {
-    grid-template-columns: 4rem minmax(0, 1fr);
-  }
-
-  .programa-page .day-timeline__stop {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .programa-page .day-timeline__item .day-timeline__block {
-    grid-column: 2;
-    grid-row: 1;
-    max-width: none;
-  }
-
-  .programa-page .day-timeline__item .day-timeline__media {
-    grid-column: 2;
-    grid-row: 2;
-    min-height: 12rem;
-  }
-}
-
-@media (max-width: 899px) {
-  .programa-page__steps {
-    gap: 1.5rem;
-    grid-template-columns: 1fr;
-  }
-
-  .programa-page__step,
-  .programa-page__step:first-child,
-  .programa-page__step:last-child {
-    padding: 1.5rem 0;
-  }
-
-  .programa-page__step {
-    gap: 1.25rem;
-  }
-
-  .programa-page__activity,
-  .programa-page__activity:nth-child(even) {
-    gap: 1.5rem;
-    grid-template-columns: 1fr;
-  }
-
-  .programa-page__activity:nth-child(even) .programa-page__activity-media {
-    order: 0;
-  }
-
-  .programa-page__activity-media {
-    min-height: 18rem;
-  }
-}
-
 @media (max-width: 767px) {
   .programa-page__rhythm,
   .programa-page__cta {
@@ -327,14 +260,6 @@
   .programa-page__cta-title {
     max-width: 16ch;
   }
-}
-
-.programa-page .day-timeline__item {
-  padding-bottom: clamp(1rem, 2vw, 1.5rem);
-}
-
-.programa-page .day-timeline__block {
-  padding-block: clamp(1rem, 1.8vw, 1.4rem);
 }
 
 .programa-page__cta-media {

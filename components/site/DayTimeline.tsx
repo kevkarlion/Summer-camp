@@ -40,10 +40,11 @@ export function DayTimeline() {
         const blockDocumentTop = rect.top + scrollPosition;
         const travel = Math.max(1, rect.height + viewportHeight * 0.76);
         const progress = clamp01((scrollPosition + viewportHeight * 0.88 - blockDocumentTop) / travel);
-        // The text always stays legible: the scroll reads through the drifting
-        // offset, the filling rail and the travelling marker.
+        // Parallax drift: the card travels with the scroll while staying legible.
+        const drift = 88 - progress * 176;
+        const scale = progress < 0.25 ? 0.96 + (progress / 0.25) * 0.04 : progress > 0.75 ? 1 - ((progress - 0.75) / 0.25) * 0.04 : 1;
         block.style.opacity = "1";
-        block.style.transform = `translate3d(0, ${(1 - progress) * 28}px, 0)`;
+        block.style.transform = `translate3d(0, ${drift}px, 0) scale(${scale})`;
       });
     };
     const scheduleDraw = () => {
