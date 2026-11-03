@@ -56,7 +56,6 @@ export function HomeHero() {
             sizes="(max-width: 767px) 100vw, 54vw"
             className="site-hero__image"
           />
-          <figcaption>{hero.imageCaption}</figcaption>
         </figure>
         <figure className="home-hero__media-figure home-hero__media-figure--secondary">
           <Image

@@ -58,3 +58,41 @@
     grid-template-columns: 1fr;
   }
 }
+
+.home-summary__grid {
+  display: grid;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+}
+
+.home-summary__media {
+  position: relative;
+  min-height: 18rem;
+  overflow: hidden;
+  background: var(--home-paper-deep);
+}
+
+.home-summary__media img {
+  object-fit: cover;
+}
+
+.home-summary__media figcaption {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  padding: 0.5rem 0.7rem;
+  background: color-mix(in srgb, var(--home-forest-deep) 90%, transparent);
+  color: var(--home-paper-ink);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 767px) {
+  .home-summary__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-summary__media {
+    min-height: 14rem;
+  }
+}
