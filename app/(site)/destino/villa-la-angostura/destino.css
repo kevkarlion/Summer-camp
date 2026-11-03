@@ -1,0 +1,147 @@
+/* Route styles: destino Villa La Angostura */
+
+.destino-gallery {
+  display: grid;
+  gap: var(--home-gutter);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.destino-figure {
+  margin: 0;
+}
+
+.destino-figure__media {
+  position: relative;
+  overflow: hidden;
+  background: var(--home-paper-deep);
+}
+
+.destino-figure__media img {
+  object-fit: cover;
+  transition: transform 500ms cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.destino-figure figcaption {
+  padding-top: 0.9rem;
+}
+
+.destino-figure__eyebrow {
+  margin: 0;
+  color: var(--home-lake);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.destino-figure h3 {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.destino-figure p {
+  max-width: 52ch;
+  margin: 0.5rem 0 0;
+  color: var(--home-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.destino-figure__kind {
+  margin: 0.6rem 0 0;
+  color: var(--home-muted);
+  font-size: 0.85rem;
+}
+
+.destino-figure--lead {
+  grid-column: span 7;
+}
+
+.destino-figure--lead .destino-figure__media {
+  aspect-ratio: 4 / 5;
+}
+
+.destino-figure--tall {
+  grid-column: span 5;
+}
+
+.destino-figure--tall .destino-figure__media {
+  aspect-ratio: 4 / 3;
+}
+
+.destino-figure--wide {
+  grid-column: span 12;
+}
+
+.destino-figure--wide .destino-figure__media {
+  aspect-ratio: 16 / 7;
+}
+
+.destino-note {
+  max-width: 62ch;
+  margin-top: 1.5rem;
+  color: var(--home-muted);
+  font-size: 0.9rem;
+}
+
+.destino-fogata {
+  position: relative;
+  min-height: 26rem;
+  overflow: hidden;
+  background: var(--home-forest-deep);
+}
+
+.destino-fogata img {
+  object-fit: cover;
+}
+
+.destino-experiences {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.destino-experience {
+  padding: clamp(1.1rem, 1.8vw, 1.5rem);
+  background: color-mix(in srgb, var(--home-paper-ink) 8%, transparent);
+}
+
+.destino-experience h3 {
+  margin: 0;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.destino-experience p {
+  max-width: 52ch;
+  margin: 0.5rem 0 0;
+  color: var(--home-paper-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .destino-figure:hover .destino-figure__media img {
+    transform: scale(1.025);
+  }
+}
+
+@media (max-width: 767px) {
+  .destino-figure--lead,
+  .destino-figure--tall,
+  .destino-figure--wide {
+    grid-column: span 12;
+  }
+
+  .destino-figure--lead .destino-figure__media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .destino-figure--wide .destino-figure__media {
+    aspect-ratio: 16 / 10;
+  }
+}
