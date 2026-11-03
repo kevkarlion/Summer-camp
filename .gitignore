@@ -17,3 +17,14 @@ public/163867.webp
 
 # Material de referencia del cliente (no publicado)
 public/camp-media/a-typical-day-reference.png
+
+# Herramientas de skills instaladas localmente
+.agents/
+.claude/
+.codex/
+.taste-skill/
+.impeccable/mocks/
+.impeccable/live/
+.impeccable/config.local.json
+.impeccable/direction-decision.json
+.impeccable/home-surface-brief.md
