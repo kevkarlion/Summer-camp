@@ -1,0 +1,80 @@
+/* Route styles: seguridad y coordinación */
+
+.seguridad-protocols {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.seguridad-protocol {
+  padding: clamp(1.4rem, 2.6vw, 2rem);
+  background: var(--home-paper-deep);
+}
+
+.seguridad-protocol h3 {
+  margin: 0;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.seguridad-protocol p {
+  max-width: 46ch;
+  margin: 0.8rem 0 0;
+  color: var(--home-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.seguridad-procedures {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.seguridad-procedure {
+  display: grid;
+  gap: 0.6rem 2rem;
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+  background: color-mix(in srgb, var(--home-paper-ink) 8%, transparent);
+  grid-template-columns: minmax(11rem, 0.28fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.seguridad-procedure h3 {
+  margin: 0;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.seguridad-procedure p {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--home-paper-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.seguridad-closing {
+  display: grid;
+  align-items: end;
+  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(0, 1.25fr) minmax(15rem, 0.75fr);
+}
+
+@media (max-width: 767px) {
+  .seguridad-protocols {
+    grid-template-columns: 1fr;
+  }
+
+  .seguridad-procedure {
+    grid-template-columns: 1fr;
+  }
+
+  .seguridad-closing {
+    grid-template-columns: 1fr;
+  }
+}
