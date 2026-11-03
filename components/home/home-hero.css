@@ -1,10 +1,15 @@
 /* Home hero: a direct title, a subtitle that defines the camp, two badges and one call to action. */
 .site-hero.home-hero {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--home-margin);
   grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
 }
 
 .site-hero.home-hero .site-hero__copy {
   justify-content: center;
+  padding-inline: 0;
 }
 
 .site-hero.home-hero .site-display {
@@ -19,6 +24,26 @@
   margin: 1.75rem 0 0;
   padding: 0;
   list-style: none;
+}
+
+.home-hero__media-reveal,
+.home-hero__media,
+.home-hero__media-primary,
+.home-hero__media-secondary {
+  min-height: 100svh;
+}
+
+.home-hero__media {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) minmax(10rem, 28%);
+}
+
+.home-hero__media-primary,
+.home-hero__media-secondary {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--home-lake);
 }
 
 .home-hero__media figcaption {
@@ -37,11 +62,16 @@
   .site-hero.home-hero {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
+
+  .home-hero__media {
+    grid-template-rows: minmax(0, 1fr) minmax(8rem, 24%);
+  }
 }
 
 @media (max-width: 767px) {
   .site-hero.home-hero {
     grid-template-columns: 1fr;
+    padding-inline: 0;
   }
 
   .site-hero.home-hero .site-display {
