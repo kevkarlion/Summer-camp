@@ -9,6 +9,7 @@ import "./globals.css";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
   themeColor: "#0b1320",
 };
 
@@ -40,6 +41,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  other: {
+    "apple-mobile-web-app-status-bar-style": "black",
   },
 };
 
