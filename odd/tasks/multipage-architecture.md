@@ -86,3 +86,25 @@ El CTA de /familias descarga un PDF real con la guía publicada.
 Desviación registrada: PR44, PR45, PR46, PR47 y PR48 superan el límite de 400 líneas porque una ruta (copy + vista + CSS) es indivisible sin stubs intermedios.
 
 Los redirects legacy responden 308 permanente (permanentRedirect): Next.js 16 no admite 301 en next.config.ts ni en App Router.
+
+### L4 — Cierre del gate visual
+
+| PR | Rama | Alcance | Líneas |
+| --- | --- | --- | --- |
+| 55 | `feat/55-hero-and-links` | Hero previo restaurado y enlaces con icono y contexto | 254 |
+| 56 | `feat/56-last-gate-fixes` | Timeline en columna continua, fotos reales y Reveals por ruta | 346 |
+| 57 | `feat/57-final-gate-fixes` | Reveal con amount 0 y fotografía en el resumen de la Home | 68 |
+| 58 | `feat/58-gate-polish` | Densidad de la timeline y retiro del caption del hero | 15 |
+| 59 | `feat/59-programa-cta-band` | Banda de fotografía que cierra el itinerario | 39 |
+| 60 | `feat/60-programa-caption-order` | Caption fuera de la secuencia del heading | 38 |
+| 61 | `feat/61-programa-band-caption` | Caption de la banda retirado | 4 |
+
+Gate final (producción, 1440/768/390): **0 FAIL** en las cinco rutas canónicas.
+
+- / → 0 FAIL, 3 WARN
+- /programa → 0 FAIL, 7 WARN
+- /residencia → 0 FAIL, 4 WARN
+- /nosotros → 0 FAIL, 4 WARN
+- /familias → 0 FAIL, 4 WARN
+
+WARN defendidos: ausencia de video propio (no hay footage real del campamento), una fila de entradas equivalentes en la lista de actividades, escala tipográfica amplia por las dos lenguas, cuerpo de texto en tinta secundaria sobre fondos de color y la primera acción del Hero de /programa. Ninguno introduce contenido oculto, texto ilegible ni tramas vacías.
