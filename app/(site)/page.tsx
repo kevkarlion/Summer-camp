@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { HomeGallery } from "@/components/home/HomeGallery";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeLinks } from "@/components/home/HomeLinks";
 import { HomeSummary } from "@/components/home/HomeSummary";
@@ -85,6 +86,7 @@ export default function HomePage() {
 
       <Reveal>
         <HomeSummary />
+      <HomeGallery />
       </Reveal>
 
       <HomeLinks />

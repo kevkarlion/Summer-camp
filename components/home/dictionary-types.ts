@@ -22,6 +22,7 @@ export type Dictionary = {
       subtitle: string;
       badges: HomeBadge[];
       cta: string;
+    secondaryCta: string;
       factsLabel: string;
       facts: HomeFact[];
       imageAlt: string;
@@ -29,6 +30,7 @@ export type Dictionary = {
     };
     summary: string;
     summaryImage: { src: string; alt: string; caption: string };
+    gallery: { label: string; items: { src: string; alt: string; caption: string }[] };
     linksLabel: string;
     links: HomeLink[];
   };

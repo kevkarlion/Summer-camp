@@ -27,6 +27,7 @@ export const es: Dictionary = {
         { text: "Villa La Angostura", tone: "neutral" },
       ],
       cta: "Consultar disponibilidad",
+      secondaryCta: "Ver el programa",
       factsLabel: "Datos del campamento",
       facts: [
         { label: "Años", value: "13–17" },
@@ -41,6 +42,21 @@ export const es: Dictionary = {
       src: "/camp-media/fogata-en-el-bosque.webp",
       alt: "Fotografía real del campamento: fogata con marshmallows en el bosque",
       caption: "La fogata al final del día.",
+    },
+    gallery: {
+      label: "El campamento en imágenes",
+      items: [
+        {
+          src: "/camp-media/grupo-caminando.webp",
+          alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque",
+          caption: "Salir a caminar por la mañana.",
+        },
+        {
+          src: "/camp-media/kayak-en-el-lago.webp",
+          alt: "Fotografía real del campamento: grupo en kayaks sobre el lago con montañas de fondo",
+          caption: "El lago como aula.",
+        },
+      ],
     },
     summary:
       "Patagonia Summer Camp 2027 es un campamento residencial de inmersión en inglés en Villa La Angostura, Patagonia. Del 4 al 12 de diciembre de 2027, los adolescentes de 13 a 17 años conviven y usan el inglés en las situaciones reales de la vida de campamento: la misión diaria, las indicaciones en el sendero, las conversaciones en la mesa y las decisiones del grupo. El trekking, el kayak y el bosque nativo de la residencia son el escenario donde el idioma tiene una razón de uso.",
