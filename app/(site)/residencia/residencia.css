@@ -32,6 +32,12 @@
   background: var(--home-forest-deep);
 }
 
+.residencia-page__experience-reveal {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
 .residencia-page__experience:first-child {
   padding-left: 0;
 }
@@ -104,6 +110,12 @@
 .residencia-page__cta-action {
   display: flex;
   justify-content: flex-start;
+}
+
+/* Lake fields use the paper foreground throughout the route. */
+.residencia-page .site-section--lake,
+.residencia-page .site-section--lake p {
+  color: var(--home-paper-ink);
 }
 
 @media (max-width: 899px) {

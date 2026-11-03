@@ -49,7 +49,7 @@ const en: ResidenceCopy = {
       "A 26-hectare residence in Villa La Angostura, 2 km from the centre, on the shore of Lake Nahuel Huapi, with a sports area and a wide dining room.",
   },
   hero: {
-    titleLines: ["Between the lake", "and the forest"],
+    titleLines: ["Lake, forest, residence"],
     lead: "The residence is 2 km from the centre of Villa La Angostura and has 26 hectares of park and native forest, the shore of Lake Nahuel Huapi, a sports area and a wide dining room.",
     image: {
       src: "/camp-media/lago-al-atardecer.png",
@@ -126,7 +126,7 @@ const es: ResidenceCopy = {
       "Una residencia de 26 hectáreas en Villa La Angostura, a 2 km del centro, a orillas del lago Nahuel Huapi, con área deportiva y comedor amplio.",
   },
   hero: {
-    titleLines: ["Entre el lago", "y el bosque"],
+    titleLines: ["Lago, bosque, residencia"],
     lead: "La residencia está a 2 km del centro de Villa La Angostura y tiene 26 hectáreas de parque y bosque nativo, la orilla del lago Nahuel Huapi, un área deportiva y un comedor amplio.",
     image: {
       src: "/camp-media/lago-al-atardecer.png",
