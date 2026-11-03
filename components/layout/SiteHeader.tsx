@@ -46,7 +46,7 @@ export function SiteHeader() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 w-full isolate border-b border-subtle bg-main/88 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 w-full isolate border-b border-subtle bg-main pt-[env(safe-area-inset-top)]">
       <Container className="flex h-20 items-center justify-between gap-5 xl:gap-8">
         <Link
           href="/"
@@ -111,7 +111,7 @@ export function SiteHeader() {
         {isOpen ? (
           <motion.div
             id="mobile-navigation"
-            className="max-h-[calc(100svh_-_5rem)] overflow-y-auto border-t border-subtle bg-main/98 px-5 pb-[calc(1.25rem_+_env(safe-area-inset-bottom))] pt-5 backdrop-blur-xl xl:hidden"
+            className="max-h-[calc(100svh_-_5rem_-_env(safe-area-inset-top))] overflow-y-auto border-t border-subtle bg-main/98 px-5 pb-[calc(1.25rem_+_env(safe-area-inset-bottom))] pt-5 backdrop-blur-xl xl:hidden"
             initial={shouldReduceMotion ? false : { opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={shouldReduceMotion ? undefined : { opacity: 0, y: -12 }}
