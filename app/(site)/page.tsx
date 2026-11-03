@@ -157,7 +157,7 @@ export default function HomePage() {
 
   return (
     <main id="main-content">
-      <section className="relative isolate flex min-h-[100svh] items-start overflow-hidden pb-14 pt-28 sm:min-h-[48rem] sm:pb-16 sm:pt-32 lg:min-h-[100svh] lg:items-start lg:pb-20 lg:pt-32">
+      <section className="relative isolate flex min-h-[100svh] items-start overflow-hidden pb-14 pt-[calc(5rem_+_env(safe-area-inset-top))] sm:min-h-[48rem] sm:pb-16 sm:pt-32 lg:min-h-[100svh] lg:items-start lg:pb-20 lg:pt-32">
         <Image
           src="/hero-villa-la-angostura.webp"
           alt="Vista panorámica de verano de Villa La Angostura: lago turquesa, bosque nativo y montañas"
