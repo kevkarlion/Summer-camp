@@ -1,0 +1,101 @@
+/* Route-specific composition for the canonical English programme page. */
+.programa-ingles { background: var(--home-paper); color: var(--home-ink); }
+.programa-ingles__hero-title { max-width: 18ch; }
+.programa-ingles__hero-lead { max-width: 46ch; }
+.programa-ingles__method-label { display: block; margin-bottom: 0.65rem; color: var(--home-forest); font-size: 1rem; font-weight: 700; line-height: 1.4; }
+.programa-ingles__facts { width: 100%; }
+.programa-ingles__section-intro { display: grid; align-items: end; gap: clamp(2.5rem, 7vw, 7rem); grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+.programa-ingles__section-copy { max-width: 68ch; margin-top: 0; }
+.programa-ingles__method-list { display: grid; margin: clamp(3rem, 7vw, 6rem) 0 0; padding: 0; list-style: none; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.programa-ingles__method-item { display: grid; align-content: start; gap: 2rem; padding: clamp(1.5rem, 3vw, 2.25rem); background: var(--home-paper-deep); grid-template-columns: 1fr; }
+.programa-ingles__method-item:first-child { padding-left: 0; }
+.programa-ingles__method-item:last-child { padding-right: 0; }
+.programa-ingles__method-icon { color: var(--home-lake); }
+.programa-ingles__item-title,
+.programa-ingles__section-statement,
+.programa-ingles__rhythm-label,
+.programa-ingles__residence-badge,
+.programa-ingles__inquiry-title { font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; text-wrap: balance; }
+.programa-ingles__item-title { margin: 0; font-size: clamp(1.7rem, 2.6vw, 2.35rem); }
+.programa-ingles__item-copy,
+.programa-ingles__rhythm-text { max-width: 68ch; margin: 1rem 0 0; font-size: 1rem; line-height: 1.62; }
+.programa-ingles__rhythm-grid { display: grid; align-items: start; gap: clamp(3rem, 8vw, 8rem); grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); }
+.programa-ingles__rhythm-copy { position: sticky; top: 7rem; }
+.programa-ingles__section-statement { max-width: 18ch; margin: 1.25rem 0 0; font-size: clamp(2rem, 3.6vw, 3.25rem); }
+.programa-ingles__rhythm-list { display: grid; margin: 0; padding: 0; list-style: none; }
+.programa-ingles__rhythm-item { display: grid; gap: 1rem; padding-block: clamp(1.75rem, 3vw, 2.5rem); background: var(--home-paper-deep); grid-template-columns: minmax(11rem, 0.42fr) minmax(0, 1fr); }
+.programa-ingles__rhythm-item:first-child { padding-top: 0; }
+.programa-ingles__rhythm-item:last-child { padding-bottom: 0; }
+.programa-ingles__rhythm-label { margin: 0; color: var(--home-forest); font-size: clamp(1.35rem, 2vw, 1.8rem); }
+.programa-ingles__rhythm-text { margin: 0; color: var(--home-ink); }
+.programa-ingles__itinerary-intro { max-width: 58rem; margin-bottom: clamp(3rem, 7vw, 6rem); }
+.programa-ingles__itinerary-intro .programa-ingles__section-copy { max-width: 68ch; }
+.programa-ingles__residence-grid { display: grid; align-items: center; gap: clamp(3rem, 8vw, 8rem); grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.programa-ingles__residence-media { position: relative; min-height: 34rem; margin: 0; overflow: hidden; background: var(--home-paper-deep); }
+.programa-ingles__cover-image { object-fit: cover; }
+.programa-ingles__residence-copy { max-width: 40rem; }
+.programa-ingles__residence-badge { display: inline-block; margin: 0 0 1.5rem; padding: 0.5rem 0.75rem; border-radius: 0.2rem; background: var(--home-forest); color: var(--home-paper-ink); font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0; line-height: 1.4; }
+.programa-ingles__residence-copy .site-heading { max-width: 18ch; }
+.programa-ingles__residence-copy .site-button { margin-top: 2rem; }
+.programa-ingles__inquiry-grid { display: grid; align-items: end; gap: clamp(3rem, 8vw, 8rem); grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr); }
+.programa-ingles__inquiry-title { max-width: 16ch; margin: 0; color: var(--home-paper-ink); font-size: clamp(3rem, 5.5vw, 5rem); line-height: 0.94; }
+.programa-ingles__inquiry-action p { max-width: 62ch; margin: 0 0 1.5rem; color: var(--home-paper-muted); font-size: 1.05rem; line-height: 1.55; }
+
+/* Scroll-driven daily itinerary */
+.day-timeline { position: relative; }
+.day-timeline__track { position: absolute; inset: 0; pointer-events: none; }
+.day-timeline__rail,
+.day-timeline__rail-fill { position: absolute; top: 0; bottom: 0; left: 1.375rem; width: 2px; }
+.day-timeline__rail { background: var(--home-paper-deep); }
+.day-timeline__rail-fill { background: var(--home-lake); opacity: 0; transform: scaleY(0); transform-origin: top; }
+.day-timeline--motion .day-timeline__rail-fill { opacity: 1; }
+.day-timeline__travelling-marker { position: absolute; top: 0; left: 1.375rem; width: 0.85rem; height: 0.85rem; border-radius: 50%; background: var(--home-lake); transform: translate3d(-50%, 0, 0); }
+.day-timeline__list { position: relative; display: grid; margin: 0; padding: 0; list-style: none; }
+.day-timeline__item { display: grid; align-items: start; gap: 1rem; padding-bottom: clamp(2rem, 5vw, 4rem); grid-template-columns: 2.75rem minmax(0, 1fr); }
+.day-timeline__item:last-child { padding-bottom: 0; }
+.day-timeline__stop { position: relative; z-index: 1; display: flex; justify-content: center; padding-top: 1.35rem; }
+.day-timeline__dot { width: 0.75rem; height: 0.75rem; border-radius: 50%; background: var(--home-lake); }
+.day-timeline__block { max-width: 42rem; padding: clamp(1.4rem, 2.6vw, 2rem); will-change: transform, opacity; }
+.day-timeline__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1rem; }
+.day-timeline__time { color: var(--home-forest); font-size: 1rem; font-weight: 700; line-height: 1.4; }
+.day-timeline__period { color: var(--home-muted); font-size: 0.95rem; line-height: 1.4; }
+.day-timeline__title { margin: 0.8rem 0 0; font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif; font-size: clamp(1.7rem, 2.6vw, 2.35rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; text-wrap: balance; }
+.day-timeline__description { max-width: 68ch; margin: 0.8rem 0 0; color: var(--home-ink); font-size: 1rem; line-height: 1.62; }
+.day-timeline__note { max-width: 48rem; margin-top: clamp(3rem, 6vw, 5rem); padding: clamp(1.4rem, 2.6vw, 2rem); background: var(--home-paper-deep); }
+.day-timeline__note p { max-width: 68ch; margin: 0; color: var(--home-ink); font-size: 1rem; line-height: 1.62; }
+.day-timeline__note-title { font-weight: 700; }
+.day-timeline__closing-note { margin-top: 1rem !important; color: var(--home-forest) !important; font-weight: 700; }
+
+@media (min-width: 900px) {
+  .day-timeline__track { right: 0; left: 50%; width: 1px; }
+  .day-timeline__rail,
+  .day-timeline__rail-fill,
+  .day-timeline__travelling-marker { left: 50%; }
+  .day-timeline__item { gap: clamp(1.5rem, 3vw, 2.5rem); grid-template-columns: minmax(0, 1fr) 4rem minmax(0, 1fr); }
+  .day-timeline__stop { grid-column: 2; grid-row: 1; }
+  .day-timeline__item--left .day-timeline__block { grid-column: 1; grid-row: 1; }
+  .day-timeline__item--right .day-timeline__block { grid-column: 3; grid-row: 1; }
+}
+@media (max-width: 899px) {
+  .programa-ingles__method-list { gap: 1.5rem; grid-template-columns: 1fr; }
+  .programa-ingles__method-item,
+  .programa-ingles__method-item:first-child,
+  .programa-ingles__method-item:last-child { padding: 1.5rem 0; }
+  .programa-ingles__method-item { gap: 1.25rem; }
+}
+@media (max-width: 767px) {
+  .programa-ingles__section-intro,
+  .programa-ingles__rhythm-grid,
+  .programa-ingles__residence-grid,
+  .programa-ingles__inquiry-grid { grid-template-columns: 1fr; }
+  .programa-ingles__rhythm-copy { position: static; }
+  .programa-ingles__rhythm-item { gap: 0.75rem; grid-template-columns: 1fr; }
+  .programa-ingles__residence-media { min-height: 28rem; }
+  .programa-ingles__inquiry-title { max-width: 16ch; }
+  .day-timeline__item { grid-template-columns: 2.75rem minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .day-timeline__block,
+  .day-timeline__rail-fill,
+  .day-timeline__travelling-marker { transition: none; }
+}
