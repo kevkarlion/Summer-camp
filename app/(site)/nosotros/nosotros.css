@@ -1,0 +1,121 @@
+/* Route composition for the canonical about page. */
+.nosotros-page {
+  background: var(--home-paper);
+  color: var(--home-ink);
+}
+
+.nosotros-page__hero-title {
+  max-width: 16ch;
+}
+
+.nosotros-page__hero-title span {
+  display: block;
+}
+
+.nosotros-page__biography p {
+  max-width: 68ch;
+  margin: 0 0 1.15rem;
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+.nosotros-page__biography p:last-child {
+  margin-bottom: 0;
+}
+
+.nosotros-page__values {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.nosotros-page__value {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: var(--home-forest-deep);
+}
+
+.nosotros-page__value:first-child {
+  padding-left: 0;
+}
+
+.nosotros-page__value:last-child {
+  padding-right: 0;
+}
+
+.nosotros-page__value h3 {
+  margin: 0;
+  color: var(--home-paper-ink);
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.7rem, 2.6vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.nosotros-page__value p {
+  max-width: 68ch;
+  margin: 0;
+  color: var(--home-paper-muted);
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+.nosotros-page__interests {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nosotros-page__interests li {
+  padding: clamp(1rem, 2vw, 1.4rem);
+  background: rgba(244, 246, 242, 0.14);
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.nosotros-page__cta {
+  display: grid;
+  align-items: end;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+}
+
+.nosotros-page__cta-action {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 899px) {
+  .nosotros-page__values {
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .nosotros-page__value,
+  .nosotros-page__value:first-child,
+  .nosotros-page__value:last-child {
+    padding: 1.5rem 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .nosotros-page__interests {
+    grid-template-columns: 1fr;
+  }
+
+  .nosotros-page__cta {
+    grid-template-columns: 1fr;
+  }
+}
