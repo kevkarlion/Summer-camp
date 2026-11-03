@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { ArrowRight, Check } from "lucide-react";
-import Link from "next/link";
 
+import { AboutSnippet } from "@/components/home/AboutSnippet";
+import { ClosingSection } from "@/components/home/ClosingSection";
+import { DaySection } from "@/components/home/DaySection";
+import { ExperienceSection } from "@/components/home/ExperienceSection";
+import { FamilyGuideModal } from "@/components/home/FamilyGuideModal";
 import { HomeHero } from "@/components/home/HomeHero";
-import { ResidenceGallery } from "@/components/home/ResidenceGallery";
-import { WeekRoute } from "@/components/home/WeekRoute";
+import { PackingList } from "@/components/home/PackingList";
+import { ResidenceSection } from "@/components/home/ResidenceSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site";
 
@@ -15,6 +17,9 @@ import "@/components/home/home-journey.css";
 import "@/components/home/home-closing.css";
 import "@/components/home/home-tablet.css";
 import "@/components/home/home-mobile.css";
+// The shared daily-routine timeline (components/site/DayTimeline.tsx) keeps its styles in the
+// programme stylesheet; the Home imports them to render the same scroll-driven component.
+import "@/components/site/routes/programa-ingles.css";
 
 const description =
   "Summer camp residencial para adolescentes de 13 a 17 años en Villa La Angostura: inglés por inmersión, naturaleza y aventura del 4 al 12 de diciembre de 2027.";
@@ -41,28 +46,6 @@ export const metadata: Metadata = {
     images: ["/og/summer-camp-2027.png"],
   },
 };
-
-const programPoints = [
-  {
-    title: "Explorar con propósito",
-    text: "Trekking, kayak, deportes y conocimiento local convierten cada jornada en una razón para participar.",
-  },
-  {
-    title: "Usar el inglés",
-    text: "La misión diaria, las indicaciones y las conversaciones dan sentido real al idioma.",
-  },
-  {
-    title: "Aprender a convivir",
-    text: "Cuidar el equipo, asumir responsabilidades y descubrir otras formas de participar.",
-  },
-];
-
-const benefits = [
-  "Inmersión en actividades, conversaciones y vida cotidiana",
-  "Sesiones breves y participativas de inglés cada mañana",
-  "Aprendizaje a través de la naturaleza y la convivencia",
-  "Acompañamiento de un equipo de coordinación",
-];
 
 export default function HomePage() {
   const jsonLd = {
@@ -111,177 +94,19 @@ export default function HomePage() {
     <main id="main-content" className="home-page">
       <HomeHero />
 
-      <section className="home-section home-section--paper home-mechanism" aria-labelledby="home-mechanism-title">
-        <div className="home-wrap home-mechanism__grid">
-          <figure className="home-mechanism__figure">
-            <Image
-              src="/camp-media/senderismo-con-villa-al-fondo.webp"
-              alt="Grupo recorriendo un sendero con Villa La Angostura al fondo"
-              fill
-              sizes="(max-width: 767px) 100vw, 50vw"
-              className="home-cover-image"
-            />
-          </figure>
-          <div className="home-mechanism__copy">
-            <h2 id="home-mechanism-title" className="home-heading">
-              La vida pide una decisión.
-            </h2>
-            <p className="home-lead home-lead--dark">
-              No es una clase trasladada al aire libre. Es aprender a acordar, explicar, pedir ayuda y compartir mientras se recorre un territorio nuevo.
-            </p>
-            <ul className="home-check-list">
-              {benefits.map((item) => (
-                <li key={item}>
-                  <Check aria-hidden="true" size={19} />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <Link className="home-text-link home-text-link--dark" href="/programa-ingles">
-              Explorar la metodología <ArrowRight aria-hidden="true" size={17} />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ExperienceSection />
 
-      <section className="home-section home-section--forest home-language" aria-labelledby="home-language-title">
-        <div className="home-wrap">
-          <div className="home-section__intro home-section__intro--wide">
-            <div>
-              <h2 id="home-language-title" className="home-heading home-heading--light">
-                Una semana, una ruta diaria.
-              </h2>
-              <p className="home-lead home-lead--light">
-                Cada jornada vuelve a unir actividad, inglés y responsabilidad compartida. Así se vive un día dentro del campamento.
-              </p>
-            </div>
-            <p className="home-section__aside">
-              El horario definitivo se comunicará con el programa. La secuencia del recorrido muestra los momentos del día ya publicados.
-            </p>
-          </div>
-          <WeekRoute />
-        </div>
-      </section>
+      <DaySection />
 
-      <section className="home-section home-section--paper home-program" aria-labelledby="home-program-title">
-        <div className="home-wrap home-program__grid">
-          <div className="home-program__copy">
-            <h2 id="home-program-title" className="home-heading">
-              Cada día construye la confianza.
-            </h2>
-            <p className="home-lead home-lead--dark">
-              Autonomía, naturaleza, inglés y comunidad trabajan juntos en un programa residencial para adolescentes.
-            </p>
-            <Link className="home-button home-button--primary" href="/programa-ingles/adolescentes">
-              Ver programa para adolescentes <ArrowRight aria-hidden="true" size={18} />
-            </Link>
-          </div>
-          <div className="home-program__principles">
-            {programPoints.map((point) => (
-              <article key={point.title} className="home-program__principle">
-                <h3>{point.title}</h3>
-                <p>{point.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ResidenceSection />
 
-      <section className="home-section home-section--lake home-founder" aria-labelledby="home-founder-title">
-        <div className="home-wrap home-founder__grid">
-          <div className="home-founder__copy">
-            <h2 id="home-founder-title" className="home-heading">
-              De Laponia a Patagonia.
-            </h2>
-            <p className="home-lead home-lead--dark">
-              Hernán Paulitti, fundador de Patagonia Summer Camp, trabajó en Laponia acompañando visitantes bajo las auroras boreales y llevando huskies por bosques nevados.
-            </p>
-            <p className="home-body">
-              Después de pasar una semana acampando en El Chaltén, se prometió volver a Patagonia y compartir una experiencia que ayudara a otros a explorar otros mundos a través del idioma.
-            </p>
-            <p className="home-body">
-              El campamento cumple esa promesa valorando la región a través de la amistad, el idioma, el respeto por la cultura local y la curiosidad por la naturaleza.
-            </p>
-            <Link className="home-text-link home-text-link--dark" href="/sobre-nosotros">
-              Conocer nuestra historia <ArrowRight aria-hidden="true" size={17} />
-            </Link>
-          </div>
-          <figure className="home-founder__media">
-            <Image
-              src="/camp-media/hernan-bajo-las-auroras.webp"
-              alt="Hernán Paulitti bajo las auroras boreales en Laponia"
-              fill
-              sizes="(max-width: 767px) 100vw, 50vw"
-              className="home-cover-image"
-            />
-            <figcaption>Hernán Paulitti en Laponia, la experiencia que inspiró Patagonia Summer Camp.</figcaption>
-          </figure>
-        </div>
-      </section>
+      <AboutSnippet />
 
-      <section className="home-section home-section--paper home-residence" aria-labelledby="home-residence-title">
-        <div className="home-wrap home-residence__intro">
-          <div>
-            <h2 id="home-residence-title" className="home-heading">
-              Una residencia entre el lago y el bosque.
-            </h2>
-            <p className="home-lead home-lead--dark">
-              La residencia está a 2 km del centro de Villa La Angostura y cuenta con 26 hectáreas de parque y bosque nativo, orilla del lago Nahuel Huapi, un área deportiva y un comedor amplio.
-            </p>
-          </div>
-          <div className="home-residence__links">
-            <Link className="home-text-link home-text-link--dark" href="/destino/villa-la-angostura">
-              Conocer el destino <ArrowRight aria-hidden="true" size={17} />
-            </Link>
-            <Link className="home-text-link home-text-link--dark" href="/itinerario-y-actividades">
-              Ver actividades <ArrowRight aria-hidden="true" size={17} />
-            </Link>
-          </div>
-        </div>
-        <ResidenceGallery />
-      </section>
+      <PackingList />
 
-      <section className="home-section home-section--paper home-safety" aria-labelledby="home-safety-title">
-        <div className="home-wrap home-safety__grid">
-          <figure className="home-safety__figure">
-            <Image
-              src="/camp-media/grupo-caminando.webp"
-              alt="Grupo caminando con mochilas por un sendero de bosque"
-              fill
-              sizes="(max-width: 767px) 100vw, 45vw"
-              className="home-cover-image"
-            />
-          </figure>
-          <div className="home-safety__copy">
-            <h2 id="home-safety-title" className="home-heading">
-              Coordinamos cada etapa.
-            </h2>
-            <p className="home-lead home-lead--dark">
-              Un equipo acompaña la experiencia, las actividades se evalúan según las condiciones y los procedimientos de emergencia, seguro y comunicación se confirman antes del campamento.
-            </p>
-            <Link className="home-button home-button--primary" href="/seguridad-y-coordinacion">
-              Conocer la seguridad <ArrowRight aria-hidden="true" size={18} />
-            </Link>
-            <Link className="home-text-link home-text-link--dark" href="/preguntas-frecuentes">
-              Ver preguntas frecuentes
-            </Link>
-          </div>
-        </div>
-      </section>
+      <FamilyGuideModal />
 
-      <section className="home-closing" aria-labelledby="home-closing-title">
-        <div className="home-wrap home-closing__grid">
-          <div>
-            <h2 id="home-closing-title">¿Cómo viven la semana?</h2>
-          </div>
-          <div className="home-closing__action">
-            <p>En Villa La Angostura, cada familia puede consultar el programa, las fechas y la disponibilidad para adolescentes de 13 a 17 años.</p>
-            <Link className="home-button home-button--paper" href="/contacto">
-              Consultar disponibilidad <ArrowRight aria-hidden="true" size={18} />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ClosingSection />
 
       <JsonLd data={jsonLd} />
     </main>
