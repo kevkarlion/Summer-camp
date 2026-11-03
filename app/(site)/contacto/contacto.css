@@ -1,0 +1,96 @@
+.contacto-page {
+  background: var(--home-paper);
+  color: var(--home-ink);
+}
+
+.contacto-hero {
+  padding-block: clamp(7rem, 12vw, 11rem);
+  background: var(--home-forest);
+  color: var(--home-paper-ink);
+}
+
+.contacto-title {
+  max-width: none;
+  color: var(--home-paper-ink);
+  font-size: clamp(2rem, 4.6vw, 4.2rem);
+}
+
+.contacto-title span {
+  display: block;
+  white-space: nowrap;
+}
+
+.contacto-hero .site-lead {
+  color: var(--home-paper-ink);
+}
+
+.contacto-grid {
+  display: grid;
+  align-items: start;
+  gap: clamp(3rem, 8vw, 8rem);
+  grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+}
+
+.contacto-copy__sticky {
+  position: sticky;
+  top: 7rem;
+}
+
+.contacto-heading {
+  max-width: none;
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+}
+
+.contacto-heading span {
+  display: block;
+  white-space: nowrap;
+}
+
+.contacto-copy .site-body {
+  margin-top: 1.5rem;
+}
+
+.contacto-facts {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contacto-facts li {
+  position: relative;
+  max-width: 42ch;
+  padding-left: 1.25rem;
+  color: var(--home-ink);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.contacto-facts li::before {
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  background: var(--home-lake);
+  content: "";
+}
+
+@media (max-width: 767px) {
+  .contacto-title {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .contacto-heading {
+    font-size: clamp(1.7rem, 7.5vw, 2.2rem);
+  }
+
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto-copy__sticky {
+    position: static;
+  }
+}
