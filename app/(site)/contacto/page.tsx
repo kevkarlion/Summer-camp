@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { ContactForm } from "@/components/forms/ContactForm";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { Reveal } from "@/components/motion/Reveal";
 import { siteConfig } from "@/lib/site";
 
 import "./contacto.css";
@@ -77,14 +79,26 @@ export default function ContactoPage() {
       <JsonLd data={schema} />
       <main id="main-content" className="contacto-page">
         <section className="contacto-hero" aria-labelledby="contacto-title">
-          <div className="site-wrap">
-            <h1 id="contacto-title" className="site-display contacto-title">
-              <span>Una conversación puede ser</span>
-              <span>el comienzo de todo.</span>
-            </h1>
-            <p className="site-lead">
-              Consultanos por Patagonia Summer Camp 2027. Te ayudaremos a entender el programa, las fechas y los próximos pasos para tu familia.
-            </p>
+          <div className="site-wrap contacto-hero__grid">
+            <div>
+              <h1 id="contacto-title" className="site-display contacto-title">
+                <span>Una conversación puede ser</span>
+                <span>el comienzo de todo.</span>
+              </h1>
+              <p className="site-lead">
+                Consultanos por Patagonia Summer Camp 2027. Te ayudaremos a entender el programa, las fechas y los próximos pasos para tu familia.
+              </p>
+            </div>
+            <figure className="contacto-hero__media">
+              <Image
+                src="/hero-villa-la-angostura.webp"
+                alt="Vista panorámica de Villa La Angostura: lago turquesa, bosque nativo y montañas"
+                fill
+                priority
+                sizes="(max-width: 767px) 100vw, 46vw"
+                className="object-cover"
+              />
+            </figure>
           </div>
         </section>
 
@@ -107,6 +121,53 @@ export default function ContactoPage() {
             <div className="contacto-form-area">
               <ContactForm />
             </div>
+          </div>
+        </section>
+
+        <section className="site-section site-section--paper" aria-labelledby="contacto-galeria-title">
+          <div className="site-wrap">
+            <div className="site-section__intro">
+              <div>
+                <h2 id="contacto-galeria-title" className="site-heading">
+                  El campamento que estás por conocer
+                </h2>
+                <p className="site-lead site-lead--dark">
+                  El equipo, el territorio y la convivencia que hacen posible una semana en Villa La Angostura.
+                </p>
+              </div>
+            </div>
+            <Reveal>
+              <div className="contacto-band">
+                {[
+                  {
+                    src: "/camp-media/grupo-caminando.webp",
+                    alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque",
+                    caption: "El grupo en la montaña",
+                  },
+                  {
+                    src: "/camp-media/productores-locales.webp",
+                    alt: "Fotografía real del campamento: visita a productores locales y su oficio",
+                    caption: "Encuentros con el territorio",
+                  },
+                  {
+                    src: "/camp-media/kayak-en-el-lago.webp",
+                    alt: "Fotografía real del campamento: grupo en kayaks sobre el lago con montañas de fondo",
+                    caption: "El agua como aula",
+                  },
+                ].map((item) => (
+                  <figure key={item.src} className="contacto-band__item">
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      sizes="(max-width: 767px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                    <figcaption>{item.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </section>
       </main>
