@@ -1,0 +1,216 @@
+/* Route composition for the canonical families page. */
+.familias-page {
+  background: var(--home-paper);
+  color: var(--home-ink);
+}
+
+.familias-page__hero-title {
+  max-width: 18ch;
+}
+
+.familias-page__hero-title span {
+  display: block;
+}
+
+/* Frequent questions: native disclosure, no script. */
+.familias-page__faq {
+  display: grid;
+}
+
+.familias-page__disclosure {
+  padding-block: clamp(1.25rem, 2.4vw, 1.75rem);
+  border-bottom: 1px solid rgba(23, 34, 28, 0.14);
+}
+
+.familias-page__disclosure:first-child {
+  border-top: 1px solid rgba(23, 34, 28, 0.14);
+}
+
+.familias-page__disclosure summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.familias-page__disclosure summary::-webkit-details-marker {
+  display: none;
+}
+
+.familias-page__question {
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.familias-page__marker {
+  position: relative;
+  flex: 0 0 auto;
+  width: 1rem;
+  height: 1rem;
+}
+
+.familias-page__marker::before,
+.familias-page__marker::after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--home-forest);
+  content: "";
+  transform: translateY(-50%);
+  transition: transform 180ms ease;
+}
+
+.familias-page__marker::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.familias-page__disclosure[open] .familias-page__marker::after {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.familias-page__answer {
+  max-width: 68ch;
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+/* Packing: four categories, each with its own drawn icon. */
+.familias-page__packing {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.familias-page__group {
+  padding: clamp(1.4rem, 2.6vw, 2rem);
+  background: var(--home-forest-deep);
+}
+
+.familias-page__group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1rem;
+  color: var(--home-paper-ink);
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.familias-page__group-title svg {
+  color: var(--home-paper-muted);
+}
+
+.familias-page__group ul,
+.familias-page__policy ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.familias-page__group li,
+.familias-page__policy li {
+  position: relative;
+  max-width: 62ch;
+  padding: 0.45rem 0 0.45rem 1.1rem;
+  color: var(--home-paper-muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.familias-page__group li::before,
+.familias-page__policy li::before {
+  position: absolute;
+  top: 0.95rem;
+  left: 0;
+  width: 0.4rem;
+  height: 2px;
+  background: var(--home-lake);
+  content: "";
+}
+
+.familias-page__note {
+  max-width: 68ch;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  color: var(--home-paper-muted);
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+/* Family policies: editorial ledger on mineral ground. */
+.familias-page__policies {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.familias-page__policy h3 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.familias-page__policy li {
+  color: var(--home-ink);
+}
+
+.familias-page__policy li::before {
+  background: var(--home-forest);
+}
+
+/* Download and closing actions. */
+.familias-page__download {
+  display: grid;
+  align-items: end;
+  gap: clamp(3rem, 8vw, 8rem);
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+}
+
+.familias-page__download-note {
+  max-width: 62ch;
+  margin: 1.5rem 0 0;
+  color: var(--home-paper-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.familias-page__file-label {
+  margin: 0.85rem 0 0;
+  color: var(--home-paper-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.familias-page__closing-action {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 899px) {
+  .familias-page__packing,
+  .familias-page__policies {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .familias-page__download {
+    grid-template-columns: 1fr;
+  }
+}
