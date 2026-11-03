@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowRight, Binoculars, Compass, Mountain, Users, Waves } from "lucide-react";
-import { Container } from "@/components/layout/Container";
-import { PageHero } from "@/components/marketing/PageHero";
-import { Reveal } from "@/components/motion/Reveal";
-import { JsonLd } from "@/components/seo/JsonLd";
+import { ArrowRight } from "lucide-react";
+
 import { IMAGE_BLUR_DATA_URL } from "@/components/image/placeholder";
-import { Badge } from "@/components/ui/Badge";
+import { PageHero } from "@/components/marketing/PageHero";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
-import { CampIcon } from "@/components/ui/CampIcon";
-import { Card } from "@/components/ui/Card";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { siteConfig } from "@/lib/site";
+
+import "./itinerario.css";
 
 const pagePath = "/itinerario-y-actividades";
 const title = "Itinerario & Aventura al Aire Libre | Kayak y Trekking";
@@ -19,82 +16,105 @@ const description =
   "Actividades del summer camp en Villa La Angostura: kayak, trekking, productores locales, convivencia y exploración natural para adolescentes de 13 a 17 años.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url), title, description,
+  metadataBase: new URL(siteConfig.url),
+  title,
+  description,
   keywords: ["actividades verano villa la angostura", "trekking kayak campamento", "actividades Patagonia adolescentes"],
   alternates: { canonical: pagePath },
   openGraph: {
-    type: "website", locale: siteConfig.locale, url: pagePath, siteName: siteConfig.name, title, description,
-    images: [{ url: "/camp-media/senderismo-con-villa-al-fondo.webp", width: 1200, height: 630, alt: "Fotografía real del campamento: grupo en un sendero con Villa La Angostura al fondo" }],
+    type: "website",
+    locale: siteConfig.locale,
+    url: pagePath,
+    siteName: siteConfig.name,
+    title,
+    description,
+    images: [
+      {
+        url: "/camp-media/senderismo-con-villa-la-angostura.webp",
+        width: 1200,
+        height: 630,
+        alt: "Fotografía real del campamento: grupo en un sendero con Villa La Angostura al fondo",
+      },
+    ],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/camp-media/senderismo-con-villa-al-fondo.webp"] },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/camp-media/senderismo-con-villa-la-angostura.webp"],
+  },
 };
 
 const activities = [
   {
-    icon: Waves,
     title: "Kayak",
     description: "Una experiencia sobre el agua para compartir el día con trabajo en equipo y atención a la seguridad.",
     src: "/camp-actividades/kayak.webp",
     alt: "Fotografía real del campamento: grupo en kayaks sobre el lago con montañas de fondo",
     kind: "photo",
-    className: "lg:col-span-7",
-    ratio: "aspect-[16/10]",
-    sizes: "(max-width: 1024px) 100vw, 58vw",
+    sizes: "(max-width: 767px) 100vw, 34vw",
   },
   {
-    icon: Mountain,
     title: "Trekking",
     description: "Caminatas y observaciones del bosque en contacto con el entorno natural.",
     src: "/camp-actividades/trekking.webp",
     alt: "Ilustración del programa: un adolescente con mochila y bastones de trekking frente a las montañas",
     kind: "illustration",
-    className: "lg:col-span-5",
-    ratio: "aspect-[4/3]",
-    sizes: "(max-width: 1024px) 100vw, 42vw",
+    sizes: "(max-width: 767px) 100vw, 34vw",
   },
   {
-    icon: Compass,
     title: "Visitas a productores locales",
-    description: "Encuentros con quienes producen y trabajan en el territorio para conocer su historia y su oficio.",
+    description:
+      "Encuentros con quienes producen y trabajan en el territorio para conocer su historia y su oficio.",
     src: "/camp-actividades/productores-locales.webp",
     alt: "Fotografía real del campamento: visita a productores locales y su oficio",
     kind: "photo",
-    className: "lg:col-span-5",
-    ratio: "aspect-[4/3]",
-    sizes: "(max-width: 1024px) 100vw, 42vw",
+    sizes: "(max-width: 767px) 100vw, 34vw",
   },
   {
-    icon: Users,
     title: "Convivencia y naturaleza",
-    description: "Tiempo para compartir experiencias, explorar el entorno natural y construir vínculos con el grupo.",
+    description:
+      "Tiempo para compartir experiencias, explorar el entorno natural y construir vínculos con el grupo.",
     src: "/camp-actividades/convivencia.webp",
     alt: "Ilustración del programa: el grupo alrededor de la fogata con la guitarra, bajo las estrellas",
     kind: "illustration",
-    className: "lg:col-span-12",
-    ratio: "aspect-[21/9]",
-    sizes: "100vw",
+    sizes: "(max-width: 767px) 100vw, 34vw",
   },
   {
-    icon: Binoculars,
     title: "Exploración del entorno",
     description: "Observación y descubrimiento de la naturaleza con una mirada curiosa y respetuosa.",
     src: "/camp-actividades/exploracion.webp",
-    alt: "Ilustración del programa: un adolescente lendo al aire libre, tumbado en la hierba",
+    alt: "Ilustración del programa: un adolescente leyendo al aire libre, tumbado en la hierba",
     kind: "illustration",
-    className: "lg:col-span-12",
-    ratio: "aspect-[21/9]",
-    sizes: "100vw",
+    sizes: "(max-width: 767px) 100vw, 34vw",
   },
 ];
 
+const requirements = [
+  "Se consideran el clima y las condiciones de seguridad.",
+  "Se utilizan proveedores y profesionales adecuados, cuyas condiciones se verifican.",
+  "El equipo de coordinación acompaña la organización de cada actividad.",
+  "Los requisitos y el equipamiento específicos se comunican antes de la experiencia.",
+];
+
 const schema = {
-  "@context": "https://schema.org", "@type": "ItemList",
-  name: "Itinerario y actividades de Patagonia Summer Camp 2027", description,
-  url: `${siteConfig.url}${pagePath}`, inLanguage: "es-AR",
-  itemListElement: activities.map((activity, index) => ({ "@type": "ListItem", position: index + 1, name: activity.title, description: activity.description })),
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Itinerario y actividades de Patagonia Summer Camp 2027",
+  description,
+  url: `${siteConfig.url}${pagePath}`,
+  inLanguage: "es-AR",
+  itemListElement: activities.map((activity, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: activity.title,
+    description: activity.description,
+  })),
 };
 
 export default function ItinerarioYActividadesPage() {
+  const [lead, ...rest] = activities;
+
   return (
     <>
       <JsonLd data={schema} />
@@ -103,109 +123,124 @@ export default function ItinerarioYActividadesPage() {
           eyebrow="Aventura al aire libre"
           title="Actividades para descubrir la Patagonia"
           description="Kayak, trekking y encuentros con productores locales conectan movimiento, equipo, inglés y conocimiento del territorio."
-          image="/camp-media/senderismo-con-villa-al-fondo.webp"
+          image="/camp-media/senderismo-con-villa-la-angostura.webp"
           imageAlt="Fotografía real del campamento: grupo en un sendero con Villa La Angostura al fondo"
         >
-          <Button href="/seguridad-y-coordinacion" size="lg">Conocer la coordinación <ArrowRight className="size-4" /></Button>
+          <Button href="/seguridad-y-coordinacion" size="lg">
+            Conocer la coordinación <ArrowRight className="size-4" />
+          </Button>
         </PageHero>
 
-        <section className="relative overflow-hidden py-20 sm:py-28 lg:py-36">
-          <div aria-hidden="true" className="pointer-events-none absolute -right-28 top-12 size-[30rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
-          <Container className="relative">
-            <Reveal>
-              <SectionHeader
-                eyebrow="Actividades confirmadas"
-                title="Naturaleza, comunidad y trabajo en equipo"
-                description="Cada actividad considera las condiciones meteorológicas y los requisitos de seguridad. El horario definitivo se comunicará con el programa."
-              />
-            </Reveal>
-
-            <div className="mt-12 grid gap-4 lg:grid-cols-12">
-              {activities.map((activity, index) => {
-                const Icon = activity.icon;
-                return (
-                  <Reveal key={activity.title} delay={index * 0.06} className={activity.className}>
-                    <figure className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-subtle bg-card">
-                      <div
-                        className={`relative overflow-hidden ${
-                          activity.kind === "illustration" ? "bg-[#f4efe1]" : ""
-                        } ${activity.ratio}`}
-                      >
-                        <Image
-                          src={activity.src}
-                          alt={activity.alt}
-                          fill
-                          sizes={activity.sizes}
-                          placeholder="blur"
-                          blurDataURL={IMAGE_BLUR_DATA_URL}
-                          className={
-                            activity.kind === "illustration"
-                              ? "object-contain p-3 transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.03] motion-reduce:transform-none motion-reduce:transition-none"
-                              : "object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
-                          }
-                        />
-                        {activity.kind === "photo" ? (
-                          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-bg-main/70 via-transparent to-transparent" />
-                        ) : null}
-                      </div>
-                      <figcaption className="flex flex-1 flex-col p-6 sm:p-7">
-                        <div className="flex items-start justify-between gap-4">
-                          <CampIcon icon={Icon} size="sm" tone="oxblood" />
-                          <Badge variant="secondary">Actividad {String(index + 1).padStart(2, "0")}</Badge>
-                        </div>
-                        <h3 className="mt-5 text-2xl font-semibold tracking-[-0.025em] text-main">{activity.title}</h3>
-                        <p className="mt-2 max-w-xl leading-7 text-muted">{activity.description}</p>
-                        <p className="mt-auto pt-5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-main/50">
-                          {activity.kind === "illustration"
-                            ? "Ilustración del programa"
-                            : "Fotografía real del campamento"}
-                        </p>
-                      </figcaption>
-                    </figure>
-                  </Reveal>
-                );
-              })}
+        <section className="site-section site-section--paper" aria-labelledby="itinerario-actividades-title">
+          <div className="site-wrap">
+            <div className="site-section__intro">
+              <div>
+                <h2 id="itinerario-actividades-title" className="site-heading">
+                  Naturaleza, comunidad y trabajo en equipo
+                </h2>
+                <p className="site-lead site-lead--dark">
+                  Cada actividad considera las condiciones meteorológicas y los requisitos de seguridad. El horario definitivo se comunicará con el programa.
+                </p>
+              </div>
             </div>
 
-            <p className="mt-6 max-w-3xl text-sm leading-6 text-muted">
+            <div className="itinerario-lead">
+              <figure className="itinerario-lead__media">
+                <Image
+                  src={lead.src}
+                  alt={lead.alt}
+                  fill
+                  sizes="(max-width: 767px) 100vw, 56vw"
+                  placeholder="blur"
+                  blurDataURL={IMAGE_BLUR_DATA_URL}
+                  className="object-cover"
+                />
+              </figure>
+              <div>
+                <h3 className="site-heading">{lead.title}</h3>
+                <p className="site-lead site-lead--dark">{lead.description}</p>
+                <p className="itinerario-entry__kind">
+                  {lead.kind === "illustration" ? "Ilustración del programa" : "Fotografía real del campamento"}
+                </p>
+              </div>
+            </div>
+
+            <div className="itinerario-list">
+              {rest.map((activity) => (
+                <article key={activity.title} className="itinerario-entry">
+                  <figure
+                    className={`itinerario-entry__media${activity.kind === "illustration" ? " itinerario-entry__media--illustration" : ""}`}
+                  >
+                    <Image
+                      src={activity.src}
+                      alt={activity.alt}
+                      fill
+                      sizes={activity.sizes}
+                      placeholder="blur"
+                      blurDataURL={IMAGE_BLUR_DATA_URL}
+                      className={activity.kind === "illustration" ? "object-contain" : "object-cover"}
+                    />
+                  </figure>
+                  <div>
+                    <h3>{activity.title}</h3>
+                    <p>{activity.description}</p>
+                    <p className="itinerario-entry__kind">
+                      {activity.kind === "illustration"
+                        ? "Ilustración del programa"
+                        : "Fotografía real del campamento"}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <p className="site-body itinerary-note">
               Fotografías reales de Patagonia Summer Camp 2027: kayak, trekking, productores locales y la convivencia del grupo.
             </p>
-          </Container>
+          </div>
         </section>
 
-        <section className="border-y border-subtle bg-surface py-20 sm:py-28">
-          <Container>
-            <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-              <Reveal>
-                <Badge variant="secondary">Antes de cada actividad</Badge>
-                <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-[-0.035em] text-main sm:text-4xl">Requisitos claros, experiencia previa no necesaria en general</h2>
-                <p className="mt-5 text-lg leading-8 text-muted">No se requiere experiencia outdoor previa en general. Cada actividad puede tener requisitos específicos, y el equipo comunicará el equipamiento final antes del campamento.</p>
-              </Reveal>
-              <Reveal delay={0.08}>
-                <Card variant="elevated" className="p-7 sm:p-9">
-                  <h3 className="text-2xl font-semibold text-main">La experiencia se adapta a las condiciones</h3>
-                  <ul className="mt-7 space-y-4">
-                    {["Se consideran el clima y las condiciones de seguridad.", "Se utilizan proveedores y profesionales adecuados, cuyas condiciones se verifican.", "El equipo de coordinación acompaña la organización de cada actividad.", "Los requisitos y el equipamiento específicos se comunican antes de la experiencia."].map((item) => <li key={item} className="flex gap-3 leading-7 text-muted"><span className="mt-2 size-1.5 shrink-0 rounded-full bg-secondary" />{item}</li>)}
-                  </ul>
-                </Card>
-              </Reveal>
+        <section className="site-section site-section--forest" aria-labelledby="itinerario-requisitos-title">
+          <div className="site-wrap">
+            <div className="site-section__intro">
+              <div>
+                <h2 id="itinerario-requisitos-title" className="site-heading site-heading--light">
+                  Requisitos claros, experiencia previa no necesaria en general
+                </h2>
+                <p className="site-lead site-lead--light">
+                  No se requiere experiencia outdoor previa en general. Cada actividad puede tener requisitos específicos, y el equipo comunicará el equipamiento final antes del campamento.
+                </p>
+              </div>
+              <div>
+                <h3 className="site-heading site-heading--light">La experiencia se adapta a las condiciones</h3>
+                <ul className="itinerario-requirements">
+                  {requirements.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </Container>
+          </div>
         </section>
 
-        <section className="py-20 sm:py-28">
-          <Container>
-            <Reveal>
-              <Card variant="glass" className="grid gap-8 p-8 sm:p-12 lg:grid-cols-[1fr_auto] lg:items-center">
-                <div className="max-w-3xl">
-                  <Badge variant="primary">Programa de verano</Badge>
-                  <h2 className="mt-6 text-3xl font-semibold tracking-[-0.035em] text-main sm:text-4xl">Actividades con un propósito compartido</h2>
-                  <p className="mt-5 text-lg leading-8 text-muted">Descubrí cómo el programa integra las actividades con el inglés y la convivencia del 4 al 12 de diciembre de 2027.</p>
-                </div>
-                <Button href="/programa-ingles/adolescentes" variant="outline">Programa para adolescentes <ArrowRight className="size-4" /></Button>
-              </Card>
-            </Reveal>
-          </Container>
+        <section className="site-section site-section--paper" aria-labelledby="itinerario-cierre-title">
+          <div className="site-wrap">
+            <div className="site-section__intro">
+              <div>
+                <h2 id="itinerario-cierre-title" className="site-heading">
+                  Actividades con un propósito compartido
+                </h2>
+                <p className="site-lead site-lead--dark">
+                  Descubrí cómo el programa integra las actividades con el inglés y la convivencia del 4 al 12 de diciembre de 2027.
+                </p>
+              </div>
+              <div>
+                <Button href="/programa-ingles/adolescentes" variant="outline">
+                  Programa para adolescentes <ArrowRight className="size-4" />
+                </Button>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </>
