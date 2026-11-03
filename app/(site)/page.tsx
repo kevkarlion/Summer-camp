@@ -170,13 +170,13 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(11,19,32,0.82)_0%,rgba(11,19,32,0.48)_48%,rgba(11,19,32,0.08)_100%)]" />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(11,19,32,0.08)_0%,rgba(11,19,32,0.22)_62%,rgba(11,19,32,0.48)_100%)]" />
-        <div aria-hidden="true" className="pointer-events-none absolute -left-32 top-24 -z-10 size-[30rem] rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
-        <div aria-hidden="true" className="pointer-events-none absolute -right-28 bottom-10 -z-10 size-[26rem] rounded-full bg-orb-amber blur-[120px] animate-pulse-slow" />
+        <div aria-hidden="true" className="pointer-events-none absolute -left-32 top-24 -z-10 size-[30rem] rounded-full orb-emerald-glow animate-pulse-slow" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-28 bottom-10 -z-10 size-[26rem] rounded-full orb-amber-glow animate-pulse-slow" />
 
         <Container className="relative py-10 sm:py-12 lg:py-0">
-          <Reveal className="max-w-5xl lg:max-w-[58rem]">
+          <div className="max-w-5xl lg:max-w-[58rem]">
             <Badge variant="secondary" className="mb-7"><Sparkles aria-hidden="true" size={14} /> Temporada 2027</Badge>
-            <TextReveal as="h1" className="hero-copy-shadow text-[clamp(3.25rem,7.2vw,7.25rem)] font-semibold leading-[0.94] tracking-[-0.055em] text-main">
+            <TextReveal as="h1" className="hero-title-shadow text-[clamp(3.25rem,7.2vw,7.25rem)] font-semibold leading-[0.94] tracking-[-0.055em] text-main">
               Inglés, aventura y Patagonia.
             </TextReveal>
             <p className="hero-copy-shadow mt-6 max-w-2xl text-lg leading-8 text-main sm:mt-7 sm:text-xl">
@@ -193,7 +193,7 @@ export default function HomePage() {
                 </span>
               ))}
             </div>
-          </Reveal>
+          </div>
         </Container>
       </section>
 
@@ -214,7 +214,7 @@ export default function HomePage() {
       </section>
 
       <section className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
-        <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-10 size-[32rem] -translate-x-1/2 rounded-full bg-orb-emerald blur-[120px] animate-pulse-slow" />
+        <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-10 size-[32rem] -translate-x-1/2 rounded-full orb-emerald-glow animate-pulse-slow" />
         <Container className="relative">
           <Reveal>
             <SectionHeader

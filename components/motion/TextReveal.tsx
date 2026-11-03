@@ -27,39 +27,51 @@ const wordVariants: Variants = {
   visible: {
     y: "0%",
     transition: {
+      type: "tween",
       duration: 0.8,
       ease: [0.16, 1, 0.3, 1],
     },
   },
 };
 
+const motionHeadings = {
+  h1: motion.h1,
+  h2: motion.h2,
+  h3: motion.h3,
+};
+
 export function TextReveal({ as, children, className }: TextRevealProps) {
   const shouldReduceMotion = useReducedMotion();
-  const Heading = as;
+  const MotionHeading = motionHeadings[as];
+  const isAboveTheFold = as === "h1";
   const words = children.split(/\s+/).filter(Boolean);
 
   return (
-    <Heading className={className}>
-      <motion.span
-        initial={shouldReduceMotion ? false : "hidden"}
-        variants={containerVariants}
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {words.map((word, index) => (
-          <Fragment key={`${word}-${index}`}>
-            <span className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-bottom [contain:paint]">
-              <motion.span
-                className="inline-block will-change-transform backface-hidden"
-                variants={wordVariants}
-              >
-                {word}
-              </motion.span>
-            </span>
-            {index < words.length - 1 ? " " : null}
-          </Fragment>
-        ))}
-      </motion.span>
-    </Heading>
+    <MotionHeading
+      className={className}
+      initial={shouldReduceMotion ? false : "hidden"}
+      animate={shouldReduceMotion || !isAboveTheFold ? undefined : "visible"}
+      whileInView={shouldReduceMotion || isAboveTheFold ? undefined : "visible"}
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+      style={{
+        WebkitFontSmoothing: "antialiased",
+        WebkitBackfaceVisibility: "hidden",
+        backfaceVisibility: "hidden",
+        transform: "translateZ(0)",
+        willChange: "transform, opacity",
+      }}
+    >
+      {words.map((word, index) => (
+        <Fragment key={`${word}-${index}`}>
+          <span className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-bottom [contain:paint]">
+            <motion.span className="inline-block" variants={wordVariants}>
+              {word}
+            </motion.span>
+          </span>
+          {index < words.length - 1 ? " " : null}
+        </Fragment>
+      ))}
+    </MotionHeading>
   );
 }

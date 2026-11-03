@@ -25,7 +25,7 @@ export function PageHero({ eyebrow, title, description, image, imageAlt, childre
       />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(11,19,32,0.56)_0%,rgba(11,19,32,0.18)_58%,rgba(11,19,32,0.04)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(11,19,32,0.04)_0%,rgba(11,19,32,0.16)_52%,rgba(11,19,32,0.38)_100%)]" />
-      <div className="absolute -left-24 top-20 -z-10 size-80 rounded-full bg-primary/12 blur-[120px]" />
+      <div className="absolute -left-24 top-20 -z-10 size-80 rounded-full orb-emerald-glow" />
 
       <Container className="max-w-6xl">
         <Badge variant="primary" className="mb-6">{eyebrow}</Badge>
