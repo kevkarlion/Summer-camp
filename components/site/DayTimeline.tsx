@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 
 import { useLanguage } from "@/components/home/LanguageProvider";
 import { dayBlocks, dayNote } from "./day-timeline-copy";
+import { TimelineClock } from "./TimelineClock";
 
 // Day blocks live in day-timeline-copy.ts so the timeline speaks both site languages.
 const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
@@ -87,7 +88,9 @@ export function DayTimeline() {
       <ol className="day-timeline__list">
         {blocks.map((block, index) => (
           <li key={block.time} className={`day-timeline__item day-timeline__item--${index % 2 === 0 ? "left" : "right"}`}>
-            <div className="day-timeline__stop" aria-hidden="true"><span className="day-timeline__dot" /></div>
+            <div className="day-timeline__stop">
+              <TimelineClock time={block.time} />
+            </div>
             <figure className="day-timeline__media">
               <Image
                 src={block.src}
@@ -100,7 +103,6 @@ export function DayTimeline() {
             <article data-timeline-block className="day-timeline__block site-card site-card--paper">
               <h3 className="day-timeline__title">{block.title}</h3>
               <p className="day-timeline__meta">
-                <span className="day-timeline__time">{block.time}</span>
                 <span className="day-timeline__period">{block.period}</span>
               </p>
               <p className="day-timeline__description">{block.description}</p>
@@ -112,6 +114,7 @@ export function DayTimeline() {
         <p className="day-timeline__note-title">{note.title}</p>
         <p>{note.body}</p>
         <p className="day-timeline__closing-note">Explorá más allá</p>
+        <p className="day-timeline__credit">{note.credit}</p>
       </aside>
     </div>
   );

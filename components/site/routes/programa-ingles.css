@@ -103,3 +103,73 @@
   .day-timeline__rail-fill,
   .day-timeline__travelling-marker { transition: none; }
 }
+
+/* Clock on the timeline rail: thin strokes on paper, hands at the block time. */
+.timeline-clock {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.timeline-clock__dial {
+  width: 3rem;
+  height: 3rem;
+  display: block;
+}
+
+.timeline-clock__face {
+  fill: var(--home-paper);
+  stroke: var(--home-lake);
+  stroke-width: 1.25;
+}
+
+.timeline-clock__tick {
+  stroke: var(--home-paper-deep);
+  stroke-width: 1;
+}
+
+.timeline-clock__tick--cardinal {
+  stroke: var(--home-lake);
+  stroke-width: 1.5;
+}
+
+.timeline-clock__hand {
+  stroke-linecap: round;
+  transform-origin: 24px 24px;
+}
+
+.timeline-clock__hand--hour {
+  stroke: var(--home-forest);
+  stroke-width: 2.25;
+}
+
+.timeline-clock__hand--minute {
+  stroke: var(--home-lake);
+  stroke-width: 1.5;
+}
+
+.timeline-clock__pin {
+  fill: var(--home-lake);
+}
+
+.timeline-clock__label {
+  color: var(--home-lake);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+@media (min-width: 900px) {
+  .timeline-clock__dial {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+}
+
+.day-timeline__credit {
+  margin-top: 0.6rem !important;
+  color: var(--home-muted) !important;
+  font-size: 0.85rem !important;
+}
