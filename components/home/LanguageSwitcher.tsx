@@ -15,7 +15,7 @@ export function LanguageSwitcher({ id = "site-language-switcher" }: { id?: strin
       id={id}
       role="group"
       aria-label={dictionary.nav.languageLabel}
-      className="flex shrink-0 items-center gap-0.5 rounded-full bg-overlay-soft p-0.5"
+      className="flex w-fit shrink-0 items-center gap-0.5 rounded-full bg-overlay-soft p-0.5"
     >
       {options.map((option) => {
         const isSelected = language === option.code;

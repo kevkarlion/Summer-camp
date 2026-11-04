@@ -10,6 +10,7 @@ import "@/components/site/site.css";
 import "@/components/site/site-responsive.css";
 import "@/components/site/site-sections.css";
 import "@/components/site/site-footer.css";
+import "@/components/site/site-header.css";
 
 const homeDisplay = Barlow_Condensed({
   subsets: ["latin"],

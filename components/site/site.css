@@ -9,6 +9,7 @@
   --home-muted: #4f5f56;
   --home-paper-ink: #f4f6f2;
   --home-paper-muted: #d2ddd7;
+  --home-night: #0b1320;
   --home-margin: 1.25rem;
   --home-gutter: clamp(1rem, 2vw, 1.5rem);
 }

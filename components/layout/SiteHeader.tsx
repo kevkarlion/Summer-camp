@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { LanguageSwitcher } from "@/components/home/LanguageSwitcher";
 import { useLanguage } from "@/components/home/LanguageProvider";
-import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/layout/Container";
 import { cn } from "@/lib/utils";
 
@@ -71,7 +70,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="grid size-11 shrink-0 place-items-center rounded-full border border-subtle bg-overlay-soft text-main xl:hidden"
+          className="site-header__toggle xl:hidden"
           aria-label={isOpen ? dictionary.nav.closeMenu : dictionary.nav.openMenu}
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
@@ -85,14 +84,14 @@ export function SiteHeader() {
         {isOpen ? (
           <motion.div
             id="mobile-navigation"
-            className="max-h-[calc(100svh_-_5rem)] overflow-y-auto border-t border-subtle bg-main/98 px-5 pb-[calc(1.25rem_+_env(safe-area-inset-bottom))] pt-5 backdrop-blur-xl xl:hidden"
+            className="site-menu"
             initial={shouldReduceMotion ? false : { opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={shouldReduceMotion ? undefined : { opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
-            <nav className="mx-auto max-w-7xl" aria-label={dictionary.nav.mobileNavLabel}>
-              <ul className="mb-6 grid grid-cols-2 gap-2 sm:grid-cols-3">
+            <nav aria-label={dictionary.nav.mobileNavLabel}>
+              <ul className="site-menu__list">
                 {navigation.map((item) => {
                   const isActive = pathname === item.href;
 
@@ -103,8 +102,8 @@ export function SiteHeader() {
                         onClick={closeMenu}
                         aria-current={isActive ? "page" : undefined}
                         className={cn(
-                          "block rounded-xl border border-subtle bg-overlay-soft px-3 py-3 text-sm font-medium text-white/90 transition-colors hover:border-primary/30 hover:text-white",
-                          isActive && "border-primary/35 bg-primary/10 text-primary-accent",
+                          "site-menu__link",
+                          isActive && "site-menu__link--active",
                         )}
                       >
                         {item.label}
@@ -113,17 +112,14 @@ export function SiteHeader() {
                   );
                 })}
               </ul>
-
-              <LanguageSwitcher id="site-language-switcher-mobile" />
-
-              <Button
-                href="/contacto"
-                onClick={closeMenu}
-                className="site-button site-button--paper mt-6 w-full"
-              >
-                {dictionary.nav.contactCta}
-              </Button>
             </nav>
+
+            <div className="site-menu__footer">
+              <LanguageSwitcher id="site-language-switcher-mobile" />
+              <Link href="/contacto" onClick={closeMenu} className="site-button site-button--paper">
+                {dictionary.nav.contactCta}
+              </Link>
+            </div>
           </motion.div>
         ) : null}
       </AnimatePresence>
