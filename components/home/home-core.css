@@ -67,8 +67,9 @@
 }
 
 .home-field__title {
-  max-width: 16ch;
+  max-width: 24ch;
   margin: 0 0 1rem;
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
 }
 
 .home-field__lead {
@@ -78,15 +79,13 @@
 
 .home-field__points {
   display: grid;
-  gap: 1.5rem;
-  margin: 2.25rem 0 0;
+  gap: 2rem;
+  margin: 2.5rem 0 0;
 }
 
 .home-field__point {
   display: grid;
   gap: 0.35rem;
-  padding-top: 0.9rem;
-  border-top: 1px solid var(--home-paper-deep);
 }
 
 .home-field__point dt {
@@ -116,37 +115,39 @@
   min-width: 0;
   gap: var(--home-gutter);
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(14rem, auto));
 }
 
 .home-field__photo {
   display: grid;
-  gap: 0.6rem;
-  margin: 0;
-  align-content: start;
+  height: 100%;
+  min-width: 0;
 }
 
 .home-field__photo--large {
-  grid-column: span 1;
   grid-row: span 2;
+}
+
+.home-field__frame {
+  display: grid;
+  height: 100%;
+  gap: 0.6rem;
+  margin: 0;
+  grid-template-rows: minmax(0, 1fr) auto;
 }
 
 .home-field__media {
   position: relative;
-  min-height: 11rem;
+  min-height: 12rem;
   overflow: hidden;
   background: var(--home-paper-deep);
-}
-
-.home-field__photo--large .home-field__media {
-  min-height: 100%;
 }
 
 .home-field__media img {
   object-fit: cover;
 }
 
-.home-field__photo figcaption {
+.home-field__frame figcaption {
   color: var(--home-muted);
   font-size: 0.85rem;
   line-height: 1.4;
@@ -172,11 +173,19 @@
     grid-column: 1 / -1;
   }
 
+  .home-field__mosaic {
+    grid-template-rows: none;
+  }
+
+  .home-field__photo--large {
+    grid-row: span 1;
+  }
+
   .home-field__media {
     min-height: 13rem;
   }
 
   .home-field__photo--large .home-field__media {
-    min-height: 15rem;
+    min-height: 17rem;
   }
 }

@@ -31,17 +31,15 @@ export function HomeField() {
 
             <dl className="home-field__points">
               {field.points.map((point, index) => (
-                <Reveal key={point.label} delay={80 + index * 80}>
-                  <div className="home-field__point">
-                    <dt>{point.label}</dt>
-                    <dd>{point.text}</dd>
-                  </div>
+                <Reveal key={point.label} delay={0.08 + index * 0.08} className="home-field__point">
+                  <dt>{point.label}</dt>
+                  <dd>{point.text}</dd>
                 </Reveal>
               ))}
             </dl>
 
-            <Reveal delay={320}>
-              <Link className="site-text-link home-field__link" href="/programa">
+            <Reveal delay={0.32}>
+              <Link className="site-text-link site-text-link--dark home-field__link" href="/programa">
                 {field.link}
                 <ArrowRight aria-hidden="true" size={16} />
               </Link>
@@ -50,14 +48,14 @@ export function HomeField() {
 
           <div className="home-field__mosaic">
             {field.photos.map((photo, index) => (
-              <Reveal key={photo.src} delay={index * 120}>
-                <figure
-                  className={
-                    index === 0
-                      ? "home-field__photo home-field__photo--large"
-                      : "home-field__photo"
-                  }
-                >
+              <Reveal
+                key={photo.src}
+                delay={index * 0.12}
+                className={
+                  index === 0 ? "home-field__photo home-field__photo--large" : "home-field__photo"
+                }
+              >
+                <figure className="home-field__frame">
                   <div className="home-field__media">
                     <Image
                       src={photo.src}

@@ -121,8 +121,6 @@
   gap: 0.5rem 1.5rem;
   justify-content: space-between;
   margin-top: clamp(2.5rem, 5vw, 4rem);
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(210, 221, 215, 0.18);
   color: var(--home-paper-muted);
   font-size: 0.85rem;
 }
