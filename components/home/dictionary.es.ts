@@ -55,14 +55,30 @@ export const es: Dictionary = {
       imageAlt: "Vista panorámica de Villa La Angostura: lago turquesa, bosque nativo y montañas",
       imageCaption: "Villa La Angostura, a orillas del lago Nahuel Huapi.",
     },
-    summaryImage: {
-      src: "/camp-media/fogata-en-el-bosque.webp",
-      alt: "Fotografía real del campamento: fogata con marshmallows en el bosque",
-      caption: "La fogata al final del día.",
-    },
-    gallery: {
-      label: "El campamento en imágenes",
-      items: [
+    field: {
+      title: "Veni por la aventura. Quedate por el inglés.",
+      lead: "Una semana en Villa La Angostura donde el inglés se usa en las situaciones reales de la vida de campamento.",
+      points: [
+        {
+          label: "Inglés",
+          text: "La misión diaria, las indicaciones en el sendero, las conversaciones en la mesa y las decisiones del grupo.",
+        },
+        {
+          label: "Aventura",
+          text: "Trekking y kayak, con el bosque nativo de la residencia como escenario.",
+        },
+        {
+          label: "Convivencia",
+          text: "Adolescentes de 13 a 17 años viven juntos una semana, con 26 hectáreas de parque y bosque nativo alrededor de la residencia.",
+        },
+      ],
+      link: "Ver el programa",
+      photos: [
+        {
+          src: "/camp-media/fogata-en-el-bosque.webp",
+          alt: "Fotografía real del campamento: fogata con marshmallows en el bosque",
+          caption: "La fogata al final del día.",
+        },
         {
           src: "/camp-media/grupo-caminando.webp",
           alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque",
@@ -75,9 +91,6 @@ export const es: Dictionary = {
         },
       ],
     },
-    summaryTitle: "Veni por la aventura. Quedate por el inglés.",
-    summary:
-      "Patagonia Summer Camp 2027 es un campamento residencial de inmersión en inglés en Villa La Angostura, Patagonia. Del 4 al 12 de diciembre de 2027, los adolescentes de 13 a 17 años conviven y usan el inglés en las situaciones reales de la vida de campamento: la misión diaria, las indicaciones en el sendero, las conversaciones en la mesa y las decisiones del grupo. El trekking, el kayak y el bosque nativo de la residencia son el escenario donde el idioma tiene una razón de uso.",
     linksLabel: "Explorá el campamento",
     links: [
       {

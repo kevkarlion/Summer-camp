@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 
-import { HomeGallery } from "@/components/home/HomeGallery";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeLinks } from "@/components/home/HomeLinks";
-import { HomeSummary } from "@/components/home/HomeSummary";
+import { HomeField } from "@/components/home/HomeField";
 import { Reveal } from "@/components/motion/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site";
@@ -85,8 +84,7 @@ export default function HomePage() {
       <HomeHero />
 
       <Reveal>
-        <HomeSummary />
-      <HomeGallery />
+        <HomeField />
       </Reveal>
 
       <HomeLinks />

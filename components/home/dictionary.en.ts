@@ -55,17 +55,33 @@ export const en: Dictionary = {
       imageAlt: "Panoramic view of Villa La Angostura: turquoise lake, native forest and mountains",
       imageCaption: "Villa La Angostura, on the shore of Lake Nahuel Huapi.",
     },
-    summaryImage: {
-      src: "/camp-media/fogata-en-el-bosque.webp",
-      alt: "Real camp photograph: a campfire with marshmallows in the woods",
-      caption: "The campfire at the end of the day.",
-    },
-    gallery: {
-      label: "The camp in pictures",
-      items: [
+    field: {
+      title: "Come for the adventure. Stay for the English.",
+      lead: "One week in Villa La Angostura where English is used in the real situations of camp life.",
+      points: [
+        {
+          label: "English",
+          text: "The daily mission, the instructions on the trail, the conversations around the table and the decisions of the group.",
+        },
+        {
+          label: "Adventure",
+          text: "Trekking and kayak, with the native forest of the residence as the setting.",
+        },
+        {
+          label: "Life together",
+          text: "Teenagers aged 13 to 17 live together for a week, with 26 hectares of park and native forest around the residence.",
+        },
+      ],
+      link: "See the programme",
+      photos: [
+        {
+          src: "/camp-media/fogata-en-el-bosque.webp",
+          alt: "Real camp photograph: a campfire with marshmallows in the woods",
+          caption: "The campfire at the end of the day.",
+        },
         {
           src: "/camp-media/grupo-caminando.webp",
-          alt: "Real camp photograph: a group hiking with backpacks along a forest trail",
+          alt: "Real camp photograph: the group walking with backpacks along a forest trail",
           caption: "Walking out in the morning.",
         },
         {
@@ -75,9 +91,6 @@ export const en: Dictionary = {
         },
       ],
     },
-    summaryTitle: "Come for the adventure. Stay for the English.",
-    summary:
-      "Patagonia Summer Camp 2027 is a residential English immersion camp in Villa La Angostura, Patagonia. From 4 to 12 December 2027, teenagers aged 13 to 17 live together and use English in the real situations of camp life: the daily mission, the instructions on the trail, the conversations around the table and the decisions of the group. Trekking, kayak and the native forest of the residence are the setting where the language has a reason to be used.",
     linksLabel: "Explore the camp",
     links: [
       {
