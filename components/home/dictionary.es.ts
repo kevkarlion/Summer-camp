@@ -57,7 +57,7 @@ export const es: Dictionary = {
     },
     where: {
       title: "Dónde está Villa La Angostura",
-      lead: "En el Neuquén, en la Patagonia argentina, a orillas del lago Nahuel Huapi y entre los cerros de la cordillera.",
+      lead: "En Neuquén, a orillas del lago Nahuel Huapi, Villa La Angostura combina la serenidad de sus bosques milenarios y lagos cristalinos con una infraestructura de primer nivel: el lugar para desconectarse, recorrer senderos rodeados de cordillera y disfrutar del sur argentino en un entorno seguro y exclusivo.",
       points: [
         {
           label: "Al norte",

@@ -57,7 +57,7 @@ export const en: Dictionary = {
     },
     where: {
       title: "Where Villa La Angostura is",
-      lead: "In Neuquén, in the Argentine Patagonia, on the shore of Lake Nahuel Huapi and among the mountains of the Andes.",
+      lead: "In Neuquén, on the shore of Lake Nahuel Huapi, Villa La Angostura combines the calm of its ancient forests and crystal-clear lakes with first-rate infrastructure: the place to disconnect, walk trails framed by the Andes and enjoy the south of Argentina in a safe and exclusive setting.",
       points: [
         {
           label: "To the north",
