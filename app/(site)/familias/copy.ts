@@ -307,7 +307,7 @@ const es: FamiliasCopy = {
       {
         question: "¿Qué es Patagonia Summer Camp?",
         answer:
-          "Es una experiencia de verano residencial para adolescentes que combina aventura al aire libre, inmersión en inglés y descubrimiento de Patagonia.",
+          "Es una experiencia de verano residencial para adolescentes que combina aventura al aire libre, inmersión en inglés y descubrimiento de la Patagonia.",
       },
       {
         question: "¿Para qué edades es?",

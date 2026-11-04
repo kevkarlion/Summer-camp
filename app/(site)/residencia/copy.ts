@@ -130,7 +130,7 @@ const es: ResidenceCopy = {
     lead: "La residencia está a 2 km del centro de Villa La Angostura y tiene 26 hectáreas de parque y bosque nativo, la orilla del lago Nahuel Huapi, un área deportiva y un comedor amplio.",
     image: {
       src: "/camp-media/lago-al-atardecer.png",
-      alt: "Fotografía real del campamento: el lago al atardecer con las montañas de Patagonia",
+      alt: "Fotografía real del campamento: el lago al atardecer con las montañas de la Patagonia",
     },
     factsLabel: "Datos principales de la residencia",
     facts: [
@@ -181,7 +181,7 @@ const es: ResidenceCopy = {
       },
       {
         src: "/camp-media/lago-al-atardecer.png",
-        alt: "Fotografía real del campamento: el lago al atardecer con las montañas de Patagonia",
+        alt: "Fotografía real del campamento: el lago al atardecer con las montañas de la Patagonia",
         caption: "El lago al atardecer",
         kind: "Fotografía real del campamento",
       },

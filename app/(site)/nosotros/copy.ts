@@ -122,21 +122,21 @@ const es: NosotrosCopy = {
   },
   hero: {
     titleLines: ["De Laponia", "a la Patagonia"],
-    lead: "Hernán Paulitti, fundador de Patagonia Summer Camp, trabajó en Laponia bajo las auroras boreales; en Patagonia mantiene esa promesa con un campamento para adolescentes.",
+    lead: "Hernán Paulitti, fundador de Patagonia Summer Camp, trabajó en Laponia bajo las auroras boreales; en la Patagonia mantiene esa promesa con un campamento para adolescentes.",
     image: {
       src: "/camp-media/hernan-bajo-las-auroras.webp",
       alt: "Fotografía real de Hernán Paulitti bajo las auroras boreales en Laponia",
     },
   },
   biography: {
-    heading: "Laponia a Patagonia",
+    heading: "Laponia a la Patagonia",
     aside: "El origen de la idea",
     paragraphs: [
       "En 2011, Hernán estudió inglés en el Instituto de Formación Docente y Técnica N° 55 de Escobar, Buenos Aires. Después enseñó inglés en Argentina durante muchos años.",
       "Se mudó a Bolonia, Italia, donde estudió italiano en Academia Lingue y trabajó con empresas italianas de agritech, diseño y tecnología, enseñando inglés a arquitectos, diseñadores, operadores y otros profesionales.",
       "Organizó viajes de aprendizaje de inglés para adultos y adolescentes a Irlanda e Inglaterra, y trabajó como profesor y responsable de actividades en campamentos de verano del norte de Italia.",
       "Luego trabajó en Laponia, Finlandia, colaborando con empresas de turismo finlandesas. Guió visitantes bajo las auroras boreales y llevó huskies a bosques nevados a -35°C.",
-      "Después de pasar una semana acampando en El Chaltén, se prometió a sí mismo volver a Patagonia y compartir una experiencia que ayudara a otros a explorar otros mundos a través del idioma.",
+      "Después de pasar una semana acampando en El Chaltén, se prometió a sí mismo volver a la Patagonia y compartir una experiencia que ayudara a otros a explorar otros mundos a través del idioma.",
     ],
     photos: [
       {

@@ -18,10 +18,10 @@ export const es: Dictionary = {
     mobileNavLabel: "Navegación móvil",
   },
   footer: {
-    tagline: "Inmersión en inglés en Patagonia para adolescentes de 13 a 17 años.",
+    tagline: "Inmersión en inglés en la Patagonia para adolescentes de 13 a 17 años.",
     exploreTitle: "Explorá",
     campTitle: "El campamento",
-    actionTitle: "¿Patagonia los espera?",
+    actionTitle: "¿La Patagonia los espera?",
     actionBody: "Consultanos por fechas, actividades, alojamiento e inscripción.",
     actionCta: "Consultar información",
     facts: [
@@ -36,7 +36,7 @@ export const es: Dictionary = {
   },
   home: {
     hero: {
-      titleLines: ["Inmersión en inglés", "en Patagonia"],
+      titleLines: ["Inmersión en inglés", "en la Patagonia"],
       subtitle:
         "Un campamento residencial de inmersión en inglés para adolescentes de 13 a 17 años, en Villa La Angostura, Patagonia.",
       badges: [

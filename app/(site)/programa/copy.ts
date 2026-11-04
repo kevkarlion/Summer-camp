@@ -187,7 +187,7 @@ const es: ProgrammeCopy = {
   },
   hero: {
     titleLines: ["Aprender haciendo"],
-    lead: "Una metodología de inmersión convierte cada actividad, conversación y decisión en una razón para aprender inglés haciendo en Patagonia.",
+    lead: "Una metodología de inmersión convierte cada actividad, conversación y decisión en una razón para aprender inglés haciendo en la Patagonia.",
     image: {
       src: "/camp-media/grupo-caminando.webp",
       alt: "Fotografía real del campamento: grupo caminando con mochilas por un sendero de bosque",
