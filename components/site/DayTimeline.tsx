@@ -26,32 +26,52 @@ export function DayTimeline() {
     const media = Array.from(root.querySelectorAll<HTMLElement>("[data-timeline-media]"));
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let animationFrame = 0;
+    /**
+     * The geometry is measured once and reused, so a scroll frame never forces
+     * a layout. Reading twelve boxes on every frame was the main source of
+     * jank on touch devices.
+     */
+    const geometry: {
+      railTop: number;
+      railHeight: number;
+      blocks: { top: number; height: number }[];
+    } = { railTop: 0, railHeight: 0, blocks: [] };
+
+    const measureGeometry = () => {
+      if (!rail) return;
+      const scrollY = window.scrollY;
+      const railRect = rail.getBoundingClientRect();
+      geometry.railTop = railRect.top + scrollY;
+      geometry.railHeight = railRect.height;
+      geometry.blocks = blocks.map((block) => {
+        const rect = block.getBoundingClientRect();
+        return { top: rect.top + scrollY, height: rect.height };
+      });
+    };
 
     const drawTimeline = () => {
       animationFrame = 0;
       if (reducedMotion.matches || !rail || !fill || !marker) return;
       const viewportHeight = window.innerHeight;
       const scrollPosition = window.scrollY;
-      const railRect = rail.getBoundingClientRect();
-      const railDocumentTop = railRect.top + scrollPosition;
-      const railProgress = clamp01((scrollPosition + viewportHeight * 0.56 - railDocumentTop) / Math.max(1, railRect.height));
       const isAlternating = window.innerWidth >= 900;
+      const railProgress = clamp01(
+        (scrollPosition + viewportHeight * 0.56 - geometry.railTop) / Math.max(1, geometry.railHeight),
+      );
+      // The rail is a composited transform: scaleY with a top origin.
       fill.style.transform = `scaleY(${railProgress})`;
-      marker.style.transform = `translate3d(-50%, ${railProgress * railRect.height}px, 0)`;
+      marker.style.transform = `translate3d(-50%, ${railProgress * geometry.railHeight}px, 0)`;
+
+      // On the single column layout the card and its photograph stay together,
+      // so nothing is written per block on touch devices.
+      if (!isAlternating) return;
+
       blocks.forEach((block, index) => {
-        const rect = block.getBoundingClientRect();
-        const blockDocumentTop = rect.top + scrollPosition;
-        const travel = Math.max(1, rect.height + viewportHeight * 0.76);
-        const progress = clamp01((scrollPosition + viewportHeight * 0.88 - blockDocumentTop) / travel);
+        const box = geometry.blocks[index];
+        if (!box) return;
+        const travel = Math.max(1, box.height + viewportHeight * 0.76);
+        const progress = clamp01((scrollPosition + viewportHeight * 0.88 - box.top) / travel);
         // Parallax drift: the card travels with the scroll while staying legible.
-        // On the single column layout the card and its photograph stay together.
-        if (!isAlternating) {
-          block.style.opacity = "1";
-          block.style.transform = "none";
-          const photo = media[index];
-          if (photo) photo.style.transform = "none";
-          return;
-        }
         const drift = 96 - progress * 192;
         const scale = progress < 0.25 ? 0.96 + (progress / 0.25) * 0.04 : progress > 0.75 ? 1 - ((progress - 0.75) / 0.25) * 0.04 : 1;
         block.style.opacity = "1";
@@ -66,6 +86,19 @@ export function DayTimeline() {
     };
     const scheduleDraw = () => {
       if (animationFrame === 0) animationFrame = window.requestAnimationFrame(drawTimeline);
+    };
+
+    // Once the scrolling stops, the geometry is measured again: the entrance
+    // reveals shift the timeline by a few pixels while they settle, and the
+    // rail has to follow the position the reader actually sees.
+    let measureTimer = 0;
+    const scheduleMeasure = () => {
+      if (measureTimer !== 0) window.clearTimeout(measureTimer);
+      measureTimer = window.setTimeout(() => {
+        measureTimer = 0;
+        measureGeometry();
+        scheduleDraw();
+      }, 150);
     };
     const syncMotionPreference = () => {
       if (!fill || !marker) {
@@ -84,10 +117,37 @@ export function DayTimeline() {
     };
 
     syncMotionPreference();
+    measureGeometry();
+    const resizeObserver = new ResizeObserver(() => {
+      measureGeometry();
+      scheduleDraw();
+    });
+    resizeObserver.observe(root);
+
+    // A late image or font can move the timeline down the document, so the
+    // cached document position has to be refreshed when the page changes size.
+    const pageObserver = new ResizeObserver(() => {
+      measureGeometry();
+      scheduleDraw();
+    });
+    pageObserver.observe(document.body);
+    if (document.fonts?.ready) {
+      void document.fonts.ready.then(() => {
+        measureGeometry();
+        scheduleDraw();
+      });
+    }
     window.addEventListener("scroll", scheduleDraw, { passive: true });
-    window.addEventListener("resize", scheduleDraw, { passive: true });
+    window.addEventListener("scroll", scheduleMeasure, { passive: true });
+    window.addEventListener("resize", () => {
+      measureGeometry();
+      scheduleDraw();
+    }, { passive: true });
     reducedMotion.addEventListener("change", syncMotionPreference);
     return () => {
+      if (measureTimer !== 0) window.clearTimeout(measureTimer);
+      resizeObserver.disconnect();
+      pageObserver.disconnect();
       if (animationFrame !== 0) window.cancelAnimationFrame(animationFrame);
       window.removeEventListener("scroll", scheduleDraw);
       window.removeEventListener("resize", scheduleDraw);

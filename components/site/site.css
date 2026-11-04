@@ -371,3 +371,11 @@
 .site-footer {
   padding-bottom: calc(clamp(1.5rem, 3vw, 2.25rem) + var(--home-safe-bottom));
 }
+
+/* Mobile compositing: elements that animate on scroll get their own layer so
+   the first frame does not stall. Desktop keeps the browser default. */
+@media (max-width: 767px) {
+  .site-reveal {
+    will-change: transform, opacity;
+  }
+}

@@ -99,6 +99,10 @@
   .programa-ingles__inquiry-title { max-width: 16ch; }
   .day-timeline__item { gap: 0.75rem; padding-bottom: clamp(1.5rem, 4vw, 3rem); grid-template-columns: 2.75rem minmax(0, 1fr); }
 
+  /* The travelling marker shares the rail with the clock, so on a phone the
+     filled rail carries the progress and the marker steps aside. */
+  .day-timeline__travelling-marker { display: none; }
+
   .day-timeline__media { grid-row: 2; }
 
 }

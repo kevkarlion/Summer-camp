@@ -49,7 +49,7 @@ export function Reveal({ children, className, delay = 0, distance = 24 }: Reveal
   return (
     <motion.div
       ref={ref}
-      className={cn(className)}
+      className={cn("site-reveal", className)}
       initial={shouldReduceMotion ? false : { opacity: 0, y: distance }}
       animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: distance }}
       transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
