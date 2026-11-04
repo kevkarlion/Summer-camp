@@ -66,7 +66,7 @@ const en: ProgrammeCopy = {
   },
   hero: {
     titleLines: ["Learning by doing"],
-    lead: "An immersion methodology turns every activity, conversation and decision into a reason to learn English by doing it in Patagonia.",
+    lead: "An immersion methodology turns every activity, conversation and decision into a reason to learn English by doing it in the Patagonia.",
     image: {
       src: "/camp-media/grupo-caminando.webp",
       alt: "Real camp photograph: a group walking with backpacks along a forest trail",

@@ -83,7 +83,7 @@ const en: FamiliasCopy = {
       {
         question: "What is Patagonia Summer Camp?",
         answer:
-          "It is a residential summer experience for teenagers that combines outdoor adventure, English immersion and discovering Patagonia.",
+          "It is a residential summer experience for teenagers that combines outdoor adventure, English immersion and discovering the Patagonia.",
       },
       {
         question: "Which ages is it for?",

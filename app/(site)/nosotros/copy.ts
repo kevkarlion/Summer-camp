@@ -41,22 +41,22 @@ const en: NosotrosCopy = {
       "The story of Hernán Paulitti, founder of Patagonia Summer Camp: English in Escobar and Bologna, Ireland and England, Lapland at -35 °C and El Chaltén.",
   },
   hero: {
-    titleLines: ["From Lapland", "to Patagonia"],
-    lead: "Hernán Paulitti, founder of Patagonia Summer Camp, worked in Lapland under the northern lights; in Patagonia he keeps that promise with a camp for teenagers.",
+    titleLines: ["From Lapland", "to the Patagonia"],
+    lead: "Hernán Paulitti, founder of Patagonia Summer Camp, worked in Lapland under the northern lights; in the Patagonia he keeps that promise with a camp for teenagers.",
     image: {
       src: "/camp-media/hernan-bajo-las-auroras.webp",
       alt: "Real photograph of Hernán Paulitti under the northern lights in Lapland",
     },
   },
   biography: {
-    heading: "Lapland to Patagonia",
+    heading: "Lapland to the Patagonia",
     aside: "Where the idea came from",
     paragraphs: [
       "In 2011, Hernán studied English at the Instituto de Formación Docente y Técnica N° 55 in Escobar, Buenos Aires. He then taught English in Argentina for many years.",
       "He moved to Bologna, Italy, where he studied Italian at Academia Lingue and worked with Italian agritech, design and technology companies, teaching English to architects, designers, operators and other professionals.",
       "He organised English learning trips for adults and teenagers to Ireland and England, and worked as a teacher and activity leader in summer camps in northern Italy.",
       "He then worked in Lapland, Finland, collaborating with Finnish tourism companies. He guided visitors under the northern lights and took huskies into snowy forests at -35°C.",
-      "After spending a week camping in El Chaltén, he promised himself to return to Patagonia and share an experience that would help others explore other worlds through the language.",
+      "After spending a week camping in El Chaltén, he promised himself to return to the Patagonia and share an experience that would help others explore other worlds through the language.",
     ],
     photos: [
       {
@@ -77,7 +77,7 @@ const en: NosotrosCopy = {
     ],
   },
   values: {
-    heading: "A mission to share Patagonia",
+    heading: "A mission to share the Patagonia",
     lead: "Patagonia Summer Camp keeps that promise by valuing the region through friendship, the language, respect for local culture and curiosity about nature.",
     aside: "What guides our work",
     items: [

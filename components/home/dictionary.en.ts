@@ -18,10 +18,10 @@ export const en: Dictionary = {
     mobileNavLabel: "Mobile navigation",
   },
   footer: {
-    tagline: "English immersion in Patagonia for teenagers aged 13 to 17.",
+    tagline: "English immersion in the Patagonia for teenagers aged 13 to 17.",
     exploreTitle: "Explore",
     campTitle: "The camp",
-    actionTitle: "Ready for Patagonia?",
+    actionTitle: "Ready for the Patagonia?",
     actionBody: "Ask us about dates, activities, accommodation and how to enrol.",
     actionCta: "Request information",
     facts: [
@@ -36,7 +36,7 @@ export const en: Dictionary = {
   },
   home: {
     hero: {
-      titleLines: ["English immersion", "in Patagonia"],
+      titleLines: ["English immersion", "in the Patagonia"],
       subtitle:
         "A residential English immersion camp for teenagers aged 13 to 17, in Villa La Angostura, Patagonia.",
       badges: [
