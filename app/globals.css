@@ -212,6 +212,12 @@
 
 @utility animate-pulse-slow {
   animation: pulse-slow 8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+
+  /* An infinite animation over a radial gradient competes with the hero
+     entrance for the compositor on a phone, so it only runs on larger screens. */
+  @media (max-width: 767px) {
+    animation: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

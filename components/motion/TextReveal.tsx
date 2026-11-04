@@ -101,7 +101,7 @@ export function TextReveal({ as, children, className }: TextRevealProps) {
 
   return (
     <MotionHeading
-      className={cn("m-0", className)}
+      className={cn("m-0 overflow-hidden pb-[0.12em] -mb-[0.12em]", className)}
       initial={shouldReduceMotion ? false : "hidden"}
       animate={shouldReduceMotion || !isAboveTheFold ? undefined : "visible"}
       whileInView={shouldReduceMotion || isAboveTheFold ? undefined : "visible"}
@@ -111,7 +111,9 @@ export function TextReveal({ as, children, className }: TextRevealProps) {
     >
       {words.map((word, index) => (
         <Fragment key={`${word}-${index}`}>
-          <span className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-bottom">
+          {/* One clip on the heading instead of one per word: WebKit recomputes
+              a clipping rectangle for every masked inline box on every frame. */}
+          <span className="inline-block align-bottom">
             <motion.span className="inline-block" variants={wordVariants}>
               {word}
             </motion.span>

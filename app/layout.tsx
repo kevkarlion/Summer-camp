@@ -16,7 +16,13 @@ const homeDisplay = Barlow_Condensed({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   variable: "--font-home-display",
-  display: "swap",
+  // "optional" never swaps the face after the first paint: WebKit keeps the
+  // fallback for that page load instead of re-painting the hero headline in
+  // the middle of the busiest moment. The file is preloaded, so the brand face
+  // is normally there before the first paint.
+  display: "optional",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const viewport: Viewport = {
