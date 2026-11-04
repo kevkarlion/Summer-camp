@@ -3,12 +3,14 @@ import type { Metadata } from "next";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeLinks } from "@/components/home/HomeLinks";
 import { HomeField } from "@/components/home/HomeField";
+import { HomeWhere } from "@/components/home/HomeWhere";
 import { Reveal } from "@/components/motion/Reveal";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site";
 
 import "@/components/home/home-core.css";
 import "@/components/home/home-hero.css";
+import "@/components/home/home-where.css";
 
 const description =
   "Summer camp residencial para adolescentes de 13 a 17 años en Villa La Angostura: inglés por inmersión, naturaleza y aventura del 4 al 12 de diciembre de 2027.";
@@ -85,6 +87,7 @@ export default function HomePage() {
 
       <Reveal>
         <HomeField />
+      <HomeWhere />
       </Reveal>
 
       <HomeLinks />

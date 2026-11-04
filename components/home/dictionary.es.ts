@@ -55,6 +55,36 @@ export const es: Dictionary = {
       imageAlt: "Vista panorámica de Villa La Angostura: lago turquesa, bosque nativo y montañas",
       imageCaption: "Villa La Angostura, a orillas del lago Nahuel Huapi.",
     },
+    where: {
+      title: "Dónde está Villa La Angostura",
+      lead: "En el Neuquén, en la Patagonia argentina, a orillas del lago Nahuel Huapi y entre los cerros de la cordillera.",
+      points: [
+        {
+          label: "Al norte",
+          text: "San Martín de los Andes, la capital de los lagos de la provincia.",
+        },
+        {
+          label: "Al sur",
+          text: "Bariloche, la ciudad de los lagos, sobre la misma orilla.",
+        },
+        {
+          label: "Al oeste",
+          text: "El Cerro López y la cordillera, el escenario natural de cada jornada.",
+        },
+      ],
+      residence:
+        "La residencia queda a 2 km del centro del pueblo, con 26 hectáreas de parque y bosque nativo alrededor.",
+      mapLabel: "Mapa esquemático de la ubicación de Villa La Angostura",
+      mapNote: "Mapa esquemático. No está a escala.",
+      map: {
+        town: "Villa La Angostura",
+        north: "San Martín de los Andes",
+        south: "Bariloche",
+        west: "Cerro López",
+        lake: "Lago Nahuel Huapi",
+        range: "La cordillera",
+      },
+    },
     field: {
       title: "Veni por la aventura. Quedate por el inglés.",
       lead: "Una semana en Villa La Angostura donde el inglés se usa en las situaciones reales de la vida de campamento.",

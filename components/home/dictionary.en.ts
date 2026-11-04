@@ -55,6 +55,36 @@ export const en: Dictionary = {
       imageAlt: "Panoramic view of Villa La Angostura: turquoise lake, native forest and mountains",
       imageCaption: "Villa La Angostura, on the shore of Lake Nahuel Huapi.",
     },
+    where: {
+      title: "Where Villa La Angostura is",
+      lead: "In Neuquén, in the Argentine Patagonia, on the shore of Lake Nahuel Huapi and among the mountains of the Andes.",
+      points: [
+        {
+          label: "To the north",
+          text: "San Martín de los Andes, the capital of the province's lakes.",
+        },
+        {
+          label: "To the south",
+          text: "Bariloche, the city of the lakes, on the same shore.",
+        },
+        {
+          label: "To the west",
+          text: "Cerro López and the mountain range, the natural setting of every day.",
+        },
+      ],
+      residence:
+        "The residence sits 2 km from the town centre, with 26 hectares of park and native forest around it.",
+      mapLabel: "Schematic map of the location of Villa La Angostura",
+      mapNote: "Schematic map. Not to scale.",
+      map: {
+        town: "Villa La Angostura",
+        north: "San Martín de los Andes",
+        south: "Bariloche",
+        west: "Cerro López",
+        lake: "Lake Nahuel Huapi",
+        range: "The Andes",
+      },
+    },
     field: {
       title: "Come for the adventure. Stay for the English.",
       lead: "One week in Villa La Angostura where English is used in the real situations of camp life.",

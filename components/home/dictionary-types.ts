@@ -41,6 +41,22 @@ export type Dictionary = {
       imageAlt: string;
       imageCaption: string;
     };
+    where: {
+      title: string;
+      lead: string;
+      points: { label: string; text: string }[];
+      residence: string;
+      mapLabel: string;
+      mapNote: string;
+      map: {
+        town: string;
+        north: string;
+        south: string;
+        west: string;
+        lake: string;
+        range: string;
+      };
+    };
     field: {
       title: string;
       lead: string;
