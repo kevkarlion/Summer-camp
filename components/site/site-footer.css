@@ -140,27 +140,3 @@
     grid-template-columns: 1fr;
   }
 }
-
-/* Header contact action */
-.site-header__contact {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.5rem;
-  padding: 0.35rem 1.1rem;
-  border: 1px solid rgba(244, 246, 242, 0.55);
-  border-radius: 999px;
-  color: var(--home-paper-ink);
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
-}
-
-.site-header__contact:hover,
-.site-header__contact:focus-visible {
-  border-color: var(--home-paper-ink);
-  background: var(--home-paper-ink);
-  color: var(--home-forest-deep);
-}
