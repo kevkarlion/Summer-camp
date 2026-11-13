@@ -8,6 +8,7 @@ export const en: Dictionary = {
       { href: "/residencia", label: "Residence" },
       { href: "/nosotros", label: "About us" },
       { href: "/familias", label: "Families" },
+      { href: "/agenda", label: "Book your video call" },
     ],
     primaryLabel: "Patagonia Summer Camp 2027, home",
     openMenu: "Open menu",

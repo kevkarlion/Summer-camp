@@ -1,6 +1,6 @@
 /* Header chrome and the mobile menu, in the canonical field-notebook system. */
 .site-header {
-  background: var(--home-night);
+  background: var(--home-nav-field);
 }
 
 .site-header__toggle {
@@ -57,7 +57,7 @@
   max-height: calc(100svh - 5rem - var(--home-safe-top));
   overflow-y: auto;
   padding: 1.25rem var(--home-margin) calc(1.5rem + var(--home-safe-bottom));
-  background: var(--home-night);
+  background: var(--home-nav-field);
   color: var(--home-paper-ink);
 }
 

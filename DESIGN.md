@@ -12,6 +12,7 @@ colors:
   paper-light: "#f4f6f2"
   paper-muted: "#d2ddd7"
   night-blue: "#0b1320"
+  verde-musgo: "#2c6449"
   surface-blue: "#0f172a"
 typography:
   display:
@@ -130,7 +131,8 @@ The palette is a low-chroma landscape: forest for authority, lake for context, m
 - **Gris sierra** (#4f5f56): secondary text on mineral ground.
 - **Papel claro** (#f4f2ea family, #f4f6f2): text on forest and lake fields.
 - **Papel atenuado** (#d2ddd7): secondary text on forest and lake fields.
-- **Azul noche** (#0b1320): shared header and footer chrome.
+- **Verde musgo** (#2c6449): the shared header and mobile menu chrome, a lighter and friendlier green than Bosque de lenga.
+- **Azul noche** (#0b1320): the night surface of the system, kept for dark fields outside the shared chrome.
 - **Superficie azul** (#0f172a): shared footer surface.
 
 **The One Field Rule.** Verde lago appears once per surface as a full field. It is a place, not a decoration.
@@ -201,7 +203,7 @@ Corners are square to almost square: buttons and framed surfaces use a small 0.2
 
 ### Navigation
 
-Fixed, 80px tall, night-blue chrome, 13px labels, and a paper-filled contact badge as the only accent. The mobile menu opens as a night-blue panel with a safe-area-aware bottom inset. On the Home the frame and margins match the header exactly.
+Fixed, 80px tall, moss-green chrome, 13px labels, and a paper-filled contact badge as the only accent. The mobile menu opens as a moss-green panel with a safe-area-aware bottom inset. On the Home the frame and margins match the header exactly.
 
 ### Facts Panel
 

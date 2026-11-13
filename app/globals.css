@@ -10,6 +10,8 @@
   --color-brand-secondary: var(--theme-secondary);
   --color-brand-secondary-hover: var(--theme-secondary-hover);
   --color-ink: var(--text-inverse);
+  --color-nav-field: var(--home-nav-field);
+  --color-nav-field-deep: var(--home-nav-field-deep);
   --font-sans: Arial, Helvetica, sans-serif;
   --font-display: Georgia, "Times New Roman", serif;
   --ease-expo: var(--ease-out-expo);
@@ -146,6 +148,7 @@
 @utility text-muted { color: var(--text-muted); }
 @utility text-primary-accent { color: var(--color-primary); }
 @utility text-secondary-accent { color: var(--color-secondary); }
+@utility text-nav-accent { color: var(--home-nav-gold); }
 @utility border-subtle { border-color: var(--border-subtle); }
 @utility bg-overlay-soft { background-color: var(--overlay-soft); }
 @utility bg-overlay-hover { background-color: var(--overlay-hover); }

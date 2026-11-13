@@ -28,7 +28,7 @@ const homeDisplay = Barlow_Condensed({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0b1320",
+  themeColor: "#2c6449",
 };
 
 export const metadata: Metadata = {

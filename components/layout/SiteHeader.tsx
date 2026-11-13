@@ -21,7 +21,7 @@ export function SiteHeader() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="site-header fixed inset-x-0 top-0 z-50 w-full isolate bg-main">
+    <header className="site-header fixed inset-x-0 top-0 z-50 w-full isolate bg-nav-field">
       <Container className="flex h-20 items-center justify-between gap-5 xl:gap-8">
         <Link
           href="/"
@@ -37,7 +37,7 @@ export function SiteHeader() {
           />
           <span className="leading-tight">
             <span className="block text-[15px] font-bold tracking-[0.08em] text-main">PATAGONIA</span>
-            <span className="block text-[13px] font-semibold tracking-[0.2em] text-secondary-accent">SUMMER CAMP</span>
+            <span className="block text-[13px] font-semibold tracking-[0.2em] text-nav-accent">SUMMER CAMP</span>
           </span>
         </Link>
 

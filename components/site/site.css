@@ -10,6 +10,11 @@
   --home-paper-ink: #f4f6f2;
   --home-paper-muted: #d2ddd7;
   --home-night: #0b1320;
+  /* Verde musgo claro: el campo de la barra de navegación. */
+  --home-nav-field: #2c6449;
+  --home-nav-field-deep: #23543d;
+  /* El dorado del cromo heritage, aclarado para seguir legible sobre el verde. */
+  --home-nav-gold: #f5cf8a;
   --home-margin: 1.25rem;
   --home-gutter: clamp(1rem, 2vw, 1.5rem);
 }

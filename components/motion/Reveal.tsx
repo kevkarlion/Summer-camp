@@ -20,6 +20,12 @@ export interface RevealProps {
  * instead of the library viewport helper, and the wrapper element never
  * changes identity: rendering a different node for reduced motion used to
  * leave the observer without a target, so whole sections stayed invisible.
+ *
+ * The initial state is the same on the server and on the client, including
+ * when the visitor asks for reduced motion: the server cannot know that
+ * preference, so branching on it during render made the two HTML trees
+ * differ and React reported a hydration mismatch on every route. Reduced
+ * motion is honoured by dropping the duration instead.
  */
 export function Reveal({ children, className, delay = 0, distance = 24 }: RevealProps) {
   const shouldReduceMotion = useReducedMotion();
@@ -50,9 +56,9 @@ export function Reveal({ children, className, delay = 0, distance = 24 }: Reveal
     <motion.div
       ref={ref}
       className={cn("site-reveal", className)}
-      initial={shouldReduceMotion ? false : { opacity: 0, y: distance }}
+      initial={{ opacity: 0, y: distance }}
       animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: distance }}
-      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>

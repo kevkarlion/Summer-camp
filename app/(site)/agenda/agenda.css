@@ -1,0 +1,798 @@
+/* The video-call page: a paper sheet on the coordinator's desk. */
+
+.agenda-page {
+  background: var(--home-forest);
+  color: var(--home-paper-ink);
+  padding-bottom: 4.5rem;
+}
+
+/* Hero: the photograph behind the sheet. */
+
+.agenda-hero {
+  position: relative;
+  background: var(--home-forest);
+  padding-top: calc(var(--home-header-h) + clamp(2rem, 6vw, 5rem));
+}
+
+.agenda-hero__media {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  overflow: hidden;
+  background: rgba(18, 55, 42, 0.38);
+}
+
+.agenda-hero__image {
+  object-fit: cover;
+  filter: brightness(0.55);
+}
+
+.agenda-hero__inner {
+  position: relative;
+  padding-bottom: 0;
+}
+
+/* The sheet: one paper surface, from the head to the receipt. */
+
+.agenda-sheet {
+  padding: clamp(1.75rem, 3.5vw, 3rem) clamp(1.25rem, 3.5vw, 3.25rem);
+  background: var(--home-paper);
+  color: var(--home-ink);
+}
+
+.agenda-sheet--head {
+  padding: clamp(1.5rem, 3.5vw, 3.25rem);
+}
+
+.agenda-sheet--body {
+  padding: clamp(4rem, 6vw, 5rem) clamp(1.25rem, 3.5vw, 3.25rem) clamp(2.5rem, 5vw, 4rem);
+}
+
+.agenda-sheet__title {
+  max-width: 24ch;
+}
+
+.agenda-sheet__title span {
+  display: block;
+}
+
+/* Head: the title spread over the sheet, the facts, the action. */
+
+.agenda-head__title {
+  max-width: 24ch;
+}
+
+.agenda-head__lead {
+  max-width: 46ch;
+  margin-top: 2.25rem;
+}
+
+.agenda-facts {
+  display: grid;
+  gap: 1.5rem 2rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.agenda-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.agenda-fact__value {
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.5rem, 2.4vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.agenda-fact__note {
+  margin: 0;
+  color: var(--home-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.agenda-head__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.agenda-button {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.15rem;
+  border: 0;
+  border-radius: 0.2rem;
+  background: var(--home-nav-field);
+  color: var(--home-paper-ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform 140ms cubic-bezier(0.22, 1, 0.36, 1), background-color 180ms ease;
+}
+
+.agenda-button:hover,
+.agenda-button:focus-visible {
+  background: var(--home-nav-field-deep);
+}
+
+.agenda-button:active {
+  transform: scale(0.98);
+}
+
+/* The desk under the sheet. */
+
+.agenda-desk {
+  background: var(--home-forest);
+}
+
+.agenda-desk--gap {
+  padding-block: clamp(2rem, 5vw, 4rem);
+}
+
+/* Slots: the printed sheet of available calls. */
+
+.agenda-slots {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.agenda-slots__legend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.75rem;
+  color: var(--home-ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.agenda-days {
+  display: grid;
+  min-height: 6.5rem;
+  gap: 0.5rem;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.agenda-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.75rem 0.35rem;
+  border: 0;
+  border-radius: 0.2rem;
+  background: var(--home-paper-deep);
+  color: var(--home-ink);
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.agenda-day:hover {
+  background: color-mix(in srgb, var(--home-forest) 14%, var(--home-paper-deep));
+}
+
+.agenda-day--selected,
+.agenda-day--selected:hover {
+  background: var(--home-nav-field);
+  color: var(--home-paper-ink);
+}
+
+.agenda-day__weekday {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+.agenda-day__number {
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.agenda-day__month {
+  font-size: 0.75rem;
+  opacity: 0.78;
+}
+
+.agenda-times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.agenda-time {
+  min-width: 5.5rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.9rem;
+  border: 0;
+  border-radius: 0.2rem;
+  background: var(--home-paper-deep);
+  color: var(--home-ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.agenda-time:hover {
+  background: color-mix(in srgb, var(--home-forest) 14%, var(--home-paper-deep));
+}
+
+.agenda-time--selected,
+.agenda-time--selected:hover {
+  background: var(--home-nav-field);
+  color: var(--home-paper-ink);
+}
+
+.agenda-slots__chosen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.85rem;
+  margin: 0;
+  color: var(--home-muted);
+  font-size: 1rem;
+}
+
+.agenda-slots__chosen--active {
+  color: var(--home-ink);
+  font-weight: 700;
+}
+
+.agenda-slots__zone {
+  color: var(--home-muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+/* The form, separated from the slots by a perforated line. */
+
+.agenda-form {
+  position: relative;
+  display: grid;
+  gap: 1.25rem 1.5rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: clamp(2rem, 4vw, 2.75rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.agenda-form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 4px;
+  background-image: radial-gradient(circle at 2px 2px, var(--home-muted) 2px, transparent 2.5px);
+  background-size: 12px 4px;
+  opacity: 0.55;
+}
+
+.agenda-field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.agenda-field--group {
+  grid-column: 1 / -1;
+}
+
+.agenda-field__label {
+  padding: 0;
+  color: var(--home-ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.agenda-field__optional {
+  margin-left: 0.5rem;
+  color: var(--home-muted);
+  font-weight: 400;
+}
+
+.agenda-field__input {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--home-ink) 18%, transparent);
+  border-radius: 0.2rem;
+  background: var(--home-paper);
+  color: var(--home-ink);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.agenda-field__input::placeholder {
+  color: color-mix(in srgb, var(--home-muted) 78%, transparent);
+}
+
+.agenda-field__input:focus {
+  border-color: var(--home-lake);
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--home-lake) 28%, transparent);
+}
+
+.agenda-field__textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.agenda-field__selectwrap {
+  position: relative;
+  display: flex;
+}
+
+.agenda-field__select {
+  appearance: none;
+  padding-right: 2.5rem;
+}
+
+.agenda-field__chevron {
+  position: absolute;
+  top: 50%;
+  right: 0.9rem;
+  color: var(--home-muted);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.agenda-field__error {
+  margin: 0;
+  color: #a3261f;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.agenda-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.agenda-chip {
+  position: relative;
+  display: inline-flex;
+}
+
+.agenda-chip input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.agenda-chip span {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  background: var(--home-paper-deep);
+  color: var(--home-ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.agenda-chip:hover span {
+  background: color-mix(in srgb, var(--home-forest) 14%, var(--home-paper-deep));
+}
+
+.agenda-chip input:checked + span {
+  background: var(--home-nav-field);
+  color: var(--home-paper-ink);
+}
+
+.agenda-chip input:focus-visible + span {
+  outline: 2px solid var(--home-lake);
+  outline-offset: 2px;
+}
+
+.agenda-submit {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+  padding: 0.85rem 1.15rem;
+  border: 0;
+  border-radius: 0.2rem;
+  background: var(--home-nav-field);
+  color: var(--home-paper-ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  grid-column: 1 / -1;
+  transition: transform 140ms cubic-bezier(0.22, 1, 0.36, 1), background-color 180ms ease;
+}
+
+.agenda-submit:hover {
+  background: var(--home-nav-field-deep);
+}
+
+.agenda-submit:active {
+  transform: scale(0.98);
+}
+
+.agenda-submit:disabled {
+  cursor: progress;
+  opacity: 0.75;
+}
+
+.agenda-submit__spinner {
+  animation: agenda-spin 900ms linear infinite;
+}
+
+.agenda-submit__note {
+  margin: 0;
+  color: var(--home-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  grid-column: 1 / -1;
+}
+
+@keyframes agenda-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* The receipt: the part of the sheet that comes off. */
+
+.agenda-stub {
+  position: relative;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--home-paper-deep);
+  color: var(--home-ink);
+}
+
+.agenda-stub::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: 0;
+  left: 0;
+  height: 4px;
+  background-image: radial-gradient(circle at 2px 2px, var(--home-muted) 2px, transparent 2.5px);
+  background-size: 12px 4px;
+  opacity: 0.55;
+}
+
+.agenda-stub__mark {
+  display: inline-grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  place-items: center;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--home-nav-field) 16%, transparent);
+  color: var(--home-nav-field);
+}
+
+.agenda-stub__title {
+  margin: 1.25rem 0 0;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.agenda-stub__text {
+  max-width: 52ch;
+  margin: 0.85rem 0 0;
+  color: var(--home-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.agenda-stub__list {
+  display: grid;
+  gap: 1rem 2rem;
+  margin: 1.75rem 0 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.agenda-stub__list dt {
+  color: var(--home-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.agenda-stub__list dd {
+  margin: 0.25rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.agenda-stub__note {
+  margin: 1.75rem 0 0;
+  color: var(--home-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.agenda-stub__again {
+  min-height: 2.75rem;
+  margin-top: 1.25rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--home-ink) 28%, transparent);
+  border-radius: 0.2rem;
+  background: transparent;
+  color: var(--home-ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.agenda-stub__again:hover {
+  background: var(--home-ink);
+  color: var(--home-paper);
+}
+
+/* The sticky sheet: what you already chose, always at hand. */
+
+.agenda-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem var(--home-margin) calc(0.7rem + var(--home-safe-bottom));
+  background: var(--home-forest-deep);
+  color: var(--home-paper-ink);
+}
+
+.agenda-bar__slot {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.agenda-bar__button {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.9rem;
+  border: 0;
+  border-radius: 0.2rem;
+  background: var(--home-paper);
+  color: var(--home-forest-deep);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 180ms ease;
+}
+
+.agenda-bar__button:hover {
+  background: var(--home-paper-deep);
+}
+
+/* What the call covers. */
+
+.agenda-topics {
+  display: grid;
+  gap: 1.75rem 2.5rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.agenda-topic__title {
+  margin: 0;
+  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.agenda-topic__text {
+  margin: 0.4rem 0 0;
+  color: var(--home-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.agenda-plates {
+  display: grid;
+  gap: 1rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.agenda-plate__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.agenda-plate__caption {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--home-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Questions, set as reading text. */
+
+.agenda-faq-sheet {
+  display: grid;
+  gap: 2rem 3rem;
+  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+}
+
+.agenda-faq-sheet__intro {
+  max-width: 32ch;
+}
+
+.agenda-faq {
+  columns: 2;
+  column-gap: 3.5rem;
+}
+
+.agenda-faq__item {
+  margin: 0 0 1.25rem;
+  break-inside: avoid;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.agenda-faq__question {
+  font-weight: 700;
+}
+
+/* Closing: the reply card, cropped by the field it lies on. */
+
+.agenda-closing {
+  overflow: hidden;
+  padding-block: clamp(4rem, 8vw, 7rem);
+  background: var(--home-forest-deep);
+  color: var(--home-paper-ink);
+}
+
+.agenda-closing__inner {
+  display: grid;
+  gap: 2rem;
+  align-items: end;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.agenda-closing__text {
+  margin: 0;
+  padding-left: clamp(1.25rem, 3.5vw, 3.25rem);
+  color: var(--home-paper-muted);
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  line-height: 1.5;
+  grid-column: 1 / 5;
+}
+
+.agenda-closing__slot {
+  grid-column: 6 / 13;
+}
+
+.agenda-closing__card {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: -3.5rem;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  background: var(--home-paper);
+  color: var(--home-ink);
+  transform: rotate(2deg);
+}
+
+.agenda-closing__title {
+  max-width: 20ch;
+  font-size: clamp(1.9rem, 2.6vw, 2.75rem);
+}
+
+.agenda-closing__title span {
+  display: block;
+}
+
+/* Phone: the sheet is the whole width and the objects keep their shape. */
+
+@media (max-width: 1023px) {
+  /* On a phone the sheet becomes the page: it runs edge to edge and keeps its
+     own margin inside, so the frame matches the shared footer. */
+  .agenda-sheet {
+    margin-inline: calc(var(--home-margin) * -1);
+  }
+
+  .agenda-days {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .agenda-closing__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .agenda-closing__text,
+  .agenda-closing__slot {
+    grid-column: 1 / -1;
+  }
+
+  .agenda-closing__card {
+    width: 92%;
+    margin-inline: auto;
+    margin-bottom: -2.5rem;
+    transform: rotate(1deg);
+  }
+}
+
+@media (max-width: 767px) {
+  /* The sheet is full width on a phone, so the photograph keeps more room above it. */
+  .agenda-hero {
+    padding-top: calc(var(--home-header-h) + 5rem);
+  }
+
+  .agenda-facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .agenda-form,
+  .agenda-topics,
+  .agenda-plates,
+  .agenda-stub__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .agenda-faq {
+    columns: 1;
+  }
+
+  .agenda-faq-sheet {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .agenda-page {
+    padding-bottom: 5rem;
+  }
+
+  .agenda-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .agenda-bar__button {
+    width: 100%;
+  }
+}
