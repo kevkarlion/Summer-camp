@@ -1,9 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
 
 import { VideoCallBooking } from "@/components/forms/VideoCallBooking";
 import { useLanguage } from "@/components/home/LanguageProvider";
@@ -11,40 +9,27 @@ import { Reveal } from "@/components/motion/Reveal";
 
 import { agendaCopy } from "./copy";
 
-const MotionImage = motion(Image);
-
 export function AgendaView() {
   const { language } = useLanguage();
   const copy = agendaCopy[language];
   const locale = language === "es" ? "es-AR" : "en-GB";
-  const heroRef = useRef<HTMLElement>(null);
-  const shouldReduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const headScale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
-  const headY = useTransform(scrollYProgress, [0, 1], [0, -14]);
-  const headOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.72]);
-  const photoScale = useTransform(scrollYProgress, [0, 1], [1.06, 1]);
 
   return (
     <main id="main-content" className="agenda-page">
-      <section className="agenda-hero" aria-labelledby="agenda-title" ref={heroRef}>
+      <section className="agenda-hero" aria-labelledby="agenda-title">
         <figure className="agenda-hero__media" aria-hidden="true">
-          <MotionImage
+          <Image
             src={copy.hero.image.src}
             alt=""
             fill
             priority
             sizes="100vw"
             className="agenda-hero__image"
-            style={shouldReduceMotion ? undefined : { scale: photoScale }}
           />
         </figure>
         <div className="site-wrap agenda-hero__inner">
           <div className="agenda-sheet agenda-sheet--head">
-            <motion.div
-              className="agenda-head"
-              style={shouldReduceMotion ? undefined : { scale: headScale, y: headY, opacity: headOpacity }}
-            >
+            <div className="agenda-head">
               <h1 id="agenda-title" className="site-display agenda-head__title">
                 {copy.hero.titleLines.map((line) => (
                   <span key={line} className="agenda-head__line">
@@ -71,7 +56,7 @@ export function AgendaView() {
                   {copy.hero.secondaryCta}
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

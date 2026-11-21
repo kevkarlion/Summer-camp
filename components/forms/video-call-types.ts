@@ -51,4 +51,8 @@ export type SlotsCopy = {
   empty: string;
   chosen: string;
   continueCta: string;
+  previousMonth: string;
+  nextMonth: string;
+  available: string;
+  reserved: string;
 };

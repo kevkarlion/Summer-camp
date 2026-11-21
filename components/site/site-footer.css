@@ -1,6 +1,6 @@
-/* Site footer: one dark forest band with four quiet columns. */
+/* Site footer: the camp's light emblem green closes the page. */
 .site-footer {
-  background: var(--home-forest-deep);
+  background: var(--home-camp-green);
   color: var(--home-paper-ink);
   padding-block: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 3vw, 2.25rem);
 }

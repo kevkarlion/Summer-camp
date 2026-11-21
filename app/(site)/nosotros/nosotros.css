@@ -23,73 +23,8 @@
   margin-bottom: 0;
 }
 
-.nosotros-page__values {
-  display: grid;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.nosotros-page__value {
-  display: grid;
-  align-content: start;
-  gap: 1rem;
-  padding: clamp(1.5rem, 3vw, 2.25rem);
-  background: var(--home-forest-deep);
-}
-
-.nosotros-page__value-reveal {
-  display: grid;
-  align-content: start;
-  gap: 1rem;
-}
-
-.nosotros-page__value:first-child {
-  padding-left: 0;
-}
-
-.nosotros-page__value:last-child {
-  padding-right: 0;
-}
-
-.nosotros-page__value h3 {
-  margin: 0;
-  color: var(--home-paper-ink);
-  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
-  font-size: clamp(1.7rem, 2.6vw, 2.35rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  text-wrap: balance;
-}
-
-.nosotros-page__value p {
-  max-width: 68ch;
-  margin: 0;
-  color: var(--home-paper-muted);
-  font-size: 1rem;
-  line-height: 1.62;
-}
-
-.nosotros-page__interests {
-  display: grid;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  gap: clamp(1rem, 2vw, 1.5rem);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.nosotros-page__interests li {
-  padding: clamp(1rem, 2vw, 1.4rem);
-  background: rgba(244, 246, 242, 0.14);
-  color: var(--home-paper-ink);
-  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
-  font-size: clamp(1.35rem, 2vw, 1.8rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+.nosotros-page__biography-body p:last-child {
+  margin-bottom: 0;
 }
 
 .nosotros-page__story-reveal {
@@ -126,13 +61,6 @@
   background: var(--home-paper-deep);
 }
 
-/* Lake fields use the paper foreground throughout the route. */
-.nosotros-page .site-section--lake,
-.nosotros-page .site-section--lake p,
-.nosotros-page .site-section--lake li {
-  color: var(--home-paper-ink);
-}
-
 .nosotros-page__cta {
   display: grid;
   align-items: end;
@@ -145,24 +73,99 @@
   justify-content: flex-start;
 }
 
-@media (max-width: 899px) {
-  .nosotros-page__values {
-    gap: 1.5rem;
-    grid-template-columns: 1fr;
+/* Desktop editorial spread: a fixed reading axis with the biography held in
+   two report columns. The phone keeps the original single-column flow. */
+
+@media (min-width: 1024px) {
+  .nosotros-page__biography-layout {
+    display: grid;
+    align-items: start;
+    gap: clamp(3rem, 6vw, 6.5rem);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
-  .nosotros-page__value,
-  .nosotros-page__value:first-child,
-  .nosotros-page__value:last-child {
-    padding: 1.5rem 0;
+  .nosotros-page__biography-intro {
+    position: sticky;
+    top: calc(var(--home-header-h) + 2.5rem);
+    grid-column: 1 / 5;
+  }
+
+  .nosotros-page__biography-intro h2 {
+    max-width: 8ch;
+    font-size: clamp(3rem, 4.8vw, 5rem);
+  }
+
+  .nosotros-page__biography-intro .site-section__aside {
+    max-width: 26ch;
+    margin-top: 1.5rem;
+  }
+
+  .nosotros-page__biography-copy {
+    grid-column: 5 / 13;
+  }
+
+  .nosotros-page__biography-opening {
+    max-width: 31ch;
+    margin-bottom: clamp(2.25rem, 4vw, 3.5rem) !important;
+    font-size: clamp(1.35rem, 1.8vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.42;
+    text-wrap: pretty;
+  }
+
+  .nosotros-page__biography-body {
+    display: grid;
+    gap: 0 clamp(2rem, 4vw, 4rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nosotros-page__biography-body p {
+    max-width: 43ch;
+    margin-bottom: 1.45rem;
+    font-size: 1.02rem;
+    line-height: 1.68;
+  }
+
+  .nosotros-page__story-reveal {
+    margin-top: clamp(4rem, 7vw, 7rem);
+  }
+
+  .nosotros-page__story-gallery {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .nosotros-page__story-gallery > .nosotros-page__story-band:first-child {
+    grid-column: 1 / 8;
+  }
+
+  .nosotros-page__story-gallery > .nosotros-page__story-band:nth-child(2) {
+    grid-column: 8 / 13;
+  }
+
+  .nosotros-page__story-gallery > .nosotros-page__story-band:nth-child(3) {
+    grid-column: 3 / 13;
+  }
+
+  .nosotros-page__story-gallery > .nosotros-page__story-band:first-child .nosotros-page__story-media {
+    min-height: clamp(30rem, 45vw, 42rem);
+  }
+
+  .nosotros-page__story-gallery > .nosotros-page__story-band:nth-child(2) .nosotros-page__story-media {
+    min-height: clamp(23rem, 31vw, 31rem);
+  }
+
+  .nosotros-page__story-gallery > .nosotros-page__story-band:nth-child(3) .nosotros-page__story-media {
+    min-height: clamp(26rem, 36vw, 36rem);
+  }
+
+  .nosotros-page__story-band figcaption {
+    max-width: 48ch;
   }
 }
 
 @media (max-width: 767px) {
-  .nosotros-page__interests {
-    grid-template-columns: 1fr;
-  }
-
   .nosotros-page__cta,
   .nosotros-page__story-gallery {
     grid-template-columns: 1fr;

@@ -16,7 +16,7 @@ export function HomeWhere() {
   const { where } = dictionary.home;
 
   return (
-    <section className="site-section site-section--forest home-where" aria-labelledby="home-where-title">
+    <section className="site-section site-section--camp-green home-where" aria-labelledby="home-where-title">
       <div className="site-wrap">
         <div className="home-where__grid">
           <div className="home-where__copy">
@@ -80,19 +80,19 @@ export function HomeWhere() {
                 />
 
                 {/* reference points */}
-                <g className="home-where__marker">
-                  <circle cx="470" cy="74" r="6" />
+                <g className="home-where__marker home-where__marker--north">
+                  <circle cx="470" cy="74" r="7" />
                 </g>
-                <g className="home-where__marker">
-                  <circle cx="520" cy="428" r="6" />
+                <g className="home-where__marker home-where__marker--south">
+                  <circle cx="520" cy="428" r="7" />
                 </g>
                 <g className="home-where__marker home-where__marker--town">
                   <circle cx="396" cy="236" r="10" />
                   <circle cx="396" cy="236" r="19" className="home-where__marker-ring" />
                 </g>
 
-                {/* the town gets a label plate so it reads on any ground */}
-                <g className="home-where__town-label">
+                {/* every place name uses the same paper plate treatment */}
+                <g className="home-where__place-label home-where__place-label--town">
                   <rect x="196" y="176" width="184" height="36" rx="2" />
                   <text x="210" y="201">{where.map.town}</text>
                 </g>
@@ -100,24 +100,39 @@ export function HomeWhere() {
                 {/* north */}
                 <g className="home-where__north">
                   <path d="M56 92 L68 56 L80 92 Z" />
-                  <text x="68" y="112" textAnchor="middle">
+                </g>
+                <g className="home-where__place-label home-where__place-label--compact">
+                  <rect x="52" y="98" width="32" height="24" rx="2" />
+                  <text x="68" y="115" textAnchor="middle">
                     N
                   </text>
                 </g>
 
-                {/* labels */}
-                <text className="home-where__label" x="440" y="66" textAnchor="end">
-                  {where.map.north}
-                </text>
-                <text className="home-where__label home-where__label--water" x="520" y="456" textAnchor="middle">
-                  {where.map.south}
-                </text>
-                <text className="home-where__label home-where__label--water" x="466" y="326">
-                  {where.map.lake}
-                </text>
-                <text className="home-where__label home-where__label--light" x="36" y="452">
-                  {where.map.range}
-                </text>
+                {/* labels: paper plates keep the two reference towns legible on every ground */}
+                <g className="home-where__place-label">
+                  <rect x="250" y="48" width="200" height="32" rx="2" />
+                  <text x="438" y="70" textAnchor="end">
+                    {where.map.north}
+                  </text>
+                </g>
+                <g className="home-where__place-label">
+                  <rect x="450" y="440" width="140" height="32" rx="2" />
+                  <text x="520" y="462" textAnchor="middle">
+                    {where.map.south}
+                  </text>
+                </g>
+                <g className="home-where__place-label">
+                  <rect x="450" y="304" width="180" height="30" rx="2" />
+                  <text x="460" y="326">
+                    {where.map.lake}
+                  </text>
+                </g>
+                <g className="home-where__place-label">
+                  <rect x="24" y="430" width="150" height="30" rx="2" />
+                  <text x="36" y="452">
+                    {where.map.range}
+                  </text>
+                </g>
               </svg>
               <figcaption>{where.mapNote}</figcaption>
             </figure>

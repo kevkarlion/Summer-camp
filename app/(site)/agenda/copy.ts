@@ -1,5 +1,5 @@
 import type { Language } from "@/components/home/dictionary";
-import type { AgendaFormCopy, AgendaPhoto } from "@/components/forms/video-call-types";
+import type { AgendaFormCopy, AgendaPhoto, SlotsCopy } from "@/components/forms/video-call-types";
 
 export type { AgendaFormCopy, AgendaPhoto } from "@/components/forms/video-call-types";
 
@@ -16,15 +16,9 @@ export type AgendaCopy = {
     secondaryCta: string;
     image: { src: string; alt: string };
   };
-  slots: {
+  slots: SlotsCopy & {
     headingLines: string[];
     lead: string;
-    dayLabel: string;
-    timeLabel: string;
-    timezoneNote: string;
-    empty: string;
-    chosen: string;
-    continueCta: string;
   };
   form: AgendaFormCopy;
   call: {
@@ -69,13 +63,17 @@ const en: AgendaCopy = {
   },
   slots: {
     headingLines: ["Pick a day", "and time"],
-    lead: "Every slot lasts 30 minutes, Monday to Friday. Once you pick one, the team sends the call link by email.",
+    lead: "Every slot lasts 30 minutes, Monday to Friday, between 17:00 and 22:00. Once you pick one, the team sends the call link by email.",
     dayLabel: "Day",
     timeLabel: "Time",
     timezoneNote: "Argentina time (UTC−3)",
     empty: "You have not picked a slot yet.",
     chosen: "Your slot: {day} at {time}.",
     continueCta: "Continue with your details",
+    previousMonth: "Previous month",
+    nextMonth: "Next month",
+    available: "Available",
+    reserved: "Reserved",
   },
   form: {
     fields: {
@@ -225,13 +223,17 @@ const es: AgendaCopy = {
   },
   slots: {
     headingLines: ["Elegí día", "y hora"],
-    lead: "Los turnos son de 30 minutos, de lunes a viernes. Cuando elijas uno, el equipo te manda el enlace de la videollamada por email.",
+    lead: "Los turnos son de 30 minutos, de lunes a viernes, entre las 17:00 y las 22:00. Cuando elijas uno, el equipo te manda el enlace de la videollamada por email.",
     dayLabel: "Día",
     timeLabel: "Horario",
     timezoneNote: "Horarios de Argentina (UTC−3)",
     empty: "Todavía no elegiste un turno.",
     chosen: "Tu turno: {day} a las {time}.",
     continueCta: "Continuar con tus datos",
+    previousMonth: "Mes anterior",
+    nextMonth: "Mes siguiente",
+    available: "Disponible",
+    reserved: "Reservado",
   },
   form: {
     fields: {

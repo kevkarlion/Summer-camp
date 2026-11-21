@@ -59,7 +59,7 @@
 .home-where__residence svg {
   flex: 0 0 auto;
   margin-top: 0.15rem;
-  color: var(--home-lake);
+  color: var(--home-paper-muted);
 }
 
 /* The map panel */
@@ -102,6 +102,14 @@
   fill: var(--home-paper-ink);
 }
 
+.home-where__marker--north circle {
+  fill: var(--home-lake);
+}
+
+.home-where__marker--south circle {
+  fill: var(--home-camp-green);
+}
+
 .home-where__marker-ring {
   fill: none !important;
   stroke: var(--home-paper-ink);
@@ -109,54 +117,29 @@
   opacity: 0.55;
 }
 
-.home-where__label {
-  fill: var(--home-forest-deep);
+.home-where__north path {
+  fill: var(--home-camp-green);
+}
+
+.home-where__place-label rect {
+  fill: var(--home-paper);
+}
+
+.home-where__place-label text {
+  fill: var(--home-ink);
   font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
   font-size: 19px;
   font-weight: 600;
   letter-spacing: 0.01em;
 }
 
-.home-where__north path {
-  fill: var(--home-forest);
+.home-where__place-label--town text {
+  font-size: 23px;
 }
 
-.home-where__north text {
-  fill: var(--home-forest);
-  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
-  font-size: 18px;
+.home-where__place-label--compact text {
+  font-size: 15px;
   font-weight: 700;
-}
-
-.home-where__town-label rect {
-  fill: var(--home-paper);
-}
-
-.home-where__town-label text {
-  fill: var(--home-forest-deep);
-  font-family: var(--font-home-display), "Arial Narrow", Arial, sans-serif;
-  font-size: 23px;
-  font-weight: 600;
-}
-
-.home-where__label--light {
-  fill: var(--home-paper-ink);
-}
-
-.home-where__label--town {
-  fill: var(--home-paper-ink);
-  font-size: 23px;
-}
-
-.home-where__label--water {
-  fill: var(--home-paper-ink);
-  font-size: 17px;
-  opacity: 0.9;
-}
-
-.home-where__label--range {
-  fill: var(--home-paper-muted);
-  font-size: 17px;
 }
 
 .home-where__map figcaption {

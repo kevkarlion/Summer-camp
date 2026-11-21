@@ -2,8 +2,8 @@
 name: Patagonia Summer Camp 2027
 description: A field-notebook campaign system for a residential English and adventure camp in Patagonia.
 colors:
-  lenga-forest: "#12372a"
-  lenga-forest-deep: "#0b291f"
+  camp-green: "#446a6a"
+  camp-green-deep: "#395d5e"
   lake-verde: "#1f6068"
   piedra-patagonia: "#e8ece9"
   piedra-patagonia-deep: "#dbe2df"
@@ -61,23 +61,23 @@ spacing:
   section: "clamp(5rem, 10vw, 9rem)"
 components:
   button-primary:
-    backgroundColor: "{colors.lenga-forest}"
+    backgroundColor: "{colors.camp-green}"
     textColor: "{colors.paper-light}"
     rounded: "{rounded.sm}"
     padding: "0.85rem 1.15rem"
     height: "3.25rem"
   button-primary-hover:
-    backgroundColor: "{colors.lenga-forest-deep}"
+    backgroundColor: "{colors.camp-green-deep}"
   button-paper:
     backgroundColor: "{colors.piedra-patagonia}"
-    textColor: "{colors.lenga-forest-deep}"
+    textColor: "{colors.camp-green-deep}"
     rounded: "{rounded.sm}"
     padding: "0.85rem 1.15rem"
   text-link:
-    textColor: "{colors.lenga-forest}"
+    textColor: "{colors.camp-green}"
     typography: "{typography.label}"
   facts-panel:
-    backgroundColor: "{colors.lenga-forest}"
+    backgroundColor: "{colors.camp-green}"
     textColor: "{colors.paper-light}"
     padding: "1rem"
   program-principle:
@@ -98,7 +98,7 @@ The system is a field notebook: the working surface of a summer expedition where
 
 Its voice comes from a single condensed display face (Barlow Condensed, self-hosted) against a plain reading face (Arial). Headlines behave like printed signage on a trail marker: short, upright, and impossible to misread. Body copy behaves like a briefing note: measured, specific, and never decorative.
 
-Depth is tonal. Surfaces change by color field — mineral paper, lenga forest, lake green — and by spacing, not by shadow. The only imagery that carries emotion is real photography of the place and the people; editorial reference material is labeled as such.
+Depth is tonal. Surfaces change by color field — mineral paper, camp green, lake green — and by spacing, not by shadow. The only imagery that carries emotion is real photography of the place and the people; editorial reference material is labeled as such.
 
 **Key Characteristics:**
 
@@ -110,12 +110,12 @@ Depth is tonal. Surfaces change by color field — mineral paper, lenga forest, 
 
 ## Colors
 
-The palette is a low-chroma landscape: forest for authority, lake for context, mineral stone for reading.
+The palette is a low-chroma landscape: camp green for authority, lake for context, mineral stone for reading.
 
 ### Primary
 
-- **Bosque de lenga** (#12372a): the primary surface and action color. It carries the facts panel, primary buttons, and the full-field dark sections.
-- **Bosque profundo** (#0b291f): the deepest forest tone, used for the closing statement and hover states.
+- **Verde campamento** (#446a6a): the primary surface and action color. It carries the facts panel, primary buttons, full-field sections and the footer.
+- **Verde campamento profundo** (#395d5e): the restrained supporting tone used for hover states, small dark accents and depth without returning to a near-black forest green.
 
 ### Secondary
 
@@ -129,11 +129,11 @@ The palette is a low-chroma landscape: forest for authority, lake for context, m
 
 - **Tinta bosque** (#17221c): body text on mineral ground.
 - **Gris sierra** (#4f5f56): secondary text on mineral ground.
-- **Papel claro** (#f4f2ea family, #f4f6f2): text on forest and lake fields.
-- **Papel atenuado** (#d2ddd7): secondary text on forest and lake fields.
-- **Verde musgo** (#2c6449): the shared header and mobile menu chrome, a lighter and friendlier green than Bosque de lenga.
+- **Papel claro** (#f4f2ea family, #f4f6f2): text on camp-green and lake fields.
+- **Papel atenuado** (#d2ddd7): secondary text on camp-green and lake fields.
+- **Verde musgo** (#2c6449): the shared header and mobile menu chrome.
 - **Azul noche** (#0b1320): the night surface of the system, kept for dark fields outside the shared chrome.
-- **Superficie azul** (#0f172a): shared footer surface.
+- **Verde campamento** (#446a6a): shared footer surface.
 
 **The One Field Rule.** Verde lago appears once per surface as a full field. It is a place, not a decoration.
 
@@ -189,9 +189,9 @@ Corners are square to almost square: buttons and framed surfaces use a small 0.2
 ### Buttons
 
 - **Shape:** square-cornered (0.2rem radius), 3.25rem minimum height.
-- **Primary:** Bosque de lenga fill with paper-light text, padding 0.85rem 1.15rem.
-- **Hover / Focus:** deepens to Bosque profundo and lifts 2px on fine pointers only; focus shows a 2px lake outline with a 4px offset.
-- **Secondary / Ghost:** an underlined paper-on-forest link, or a mineral button on forest fields.
+- **Primary:** Verde campamento fill with paper-light text, padding 0.85rem 1.15rem.
+- **Hover / Focus:** deepens to Verde campamento profundo and lifts 2px on fine pointers only; focus shows a 2px lake outline with a 4px offset.
+- **Secondary / Ghost:** an underlined paper-on-green link, or a mineral button on green fields.
 
 ### Cards / Containers
 
@@ -207,7 +207,7 @@ Fixed, 80px tall, moss-green chrome, 13px labels, and a paper-filled contact bad
 
 ### Facts Panel
 
-A four-cell Bosque de lenga field that states age, dates, format, and place. Labels sit above values, both at a readable size. It is the first screen's proof strip, not a metric row.
+A four-cell Verde campamento field that states age, dates, format, and place. Labels sit above values, both at a readable size. It is the first screen's proof strip, not a metric row.
 
 ### Route Ledger
 
@@ -222,7 +222,7 @@ Three tonal blocks on mineral ground — Explore, Use English, Live Together. On
 ### Do:
 
 - **Do** keep every headline to two lines, and cut words before shrinking type.
-- **Do** use Bosque de lenga for the primary action and the facts panel.
+- **Do** use Verde campamento for the primary action and the facts panel.
 - **Do** label editorial reference photography as reference in the same frame where it appears.
 - **Do** keep one authored motion moment per surface, using transform and opacity only.
 - **Do** match the shared 1280px frame across Home, header, and footer.

@@ -41,8 +41,8 @@ export function NosotrosView() {
       </section>
 
       <section className="site-section site-section--paper" aria-labelledby="nosotros-biography-title">
-        <div className="site-wrap site-section__split">
-          <Reveal>
+        <div className="site-wrap site-section__split nosotros-page__biography-layout">
+          <Reveal className="nosotros-page__biography-intro">
             <div>
               <h2 id="nosotros-biography-title" className="site-heading">
                 {copy.biography.heading}
@@ -50,11 +50,16 @@ export function NosotrosView() {
               <p className="site-section__aside site-section__aside--dark">{copy.biography.aside}</p>
             </div>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Reveal className="nosotros-page__biography-copy" delay={0.1}>
             <div className="nosotros-page__biography">
-              {copy.biography.paragraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-              ))}
+              <p className="nosotros-page__biography-opening">
+                {copy.biography.paragraphs[0]}
+              </p>
+              <div className="nosotros-page__biography-body">
+                {copy.biography.paragraphs.slice(1).map((paragraph) => (
+                  <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+                ))}
+              </div>
             </div>
           </Reveal>
           <Reveal className="nosotros-page__story-reveal" delay={0.08}>
@@ -74,52 +79,6 @@ export function NosotrosView() {
                 </figure>
               ))}
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="site-section site-section--forest" aria-labelledby="nosotros-values-title">
-        <div className="site-wrap">
-          <Reveal>
-            <div className="site-section__intro site-section__intro--wide">
-              <div>
-                <h2 id="nosotros-values-title" className="site-heading site-heading--light">
-                  {copy.values.heading}
-                </h2>
-                <p className="site-lead site-lead--light">{copy.values.lead}</p>
-              </div>
-              <p className="site-section__aside">{copy.values.aside}</p>
-            </div>
-          </Reveal>
-          <ol className="nosotros-page__values">
-            {copy.values.items.map((value, index) => (
-              <li key={value.title} className="nosotros-page__value">
-                <Reveal className="nosotros-page__value-reveal" delay={index * 0.08}>
-                  <h3>{value.title}</h3>
-                  <p>{value.text}</p>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="site-section site-section--lake" aria-labelledby="nosotros-interests-title">
-        <div className="site-wrap site-section__split">
-          <Reveal>
-            <div>
-              <h2 id="nosotros-interests-title" className="site-heading site-heading--light">
-                {copy.interests.heading}
-              </h2>
-              <p className="site-lead site-lead--light">{copy.interests.lead}</p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <ul className="nosotros-page__interests">
-              {copy.interests.items.map((interest) => (
-                <li key={interest}>{interest}</li>
-              ))}
-            </ul>
           </Reveal>
         </div>
       </section>

@@ -16,17 +16,6 @@ export type NosotrosCopy = {
     paragraphs: string[];
     photos: { src: string; alt: string; caption: string }[];
   };
-  values: {
-    heading: string;
-    lead: string;
-    aside: string;
-    items: { title: string; text: string }[];
-  };
-  interests: {
-    heading: string;
-    lead: string;
-    items: string[];
-  };
   cta: {
     heading: string;
     text: string;
@@ -49,14 +38,17 @@ const en: NosotrosCopy = {
     },
   },
   biography: {
-    heading: "Lapland to the Patagonia",
-    aside: "Where the idea came from",
+    heading: "About Hernán",
+    aside: "From teaching English to sharing new worlds",
     paragraphs: [
       "In 2011, Hernán studied English at the Instituto de Formación Docente y Técnica N° 55 in Escobar, Buenos Aires. He then taught English in Argentina for many years.",
-      "He moved to Bologna, Italy, where he studied Italian at Academia Lingue and worked with Italian agritech, design and technology companies, teaching English to architects, designers, operators and other professionals.",
-      "He organised English learning trips for adults and teenagers to Ireland and England, and worked as a teacher and activity leader in summer camps in northern Italy.",
-      "He then worked in Lapland, Finland, collaborating with Finnish tourism companies. He guided visitors under the northern lights and took huskies into snowy forests at -35°C.",
-      "After spending a week camping in El Chaltén, he promised himself to return to the Patagonia and share an experience that would help others explore other worlds through the language.",
+      "He moved to Bologna, Italy, where he studied Italian at Academya Lingue and worked with Italian design and technology companies, teaching English to architects, designers, operators and other professionals.",
+      "Throughout his journey, he also organised English learning trips for adults and teenagers to Ireland and England, and worked as a teacher and activity leader in summer camps in northern Italy.",
+      "He currently continues developing education and tourism projects in Italy, accompanying teenagers and adults on study trips to Ireland and England. These experiences allow him to combine language teaching with travel, cultural exchange and the discovery of new environments.",
+      "Later, his path led him to Lapland, Finland, where he continues collaborating with local tourism companies. There he guides visitors from around the world beneath the northern lights and leads huskies experiences through snowy forests, even at temperatures of -35 °C.",
+      "He also currently collaborates with luxury resorts and tourism companies in Finland, working closely with international hospitality, attention-to-detail and tourism-service standards. His experience in the Nordic environment has also shaped his understanding of safety: through planning, prevention, responsibility and special attention to people's wellbeing.",
+      "After a week of camping in the mountains of El Chaltén back in 2015, he promised himself to return to Patagonia and share an experience that would help others explore new worlds through language, nature and encounters with other cultures.",
+      "This is how Patagonia Summer Camp “Explore Beyond” was born: from the union of his experience in education, travel and tourism, and the desire to create meaningful experiences for new generations.",
     ],
     photos: [
       {
@@ -74,37 +66,6 @@ const en: NosotrosCopy = {
         alt: "Real camp photograph: a participant on fallen trunks looking over Villa La Angostura",
         caption: "A participant looking over Villa La Angostura from the forest.",
       },
-    ],
-  },
-  values: {
-    heading: "A mission to share the Patagonia",
-    lead: "Patagonia Summer Camp keeps that promise by valuing the region through friendship, the language, respect for local culture and curiosity about nature.",
-    aside: "What guides our work",
-    items: [
-      {
-        title: "Learn with purpose",
-        text: "Every experience offers a reason to observe, take part, talk and discover.",
-      },
-      {
-        title: "Value the territory",
-        text: "Friendship, the language, respect for local culture and curiosity about nature guide the mission.",
-      },
-      {
-        title: "Share clarity and energy",
-        text: "Hernán wants to share with teenagers the clarity, the energy and the authenticity he finds in the mountains and in outdoor activities.",
-      },
-    ],
-  },
-  interests: {
-    heading: "Clarity, energy and authenticity",
-    lead: "Hernán wants to share that feeling with the teenagers who take part in the programme.",
-    items: [
-      "Training (CrossFit)",
-      "Yoga",
-      "Cycling",
-      "Music production",
-      "The mountains",
-      "Outdoor activities",
     ],
   },
   cta: {
@@ -129,14 +90,17 @@ const es: NosotrosCopy = {
     },
   },
   biography: {
-    heading: "Laponia a la Patagonia",
-    aside: "El origen de la idea",
+    heading: "Sobre Hernán",
+    aside: "De la enseñanza del inglés a compartir nuevos mundos",
     paragraphs: [
       "En 2011, Hernán estudió inglés en el Instituto de Formación Docente y Técnica N° 55 de Escobar, Buenos Aires. Después enseñó inglés en Argentina durante muchos años.",
-      "Se mudó a Bolonia, Italia, donde estudió italiano en Academia Lingue y trabajó con empresas italianas de agritech, diseño y tecnología, enseñando inglés a arquitectos, diseñadores, operadores y otros profesionales.",
-      "Organizó viajes de aprendizaje de inglés para adultos y adolescentes a Irlanda e Inglaterra, y trabajó como profesor y responsable de actividades en campamentos de verano del norte de Italia.",
-      "Luego trabajó en Laponia, Finlandia, colaborando con empresas de turismo finlandesas. Guió visitantes bajo las auroras boreales y llevó huskies a bosques nevados a -35°C.",
-      "Después de pasar una semana acampando en El Chaltén, se prometió a sí mismo volver a la Patagonia y compartir una experiencia que ayudara a otros a explorar otros mundos a través del idioma.",
+      "Se mudó a Bolonia, Italia, donde estudió italiano en Academya Lingue y trabajó con empresas italianas de diseño y tecnología, enseñando inglés a arquitectos, diseñadores, operadores y otros profesionales.",
+      "A lo largo de su recorrido, también organizó viajes de aprendizaje de inglés para adultos y adolescentes a Irlanda e Inglaterra, y trabajó como profesor y responsable de actividades en campamentos de verano al norte de Italia.",
+      "Actualmente continúa desarrollando proyectos de educación y turismo en Italia, acompañando a adolescentes y adultos en viajes de estudio a Irlanda e Inglaterra. Estas experiencias le permiten combinar la enseñanza de idiomas con los viajes, el intercambio cultural y el descubrimiento de nuevos entornos.",
+      "Más adelante, su camino lo llevó hasta Laponia, Finlandia, donde continúa colaborando con empresas de turismo locales. Allí guía a visitantes de todo el mundo bajo auroras boreales y acompaña experiencias con huskies a través de bosques nevados, incluso con temperaturas de -35 °C.",
+      "Actualmente también colabora con resorts de lujo y empresas del sector turístico en Finlandia, trabajando de cerca con estándares internacionales de hospitalidad, atención al detalle y organización de servicios turísticos. Su experiencia en el entorno nórdico también ha influido en su manera de entender la seguridad: a través de la planificación, la prevención, la responsabilidad y una atención especial al bienestar de las personas.",
+      "Después de una semana de acampe en las montanas de El Chaltén allá por el 2015, se prometió volver a la Patagonia y compartir una experiencia que ayudara a otros a explorar nuevos mundos a través del idioma, la naturaleza y el encuentro con otras culturas.",
+      "Así nace Patagonia Summer Camp “Explore Beyond”: de la unión entre su recorrido por la educación, los viajes y el turismo, y el deseo de crear experiencias significativas para las nuevas generaciones.",
     ],
     photos: [
       {
@@ -154,37 +118,6 @@ const es: NosotrosCopy = {
         alt: "Fotografía real del campamento: participante sobre troncos caídos mirando Villa La Angostura",
         caption: "Un participante mira Villa La Angostura desde el bosque.",
       },
-    ],
-  },
-  values: {
-    heading: "Una misión para compartir la Patagonia",
-    lead: "Patagonia Summer Camp cumple esa promesa valorando la región a través de la amistad, el idioma, el respeto por la cultura local y la curiosidad por la naturaleza.",
-    aside: "Lo que guía nuestro trabajo",
-    items: [
-      {
-        title: "Aprender con propósito",
-        text: "Cada experiencia ofrece una razón para observar, participar, conversar y descubrir.",
-      },
-      {
-        title: "Valorar el territorio",
-        text: "La amistad, el idioma, el respeto por la cultura local y la curiosidad por la naturaleza guían la misión.",
-      },
-      {
-        title: "Compartir claridad y energía",
-        text: "Hernán quiere compartir con los adolescentes la claridad, la energía y la autenticidad que encuentra en la montaña y las actividades outdoors.",
-      },
-    ],
-  },
-  interests: {
-    heading: "Claridad, energía y autenticidad",
-    lead: "Quiere compartir esa sensación con los adolescentes que participan del programa.",
-    items: [
-      "Entrenamiento (CrossFit)",
-      "Yoga",
-      "Ciclismo",
-      "Producción musical",
-      "Las montañas",
-      "Actividades al aire libre",
     ],
   },
   cta: {

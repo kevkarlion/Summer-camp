@@ -18,8 +18,13 @@ export function HomeLinks() {
   const { dictionary } = useLanguage();
 
   return (
-    <section className="site-section site-section--stone">
+    <section className="site-section site-section--stone home-links-section" aria-labelledby="home-links-title">
       <div className="site-wrap">
+        <Reveal>
+          <h2 id="home-links-title" className="site-heading home-links-section__title">
+            {dictionary.home.linksLabel}
+          </h2>
+        </Reveal>
         <nav aria-label={dictionary.home.linksLabel}>
           <ul className="home-links">
             {dictionary.home.links.map((link, index) => {

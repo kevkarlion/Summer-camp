@@ -2,8 +2,12 @@
 :root {
   --home-paper: #e8ece9;
   --home-paper-deep: #dbe2df;
-  --home-forest: #12372a;
-  --home-forest-deep: #0b291f;
+  /* Verde claro tomado del fondo del emblema del campamento. */
+  --home-camp-green: #446a6a;
+  --home-camp-green-deep: #395d5e;
+  /* Alias conservados para los componentes existentes. */
+  --home-forest: var(--home-camp-green);
+  --home-forest-deep: var(--home-camp-green-deep);
   --home-lake: #1f6068;
   --home-ink: #17221c;
   --home-muted: #4f5f56;
@@ -54,12 +58,17 @@
 }
 
 .site-section--paper {
-  background: var(--home-paper);
+  background: color-mix(in srgb, var(--home-paper) 92%, var(--home-camp-green));
   color: var(--home-ink);
 }
 
 .site-section--forest {
   background: var(--home-forest);
+  color: var(--home-paper-ink);
+}
+
+.site-section--camp-green {
+  background: var(--home-camp-green);
   color: var(--home-paper-ink);
 }
 
@@ -382,5 +391,14 @@
 @media (max-width: 767px) {
   .site-reveal {
     will-change: transform, opacity;
+  }
+}
+
+/* Without scripting the reveal never runs, so its initial state would keep
+   the content invisible. Scripting-capable browsers ignore this rule. */
+@media (scripting: none) {
+  .site-reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
